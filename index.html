@@ -3,22 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Bonobo Bar & More menu in Rethymno, Crete"
-    />
+    <meta name="description" content="Bonobo Bar & More menu in Rethymno, Crete" />
     <title>Bonobo Bar & More</title>
     <link rel="stylesheet" href="styles.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   </head>
   <body>
     <div class="app-container">
@@ -30,8 +21,7 @@
           </button>
         </div>
         <div class="logo">
-          <h1>BONOBO</h1>
-          <p>BAR & MORE</p>
+          <img src="assets/logo.svg" alt="Bonobo Bar & More Logo" id="logo-image">
         </div>
         <div class="language-toggle">
           <button id="language-toggle" aria-label="Toggle language">
@@ -43,7 +33,7 @@
       </header>
 
       <main>
-        <section class="hero">
+        <section class="hero" id="hero-section">
           <div class="hero-overlay"></div>
           <div class="hero-content">
             <h2 id="welcome-heading">Welcome to Bonobo Bar & More</h2>
@@ -57,6 +47,7 @@
           <div class="menu-categories" id="menu-categories">
             <!-- Categories will be dynamically inserted here -->
           </div>
+          <div class="scroll-indicator" id="scroll-indicator"></div>
         </section>
 
         <section class="menu-display">
@@ -79,7 +70,7 @@
             <p id="hours-content">Monday - Sunday: 8:00 - 02:00</p>
           </div>
           <div class="footer-social">
-            <a
+            
               href="https://instagram.com/bonobobar"
               target="_blank"
               rel="noopener noreferrer"
@@ -87,7 +78,7 @@
             >
               <i class="fab fa-instagram"></i>
             </a>
-            <a
+            
               href="https://facebook.com/bonobobar"
               target="_blank"
               rel="noopener noreferrer"

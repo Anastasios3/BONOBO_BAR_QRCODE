@@ -29,6 +29,7 @@
   --font-weight-medium: 500;
   --font-weight-semibold: 600;
   --font-weight-bold: 700;
+  --line-height-normal: 1.6;
 
   /* Spacing */
   --spacing-xs: 0.25rem;
@@ -84,7 +85,7 @@ body {
   font-family: var(--font-primary);
   font-weight: var(--font-weight-regular);
   font-size: var(--font-size-regular);
-  line-height: 1.6;
+  line-height: var(--line-height-normal);
   color: var(--text-primary);
   background-color: var(--bg-primary);
   min-height: 100vh;
@@ -122,6 +123,13 @@ header {
   display: flex;
   flex-direction: column;
   align-items: center;
+  height: 50px;
+}
+
+.logo img {
+  height: 100%;
+  width: auto;
+  object-fit: contain;
 }
 
 .logo h1 {
@@ -203,7 +211,6 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url("https://source.unsplash.com/random/1600x900/?bar-restaurant");
   background-size: cover;
   background-position: center;
   overflow: hidden;
@@ -250,20 +257,31 @@ header {
   opacity: 0.9;
 }
 
-/* ======== MENU NAVIGATION ======== */
+/* ======== MENU NAVIGATION - IMPROVED MOBILE EXPERIENCE ======== */
 .menu-navigation {
-  padding: var(--spacing-lg) var(--spacing-md);
+  padding: var(--spacing-md) 0;
   background-color: var(--bg-secondary);
   border-bottom: 1px solid var(--border-color);
   transition: background-color var(--transition-medium),
     border-color var(--transition-medium);
+  overflow: hidden;
 }
 
 .menu-categories {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-start;
   gap: var(--spacing-md);
+  padding: 0 var(--spacing-md);
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE & Edge */
+  scroll-snap-type: x mandatory;
+  padding-bottom: var(--spacing-md); /* Prevents scrollbar from showing */
+}
+
+.menu-categories::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
 }
 
 .category-btn {
@@ -278,6 +296,9 @@ header {
   position: relative;
   overflow: hidden;
   z-index: 1;
+  flex: 0 0 auto;
+  white-space: nowrap;
+  scroll-snap-align: start;
 }
 
 .category-btn::before {
@@ -305,7 +326,40 @@ header {
   color: white;
 }
 
-/* ======== MENU DISPLAY ======== */
+/* Indicator dots for scrollable menu */
+.scroll-indicator {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  margin-top: var(--spacing-sm);
+}
+
+.scroll-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--border-color);
+  transition: background-color var(--transition-medium);
+}
+
+.scroll-dot.active {
+  background-color: var(--accent-color);
+}
+
+@media (min-width: 768px) {
+  .menu-categories {
+    flex-wrap: wrap;
+    justify-content: center;
+    overflow-x: visible;
+    padding-bottom: 0;
+  }
+
+  .scroll-indicator {
+    display: none;
+  }
+}
+
+/* ======== MENU DISPLAY - ENHANCED ======== */
 .menu-display {
   flex: 1;
   padding: var(--spacing-xl) var(--spacing-md);
@@ -342,26 +396,27 @@ header {
   gap: var(--spacing-lg);
   max-width: 1200px;
   margin: 0 auto;
+  padding: 0 var(--spacing-sm);
+  transition: opacity var(--transition-medium);
 }
 
 .menu-item {
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
+  align-items: flex-start;
   padding: var(--spacing-lg);
   background-color: var(--bg-secondary);
   border-radius: var(--border-radius-md);
   box-shadow: 0 4px 12px var(--shadow-color);
   transition: all var(--transition-medium);
   transform: translateY(0);
-}
-
-.menu-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 16px var(--shadow-color);
+  overflow: hidden;
 }
 
 .menu-item-content {
   flex: 1;
+  min-width: 0; /* Prevents flex items from overflowing */
 }
 
 .menu-item-name {
@@ -370,6 +425,8 @@ header {
   margin-bottom: var(--spacing-xs);
   color: var(--text-primary);
   transition: color var(--transition-medium);
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .menu-item-description {
@@ -377,6 +434,13 @@ header {
   font-size: var(--font-size-small);
   margin-bottom: var(--spacing-sm);
   transition: color var(--transition-medium);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  line-height: var(--line-height-normal);
+  max-height: calc(var(--line-height-normal) * 3em);
 }
 
 .menu-item-price {
@@ -386,6 +450,10 @@ header {
   transition: color var(--transition-medium);
   white-space: nowrap;
   margin-left: var(--spacing-md);
+  padding-left: var(--spacing-md);
+  border-left: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
 }
 
 .menu-empty {
@@ -454,6 +522,43 @@ footer {
   transition: color var(--transition-medium);
 }
 
+/* ======== ENHANCED ANIMATIONS ======== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Animate-on-scroll system */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.animate-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hero-content {
+  animation: fadeIn var(--transition-long) forwards;
+}
+
 /* ======== RESPONSIVE DESIGN ======== */
 @media (min-width: 576px) {
   .menu-items {
@@ -486,66 +591,16 @@ footer {
     font-size: var(--font-size-regular);
   }
 
-  .menu-item {
-    flex-direction: column;
-  }
-
   .menu-item-price {
-    margin-left: 0;
-    margin-top: var(--spacing-sm);
+    border-left: 1px solid var(--border-color);
+    margin-left: var(--spacing-sm);
+    padding-left: var(--spacing-sm);
   }
 
-  .category-btn {
-    width: 100%;
-    margin-bottom: var(--spacing-sm);
+  .menu-item-description {
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    line-height: var(--line-height-normal);
+    max-height: calc(var(--line-height-normal) * 2em);
   }
-}
-
-/* ======== ANIMATIONS ======== */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes slideUp {
-  from {
-    transform: translateY(20px);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-.menu-item {
-  animation: slideUp var(--transition-medium) forwards;
-}
-
-.hero-content {
-  animation: fadeIn var(--transition-long) forwards;
-}
-
-/* Staggered animation for menu items */
-.menu-item:nth-child(1) {
-  animation-delay: 0.1s;
-}
-.menu-item:nth-child(2) {
-  animation-delay: 0.2s;
-}
-.menu-item:nth-child(3) {
-  animation-delay: 0.3s;
-}
-.menu-item:nth-child(4) {
-  animation-delay: 0.4s;
-}
-.menu-item:nth-child(5) {
-  animation-delay: 0.5s;
-}
-.menu-item:nth-child(6) {
-  animation-delay: 0.6s;
 }

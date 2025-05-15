@@ -54,6 +54,7 @@ const DOM = {
   welcomeHeading: document.getElementById("welcome-heading"),
   welcomeSubheading: document.getElementById("welcome-subheading"),
   menuCategories: document.getElementById("menu-categories"),
+  scrollIndicator: document.getElementById("scroll-indicator"),
   currentCategoryTitle: document.getElementById("current-category-title"),
   menuItems: document.getElementById("menu-items"),
   menuEmpty: document.getElementById("menu-empty"),
@@ -61,11 +62,16 @@ const DOM = {
   hoursHeading: document.getElementById("hours-heading"),
   hoursContent: document.getElementById("hours-content"),
   locationText: document.getElementById("location-text"),
+  logoImage: document.getElementById("logo-image"),
+  heroSection: document.getElementById("hero-section"),
 };
 
 // ======== INITIALIZATION ========
 async function initializeApp() {
   try {
+    // Set hero background image and handle logo
+    initializeAssets();
+
     // Setup event listeners
     setupEventListeners();
 
@@ -84,16 +90,32 @@ async function initializeApp() {
     // Generate category buttons
     generateCategoryButtons();
 
-    // Show default category (first in the time-based order)
-    if (AppState.categoriesOrder.length > 0) {
-      showCategory(AppState.categoriesOrder[0]);
-    }
+    // Initialize scroll indicator for mobile
+    initScrollIndicator();
+
+    // Lazy load categories
+    lazyLoadCategories();
 
     // Apply animations once everything is loaded
     document.body.classList.add("app-loaded");
   } catch (error) {
     console.error("Error initializing app:", error);
   }
+}
+
+// ======== ASSETS INITIALIZATION ========
+function initializeAssets() {
+  // Set hero background image
+  DOM.heroSection.style.backgroundImage = "url('assets/hero.jpg')";
+
+  // Fallback for logo if SVG doesn't load
+  DOM.logoImage.onerror = function () {
+    const logoDiv = document.querySelector(".logo");
+    logoDiv.innerHTML = `
+      <h1>BONOBO</h1>
+      <p>BAR & MORE</p>
+    `;
+  };
 }
 
 // ======== EVENT LISTENERS ========
@@ -116,6 +138,11 @@ function setupEventListeners() {
     "resize",
     debounce(() => {
       adjustUIForScreenSize();
+      if (window.innerWidth >= 768) {
+        DOM.scrollIndicator.style.display = "none";
+      } else {
+        initScrollIndicator();
+      }
     }, 250)
   );
 }
@@ -259,7 +286,7 @@ function determineTimeBasedOrder() {
   }
 }
 
-// ======== DATA LOADING ========
+// ======== DATA LOADING - IMPROVED ========
 async function loadAllMenuData() {
   try {
     const categories = [
@@ -271,11 +298,31 @@ async function loadAllMenuData() {
       "cocktails",
     ];
     const promises = categories.map((category) => loadCategoryData(category));
-    await Promise.all(promises);
+
+    // Use Promise.allSettled to handle failures gracefully
+    const results = await Promise.allSettled(promises);
+
+    // Log the load status
+    const loadStatus = results
+      .map((result, index) => {
+        const category = categories[index];
+        return `${category}: ${
+          result.status === "fulfilled" ? "loaded" : "failed"
+        }`;
+      })
+      .join(", ");
+
+    console.log("Menu data loading complete:", loadStatus);
+
+    // Log available items for debugging
+    console.log(
+      "Menu data loaded:",
+      Object.entries(AppState.menuData)
+        .map(([key, value]) => `${key}: ${value ? value.length : 0} items`)
+        .join(", ")
+    );
   } catch (error) {
     console.error("Error loading menu data:", error);
-    // Provide fallback data if loading fails
-    provideFallbackData();
   }
 }
 
@@ -283,211 +330,26 @@ async function loadCategoryData(category) {
   try {
     const response = await fetch(`data/${category}.json`);
     if (!response.ok) {
-      throw new Error(`Failed to load ${category} data`);
+      throw new Error(
+        `Failed to load ${category} data (HTTP ${response.status})`
+      );
     }
     const data = await response.json();
-    AppState.menuData[category] = data.items || [];
+    if (data && data.items && Array.isArray(data.items)) {
+      AppState.menuData[category] = data.items;
+      return data.items.length;
+    } else {
+      console.warn(
+        `Warning: ${category}.json doesn't contain an 'items' array`
+      );
+      AppState.menuData[category] = [];
+      return 0;
+    }
   } catch (error) {
     console.error(`Error loading ${category} data:`, error);
-    // Set empty array for failed category
     AppState.menuData[category] = [];
+    return 0;
   }
-}
-
-function provideFallbackData() {
-  // Coffee data from provided example
-  AppState.menuData.coffee = [
-    {
-      id: "esp001",
-      name: {
-        en: "Espresso",
-        el: "Εσπρέσσο",
-      },
-      description: {
-        en: "Short black coffee",
-        el: "Δυνατός μαύρος καφές",
-      },
-      price: 2.5,
-      categories: ["hot", "signature"],
-      available: true,
-    },
-    {
-      id: "latte001",
-      name: {
-        en: "Latte",
-        el: "Λάτε",
-      },
-      description: {
-        en: "Espresso with steamed milk",
-        el: "Εσπρέσσο με ατμισμένο γάλα",
-      },
-      price: 3.5,
-      categories: ["hot", "signature"],
-      available: true,
-    },
-    {
-      id: "cappuccino001",
-      name: {
-        en: "Cappuccino",
-        el: "Καπουτσίνο",
-      },
-      description: {
-        en: "Espresso with steamed milk and foam",
-        el: "Εσπρέσσο με ατμισμένο γάλα και αφρό",
-      },
-      price: 3.5,
-      categories: ["hot", "signature"],
-      available: true,
-    },
-    {
-      id: "americano001",
-      name: {
-        en: "Americano",
-        el: "Αμερικάνος",
-      },
-      description: {
-        en: "Espresso with hot water",
-        el: "Εσπρέσσο με ζεστό νερό",
-      },
-      price: 2.5,
-      categories: ["hot", "signature"],
-      available: true,
-    },
-  ];
-
-  // Sample data for other categories
-  const sampleData = {
-    food: [
-      {
-        id: "food001",
-        name: { en: "Greek Salad", el: "Ελληνική Σαλάτα" },
-        description: {
-          en: "Fresh tomatoes, cucumber, onion, olives and feta cheese",
-          el: "Φρέσκες ντομάτες, αγγούρι, κρεμμύδι, ελιές και φέτα",
-        },
-        price: 7.5,
-        categories: ["salads", "traditional"],
-        available: true,
-      },
-      {
-        id: "food002",
-        name: { en: "Club Sandwich", el: "Κλαμπ Σάντουιτς" },
-        description: {
-          en: "Triple-decker sandwich with chicken, bacon, egg, tomato and lettuce",
-          el: "Τριπλό σάντουιτς με κοτόπουλο, μπέικον, αυγό, ντομάτα και μαρούλι",
-        },
-        price: 8.5,
-        categories: ["sandwiches", "signature"],
-        available: true,
-      },
-    ],
-    spirits: [
-      {
-        id: "spirit001",
-        name: { en: "Premium Vodka", el: "Βότκα Premium" },
-        description: {
-          en: "Smooth premium vodka, served with ice",
-          el: "Απαλή βότκα premium, σερβίρεται με πάγο",
-        },
-        price: 8.0,
-        categories: ["vodka", "premium"],
-        available: true,
-      },
-      {
-        id: "spirit002",
-        name: { en: "Single Malt Whisky", el: "Ουίσκι Single Malt" },
-        description: {
-          en: "12 year aged single malt whisky",
-          el: "Ουίσκι single malt 12 ετών",
-        },
-        price: 10.0,
-        categories: ["whisky", "premium"],
-        available: true,
-      },
-    ],
-    beer: [
-      {
-        id: "beer001",
-        name: { en: "Local Craft Beer", el: "Τοπική Μπύρα" },
-        description: {
-          en: "Refreshing local craft beer",
-          el: "Δροσιστική τοπική μπύρα",
-        },
-        price: 5.0,
-        categories: ["craft", "local"],
-        available: true,
-      },
-      {
-        id: "beer002",
-        name: { en: "Premium Lager", el: "Premium Lager" },
-        description: {
-          en: "Imported premium lager beer",
-          el: "Εισαγόμενη premium lager μπύρα",
-        },
-        price: 6.0,
-        categories: ["lager", "imported"],
-        available: true,
-      },
-    ],
-    wine: [
-      {
-        id: "wine001",
-        name: { en: "Cretan White Wine", el: "Κρητικό Λευκό Κρασί" },
-        description: {
-          en: "Crisp and dry white wine from Crete",
-          el: "Τραγανό και ξηρό λευκό κρασί από την Κρήτη",
-        },
-        price: 6.0,
-        categories: ["white", "local"],
-        available: true,
-      },
-      {
-        id: "wine002",
-        name: { en: "Red Wine", el: "Κόκκινο Κρασί" },
-        description: {
-          en: "Medium-bodied red wine with notes of berries",
-          el: "Κόκκινο κρασί μέτριου σώματος με νότες από μούρα",
-        },
-        price: 6.5,
-        categories: ["red", "signature"],
-        available: true,
-      },
-    ],
-    cocktails: [
-      {
-        id: "cocktail001",
-        name: { en: "Bonobo Special", el: "Bonobo Special" },
-        description: {
-          en: "Our signature cocktail with rum, exotic fruits and spices",
-          el: "Το σήμα κατατεθέν μας με ρούμι, εξωτικά φρούτα και μπαχαρικά",
-        },
-        price: 9.0,
-        categories: ["signature", "rum"],
-        available: true,
-      },
-      {
-        id: "cocktail002",
-        name: { en: "Mediterranean Sunset", el: "Μεσογειακό Ηλιοβασίλεμα" },
-        description: {
-          en: "Vodka, orange liqueur, cranberry and passion fruit",
-          el: "Βότκα, λικέρ πορτοκάλι, κράνμπερι και φρούτα του πάθους",
-        },
-        price: 10.0,
-        categories: ["signature", "vodka"],
-        available: true,
-      },
-    ],
-  };
-
-  // Merge sample data into app state
-  Object.keys(sampleData).forEach((category) => {
-    if (
-      !AppState.menuData[category] ||
-      AppState.menuData[category].length === 0
-    ) {
-      AppState.menuData[category] = sampleData[category];
-    }
-  });
 }
 
 // ======== UI RENDERING ========
@@ -527,6 +389,9 @@ function showCategory(category) {
   // Render items for this category
   renderMenuItems(category);
 
+  // Update scroll indicator position
+  updateScrollIndicatorPosition(category);
+
   // Hide empty message
   DOM.menuEmpty.style.display = "none";
 }
@@ -558,8 +423,7 @@ function renderMenuItems(category) {
       if (!item.available) return;
 
       const itemElement = document.createElement("div");
-      itemElement.className = "menu-item";
-      itemElement.style.animationDelay = `${index * 0.05}s`;
+      itemElement.className = "menu-item animate-on-scroll";
 
       const name = item.name[lang] || item.name.en;
       const description = item.description[lang] || item.description.en;
@@ -580,7 +444,113 @@ function renderMenuItems(category) {
 
     // Update layout
     adjustUIForScreenSize();
+
+    // Setup intersection observer for animations
+    setupIntersectionObserver();
   }, 200); // Short delay for the fade-out effect
+}
+
+// ======== SCROLL INDICATOR FOR MOBILE ========
+function initScrollIndicator() {
+  if (!DOM.scrollIndicator || window.innerWidth >= 768) {
+    if (DOM.scrollIndicator) DOM.scrollIndicator.style.display = "none";
+    return;
+  }
+
+  DOM.scrollIndicator.style.display = "flex";
+  const categories = AppState.categoriesOrder;
+
+  // Create dots
+  DOM.scrollIndicator.innerHTML = "";
+  for (let i = 0; i < categories.length; i++) {
+    const dot = document.createElement("div");
+    dot.className = i === 0 ? "scroll-dot active" : "scroll-dot";
+    DOM.scrollIndicator.appendChild(dot);
+  }
+
+  // Add scroll listener to update active dot
+  DOM.menuCategories.addEventListener("scroll", updateScrollIndicator);
+}
+
+function updateScrollIndicator() {
+  if (window.innerWidth >= 768) return;
+
+  const scrollPos = DOM.menuCategories.scrollLeft;
+  const totalWidth =
+    DOM.menuCategories.scrollWidth - DOM.menuCategories.clientWidth;
+
+  // Avoid division by zero
+  if (totalWidth === 0) return;
+
+  const scrollPercent = scrollPos / totalWidth;
+  const categories = AppState.categoriesOrder;
+  const activeDotIndex = Math.round(scrollPercent * (categories.length - 1));
+
+  // Update active dot
+  const dots = DOM.scrollIndicator.querySelectorAll(".scroll-dot");
+  dots.forEach((dot, i) => {
+    dot.classList.toggle("active", i === activeDotIndex);
+  });
+}
+
+function updateScrollIndicatorPosition(category) {
+  if (window.innerWidth >= 768) return;
+
+  // Find the index of the category
+  const index = AppState.categoriesOrder.indexOf(category);
+  if (index === -1) return;
+
+  // Update active dot
+  const dots = DOM.scrollIndicator.querySelectorAll(".scroll-dot");
+  dots.forEach((dot, i) => {
+    dot.classList.toggle("active", i === index);
+  });
+
+  // Scroll the category into view
+  const buttons = DOM.menuCategories.querySelectorAll(".category-btn");
+  if (buttons[index]) {
+    buttons[index].scrollIntoView({ behavior: "smooth", inline: "center" });
+  }
+}
+
+// ======== PERFORMANCE OPTIMIZATIONS ========
+function lazyLoadCategories() {
+  // Only load the first (active) category initially
+  if (AppState.categoriesOrder.length > 0) {
+    const firstCategory = AppState.categoriesOrder[0];
+    showCategory(firstCategory);
+
+    // Preload next category data after a short delay
+    setTimeout(() => {
+      const secondCategory = AppState.categoriesOrder[1];
+      if (secondCategory && AppState.menuData[secondCategory]) {
+        // Just access the data to ensure it's loaded, but don't render
+        const items = AppState.menuData[secondCategory];
+        console.log(`Preloaded ${items.length} items for ${secondCategory}`);
+      }
+    }, 1000);
+  }
+}
+
+function setupIntersectionObserver() {
+  if (!("IntersectionObserver" in window)) return;
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.1 }
+  );
+
+  // Observe menu items for animation
+  document.querySelectorAll(".animate-on-scroll").forEach((item) => {
+    observer.observe(item);
+  });
 }
 
 // ======== RESPONSIVE ADJUSTMENTS ========
