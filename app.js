@@ -1,15 +1,23 @@
 /**
  * Bonobo Bar & More Digital Menu
- * Advanced implementation with time-based category ordering,
- * smooth transitions, and optimized performance
+ * Complete redesign with subcategories, improved UI/UX, and enhanced functionality
  */
 
 // ======== STATE MANAGEMENT ========
 const AppState = {
   language: "en",
   currentCategory: null,
+  currentSubcategory: null,
   menuData: {},
   categoriesOrder: [],
+  subcategories: {
+    coffee: ["coffee", "tea", "chocolate", "soft"],
+    food: ["snacks", "main", "desserts"],
+    spirits: ["whisky", "vodka", "rum", "tequila", "brandy", "liqueur"],
+    beer: ["draft", "bottles", "craft"],
+    wine: ["white", "rose", "red", "sparkling"],
+    cocktails: ["classic", "signature", "mocktails"],
+  },
   translations: {
     en: {
       welcome: "Welcome to Bonobo Bar & More",
@@ -18,6 +26,44 @@ const AppState = {
       hours: "Hours",
       hoursContent: "Monday - Sunday: 8:00 - 02:00",
       location: "Rethymno, Crete, Greece",
+      subcategoryAll: "All Items",
+      subcategories: {
+        coffee: {
+          coffee: "Coffee",
+          tea: "Tea",
+          chocolate: "Chocolate",
+          soft: "Soft Drinks",
+        },
+        food: {
+          snacks: "Snacks",
+          main: "Main Dishes",
+          desserts: "Desserts",
+        },
+        spirits: {
+          whisky: "Whisky",
+          vodka: "Vodka",
+          rum: "Rum",
+          tequila: "Tequila",
+          brandy: "Brandy",
+          liqueur: "Liqueur",
+        },
+        beer: {
+          draft: "Draft",
+          bottles: "Bottles",
+          craft: "Craft",
+        },
+        wine: {
+          white: "White",
+          rose: "Rosé",
+          red: "Red",
+          sparkling: "Sparkling",
+        },
+        cocktails: {
+          classic: "Classic",
+          signature: "Signature",
+          mocktails: "Mocktails",
+        },
+      },
       categories: {
         coffee: "Coffee & More",
         food: "Food & Snacks",
@@ -34,6 +80,44 @@ const AppState = {
       hours: "Ωράριο Λειτουργίας",
       hoursContent: "Δευτέρα - Κυριακή: 8:00 - 02:00",
       location: "Ρέθυμνο, Κρήτη, Ελλάδα",
+      subcategoryAll: "Όλα τα Είδη",
+      subcategories: {
+        coffee: {
+          coffee: "Καφές",
+          tea: "Τσάι",
+          chocolate: "Σοκολάτα",
+          soft: "Αναψυκτικά",
+        },
+        food: {
+          snacks: "Σνακ",
+          main: "Κύρια Πιάτα",
+          desserts: "Επιδόρπια",
+        },
+        spirits: {
+          whisky: "Ουίσκι",
+          vodka: "Βότκα",
+          rum: "Ρούμι",
+          tequila: "Τεκίλα",
+          brandy: "Μπράντι",
+          liqueur: "Λικέρ",
+        },
+        beer: {
+          draft: "Βαρελίσια",
+          bottles: "Μπουκάλια",
+          craft: "Χειροποίητες",
+        },
+        wine: {
+          white: "Λευκό",
+          rose: "Ροζέ",
+          red: "Κόκκινο",
+          sparkling: "Αφρώδες",
+        },
+        cocktails: {
+          classic: "Κλασικά",
+          signature: "Signature",
+          mocktails: "Mocktails",
+        },
+      },
       categories: {
         coffee: "Καφές & Περισσότερα",
         food: "Φαγητό & Σνακ",
@@ -56,20 +140,23 @@ const DOM = {
   menuCategories: document.getElementById("menu-categories"),
   scrollIndicator: document.getElementById("scroll-indicator"),
   currentCategoryTitle: document.getElementById("current-category-title"),
+  subcategoryTabs: document.getElementById("subcategory-tabs"),
   menuItems: document.getElementById("menu-items"),
   menuEmpty: document.getElementById("menu-empty"),
   emptyMessage: document.getElementById("empty-message"),
   hoursHeading: document.getElementById("hours-heading"),
   hoursContent: document.getElementById("hours-content"),
   locationText: document.getElementById("location-text"),
-  logoImage: document.getElementById("logo-image"),
+  logoLightMode: document.getElementById("logo-light-mode"),
+  logoDarkMode: document.getElementById("logo-dark-mode"),
   heroSection: document.getElementById("hero-section"),
+  qrCode: document.getElementById("qr-code"),
 };
 
 // ======== INITIALIZATION ========
 async function initializeApp() {
   try {
-    // Set hero background image and handle logo
+    // Set hero background image
     initializeAssets();
 
     // Setup event listeners
@@ -93,6 +180,9 @@ async function initializeApp() {
     // Initialize scroll indicator for mobile
     initScrollIndicator();
 
+    // Generate QR code
+    generateQRCode();
+
     // Lazy load categories
     lazyLoadCategories();
 
@@ -107,15 +197,6 @@ async function initializeApp() {
 function initializeAssets() {
   // Set hero background image
   DOM.heroSection.style.backgroundImage = "url('assets/hero.jpg')";
-
-  // Fallback for logo if SVG doesn't load
-  DOM.logoImage.onerror = function () {
-    const logoDiv = document.querySelector(".logo");
-    logoDiv.innerHTML = `
-      <h1>BONOBO</h1>
-      <p>BAR & MORE</p>
-    `;
-  };
 }
 
 // ======== EVENT LISTENERS ========
@@ -199,7 +280,7 @@ function changeLanguage(lang) {
 
   // Re-render current category if one is selected
   if (AppState.currentCategory) {
-    renderMenuItems(AppState.currentCategory);
+    renderMenuItems(AppState.currentCategory, AppState.currentSubcategory);
   }
 
   // Save language preference
@@ -233,6 +314,9 @@ function updateUITexts() {
     DOM.currentCategoryTitle.innerHTML = `<h2>${
       texts.categories[AppState.currentCategory]
     }</h2>`;
+
+    // Update subcategory tabs
+    updateSubcategoryTabs(AppState.currentCategory);
   } else {
     DOM.currentCategoryTitle.innerHTML = "";
   }
@@ -314,6 +398,60 @@ async function loadAllMenuData() {
 
     console.log("Menu data loading complete:", loadStatus);
 
+    // Assign subcategories to each item
+    Object.keys(AppState.menuData).forEach((category) => {
+      if (Array.isArray(AppState.menuData[category])) {
+        AppState.menuData[category].forEach((item) => {
+          // Assign a default subcategory if none is present
+          if (!item.subcategory && AppState.subcategories[category]) {
+            if (category === "wine" && item.name) {
+              // Try to guess wine subcategory based on name
+              const name = (item.name.en || item.name).toLowerCase();
+              if (
+                name.includes("red") ||
+                name.includes("merlot") ||
+                name.includes("cabernet")
+              ) {
+                item.subcategory = "red";
+              } else if (
+                name.includes("white") ||
+                name.includes("chardonnay")
+              ) {
+                item.subcategory = "white";
+              } else if (name.includes("rose") || name.includes("rosé")) {
+                item.subcategory = "rose";
+              } else if (
+                name.includes("prosecco") ||
+                name.includes("sparkling") ||
+                name.includes("champagne")
+              ) {
+                item.subcategory = "sparkling";
+              } else {
+                item.subcategory = "red"; // Default
+              }
+            } else if (category === "beer" && item.name) {
+              // Default to bottles
+              item.subcategory = "bottles";
+            } else if (category === "cocktails" && item.categories) {
+              // Use categories array if present
+              if (item.categories.includes("signature")) {
+                item.subcategory = "signature";
+              } else if (item.categories.includes("classic")) {
+                item.subcategory = "classic";
+              } else {
+                item.subcategory = "signature"; // Default
+              }
+            } else if (category === "coffee" && item.name) {
+              item.subcategory = "coffee"; // Default to coffee
+            } else {
+              // Default to first subcategory
+              item.subcategory = AppState.subcategories[category][0];
+            }
+          }
+        });
+      }
+    });
+
     // Log available items for debugging
     console.log(
       "Menu data loaded:",
@@ -352,6 +490,20 @@ async function loadCategoryData(category) {
   }
 }
 
+// ======== QR CODE GENERATION ========
+function generateQRCode() {
+  if (typeof QRCode !== "undefined" && DOM.qrCode) {
+    new QRCode(DOM.qrCode, {
+      text: window.location.href,
+      width: 90,
+      height: 90,
+      colorDark: "#5e548e",
+      colorLight: "#ffffff",
+      correctLevel: QRCode.CorrectLevel.H,
+    });
+  }
+}
+
 // ======== UI RENDERING ========
 function generateCategoryButtons() {
   DOM.menuCategories.innerHTML = "";
@@ -380,14 +532,18 @@ function showCategory(category) {
 
   // Update state
   AppState.currentCategory = category;
+  AppState.currentSubcategory = null; // Reset subcategory
 
   // Update category title
   DOM.currentCategoryTitle.innerHTML = `<h2>${
     AppState.translations[AppState.language].categories[category]
   }</h2>`;
 
+  // Generate subcategory tabs
+  updateSubcategoryTabs(category);
+
   // Render items for this category
-  renderMenuItems(category);
+  renderMenuItems(category, null);
 
   // Update scroll indicator position
   updateScrollIndicatorPosition(category);
@@ -396,7 +552,66 @@ function showCategory(category) {
   DOM.menuEmpty.style.display = "none";
 }
 
-function renderMenuItems(category) {
+function updateSubcategoryTabs(category) {
+  DOM.subcategoryTabs.innerHTML = "";
+
+  if (!AppState.subcategories[category]) {
+    DOM.subcategoryTabs.style.display = "none";
+    return;
+  }
+
+  DOM.subcategoryTabs.style.display = "flex";
+
+  // Add "All" tab
+  const allTab = document.createElement("button");
+  allTab.className = `subcategory-tab ${
+    AppState.currentSubcategory === null ? "active" : ""
+  }`;
+  allTab.textContent = AppState.translations[AppState.language].subcategoryAll;
+  allTab.addEventListener("click", () => {
+    selectSubcategory(null);
+  });
+  DOM.subcategoryTabs.appendChild(allTab);
+
+  // Add subcategory tabs
+  AppState.subcategories[category].forEach((subcategory) => {
+    const tab = document.createElement("button");
+    tab.className = `subcategory-tab ${
+      AppState.currentSubcategory === subcategory ? "active" : ""
+    }`;
+    tab.dataset.subcategory = subcategory;
+    tab.textContent =
+      AppState.translations[AppState.language].subcategories[category][
+        subcategory
+      ];
+
+    tab.addEventListener("click", () => {
+      selectSubcategory(subcategory);
+    });
+
+    DOM.subcategoryTabs.appendChild(tab);
+  });
+}
+
+function selectSubcategory(subcategory) {
+  AppState.currentSubcategory = subcategory;
+
+  // Update active subcategory tab
+  const tabs = document.querySelectorAll(".subcategory-tab");
+  tabs.forEach((tab) => {
+    if (!tab.dataset.subcategory) {
+      // This is the "All" tab
+      tab.classList.toggle("active", subcategory === null);
+    } else {
+      tab.classList.toggle("active", tab.dataset.subcategory === subcategory);
+    }
+  });
+
+  // Render items for the selected subcategory
+  renderMenuItems(AppState.currentCategory, subcategory);
+}
+
+function renderMenuItems(category, subcategory) {
   const items = AppState.menuData[category] || [];
   const lang = AppState.language;
 
@@ -412,32 +627,62 @@ function renderMenuItems(category) {
       return;
     }
 
+    // Filter by subcategory if specified
+    let filteredItems = items;
+    if (subcategory) {
+      filteredItems = items.filter((item) => item.subcategory === subcategory);
+    }
+
     // Sort items by availability
-    const sortedItems = [...items].sort((a, b) => {
+    const sortedItems = [...filteredItems].sort((a, b) => {
       if (a.available === b.available) return 0;
       return a.available ? -1 : 1;
     });
 
-    // Create elements for each item
-    sortedItems.forEach((item, index) => {
-      if (!item.available) return;
+    if (sortedItems.length === 0) {
+      DOM.menuEmpty.style.display = "flex";
+      DOM.menuItems.style.opacity = "1";
+      return;
+    }
 
-      const itemElement = document.createElement("div");
-      itemElement.className = "menu-item animate-on-scroll";
+    DOM.menuEmpty.style.display = "none";
 
-      const name = item.name[lang] || item.name.en;
-      const description = item.description[lang] || item.description.en;
+    // Group by subcategory for better organization (when showing all)
+    if (!subcategory && AppState.subcategories[category]) {
+      // Get all subcategories present in the data
+      const presentSubcategories = [
+        ...new Set(sortedItems.map((item) => item.subcategory)),
+      ];
 
-      itemElement.innerHTML = `
-              <div class="menu-item-content">
-                  <div class="menu-item-name">${name}</div>
-                  <div class="menu-item-description">${description}</div>
-              </div>
-              <div class="menu-item-price">${item.price.toFixed(2)}€</div>
-          `;
+      // Sort subcategories according to our predefined order
+      const orderedSubcategories = AppState.subcategories[category].filter(
+        (sub) => presentSubcategories.includes(sub)
+      );
 
-      DOM.menuItems.appendChild(itemElement);
-    });
+      // Render items grouped by subcategory
+      orderedSubcategories.forEach((subcategory) => {
+        const subcategoryItems = sortedItems.filter(
+          (item) => item.subcategory === subcategory
+        );
+
+        if (subcategoryItems.length > 0) {
+          // Add subcategory heading
+          const headingText =
+            AppState.translations[lang].subcategories[category][subcategory];
+          const heading = document.createElement("div");
+          heading.className = "subcategory-heading";
+          heading.textContent = headingText;
+          heading.style.gridColumn = "1 / -1"; // Span all columns
+          DOM.menuItems.appendChild(heading);
+
+          // Add items for this subcategory
+          createMenuItems(subcategoryItems, lang);
+        }
+      });
+    } else {
+      // Simple rendering without subcategory grouping
+      createMenuItems(sortedItems, lang);
+    }
 
     // Fade in the new items
     DOM.menuItems.style.opacity = "1";
@@ -448,6 +693,32 @@ function renderMenuItems(category) {
     // Setup intersection observer for animations
     setupIntersectionObserver();
   }, 200); // Short delay for the fade-out effect
+}
+
+function createMenuItems(items, lang) {
+  items.forEach((item) => {
+    if (!item.available) return;
+
+    const itemElement = document.createElement("div");
+    itemElement.className = "menu-item animate-on-scroll";
+
+    const name = item.name[lang] || item.name.en || "";
+    const description = item.description
+      ? item.description[lang] || item.description.en || ""
+      : "";
+
+    itemElement.innerHTML = `
+      <div class="menu-item-content">
+        <div class="menu-item-name">${name}</div>
+        <div class="menu-item-description">${description}</div>
+      </div>
+      <div class="menu-item-price">${
+        item.price ? item.price.toFixed(2) + "€" : ""
+      }</div>
+    `;
+
+    DOM.menuItems.appendChild(itemElement);
+  });
 }
 
 // ======== SCROLL INDICATOR FOR MOBILE ========
