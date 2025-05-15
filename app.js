@@ -135,8 +135,6 @@ const DOM = {
   themeToggle: document.getElementById("theme-toggle"),
   languageToggle: document.getElementById("language-toggle"),
   langOptions: document.querySelectorAll(".lang-option"),
-  welcomeHeading: document.getElementById("welcome-heading"),
-  welcomeSubheading: document.getElementById("welcome-subheading"),
   menuCategories: document.getElementById("menu-categories"),
   scrollIndicator: document.getElementById("scroll-indicator"),
   currentCategoryTitle: document.getElementById("current-category-title"),
@@ -159,9 +157,6 @@ async function initializeApp() {
 
     // Set theme based on user preference
     initializeTheme();
-
-    // Check for hero image and set background
-    await setHeroBackground();
 
     // Determine time-based category order
     determineTimeBasedOrder();
@@ -278,10 +273,6 @@ function changeLanguage(lang) {
 
 function updateUITexts() {
   const texts = AppState.translations[AppState.language];
-
-  // Update welcome section
-  DOM.welcomeHeading.textContent = texts.welcome;
-  DOM.welcomeSubheading.textContent = texts.subheading;
 
   // Update empty message
   DOM.emptyMessage.textContent = texts.emptyMessage;
@@ -422,36 +413,6 @@ async function loadCategoryData(category) {
     console.error(`Error loading ${category} data:`, error);
     AppState.menuData[category] = [];
     return 0;
-  }
-}
-
-// Function to check if hero image exists and set background accordingly
-async function setHeroBackground() {
-  try {
-    // Try to fetch the hero.jpg file
-    const response = await fetch("assets/hero.jpg", { method: "HEAD" });
-
-    if (response.ok) {
-      // If the file exists, use it as background
-      document.querySelector(".compact-banner").style.backgroundImage =
-        "url('assets/hero.jpg')";
-      document.querySelector(".compact-banner").style.backgroundSize = "cover";
-      document.querySelector(".compact-banner").style.backgroundPosition =
-        "center";
-
-      // Add overlay for better text readability
-      const overlay = document.createElement("div");
-      overlay.className = "banner-overlay";
-      document.querySelector(".compact-banner").appendChild(overlay);
-
-      // Ensure the text is visible over the image
-      document.querySelector(".banner-content").style.position = "relative";
-      document.querySelector(".banner-content").style.zIndex = "5";
-      document.querySelector(".compact-banner").style.color = "white";
-    }
-  } catch (error) {
-    console.log("Hero image not found, using default background");
-    // Default background is already set in CSS, no need to do anything
   }
 }
 
