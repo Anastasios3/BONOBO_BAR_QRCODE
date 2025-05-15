@@ -1,0 +1,49 @@
+{
+  "items": [
+    {
+      "id": "beer001",
+      "name": {
+        "en": "Heineken",
+        "el": "Χάινεκεν"
+      },
+      "description": {
+        "en": "Premium lager beer",
+        "el": "Premium μπύρα λάγκερ"
+      },
+      "price": 4.5,
+      "image": "heineken.jpg",
+      "categories": ["cold", "beer", "imported"],
+      "available": true
+    },
+    {
+      "id": "beer002",
+      "name": {
+        "en": "Mythos",
+        "el": "Μύθος"
+      },
+      "description": {
+        "en": "Greek lager beer",
+        "el": "Ελληνική μπύρα λάγκερ"
+      },
+      "price": 4.0,
+      "image": "mythos.jpg",
+      "categories": ["cold", "beer", "local"],
+      "available": true
+    },
+    {
+      "id": "beer003",
+      "name": {
+        "en": "Fix",
+        "el": "Φιξ"
+      },
+      "description": {
+        "en": "Traditional Greek beer",
+        "el": "Παραδοσιακή ελληνική μπύρα"
+      },
+      "price": 4.0,
+      "image": "fix.jpg",
+      "categories": ["cold", "beer", "local"],
+      "available": true
+    }
+  ]
+}

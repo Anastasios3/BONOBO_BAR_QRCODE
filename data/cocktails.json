@@ -1,0 +1,49 @@
+{
+  "items": [
+    {
+      "id": "marg001",
+      "name": {
+        "en": "Margarita",
+        "el": "Μαργαρίτα"
+      },
+      "description": {
+        "en": "Classic tequila cocktail with lime and salt",
+        "el": "Κλασικό κοκτέιλ με τεκίλα, λάιμ και αλάτι"
+      },
+      "price": 9.0,
+      "image": "margarita.jpg",
+      "categories": ["classic", "signature"],
+      "available": true
+    },
+    {
+      "id": "moji001",
+      "name": {
+        "en": "Mojito",
+        "el": "Μοχίτο"
+      },
+      "description": {
+        "en": "Refreshing rum cocktail with mint and lime",
+        "el": "Δροσιστικό κοκτέιλ με ρούμι, μέντα και λάιμ"
+      },
+      "price": 8.5,
+      "image": "mojito.jpg",
+      "categories": ["classic", "refreshing"],
+      "available": true
+    },
+    {
+      "id": "negroni001",
+      "name": {
+        "en": "Negroni",
+        "el": "Νεγκρόνι"
+      },
+      "description": {
+        "en": "Bold cocktail with gin, vermouth and Campari",
+        "el": "Δυνατό κοκτέιλ με τζιν, βερμούτ και Καμπάρι"
+      },
+      "price": 10.0,
+      "image": "negroni.jpg",
+      "categories": ["classic", "strong"],
+      "available": true
+    }
+  ]
+}

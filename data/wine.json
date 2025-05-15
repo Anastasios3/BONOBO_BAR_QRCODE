@@ -1,0 +1,49 @@
+{
+  "items": [
+    {
+      "id": "wine001",
+      "name": {
+        "en": "Cabernet Sauvignon",
+        "el": "Καμπερνέ Σοβινιόν"
+      },
+      "description": {
+        "en": "Full-bodied red wine with black cherry notes",
+        "el": "Πλούσιο κόκκινο κρασί με νότες μαύρου κερασιού"
+      },
+      "price": 8.5,
+      "image": "cabernet.jpg",
+      "categories": ["red", "premium"],
+      "available": true
+    },
+    {
+      "id": "wine002",
+      "name": {
+        "en": "Chardonnay",
+        "el": "Σαρντονέ"
+      },
+      "description": {
+        "en": "Crisp white wine with citrus undertones",
+        "el": "Δροσερό λευκό κρασί με νότες εσπεριδοειδών"
+      },
+      "price": 7.5,
+      "image": "chardonnay.jpg",
+      "categories": ["white", "house"],
+      "available": true
+    },
+    {
+      "id": "wine003",
+      "name": {
+        "en": "Prosecco",
+        "el": "Προσέκο"
+      },
+      "description": {
+        "en": "Light sparkling wine with floral aroma",
+        "el": "Ελαφρύ αφρώδες κρασί με ανθική αρωματική γεύση"
+      },
+      "price": 6.5,
+      "image": "prosecco.jpg",
+      "categories": ["sparkling", "house"],
+      "available": true
+    }
+  ]
+}

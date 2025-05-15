@@ -1,0 +1,64 @@
+{
+  "items": [
+    {
+      "id": "esp001",
+      "name": {
+        "en": "Espresso",
+        "el": "Εσπρέσσο"
+      },
+      "description": {
+        "en": "Short black coffee",
+        "el": "Δυνατός μαύρος καφές"
+      },
+      "price": 2.5,
+      "image": "espresso.jpg",
+      "categories": ["hot", "signature"],
+      "available": true
+    },
+    {
+      "id": "latte001",
+      "name": {
+        "en": "Latte",
+        "el": "Λάτε"
+      },
+      "description": {
+        "en": "Espresso with steamed milk",
+        "el": "Εσπρέσσο με ατμισμένο γάλα"
+      },
+      "price": 3.5,
+      "image": "latte.jpg",
+      "categories": ["hot", "signature"],
+      "available": true
+    },
+    {
+      "id": "cappuccino001",
+      "name": {
+        "en": "Cappuccino",
+        "el": "Καπουτσίνο"
+      },
+      "description": {
+        "en": "Espresso with steamed milk and foam",
+        "el": "Εσπρέσσο με ατμισμένο γάλα και αφρό"
+      },
+      "price": 3.5,
+      "image": "cappuccino.jpg",
+      "categories": ["hot", "signature"],
+      "available": true
+    },
+    {
+      "id": "americano001",
+      "name": {
+        "en": "Americano",
+        "el": "Αμερικάνος"
+      },
+      "description": {
+        "en": "Espresso with hot water",
+        "el": "Εσπρέσσο με ζεστό νερό"
+      },
+      "price": 2.5,
+      "image": "americano.jpg",
+      "categories": ["hot", "signature"],
+      "available": true
+    }
+  ]
+}
