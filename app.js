@@ -13,7 +13,7 @@ const AppState = {
   subcategories: {
     coffee: ["coffee", "tea", "chocolate", "soft"],
     food: ["snacks", "main", "desserts"],
-    spirits: ["whisky", "vodka", "rum", "tequila", "brandy", "liqueur"],
+    spirits: ["whisky", "vodka", "rum", "tequila", "others", "liqueur"],
     beer: ["draft", "bottles", "craft"],
     wine: ["white", "rose", "red", "sparkling"],
     cocktails: ["classic", "signature", "mocktails"],
@@ -24,8 +24,8 @@ const AppState = {
       subheading: "Experience the extraordinary in Rethymno",
       emptyMessage: "Select a category to view items",
       hours: "Hours",
-      hoursContent: "Monday - Sunday: 8:00 - 02:00",
-      location: "Rethymno, Crete, Greece",
+      hoursContent: "Monday - Sunday: 09:00 - 02:00",
+      location: "El. Venizelou 47, Rethymno, Greece",
       subcategoryAll: "All Items",
       subcategories: {
         coffee: {
@@ -44,7 +44,7 @@ const AppState = {
           vodka: "Vodka",
           rum: "Rum",
           tequila: "Tequila",
-          brandy: "Brandy",
+          others: "Others",
           liqueur: "Liqueur",
         },
         beer: {
@@ -78,8 +78,8 @@ const AppState = {
       subheading: "Ζήστε την εξαιρετική εμπειρία στο Ρέθυμνο",
       emptyMessage: "Επιλέξτε κατηγορία για να δείτε τα προϊόντα",
       hours: "Ωράριο Λειτουργίας",
-      hoursContent: "Δευτέρα - Κυριακή: 8:00 - 02:00",
-      location: "Ρέθυμνο, Κρήτη, Ελλάδα",
+      hoursContent: "Δευτέρα - Κυριακή: 09:00 - 02:00",
+      location: " Ελ. Βενιζέλου 47, Ρέθυμνο, Ελλάδα",
       subcategoryAll: "Όλα τα Είδη",
       subcategories: {
         coffee: {
@@ -98,7 +98,7 @@ const AppState = {
           vodka: "Βότκα",
           rum: "Ρούμι",
           tequila: "Τεκίλα",
-          brandy: "Μπράντι",
+          others: "Περισσότερα",
           liqueur: "Λικέρ",
         },
         beer: {
