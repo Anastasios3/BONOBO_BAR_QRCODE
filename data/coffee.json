@@ -1,63 +1,163 @@
 {
   "items": [
     {
-      "id": "esp001",
+      "id": "coffee001",
       "name": {
         "en": "Espresso",
         "el": "Εσπρέσσο"
       },
       "description": {
-        "en": "Short black coffee",
-        "el": "Δυνατός μαύρος καφές"
+        "en": "Concentrated coffee brewed by forcing hot water through finely-ground coffee beans",
+        "el": "Συμπυκνωμένος καφές παρασκευασμένος με διέλευση ζεστού νερού από λεπτοαλεσμένους κόκκους καφέ"
       },
       "price": 2.5,
       "image": "espresso.jpg",
-      "categories": ["hot", "signature"],
+      "categories": ["hot", "coffee"],
+      "subcategory": "coffee",
       "available": true
     },
     {
-      "id": "latte001",
-      "name": {
-        "en": "Latte",
-        "el": "Λάτε"
-      },
-      "description": {
-        "en": "Espresso with steamed milk",
-        "el": "Εσπρέσσο με ατμισμένο γάλα"
-      },
-      "price": 3.5,
-      "image": "latte.jpg",
-      "categories": ["hot", "signature"],
-      "available": true
-    },
-    {
-      "id": "cappuccino001",
+      "id": "coffee002",
       "name": {
         "en": "Cappuccino",
         "el": "Καπουτσίνο"
       },
       "description": {
-        "en": "Espresso with steamed milk and foam",
-        "el": "Εσπρέσσο με ατμισμένο γάλα και αφρό"
+        "en": "Espresso with steamed milk and a thick layer of milk foam on top",
+        "el": "Εσπρέσσο με ζεστό γάλα και παχύ στρώμα αφρόγαλα"
       },
       "price": 3.5,
       "image": "cappuccino.jpg",
-      "categories": ["hot", "signature"],
+      "categories": ["hot", "coffee"],
+      "subcategory": "coffee",
       "available": true
     },
     {
-      "id": "americano001",
+      "id": "coffee003",
       "name": {
-        "en": "Americano",
-        "el": "Αμερικάνος"
+        "en": "Freddo Espresso",
+        "el": "Φρέντο Εσπρέσσο"
       },
       "description": {
-        "en": "Espresso with hot water",
-        "el": "Εσπρέσσο με ζεστό νερό"
+        "en": "Chilled espresso shaken with ice cubes, a Greek specialty",
+        "el": "Κρύος εσπρέσσο χτυπημένος με παγάκια, ελληνική σπεσιαλιτέ"
+      },
+      "price": 3.0,
+      "image": "freddo-espresso.jpg",
+      "categories": ["cold", "coffee"],
+      "subcategory": "coffee",
+      "available": true
+    },
+    {
+      "id": "coffee004",
+      "name": {
+        "en": "Freddo Cappuccino",
+        "el": "Φρέντο Καπουτσίνο"
+      },
+      "description": {
+        "en": "Cold espresso topped with creamy cold milk foam, popular in Greece",
+        "el": "Κρύος εσπρέσσο με κρεμώδες κρύο αφρόγαλα, δημοφιλής στην Ελλάδα"
+      },
+      "price": 4.0,
+      "image": "freddo-cappuccino.jpg",
+      "categories": ["cold", "coffee"],
+      "subcategory": "coffee",
+      "available": true
+    },
+    {
+      "id": "coffee005",
+      "name": {
+        "en": "Green Tea",
+        "el": "Πράσινο Τσάι"
+      },
+      "description": {
+        "en": "Premium Japanese green tea leaves with subtle earthy notes",
+        "el": "Εκλεκτά φύλλα πράσινου τσαγιού Ιαπωνίας με διακριτικές γήινες νότες"
+      },
+      "price": 3.5,
+      "image": "green-tea.jpg",
+      "categories": ["hot", "tea"],
+      "subcategory": "tea",
+      "available": true
+    },
+    {
+      "id": "coffee006",
+      "name": {
+        "en": "Mountain Tea",
+        "el": "Τσάι του Βουνού"
+      },
+      "description": {
+        "en": "Traditional Greek herbal tea made from sideritis plants harvested in the mountains",
+        "el": "Παραδοσιακό ελληνικό βότανο από φυτά σιδερίτη που συλλέγονται στα βουνά"
+      },
+      "price": 3.0,
+      "image": "mountain-tea.jpg",
+      "categories": ["hot", "tea", "herbal"],
+      "subcategory": "tea",
+      "available": true
+    },
+    {
+      "id": "coffee007",
+      "name": {
+        "en": "Hot Chocolate",
+        "el": "Ζεστή Σοκολάτα"
+      },
+      "description": {
+        "en": "Rich, creamy hot chocolate made with premium cocoa and topped with whipped cream",
+        "el": "Πλούσια, κρεμώδης ζεστή σοκολάτα φτιαγμένη με εκλεκτό κακάο και γαρνιρισμένη με σαντιγί"
+      },
+      "price": 4.0,
+      "image": "hot-chocolate.jpg",
+      "categories": ["hot", "chocolate"],
+      "subcategory": "chocolate",
+      "available": true
+    },
+    {
+      "id": "coffee008",
+      "name": {
+        "en": "Iced Chocolate",
+        "el": "Κρύα Σοκολάτα"
+      },
+      "description": {
+        "en": "Refreshing cold chocolate drink blended with ice and topped with chocolate sauce",
+        "el": "Δροσιστικό κρύο ρόφημα σοκολάτας αναμειγμένο με πάγο και γαρνιρισμένο με σως σοκολάτας"
+      },
+      "price": 4.5,
+      "image": "iced-chocolate.jpg",
+      "categories": ["cold", "chocolate"],
+      "subcategory": "chocolate",
+      "available": true
+    },
+    {
+      "id": "coffee009",
+      "name": {
+        "en": "Fresh Orange Juice",
+        "el": "Φρέσκος Χυμός Πορτοκάλι"
+      },
+      "description": {
+        "en": "Freshly squeezed orange juice from local Cretan oranges",
+        "el": "Φρεσκοστυμμένος χυμός από τοπικά κρητικά πορτοκάλια"
+      },
+      "price": 4.0,
+      "image": "orange-juice.jpg",
+      "categories": ["cold", "fresh", "juice"],
+      "subcategory": "soft",
+      "available": true
+    },
+    {
+      "id": "coffee010",
+      "name": {
+        "en": "Sparkling Water",
+        "el": "Ανθρακούχο Νερό"
+      },
+      "description": {
+        "en": "Premium sparkling mineral water, perfect for refreshment",
+        "el": "Εκλεκτό ανθρακούχο μεταλλικό νερό, ιδανικό για αναζωογόνηση"
       },
       "price": 2.5,
-      "image": "americano.jpg",
-      "categories": ["hot", "signature"],
+      "image": "sparkling-water.jpg",
+      "categories": ["cold", "water"],
+      "subcategory": "soft",
       "available": true
     }
   ]

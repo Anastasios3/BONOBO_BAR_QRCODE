@@ -1,0 +1,132 @@
+{
+  "items": [
+    {
+      "id": "food001",
+      "name": {
+        "en": "Greek Salad",
+        "el": "Χωριάτικη Σαλάτα"
+      },
+      "description": {
+        "en": "Fresh tomatoes, cucumbers, bell peppers, onions, olives, and feta cheese with extra virgin olive oil",
+        "el": "Φρέσκες ντομάτες, αγγούρια, πιπεριές, κρεμμύδια, ελιές και φέτα με έξτρα παρθένο ελαιόλαδο"
+      },
+      "price": 7.5,
+      "image": "greek-salad.jpg",
+      "categories": ["salad", "traditional"],
+      "subcategory": "main",
+      "available": true
+    },
+    {
+      "id": "food002",
+      "name": {
+        "en": "Dakos",
+        "el": "Ντάκος"
+      },
+      "description": {
+        "en": "Traditional Cretan dish with barley rusk topped with grated tomato, mizithra cheese, olives, and olive oil",
+        "el": "Παραδοσιακό κρητικό πιάτο με κρίθινο παξιμάδι, τριμμένη ντομάτα, μυζήθρα, ελιές και ελαιόλαδο"
+      },
+      "price": 6.5,
+      "image": "dakos.jpg",
+      "categories": ["traditional", "cretan"],
+      "subcategory": "main",
+      "available": true
+    },
+    {
+      "id": "food003",
+      "name": {
+        "en": "Cheese Platter",
+        "el": "Ποικιλία Τυριών"
+      },
+      "description": {
+        "en": "Selection of local and imported cheeses served with crackers and seasonal fruits",
+        "el": "Επιλογή από τοπικά και εισαγόμενα τυριά σερβιρισμένα με κράκερς και εποχιακά φρούτα"
+      },
+      "price": 12.0,
+      "image": "cheese-platter.jpg",
+      "categories": ["platter", "sharing"],
+      "subcategory": "main",
+      "available": true
+    },
+    {
+      "id": "food004",
+      "name": {
+        "en": "Club Sandwich",
+        "el": "Κλαμπ Σάντουιτς"
+      },
+      "description": {
+        "en": "Triple-decker sandwich with grilled chicken, bacon, lettuce, tomato, and mayonnaise, served with fries",
+        "el": "Τριπλό σάντουιτς με ψητό κοτόπουλο, μπέικον, μαρούλι, ντομάτα και μαγιονέζα, σερβίρεται με πατάτες"
+      },
+      "price": 9.5,
+      "image": "club-sandwich.jpg",
+      "categories": ["sandwich", "main"],
+      "subcategory": "main",
+      "available": true
+    },
+    {
+      "id": "food005",
+      "name": {
+        "en": "Mixed Nuts",
+        "el": "Ανάμεικτοι Ξηροί Καρποί"
+      },
+      "description": {
+        "en": "Assortment of roasted nuts including almonds, cashews, and pistachios",
+        "el": "Ποικιλία από ψημένους ξηρούς καρπούς συμπεριλαμβανομένων αμυγδάλων, κάσιους και φιστικιών"
+      },
+      "price": 5.0,
+      "image": "mixed-nuts.jpg",
+      "categories": ["snack", "nuts"],
+      "subcategory": "snacks",
+      "available": true
+    },
+    {
+      "id": "food006",
+      "name": {
+        "en": "Olive Mix",
+        "el": "Ποικιλία Ελιών"
+      },
+      "description": {
+        "en": "Assorted Greek olives marinated in herbs and extra virgin olive oil",
+        "el": "Ποικιλία ελληνικών ελιών μαριναρισμένες σε βότανα και έξτρα παρθένο ελαιόλαδο"
+      },
+      "price": 4.5,
+      "image": "olive-mix.jpg",
+      "categories": ["snack", "olives"],
+      "subcategory": "snacks",
+      "available": true
+    },
+    {
+      "id": "food007",
+      "name": {
+        "en": "Chocolate Cake",
+        "el": "Κέικ Σοκολάτας"
+      },
+      "description": {
+        "en": "Rich, moist chocolate cake with chocolate ganache and fresh berries",
+        "el": "Πλούσιο, αφράτο κέικ σοκολάτας με γκανάς σοκολάτας και φρέσκα μούρα"
+      },
+      "price": 6.5,
+      "image": "chocolate-cake.jpg",
+      "categories": ["dessert", "chocolate"],
+      "subcategory": "desserts",
+      "available": true
+    },
+    {
+      "id": "food008",
+      "name": {
+        "en": "Baklava",
+        "el": "Μπακλαβάς"
+      },
+      "description": {
+        "en": "Traditional Greek pastry made with layers of filo, honey, and chopped nuts",
+        "el": "Παραδοσιακό ελληνικό γλυκό με στρώσεις φύλλου, μέλι και ψιλοκομμένους ξηρούς καρπούς"
+      },
+      "price": 5.5,
+      "image": "baklava.jpg",
+      "categories": ["dessert", "traditional"],
+      "subcategory": "desserts",
+      "available": true
+    }
+  ]
+}

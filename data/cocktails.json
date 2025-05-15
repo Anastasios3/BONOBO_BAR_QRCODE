@@ -1,48 +1,131 @@
 {
   "items": [
     {
-      "id": "marg001",
+      "id": "cocktail001",
       "name": {
         "en": "Margarita",
         "el": "Μαργαρίτα"
       },
       "description": {
-        "en": "Classic tequila cocktail with lime and salt",
-        "el": "Κλασικό κοκτέιλ με τεκίλα, λάιμ και αλάτι"
+        "en": "Classic tequila cocktail with fresh lime juice, triple sec, and salt rim",
+        "el": "Κλασικό κοκτέιλ με τεκίλα, φρέσκο χυμό λάιμ, triple sec και αλάτι στο χείλος του ποτηριού"
       },
       "price": 9.0,
       "image": "margarita.jpg",
       "categories": ["classic", "signature"],
+      "subcategory": "classic",
       "available": true
     },
     {
-      "id": "moji001",
+      "id": "cocktail002",
       "name": {
         "en": "Mojito",
         "el": "Μοχίτο"
       },
       "description": {
-        "en": "Refreshing rum cocktail with mint and lime",
-        "el": "Δροσιστικό κοκτέιλ με ρούμι, μέντα και λάιμ"
+        "en": "Refreshing rum cocktail with fresh mint leaves, lime, sugar, and soda water",
+        "el": "Δροσιστικό κοκτέιλ με ρούμι, φρέσκα φύλλα μέντας, λάιμ, ζάχαρη και σόδα"
       },
       "price": 8.5,
       "image": "mojito.jpg",
       "categories": ["classic", "refreshing"],
+      "subcategory": "classic",
       "available": true
     },
     {
-      "id": "negroni001",
+      "id": "cocktail003",
       "name": {
         "en": "Negroni",
         "el": "Νεγκρόνι"
       },
       "description": {
-        "en": "Bold cocktail with gin, vermouth and Campari",
-        "el": "Δυνατό κοκτέιλ με τζιν, βερμούτ και Καμπάρι"
+        "en": "Bold Italian cocktail with gin, sweet vermouth, and Campari, garnished with orange peel",
+        "el": "Δυνατό ιταλικό κοκτέιλ με τζιν, γλυκό βερμούτ και Campari, γαρνιρισμένο με φλούδα πορτοκαλιού"
       },
       "price": 10.0,
       "image": "negroni.jpg",
       "categories": ["classic", "strong"],
+      "subcategory": "classic",
+      "available": true
+    },
+    {
+      "id": "cocktail004",
+      "name": {
+        "en": "Espresso Martini",
+        "el": "Εσπρέσο Μαρτίνι"
+      },
+      "description": {
+        "en": "Rich, creamy coffee cocktail with vodka, espresso, and coffee liqueur",
+        "el": "Πλούσιο, κρεμώδες κοκτέιλ καφέ με βότκα, εσπρέσο και λικέρ καφέ"
+      },
+      "price": 9.5,
+      "image": "espresso-martini.jpg",
+      "categories": ["signature", "coffee"],
+      "subcategory": "classic",
+      "available": true
+    },
+    {
+      "id": "cocktail005",
+      "name": {
+        "en": "Bonobo Sunset",
+        "el": "Ηλιοβασίλεμα Μπονόμπο"
+      },
+      "description": {
+        "en": "Our signature cocktail with white rum, passion fruit, mango, and a touch of vanilla",
+        "el": "Το signature κοκτέιλ μας με λευκό ρούμι, φρούτα του πάθους, μάνγκο και μια νότα βανίλιας"
+      },
+      "price": 11.0,
+      "image": "bonobo-sunset.jpg",
+      "categories": ["signature", "tropical"],
+      "subcategory": "signature",
+      "available": true
+    },
+    {
+      "id": "cocktail006",
+      "name": {
+        "en": "Mediterranean Breeze",
+        "el": "Μεσογειακή Αύρα"
+      },
+      "description": {
+        "en": "House special with mastiha liqueur, cucumber, basil, and fresh lime",
+        "el": "Ειδικό του μαγαζιού με λικέρ μαστίχας, αγγούρι, βασιλικό και φρέσκο λάιμ"
+      },
+      "price": 10.5,
+      "image": "mediterranean-breeze.jpg",
+      "categories": ["signature", "refreshing"],
+      "subcategory": "signature",
+      "available": true
+    },
+    {
+      "id": "cocktail007",
+      "name": {
+        "en": "Virgin Colada",
+        "el": "Κολάδα χωρίς Αλκοόλ"
+      },
+      "description": {
+        "en": "Alcohol-free cocktail with pineapple, coconut cream, and a hint of lime",
+        "el": "Κοκτέιλ χωρίς αλκοόλ με ανανά, κρέμα καρύδας και μια νότα από λάιμ"
+      },
+      "price": 7.0,
+      "image": "virgin-colada.jpg",
+      "categories": ["mocktail", "tropical"],
+      "subcategory": "mocktails",
+      "available": true
+    },
+    {
+      "id": "cocktail008",
+      "name": {
+        "en": "Berry Burst",
+        "el": "Έκρηξη Μούρων"
+      },
+      "description": {
+        "en": "Refreshing mocktail with mixed berries, fresh mint, and sparkling water",
+        "el": "Δροσιστικό mocktail με ανάμεικτα μούρα, φρέσκια μέντα και ανθρακούχο νερό"
+      },
+      "price": 7.5,
+      "image": "berry-burst.jpg",
+      "categories": ["mocktail", "refreshing"],
+      "subcategory": "mocktails",
       "available": true
     }
   ]

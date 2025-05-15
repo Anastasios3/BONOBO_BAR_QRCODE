@@ -1,0 +1,196 @@
+{
+  "items": [
+    {
+      "id": "spirit001",
+      "name": {
+        "en": "Johnnie Walker Black Label",
+        "el": "Johnnie Walker Μαύρη Ετικέτα"
+      },
+      "description": {
+        "en": "Premium blended Scotch whisky aged for 12 years with rich, complex flavors",
+        "el": "Premium blended Σκωτσέζικο ουίσκι παλαιωμένο για 12 χρόνια με πλούσιες, σύνθετες γεύσεις"
+      },
+      "price": 9.0,
+      "image": "johnnie-walker-black.jpg",
+      "categories": ["whisky", "scotch", "blended"],
+      "subcategory": "whisky",
+      "available": true
+    },
+    {
+      "id": "spirit002",
+      "name": {
+        "en": "Macallan 12 Years",
+        "el": "Macallan 12 Ετών"
+      },
+      "description": {
+        "en": "Single malt Scotch whisky aged in sherry oak casks, offering notes of dried fruits and spices",
+        "el": "Single malt Σκωτσέζικο ουίσκι παλαιωμένο σε βαρέλια από ξύλο sherry, με νότες αποξηραμένων φρούτων και μπαχαρικών"
+      },
+      "price": 12.5,
+      "image": "macallan-12.jpg",
+      "categories": ["whisky", "scotch", "single-malt"],
+      "subcategory": "whisky",
+      "available": true
+    },
+    {
+      "id": "spirit003",
+      "name": {
+        "en": "Grey Goose",
+        "el": "Grey Goose"
+      },
+      "description": {
+        "en": "Premium French vodka made from high-quality wheat, known for its smooth and clean taste",
+        "el": "Premium Γαλλική βότκα φτιαγμένη από σιτάρι υψηλής ποιότητας, γνωστή για την απαλή και καθαρή γεύση της"
+      },
+      "price": 10.0,
+      "image": "grey-goose.jpg",
+      "categories": ["vodka", "premium"],
+      "subcategory": "vodka",
+      "available": true
+    },
+    {
+      "id": "spirit004",
+      "name": {
+        "en": "Belvedere",
+        "el": "Belvedere"
+      },
+      "description": {
+        "en": "Polish luxury vodka made from rye, quadruple-distilled for exceptional purity",
+        "el": "Πολωνική βότκα πολυτελείας από σίκαλη, τετραπλής απόσταξης για εξαιρετική καθαρότητα"
+      },
+      "price": 10.0,
+      "image": "belvedere.jpg",
+      "categories": ["vodka", "premium"],
+      "subcategory": "vodka",
+      "available": true
+    },
+    {
+      "id": "spirit005",
+      "name": {
+        "en": "Havana Club 7 Years",
+        "el": "Havana Club 7 Ετών"
+      },
+      "description": {
+        "en": "Cuban rum aged for 7 years, offering complex notes of tropical fruits, vanilla, and cocoa",
+        "el": "Κουβανέζικο ρούμι παλαιωμένο για 7 χρόνια, με σύνθετες νότες τροπικών φρούτων, βανίλιας και κακάο"
+      },
+      "price": 9.5,
+      "image": "havana-club-7.jpg",
+      "categories": ["rum", "aged"],
+      "subcategory": "rum",
+      "available": true
+    },
+    {
+      "id": "spirit006",
+      "name": {
+        "en": "Zacapa 23",
+        "el": "Zacapa 23"
+      },
+      "description": {
+        "en": "Premium rum from Guatemala aged using the solera system, offering rich flavors of caramel, spices, and chocolate",
+        "el": "Premium ρούμι από τη Γουατεμάλα παλαιωμένο με το σύστημα solera, με πλούσιες γεύσεις καραμέλας, μπαχαρικών και σοκολάτας"
+      },
+      "price": 13.0,
+      "image": "zacapa-23.jpg",
+      "categories": ["rum", "premium", "aged"],
+      "subcategory": "rum",
+      "available": true
+    },
+    {
+      "id": "spirit007",
+      "name": {
+        "en": "Don Julio Blanco",
+        "el": "Don Julio Blanco"
+      },
+      "description": {
+        "en": "Premium silver tequila made from 100% blue agave, with crisp agave flavors and hints of citrus",
+        "el": "Premium ασημένια τεκίλα φτιαγμένη από 100% μπλε αγαύη, με τραγανές γεύσεις αγαύης και νότες εσπεριδοειδών"
+      },
+      "price": 10.5,
+      "image": "don-julio-blanco.jpg",
+      "categories": ["tequila", "premium"],
+      "subcategory": "tequila",
+      "available": true
+    },
+    {
+      "id": "spirit008",
+      "name": {
+        "en": "Patron Reposado",
+        "el": "Patron Reposado"
+      },
+      "description": {
+        "en": "Aged tequila with a smooth balance of fresh agave and oak, with subtle notes of citrus and honey",
+        "el": "Παλαιωμένη τεκίλα με απαλή ισορροπία φρέσκιας αγαύης και βαρελιού, με διακριτικές νότες εσπεριδοειδών και μελιού"
+      },
+      "price": 11.0,
+      "image": "patron-reposado.jpg",
+      "categories": ["tequila", "premium", "aged"],
+      "subcategory": "tequila",
+      "available": true
+    },
+    {
+      "id": "spirit009",
+      "name": {
+        "en": "Hennessy VSOP",
+        "el": "Hennessy VSOP"
+      },
+      "description": {
+        "en": "Premium cognac aged for at least four years, offering harmonious notes of vanilla, spices, and dried fruits",
+        "el": "Premium κονιάκ παλαιωμένο για τουλάχιστον τέσσερα χρόνια, με αρμονικές νότες βανίλιας, μπαχαρικών και αποξηραμένων φρούτων"
+      },
+      "price": 12.0,
+      "image": "hennessy-vsop.jpg",
+      "categories": ["brandy", "cognac", "premium"],
+      "subcategory": "brandy",
+      "available": true
+    },
+    {
+      "id": "spirit010",
+      "name": {
+        "en": "Metaxa 7 Stars",
+        "el": "Μεταξά 7 Αστέρων"
+      },
+      "description": {
+        "en": "Greek amber spirit blending aged distillates with Muscat wines, offering rich notes of dried fruits, caramel, and spices",
+        "el": "Ελληνικό κεχριμπαρένιο ποτό που συνδυάζει παλαιωμένα αποστάγματα με κρασιά Μοσχάτου, με πλούσιες νότες αποξηραμένων φρούτων, καραμέλας και μπαχαρικών"
+      },
+      "price": 8.0,
+      "image": "metaxa-7.jpg",
+      "categories": ["brandy", "greek"],
+      "subcategory": "brandy",
+      "available": true
+    },
+    {
+      "id": "spirit011",
+      "name": {
+        "en": "Cointreau",
+        "el": "Cointreau"
+      },
+      "description": {
+        "en": "Premium orange liqueur with a perfect balance of sweet and bitter orange peels",
+        "el": "Premium λικέρ πορτοκαλιού με τέλεια ισορροπία γλυκών και πικρών φλοιών πορτοκαλιού"
+      },
+      "price": 8.5,
+      "image": "cointreau.jpg",
+      "categories": ["liqueur", "orange"],
+      "subcategory": "liqueur",
+      "available": true
+    },
+    {
+      "id": "spirit012",
+      "name": {
+        "en": "Mastiha Skinos",
+        "el": "Μαστίχα Σκίνος"
+      },
+      "description": {
+        "en": "Traditional Greek liqueur made from mastic resin from the island of Chios, offering unique, refreshing flavor",
+        "el": "Παραδοσιακό ελληνικό λικέρ από ρητίνη μαστίχας από το νησί της Χίου, με μοναδική, δροσιστική γεύση"
+      },
+      "price": 7.5,
+      "image": "mastiha-skinos.jpg",
+      "categories": ["liqueur", "greek", "traditional"],
+      "subcategory": "liqueur",
+      "available": true
+    }
+  ]
+}

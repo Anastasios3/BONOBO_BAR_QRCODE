@@ -149,16 +149,12 @@ const DOM = {
   locationText: document.getElementById("location-text"),
   logoLightMode: document.getElementById("logo-light-mode"),
   logoDarkMode: document.getElementById("logo-dark-mode"),
-  heroSection: document.getElementById("hero-section"),
   qrCode: document.getElementById("qr-code"),
 };
 
 // ======== INITIALIZATION ========
 async function initializeApp() {
   try {
-    // Set hero background image
-    initializeAssets();
-
     // Setup event listeners
     setupEventListeners();
 
@@ -191,12 +187,6 @@ async function initializeApp() {
   } catch (error) {
     console.error("Error initializing app:", error);
   }
-}
-
-// ======== ASSETS INITIALIZATION ========
-function initializeAssets() {
-  // Set hero background image
-  DOM.heroSection.style.backgroundImage = "url('assets/hero.jpg')";
 }
 
 // ======== EVENT LISTENERS ========
@@ -397,60 +387,6 @@ async function loadAllMenuData() {
       .join(", ");
 
     console.log("Menu data loading complete:", loadStatus);
-
-    // Assign subcategories to each item
-    Object.keys(AppState.menuData).forEach((category) => {
-      if (Array.isArray(AppState.menuData[category])) {
-        AppState.menuData[category].forEach((item) => {
-          // Assign a default subcategory if none is present
-          if (!item.subcategory && AppState.subcategories[category]) {
-            if (category === "wine" && item.name) {
-              // Try to guess wine subcategory based on name
-              const name = (item.name.en || item.name).toLowerCase();
-              if (
-                name.includes("red") ||
-                name.includes("merlot") ||
-                name.includes("cabernet")
-              ) {
-                item.subcategory = "red";
-              } else if (
-                name.includes("white") ||
-                name.includes("chardonnay")
-              ) {
-                item.subcategory = "white";
-              } else if (name.includes("rose") || name.includes("rosé")) {
-                item.subcategory = "rose";
-              } else if (
-                name.includes("prosecco") ||
-                name.includes("sparkling") ||
-                name.includes("champagne")
-              ) {
-                item.subcategory = "sparkling";
-              } else {
-                item.subcategory = "red"; // Default
-              }
-            } else if (category === "beer" && item.name) {
-              // Default to bottles
-              item.subcategory = "bottles";
-            } else if (category === "cocktails" && item.categories) {
-              // Use categories array if present
-              if (item.categories.includes("signature")) {
-                item.subcategory = "signature";
-              } else if (item.categories.includes("classic")) {
-                item.subcategory = "classic";
-              } else {
-                item.subcategory = "signature"; // Default
-              }
-            } else if (category === "coffee" && item.name) {
-              item.subcategory = "coffee"; // Default to coffee
-            } else {
-              // Default to first subcategory
-              item.subcategory = AppState.subcategories[category][0];
-            }
-          }
-        });
-      }
-    });
 
     // Log available items for debugging
     console.log(
