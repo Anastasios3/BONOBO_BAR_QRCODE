@@ -149,7 +149,6 @@ const DOM = {
   locationText: document.getElementById("location-text"),
   logoLightMode: document.getElementById("logo-light-mode"),
   logoDarkMode: document.getElementById("logo-dark-mode"),
-  qrCode: document.getElementById("qr-code"),
 };
 
 // ======== INITIALIZATION ========
@@ -160,6 +159,9 @@ async function initializeApp() {
 
     // Set theme based on user preference
     initializeTheme();
+
+    // Check for hero image and set background
+    await setHeroBackground();
 
     // Determine time-based category order
     determineTimeBasedOrder();
@@ -175,9 +177,6 @@ async function initializeApp() {
 
     // Initialize scroll indicator for mobile
     initScrollIndicator();
-
-    // Generate QR code
-    generateQRCode();
 
     // Lazy load categories
     lazyLoadCategories();
@@ -426,17 +425,33 @@ async function loadCategoryData(category) {
   }
 }
 
-// ======== QR CODE GENERATION ========
-function generateQRCode() {
-  if (typeof QRCode !== "undefined" && DOM.qrCode) {
-    new QRCode(DOM.qrCode, {
-      text: window.location.href,
-      width: 90,
-      height: 90,
-      colorDark: "#5e548e",
-      colorLight: "#ffffff",
-      correctLevel: QRCode.CorrectLevel.H,
-    });
+// Function to check if hero image exists and set background accordingly
+async function setHeroBackground() {
+  try {
+    // Try to fetch the hero.jpg file
+    const response = await fetch("assets/hero.jpg", { method: "HEAD" });
+
+    if (response.ok) {
+      // If the file exists, use it as background
+      document.querySelector(".compact-banner").style.backgroundImage =
+        "url('assets/hero.jpg')";
+      document.querySelector(".compact-banner").style.backgroundSize = "cover";
+      document.querySelector(".compact-banner").style.backgroundPosition =
+        "center";
+
+      // Add overlay for better text readability
+      const overlay = document.createElement("div");
+      overlay.className = "banner-overlay";
+      document.querySelector(".compact-banner").appendChild(overlay);
+
+      // Ensure the text is visible over the image
+      document.querySelector(".banner-content").style.position = "relative";
+      document.querySelector(".banner-content").style.zIndex = "5";
+      document.querySelector(".compact-banner").style.color = "white";
+    }
+  } catch (error) {
+    console.log("Hero image not found, using default background");
+    // Default background is already set in CSS, no need to do anything
   }
 }
 
