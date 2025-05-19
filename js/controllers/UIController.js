@@ -463,7 +463,7 @@ export const UIController = {
   },
 
   /**
-   * Create a subcategory header element
+   * Create a subcategory header element with minimal modern design
    * @param {string} subcategory - Subcategory ID
    * @param {string} category - Parent category ID
    * @returns {HTMLElement} Subcategory header element
@@ -475,104 +475,9 @@ export const UIController = {
     const title = document.createElement("h2");
     title.className = "subcategory-title";
 
-    // Add icon based on subcategory
-    let iconClass = "fa-glass-whiskey";
-
-    // Set appropriate icon for each subcategory type
-    if (category === "wine") {
-      switch (subcategory) {
-        case "red":
-          iconClass = "fa-wine-bottle";
-          break;
-        case "white":
-          iconClass = "fa-wine-glass-alt";
-          break;
-        case "rose":
-          iconClass = "fa-wine-glass";
-          break;
-        case "sparkling":
-          iconClass = "fa-champagne-glasses";
-          break;
-        default:
-          iconClass = "fa-wine-glass";
-      }
-    } else if (category === "spirits") {
-      switch (subcategory) {
-        case "whisky":
-          iconClass = "fa-whiskey-glass";
-          break;
-        case "vodka":
-          iconClass = "fa-glass-whiskey";
-          break;
-        case "rum":
-          iconClass = "fa-glass-whiskey";
-          break;
-        case "tequila":
-          iconClass = "fa-cocktail";
-          break;
-        default:
-          iconClass = "fa-glass-whiskey";
-      }
-    } else if (category === "beer") {
-      iconClass = "fa-beer-mug-empty";
-    } else if (category === "coffee") {
-      switch (subcategory) {
-        case "coffee":
-          iconClass = "fa-mug-hot";
-          break;
-        case "tea":
-          iconClass = "fa-mug-saucer";
-          break;
-        case "chocolate":
-          iconClass = "fa-mug-hot";
-          break;
-        case "soft":
-          iconClass = "fa-glass";
-          break;
-        default:
-          iconClass = "fa-mug-hot";
-      }
-    } else if (category === "food") {
-      switch (subcategory) {
-        case "snacks":
-          iconClass = "fa-burger";
-          break;
-        case "main":
-          iconClass = "fa-utensils";
-          break;
-        case "desserts":
-          iconClass = "fa-ice-cream";
-          break;
-        default:
-          iconClass = "fa-utensils";
-      }
-    } else if (category === "cocktails") {
-      switch (subcategory) {
-        case "classic":
-          iconClass = "fa-martini-glass-citrus";
-          break;
-        case "signature":
-          iconClass = "fa-cocktail";
-          break;
-        case "mocktails":
-          iconClass = "fa-glass-water";
-          break;
-        default:
-          iconClass = "fa-martini-glass";
-      }
-    }
-
-    // Create icon element
-    const icon = document.createElement("i");
-    icon.className = `fas ${iconClass}`;
-
-    // Append icon and subcategory name
-    title.appendChild(icon);
-    title.appendChild(
-      document.createTextNode(
-        AppState.getText("subcategories", category, subcategory) || subcategory
-      )
-    );
+    // Just add the text, no icon or decorative elements
+    title.textContent =
+      AppState.getText("subcategories", category, subcategory) || subcategory;
 
     header.appendChild(title);
     return header;
