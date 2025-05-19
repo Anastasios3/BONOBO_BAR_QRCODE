@@ -1,6 +1,6 @@
 /**
- * Event Controller
- * Manages all event handling
+ * Event Controller - Enhanced with improved mobile interactions
+ * Manages all event handling for the application
  */
 
 import { AppState } from "../models/AppState.js";
@@ -18,6 +18,8 @@ export const EventController = {
     this.setupFilterToggle();
     this.setupFilterSelection();
     this.setupGlobalEvents();
+    this.setupScrollNavigation();
+    this.setupBackToTop();
   },
 
   /**
@@ -30,6 +32,19 @@ export const EventController = {
       themeToggle.addEventListener("click", () => {
         const newTheme = AppState.theme === "dark" ? "light" : "dark";
         AppState.setTheme(newTheme);
+
+        // Provide haptic feedback on mobile devices if supported
+        if (window.navigator && window.navigator.vibrate) {
+          window.navigator.vibrate(50);
+        }
+      });
+
+      // Add keyboard support
+      themeToggle.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          themeToggle.click();
+        }
       });
     }
   },
@@ -53,6 +68,19 @@ export const EventController = {
             if (AppState.currentCategory) {
               this.refreshCurrentView();
             }
+
+            // Provide haptic feedback on mobile devices if supported
+            if (window.navigator && window.navigator.vibrate) {
+              window.navigator.vibrate(50);
+            }
+          }
+        });
+
+        // Add keyboard support
+        option.addEventListener("keydown", (e) => {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            option.click();
           }
         });
       });
@@ -60,12 +88,13 @@ export const EventController = {
   },
 
   /**
-   * Set up category selection events
+   * Set up category selection events with improved touch handling
    */
   setupCategorySelection() {
     const menuCategories = UIController.elements.menuCategories;
 
     if (menuCategories) {
+      // Desktop click handling
       menuCategories.addEventListener("click", (e) => {
         const categoryTab = e.target.closest(".category-tab");
 
@@ -74,9 +103,114 @@ export const EventController = {
 
           if (category && category !== AppState.currentCategory) {
             this.selectCategory(category);
+
+            // Provide haptic feedback on mobile devices if supported
+            if (window.navigator && window.navigator.vibrate) {
+              window.navigator.vibrate(50);
+            }
           }
         }
       });
+
+      // Mobile swipe gesture support for category navigation
+      this.setupCategorySwipeNavigation();
+
+      // Add keyboard navigation support
+      menuCategories.addEventListener("keydown", (e) => {
+        if (e.key === "ArrowRight" || e.key === "ArrowLeft") {
+          e.preventDefault();
+
+          const tabs = Array.from(document.querySelectorAll(".category-tab"));
+          const activeTabIndex = tabs.findIndex((tab) =>
+            tab.classList.contains("active")
+          );
+
+          if (activeTabIndex === -1) return;
+
+          let nextIndex;
+          if (e.key === "ArrowRight") {
+            nextIndex = (activeTabIndex + 1) % tabs.length;
+          } else {
+            nextIndex = (activeTabIndex - 1 + tabs.length) % tabs.length;
+          }
+
+          const nextCategory = tabs[nextIndex].dataset.category;
+          this.selectCategory(nextCategory);
+        }
+      });
+    }
+  },
+
+  /**
+   * Set up swipe navigation between categories
+   */
+  setupCategorySwipeNavigation() {
+    const menuContainer = document.querySelector(".menu-container");
+    if (!menuContainer) return;
+
+    // Variables to track touch events
+    let touchStartX = 0;
+    let touchEndX = 0;
+    const minSwipeDistance = 80; // Minimum swipe distance to trigger navigation
+
+    // Add touch event listeners
+    menuContainer.addEventListener(
+      "touchstart",
+      (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+      },
+      { passive: true }
+    );
+
+    menuContainer.addEventListener(
+      "touchend",
+      (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        this.handleCategorySwipe(touchStartX, touchEndX, minSwipeDistance);
+      },
+      { passive: true }
+    );
+  },
+
+  /**
+   * Handle category swipe gesture
+   * @param {number} startX - Touch start X position
+   * @param {number} endX - Touch end X position
+   * @param {number} minDistance - Minimum swipe distance
+   */
+  handleCategorySwipe(startX, endX, minDistance) {
+    const swipeDistance = endX - startX;
+
+    // Only process substantial swipes
+    if (Math.abs(swipeDistance) < minDistance) return;
+
+    // Get all available categories
+    const availableCategories = AppState.getAvailableCategories();
+    const currentIndex = availableCategories.indexOf(AppState.currentCategory);
+
+    if (currentIndex === -1) return;
+
+    let nextCategory;
+
+    // Swipe right to go to previous category
+    if (swipeDistance > 0 && currentIndex > 0) {
+      nextCategory = availableCategories[currentIndex - 1];
+    }
+    // Swipe left to go to next category
+    else if (
+      swipeDistance < 0 &&
+      currentIndex < availableCategories.length - 1
+    ) {
+      nextCategory = availableCategories[currentIndex + 1];
+    }
+
+    if (nextCategory) {
+      this.selectCategory(nextCategory);
+
+      // Provide haptic feedback if supported
+      if (window.navigator && window.navigator.vibrate) {
+        window.navigator.vibrate(70);
+      }
     }
   },
 
@@ -89,6 +223,19 @@ export const EventController = {
     if (filterToggle) {
       filterToggle.addEventListener("click", () => {
         UIController.toggleFilterPanel();
+
+        // Provide haptic feedback on mobile devices if supported
+        if (window.navigator && window.navigator.vibrate) {
+          window.navigator.vibrate(30);
+        }
+      });
+
+      // Add keyboard support
+      filterToggle.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          filterToggle.click();
+        }
       });
     }
   },
@@ -109,10 +256,116 @@ export const EventController = {
 
           if (newFilter !== AppState.currentFilter) {
             this.selectFilter(newFilter);
+
+            // Provide haptic feedback on mobile devices if supported
+            if (window.navigator && window.navigator.vibrate) {
+              window.navigator.vibrate(30);
+            }
+          }
+        }
+      });
+
+      // Add keyboard support for filter chips
+      subcategoryFilters.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          const filterChip = e.target.closest(".filter-chip");
+          if (filterChip) {
+            e.preventDefault();
+            filterChip.click();
           }
         }
       });
     }
+  },
+
+  /**
+   * Set up back to top button
+   */
+  setupBackToTop() {
+    const backToTopBtn = document.querySelector(".back-to-top");
+
+    if (!backToTopBtn) {
+      // Create back to top button if it doesn't exist
+      this.createBackToTopButton();
+      return;
+    }
+
+    // Show/hide button based on scroll position
+    window.addEventListener(
+      "scroll",
+      debounce(() => {
+        const scrollPosition =
+          window.scrollY || document.documentElement.scrollTop;
+
+        if (scrollPosition > 300) {
+          backToTopBtn.classList.add("visible");
+        } else {
+          backToTopBtn.classList.remove("visible");
+        }
+      }, 100)
+    );
+
+    // Scroll to top when clicked
+    backToTopBtn.addEventListener("click", () => {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+
+      // Provide haptic feedback on mobile devices if supported
+      if (window.navigator && window.navigator.vibrate) {
+        window.navigator.vibrate(30);
+      }
+    });
+  },
+
+  /**
+   * Create back to top button if it doesn't exist
+   */
+  createBackToTopButton() {
+    const backToTopBtn = document.createElement("button");
+    backToTopBtn.className = "back-to-top";
+    backToTopBtn.setAttribute("aria-label", "Scroll to top");
+    backToTopBtn.innerHTML = '<i class="fas fa-arrow-up"></i>';
+
+    document.body.appendChild(backToTopBtn);
+
+    // Call setup once created
+    this.setupBackToTop();
+  },
+
+  /**
+   * Set up horizontal scrolling navigation controls
+   */
+  setupScrollNavigation() {
+    const categoryNavigation = UIController.elements.categoryNavigation;
+
+    if (!categoryNavigation) return;
+
+    // Add keyboard navigation for the category tabs
+    categoryNavigation.setAttribute("role", "tablist");
+    categoryNavigation.setAttribute("aria-label", "Menu Categories");
+
+    // Add wheel event listener for horizontal scrolling with mouse wheel
+    categoryNavigation.addEventListener(
+      "wheel",
+      (e) => {
+        if (e.deltaY !== 0) {
+          e.preventDefault();
+          categoryNavigation.scrollLeft += e.deltaY;
+          UIController.updateScrollIndicators();
+        }
+      },
+      { passive: false }
+    );
+
+    // Update scroll indicators while scrolling
+    categoryNavigation.addEventListener(
+      "scroll",
+      debounce(() => {
+        UIController.updateScrollIndicators();
+      }, 50)
+    );
   },
 
   /**
@@ -141,14 +394,20 @@ export const EventController = {
       if (e.key === "Escape") {
         UIController.toggleFilterPanel(false);
       }
+
+      // Focus trap for filter panel
+      this.handleFocusTrap(e);
     });
 
     // Handle scroll events for navigation
     const categoryNavigation = UIController.elements.categoryNavigation;
     if (categoryNavigation) {
-      categoryNavigation.addEventListener("scroll", () => {
-        UIController.updateScrollIndicators();
-      });
+      categoryNavigation.addEventListener(
+        "scroll",
+        debounce(() => {
+          UIController.updateScrollIndicators();
+        }, 100)
+      );
     }
 
     // Handle responsive adjustments
@@ -156,8 +415,124 @@ export const EventController = {
       "resize",
       debounce(() => {
         this.handleResponsiveLayout();
-      }, 250)
+      }, 200)
     );
+
+    // Handle orientation change on mobile
+    window.addEventListener(
+      "orientationchange",
+      debounce(() => {
+        this.handleOrientationChange();
+      }, 200)
+    );
+
+    // Handle network status for offline mode
+    window.addEventListener("online", () => {
+      this.handleNetworkChange(true);
+    });
+
+    window.addEventListener("offline", () => {
+      this.handleNetworkChange(false);
+    });
+
+    // Initial check for network status
+    if (navigator.onLine === false) {
+      this.handleNetworkChange(false);
+    }
+  },
+
+  /**
+   * Handle focus trap for modal elements
+   * @param {Event} e - Keyboard event
+   */
+  handleFocusTrap(e) {
+    if (e.key !== "Tab") return;
+
+    const filterPanel = UIController.elements.filterPanel;
+
+    if (filterPanel && filterPanel.classList.contains("active")) {
+      const focusableElements = filterPanel.querySelectorAll(
+        'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+      );
+
+      if (focusableElements.length === 0) return;
+
+      const firstElement = focusableElements[0];
+      const lastElement = focusableElements[focusableElements.length - 1];
+
+      // Trap focus within the panel
+      if (e.shiftKey && document.activeElement === firstElement) {
+        e.preventDefault();
+        lastElement.focus();
+      } else if (!e.shiftKey && document.activeElement === lastElement) {
+        e.preventDefault();
+        firstElement.focus();
+      }
+    }
+  },
+
+  /**
+   * Handle orientation change on mobile devices
+   */
+  handleOrientationChange() {
+    // Wait for the orientation change to complete
+    setTimeout(() => {
+      // Update scroll indicators
+      UIController.updateScrollIndicators();
+
+      // Scroll active category into view
+      this.scrollActiveCategoryIntoView();
+
+      // Refresh current view if needed
+      if (AppState.currentCategory) {
+        UIController.displayMenuItems(
+          AppState.getFilteredItems(
+            AppState.currentCategory,
+            AppState.currentFilter
+          ),
+          AppState.currentCategory
+        );
+      }
+    }, 300);
+  },
+
+  /**
+   * Handle network status change
+   * @param {boolean} isOnline - Whether the device is online
+   */
+  handleNetworkChange(isOnline) {
+    const appContainer = document.querySelector(".app-container");
+
+    if (!appContainer) return;
+
+    if (!isOnline) {
+      // Create offline notification if it doesn't exist
+      if (!document.querySelector(".offline-notification")) {
+        const notification = document.createElement("div");
+        notification.className = "offline-notification";
+        notification.textContent =
+          "You are currently offline. Some features may be limited.";
+
+        appContainer.insertBefore(notification, appContainer.firstChild);
+
+        // Animate in
+        setTimeout(() => {
+          notification.classList.add("active");
+        }, 10);
+      }
+    } else {
+      // Remove offline notification if it exists
+      const notification = document.querySelector(".offline-notification");
+
+      if (notification) {
+        notification.classList.remove("active");
+
+        // Remove from DOM after animation
+        setTimeout(() => {
+          notification.remove();
+        }, 300);
+      }
+    }
   },
 
   /**
@@ -184,6 +559,12 @@ export const EventController = {
     setTimeout(() => {
       this.scrollActiveCategoryIntoView();
     }, 100);
+
+    // Update page title for better accessibility
+    document.title = `${AppState.getText(
+      "categories",
+      category
+    )} - Bonobo Bar & More`;
   },
 
   /**
@@ -203,6 +584,19 @@ export const EventController = {
     // Get and display filtered items
     const items = AppState.getFilteredItems(AppState.currentCategory, filter);
     UIController.displayMenuItems(items, AppState.currentCategory);
+
+    // Update page title for better accessibility
+    const categoryText = AppState.getText(
+      "categories",
+      AppState.currentCategory
+    );
+    const filterText = filter
+      ? AppState.getText("subcategories", AppState.currentCategory, filter)
+      : null;
+
+    document.title = filterText
+      ? `${filterText} - ${categoryText} - Bonobo Bar & More`
+      : `${categoryText} - Bonobo Bar & More`;
   },
 
   /**
@@ -234,6 +628,16 @@ export const EventController = {
     setTimeout(() => {
       this.scrollActiveCategoryIntoView();
     }, 100);
+
+    // Update page title
+    const categoryText = AppState.getText("categories", category);
+    const filterText = filter
+      ? AppState.getText("subcategories", category, filter)
+      : null;
+
+    document.title = filterText
+      ? `${filterText} - ${categoryText} - Bonobo Bar & More`
+      : `${categoryText} - Bonobo Bar & More`;
   },
 
   /**
@@ -245,6 +649,14 @@ export const EventController = {
 
     // Scroll active tab into view if needed
     this.scrollActiveCategoryIntoView();
+
+    // Check if we need to switch between mobile and desktop view
+    const isMobileWidth = window.innerWidth <= 575;
+    const appContainer = document.querySelector(".app-container");
+
+    if (appContainer) {
+      appContainer.classList.toggle("mobile-view", isMobileWidth);
+    }
   },
 
   /**
@@ -255,21 +667,10 @@ export const EventController = {
     const nav = UIController.elements.categoryNavigation;
 
     if (activeTab && nav) {
-      // Calculate tab position relative to navigation
-      const tabLeft = activeTab.offsetLeft;
-      const tabRight = tabLeft + activeTab.offsetWidth;
-      const navLeft = nav.scrollLeft;
-      const navRight = navLeft + nav.clientWidth;
-
-      // If tab is not fully visible, scroll to center it
-      if (tabLeft < navLeft || tabRight > navRight) {
-        const targetScroll =
-          tabLeft - nav.clientWidth / 2 + activeTab.offsetWidth / 2;
-        nav.scrollTo({
-          left: targetScroll,
-          behavior: "smooth",
-        });
-      }
+      // Use the UIController method to center the active tab
+      setTimeout(() => {
+        UIController.snapToNearestCategory();
+      }, 50);
     }
   },
 };

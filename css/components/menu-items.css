@@ -1,5 +1,5 @@
 /*--------------------------------------------------------------
-# Menu Items Grid - Enhanced for mobile
+# Menu Items Grid - Enhanced with optimized mobile responsiveness
 --------------------------------------------------------------*/
 .menu-items-grid {
   display: grid;
@@ -20,11 +20,27 @@
   border: 1px solid var(--border-color);
   animation: slideIn var(--transition-normal);
   position: relative;
+  will-change: transform; /* Optimize animations */
+  transform: translateZ(0); /* Force GPU acceleration */
 }
 
 .menu-item:hover {
   transform: translateY(-4px);
   box-shadow: var(--shadow-md);
+}
+
+/* Remove hover effect on touch devices */
+@media (hover: none) {
+  .menu-item:hover {
+    transform: none;
+    box-shadow: var(--shadow-sm);
+  }
+
+  /* Add active/tap state for mobile */
+  .menu-item:active {
+    background-color: var(--bg-tertiary);
+    transform: scale(0.98);
+  }
 }
 
 .menu-details {
@@ -104,6 +120,7 @@
   color: white;
   background-color: var(--accent-color);
   z-index: 1;
+  transform: translateZ(0); /* Force GPU acceleration */
 }
 
 /* Empty state styling */
@@ -111,11 +128,11 @@
   text-align: center;
   padding: var(--space-2xl) var(--space-md);
   display: none; /* Hidden by default, shown via JS */
+  animation: fadeIn var(--transition-normal);
 }
 
 .empty-state.active {
   display: block;
-  animation: fadeIn var(--transition-normal);
 }
 
 .empty-icon {
@@ -165,85 +182,7 @@
   }
 }
 
-/* Responsive adjustments */
-@media (max-width: 991px) {
-  .menu-items-grid {
-    gap: var(--space-md);
-  }
-
-  .menu-item-name {
-    font-size: var(--font-size-md);
-  }
-}
-
-@media (max-width: 767px) {
-  .menu-items-grid {
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  }
-
-  .menu-pricing {
-    padding: var(--space-sm) var(--space-md);
-  }
-
-  .menu-details {
-    padding: var(--space-md);
-  }
-}
-
-@media (max-width: 575px) {
-  .menu-items-grid {
-    grid-template-columns: 1fr;
-    gap: var(--space-md);
-  }
-
-  .menu-item {
-    flex-direction: row;
-    flex-wrap: wrap;
-    border-radius: var(--radius-sm);
-  }
-
-  .menu-details {
-    padding: var(--space-md);
-    flex: 1;
-    min-width: 60%;
-  }
-
-  .menu-pricing {
-    border-top: none;
-    border-left: 1px solid var(--border-color);
-    padding: var(--space-md);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: auto;
-  }
-
-  .price-dual {
-    flex-direction: column;
-    gap: var(--space-2xs);
-    align-items: center;
-  }
-}
-
-@media (max-width: 380px) {
-  .menu-item {
-    flex-direction: column;
-  }
-
-  .menu-pricing {
-    width: 100%;
-    border-left: none;
-    border-top: 1px solid var(--border-color);
-  }
-
-  .price-dual {
-    flex-direction: row;
-    justify-content: space-between;
-    width: 100%;
-  }
-}
-
-/* UPDATED SUBCATEGORY HEADERS - Elegant centered calligraphic style */
+/* UPDATED SUBCATEGORY HEADERS - Enhanced mobile styling */
 .subcategory-header {
   width: 100%;
   grid-column: 1 / -1; /* Span all columns */
@@ -272,7 +211,7 @@
   font-style: italic;
 }
 
-/* Decorative elements instead of bottom border */
+/* Decorative elements with enhanced animation */
 .subcategory-title::before,
 .subcategory-title::after {
   content: "~";
@@ -281,6 +220,15 @@
   color: var(--accent-color);
   font-family: "Times New Roman", serif;
   font-size: 1.2em;
+  transition: all var(--transition-normal);
+}
+
+.subcategory-header:hover .subcategory-title::before {
+  transform: translateX(-4px);
+}
+
+.subcategory-header:hover .subcategory-title::after {
+  transform: translateX(4px);
 }
 
 /* Icon styling */
@@ -290,29 +238,128 @@
   margin-right: var(--space-xs);
 }
 
-/* Responsive adjustments for subcategory headers */
+/* Responsive adjustments */
+@media (max-width: 991px) {
+  .menu-items-grid {
+    gap: var(--space-md);
+  }
+
+  .menu-item-name {
+    font-size: var(--font-size-md);
+  }
+
+  .menu-details {
+    padding: var(--space-md);
+  }
+
+  .menu-pricing {
+    padding: var(--space-sm) var(--space-md);
+  }
+}
+
 @media (max-width: 767px) {
+  .menu-items-grid {
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    gap: var(--space-sm);
+  }
+
   .subcategory-header {
     margin: var(--space-lg) 0 var(--space-md);
   }
 
   .subcategory-title {
     font-size: var(--font-size-xl);
+    padding: 0 var(--space-md);
   }
 }
 
+/* Optimized mobile layout - horizontal card design */
 @media (max-width: 575px) {
+  .menu-items-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-sm);
+  }
+
+  .menu-item {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-areas: "details pricing";
+    border-radius: var(--radius-sm);
+  }
+
+  .menu-details {
+    padding: var(--space-md);
+    grid-area: details;
+  }
+
+  .menu-pricing {
+    grid-area: pricing;
+    border-top: none;
+    border-left: 1px solid var(--border-color);
+    padding: var(--space-sm);
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 100px; /* Ensure pricing area has enough width */
+  }
+
+  .price-dual {
+    flex-direction: column;
+    gap: var(--space-2xs);
+    align-items: center;
+    justify-content: center;
+  }
+
   .subcategory-header {
     margin: var(--space-md) 0 var(--space-sm);
   }
 
   .subcategory-title {
     font-size: var(--font-size-lg);
-    padding: 0 var(--space-md);
+    padding: 0 var(--space-sm);
   }
 
   .subcategory-title::before,
   .subcategory-title::after {
     margin: 0 var(--space-xs);
+  }
+
+  .menu-item-description {
+    -webkit-line-clamp: 2; /* Show fewer lines on mobile */
+    line-clamp: 2;
+    margin-bottom: var(--space-xs);
+  }
+
+  .menu-item-name {
+    margin-bottom: var(--space-2xs);
+  }
+}
+
+/* Ultra-compact layout for very small screens */
+@media (max-width: 380px) {
+  .menu-pricing {
+    min-width: 80px;
+    padding: var(--space-xs);
+  }
+
+  .price-amount {
+    font-size: var(--font-size-sm);
+  }
+
+  .price-label {
+    font-size: 10px;
+  }
+
+  .menu-details {
+    padding: var(--space-sm);
+  }
+
+  .subcategory-title {
+    font-size: var(--font-size-md);
+  }
+
+  .subcategory-title i {
+    font-size: var(--font-size-md);
   }
 }
