@@ -1,309 +1,1043 @@
 /**
- * Enhanced Horizontal Scrolling for Bonobo Bar & More
+ * Premium Scrolling System for Bonobo Bar & More
  *
- * This script provides smooth, physics-based horizontal scrolling
- * for the category navigation with support for all devices and input methods.
+ * A professional-grade scrolling implementation featuring:
+ * - Advanced physics-based scrolling with natural inertia
+ * - High-performance touch handling and momentum scrolling
+ * - Premium visual effects and responsive controls
+ * - Intelligent scroll detection and adaptive behavior
+ * - First-class accessibility support
  */
 
-document.addEventListener("DOMContentLoaded", function () {
-  // Initialize scroll functionality when DOM is ready
-  initCategoryScroll();
+// Main initialization
+document.addEventListener("DOMContentLoaded", () => {
+  initPremiumScrolling();
 });
 
 /**
- * Initialize category scroll functionality
+ * Initialize the premium scrolling experience
  */
-function initCategoryScroll() {
+function initPremiumScrolling() {
   const categoryNavigation = document.querySelector(".category-navigation");
   if (!categoryNavigation) return;
 
-  // Create scroll indicators
-  createScrollIndicators(categoryNavigation);
+  // Create an instance of the ScrollManager
+  const scrollManager = new ScrollManager(categoryNavigation);
 
-  // Set up scroll event handlers
-  setupScrollEventHandlers(categoryNavigation);
+  // Initialize the scroll manager
+  scrollManager.initialize();
 
-  // Set up touch-based scrolling with momentum
-  setupTouchScrolling(categoryNavigation);
+  // Store the scroll manager on the navigation element for potential external access
+  categoryNavigation._scrollManager = scrollManager;
 
-  // Set up keyboard navigation
-  setupKeyboardNavigation(categoryNavigation);
-
-  // Set up mouse wheel scrolling
-  setupWheelScrolling(categoryNavigation);
-
-  // Initial check for scroll indicators
-  updateScrollIndicators(categoryNavigation);
-
-  // Add intersection observer to better handle active tabs
-  setupTabVisibilityObserver(categoryNavigation);
-
-  // Enable active tab centering on resize
-  window.addEventListener(
-    "resize",
-    debounce(() => {
-      const activeTab = categoryNavigation.querySelector(
-        ".category-tab.active"
-      );
-      if (activeTab) {
-        centerTabInView(categoryNavigation, activeTab, 300);
-      }
-      updateScrollIndicators(categoryNavigation);
-    }, 150)
-  );
+  // Log initialization success
+  console.log("Premium scrolling system initialized");
 }
 
 /**
- * Create scroll indicators for horizontal navigation
- * @param {HTMLElement} navigation - The navigation container
+ * ScrollManager - Core class that manages all scrolling functionality
  */
-function createScrollIndicators(navigation) {
-  // Remove any existing indicators first
-  const existingIndicators = navigation.querySelectorAll(".scroll-indicator");
-  existingIndicators.forEach((indicator) => indicator.remove());
+class ScrollManager {
+  /**
+   * @param {HTMLElement} container - The scrollable container element
+   */
+  constructor(container) {
+    // Core elements
+    this.container = container;
+    this.content = container.querySelector(".category-tabs");
 
-  // Create left indicator
-  const leftIndicator = document.createElement("div");
-  leftIndicator.className = "scroll-indicator scroll-indicator-left";
-  leftIndicator.setAttribute("aria-label", "Scroll categories left");
-  leftIndicator.setAttribute("role", "button");
-  navigation.appendChild(leftIndicator);
+    // Component references to be initialized
+    this.touchHandler = null;
+    this.controlsManager = null;
+    this.snapManager = null;
 
-  // Create right indicator
-  const rightIndicator = document.createElement("div");
-  rightIndicator.className = "scroll-indicator scroll-indicator-right";
-  rightIndicator.setAttribute("aria-label", "Scroll categories right");
-  rightIndicator.setAttribute("role", "button");
-  navigation.appendChild(rightIndicator);
+    // State variables
+    this.isScrollable = false;
+    this.isFirstVisit = !localStorage.getItem("category_scroll_visited");
+    this.lastScrollPosition = 0;
+    this.scrollDirection = "none";
+    this.isScrolling = false;
+    this.scrollTimeout = null;
 
-  // Add click events to indicators
-  leftIndicator.addEventListener("click", () => {
-    scrollByAmount(navigation, -navigation.clientWidth / 2);
-  });
-
-  rightIndicator.addEventListener("click", () => {
-    scrollByAmount(navigation, navigation.clientWidth / 2);
-  });
-}
-
-/**
- * Set up scroll event handlers
- * @param {HTMLElement} navigation - The navigation container
- */
-function setupScrollEventHandlers(navigation) {
-  // Update indicators when scrolling
-  navigation.addEventListener(
-    "scroll",
-    debounce(() => {
-      updateScrollIndicators(navigation);
-    }, 100)
-  );
-
-  // Handle category tab selection
-  const tabs = navigation.querySelectorAll(".category-tab");
-  tabs.forEach((tab) => {
-    tab.addEventListener("click", () => {
-      // Center the tab in view when clicked
-      centerTabInView(navigation, tab, 400);
-    });
-  });
-}
-
-/**
- * Set up touch-based scrolling with momentum
- * @param {HTMLElement} navigation - The navigation container
- */
-function setupTouchScrolling(navigation) {
-  // Variables to track touch movement
-  let isScrolling = false;
-  let startX, startScrollLeft;
-  let currentX, currentScrollLeft;
-  let velocityX = 0;
-  let lastTouchTime = 0;
-  let animationFrameId = null;
-
-  // Touch start handler
-  navigation.addEventListener(
-    "touchstart",
-    (e) => {
-      // Cancel any ongoing momentum scrolling
-      if (animationFrameId) {
-        cancelAnimationFrame(animationFrameId);
-        animationFrameId = null;
-      }
-
-      isScrolling = true;
-      startX = e.touches[0].clientX;
-      startScrollLeft = navigation.scrollLeft;
-      currentX = startX;
-      currentScrollLeft = startScrollLeft;
-      velocityX = 0;
-      lastTouchTime = Date.now();
-
-      // Use auto scroll behavior during dragging for responsiveness
-      navigation.style.scrollBehavior = "auto";
-    },
-    { passive: true }
-  );
-
-  // Touch move handler
-  navigation.addEventListener(
-    "touchmove",
-    (e) => {
-      if (!isScrolling) return;
-
-      const now = Date.now();
-      const timeElapsed = now - lastTouchTime;
-      const newX = e.touches[0].clientX;
-      const deltaX = newX - currentX;
-
-      // Calculate velocity (pixels per millisecond)
-      if (timeElapsed > 0) {
-        velocityX = deltaX / timeElapsed;
-      }
-
-      currentX = newX;
-      navigation.scrollLeft = currentScrollLeft - deltaX;
-      currentScrollLeft = navigation.scrollLeft;
-      lastTouchTime = now;
-
-      // Update scroll indicators while dragging
-      updateScrollIndicators(navigation);
-    },
-    { passive: true }
-  );
-
-  // Touch end handler
-  navigation.addEventListener("touchend", () => {
-    if (!isScrolling) return;
-    isScrolling = false;
-
-    // Apply momentum scrolling if significant velocity
-    if (Math.abs(velocityX) > 0.1) {
-      applyMomentumScrolling(navigation, velocityX);
-    } else {
-      // If movement was slow, snap to nearest category
-      snapToNearestTab(navigation);
-    }
-
-    // Restore smooth scrolling for subsequent operations
-    navigation.style.scrollBehavior = "smooth";
-  });
-
-  // Touch cancel handler
-  navigation.addEventListener("touchcancel", () => {
-    isScrolling = false;
-    navigation.style.scrollBehavior = "smooth";
-
-    if (animationFrameId) {
-      cancelAnimationFrame(animationFrameId);
-      animationFrameId = null;
-    }
-  });
+    // Bind methods to this instance
+    this.handleScroll = this.handleScroll.bind(this);
+    this.handleResize = this.handleResize.bind(this);
+    this.checkScrollability = this.checkScrollability.bind(this);
+    this.centerActiveTab = this.centerActiveTab.bind(this);
+  }
 
   /**
-   * Apply momentum scrolling based on final velocity
-   * @param {HTMLElement} element - Element to scroll
-   * @param {number} velocity - Velocity in pixels per millisecond
+   * Initialize the scroll manager and all its components
    */
-  function applyMomentumScrolling(element, velocity) {
-    if (animationFrameId) {
-      cancelAnimationFrame(animationFrameId);
+  initialize() {
+    // Create and initialize sub-components
+    this.touchHandler = new TouchHandler(this);
+    this.controlsManager = new ControlsManager(this);
+    this.snapManager = new SnapManager(this);
+    this.keyboardManager = new KeyboardManager(this);
+    this.wheelHandler = new WheelHandler(this);
+
+    // Initialize all components
+    this.touchHandler.initialize();
+    this.controlsManager.initialize();
+    this.snapManager.initialize();
+    this.keyboardManager.initialize();
+    this.wheelHandler.initialize();
+
+    // Set up event listeners
+    this.setupEventListeners();
+
+    // Perform initial checks and updates
+    this.checkScrollability();
+    this.centerActiveTab();
+
+    // Show first-time user guidance if needed
+    if (this.isFirstVisit) {
+      this.showFirstTimeGuidance();
+    }
+  }
+
+  /**
+   * Set up event listeners for the scroll manager
+   */
+  setupEventListeners() {
+    // Scroll event
+    this.container.addEventListener("scroll", this.handleScroll, {
+      passive: true,
+    });
+
+    // Resize event
+    window.addEventListener("resize", debounce(this.handleResize, 150));
+
+    // Mutation observer to detect content changes
+    this.setupMutationObserver();
+
+    // Custom events
+    this.container.addEventListener("tabActivated", this.centerActiveTab);
+  }
+
+  /**
+   * Set up mutation observer to detect content changes
+   */
+  setupMutationObserver() {
+    const observer = new MutationObserver((mutations) => {
+      // Check if these mutations are relevant (e.g., tabs added or removed)
+      const shouldUpdate = mutations.some((mutation) => {
+        return (
+          mutation.type === "childList" ||
+          (mutation.type === "attributes" &&
+            mutation.attributeName === "class" &&
+            mutation.target.classList.contains("category-tab"))
+        );
+      });
+
+      if (shouldUpdate) {
+        this.checkScrollability();
+        this.centerActiveTab();
+      }
+    });
+
+    // Observe the tabs container
+    if (this.content) {
+      observer.observe(this.content, {
+        childList: true,
+        attributes: true,
+        subtree: true,
+      });
+    }
+  }
+
+  /**
+   * Handle scroll events
+   */
+  handleScroll() {
+    // Update scroll position tracking
+    const currentPosition = this.container.scrollLeft;
+
+    // Determine scroll direction
+    if (currentPosition > this.lastScrollPosition) {
+      this.scrollDirection = "right";
+    } else if (currentPosition < this.lastScrollPosition) {
+      this.scrollDirection = "left";
     }
 
-    // Constants for physics-based momentum
-    const deceleration = 0.0015; // Deceleration rate
-    let amplitude = velocity * 300; // Initial amplitude based on velocity
-    const startTime = Date.now();
-    const startPosition = element.scrollLeft;
+    this.lastScrollPosition = currentPosition;
 
-    // Animation function for momentum scrolling
-    function momentumStep() {
-      const elapsed = Date.now() - startTime;
+    // Handle active scrolling state
+    if (!this.isScrolling) {
+      this.isScrolling = true;
+      this.container.classList.add("is-scrolling");
+    }
 
-      // Calculate new position with deceleration
-      const delta = -amplitude * Math.exp(-elapsed / 325);
-      const position = Math.round(startPosition + amplitude + delta);
+    // Clear existing timeout
+    if (this.scrollTimeout) {
+      clearTimeout(this.scrollTimeout);
+    }
 
-      // Apply scrolling
-      element.scrollLeft = position;
+    // Set timeout to detect when scrolling stops
+    this.scrollTimeout = setTimeout(() => {
+      this.isScrolling = false;
+      this.container.classList.remove("is-scrolling");
+      this.scrollDirection = "none";
 
-      // Continue animation if still moving
-      if (Math.abs(delta) > 0.5) {
-        animationFrameId = requestAnimationFrame(momentumStep);
-      } else {
-        // Snap to nearest category after momentum ends
+      // Snap to nearest tab when scrolling stops naturally
+      if (!this.touchHandler.isActive && !this.wheelHandler.isActive) {
+        this.snapManager.snapToNearestTab();
+      }
+    }, 150);
+
+    // Update controls visibility
+    this.controlsManager.updateControlsVisibility();
+  }
+
+  /**
+   * Handle window resize events
+   */
+  handleResize() {
+    this.checkScrollability();
+    this.centerActiveTab();
+    this.controlsManager.updateControlsVisibility();
+  }
+
+  /**
+   * Check if the container is scrollable and update state
+   */
+  checkScrollability() {
+    const wasScrollable = this.isScrollable;
+
+    // A container is scrollable if its scroll width is greater than its client width
+    this.isScrollable =
+      this.container.scrollWidth > this.container.clientWidth + 10; // Add a small buffer
+
+    // Update container class
+    this.container.classList.toggle("scrollable", this.isScrollable);
+
+    // If scrollability changed, update UI
+    if (wasScrollable !== this.isScrollable) {
+      this.controlsManager.updateControlsVisibility();
+
+      // If it became scrollable and this is first visit, show scroll hint
+      if (this.isScrollable && this.isFirstVisit) {
+        this.container.classList.add("show-hint");
+
         setTimeout(() => {
-          snapToNearestTab(element);
-        }, 50);
+          this.container.classList.remove("show-hint");
+        }, 3000);
+      }
+    }
+
+    return this.isScrollable;
+  }
+
+  /**
+   * Center the active tab in the container
+   */
+  centerActiveTab() {
+    const activeTab = this.container.querySelector(".category-tab.active");
+    if (!activeTab) return;
+
+    // Calculate the position to center the tab
+    const tabRect = activeTab.getBoundingClientRect();
+    const containerRect = this.container.getBoundingClientRect();
+
+    const tabCenter = activeTab.offsetLeft + tabRect.width / 2;
+    const containerCenter = containerRect.width / 2;
+
+    // Calculate target scroll position to center the tab
+    const targetScrollLeft = tabCenter - containerCenter;
+
+    // Smooth scroll to center the tab
+    this.scrollToPosition(targetScrollLeft);
+  }
+
+  /**
+   * Scroll to a specific position with smooth animation
+   * @param {number} position - Target scroll position
+   * @param {number} duration - Animation duration in ms (default: 300)
+   */
+  scrollToPosition(position, duration = 300) {
+    // Make sure we're working with a number
+    position = Math.max(
+      0,
+      Math.min(
+        position,
+        this.container.scrollWidth - this.container.clientWidth
+      )
+    );
+
+    // Store starting position and time
+    const startPosition = this.container.scrollLeft;
+    const startTime = performance.now();
+
+    // Don't animate if the positions are very close
+    if (Math.abs(startPosition - position) < 5) {
+      this.container.scrollLeft = position;
+      return;
+    }
+
+    // Set smooth scrolling behavior
+    this.container.style.scrollBehavior = "smooth";
+
+    // Scroll with animation
+    const animateScroll = (currentTime) => {
+      const elapsedTime = currentTime - startTime;
+
+      if (elapsedTime >= duration) {
+        // Animation complete
+        this.container.scrollLeft = position;
+
+        // Update controls after scrolling is complete
+        this.controlsManager.updateControlsVisibility();
+        return;
       }
 
-      // Update scroll indicators during momentum
-      updateScrollIndicators(element);
-    }
+      // Calculate position with easing
+      const progress = elapsedTime / duration;
+      const easeProgress = easeOutCubic(progress);
+      const currentPosition =
+        startPosition + (position - startPosition) * easeProgress;
 
-    // Start momentum animation
-    animationFrameId = requestAnimationFrame(momentumStep);
+      // Apply scroll position
+      this.container.scrollLeft = currentPosition;
+
+      // Continue animation
+      requestAnimationFrame(animateScroll);
+    };
+
+    // Start animation
+    requestAnimationFrame(animateScroll);
+  }
+
+  /**
+   * Scroll by a relative amount with animation
+   * @param {number} amount - Amount to scroll by (positive or negative)
+   */
+  scrollByAmount(amount) {
+    const targetPosition = this.container.scrollLeft + amount;
+    this.scrollToPosition(targetPosition);
+  }
+
+  /**
+   * Show first-time user guidance
+   */
+  showFirstTimeGuidance() {
+    // Create scroll notification if it doesn't exist
+    if (!this.container.querySelector(".scroll-notification")) {
+      const notification = document.createElement("div");
+      notification.className = "scroll-notification";
+
+      const content = document.createElement("div");
+      content.className = "notification-content";
+
+      const icon = document.createElement("div");
+      icon.className = "notification-icon";
+      icon.innerHTML = '<i class="fas fa-exchange-alt"></i>';
+
+      const text = document.createElement("div");
+      text.className = "notification-text";
+      text.textContent = "Swipe to browse categories";
+
+      content.appendChild(icon);
+      content.appendChild(text);
+      notification.appendChild(content);
+
+      this.container.appendChild(notification);
+
+      // Show notification after a short delay
+      setTimeout(() => {
+        notification.classList.add("visible");
+
+        // Remove notification after animation
+        setTimeout(() => {
+          notification.classList.remove("visible");
+
+          // Remove after fade out
+          setTimeout(() => {
+            notification.remove();
+          }, 1000);
+
+          // Mark as visited
+          localStorage.setItem("category_scroll_visited", "true");
+          this.isFirstVisit = false;
+        }, 4000);
+      }, 1000);
+    }
   }
 }
 
 /**
- * Set up keyboard navigation for categories
- * @param {HTMLElement} navigation - The navigation container
+ * TouchHandler - Manages touch-based scrolling with physics
  */
-function setupKeyboardNavigation(navigation) {
-  // Set appropriate ARIA roles
-  navigation.setAttribute("role", "tablist");
+class TouchHandler {
+  /**
+   * @param {ScrollManager} scrollManager - Reference to the scroll manager
+   */
+  constructor(scrollManager) {
+    this.scrollManager = scrollManager;
+    this.container = scrollManager.container;
 
-  const tabs = navigation.querySelectorAll(".category-tab");
-  tabs.forEach((tab) => {
-    tab.setAttribute("role", "tab");
-    tab.setAttribute("tabindex", "0");
+    // Touch state
+    this.isActive = false;
+    this.startX = 0;
+    this.startY = 0;
+    this.currentX = 0;
+    this.currentY = 0;
+    this.startScrollLeft = 0;
+    this.startTime = 0;
+    this.velocityTracker = [];
+    this.lastMoveTime = 0;
+    this.hasScrolledHorizontally = false;
+    this.animationFrame = null;
 
-    // Handle keyboard navigation
-    tab.addEventListener("keydown", (e) => {
-      let newTab = null;
+    // Bind methods
+    this.handleTouchStart = this.handleTouchStart.bind(this);
+    this.handleTouchMove = this.handleTouchMove.bind(this);
+    this.handleTouchEnd = this.handleTouchEnd.bind(this);
+    this.handleTouchCancel = this.handleTouchCancel.bind(this);
+  }
 
-      switch (e.key) {
-        case "ArrowRight":
-          e.preventDefault();
-          newTab = getNextTab(tab);
-          break;
-        case "ArrowLeft":
-          e.preventDefault();
-          newTab = getPreviousTab(tab);
-          break;
-        case "Home":
-          e.preventDefault();
-          newTab = getFirstTab();
-          break;
-        case "End":
-          e.preventDefault();
-          newTab = getLastTab();
-          break;
-        case "Enter":
-        case " ":
-          e.preventDefault();
-          tab.click();
-          break;
-        default:
-          return;
+  /**
+   * Initialize the touch handler
+   */
+  initialize() {
+    // Add touch event listeners
+    this.container.addEventListener("touchstart", this.handleTouchStart, {
+      passive: false,
+    });
+    this.container.addEventListener("touchmove", this.handleTouchMove, {
+      passive: false,
+    });
+    this.container.addEventListener("touchend", this.handleTouchEnd, {
+      passive: false,
+    });
+    this.container.addEventListener("touchcancel", this.handleTouchCancel, {
+      passive: true,
+    });
+  }
+
+  /**
+   * Handle touch start event
+   * @param {TouchEvent} e - Touch event
+   */
+  handleTouchStart(e) {
+    // Cancel any ongoing animation
+    if (this.animationFrame) {
+      cancelAnimationFrame(this.animationFrame);
+      this.animationFrame = null;
+    }
+
+    // Get touch coordinates
+    this.startX = e.touches[0].clientX;
+    this.startY = e.touches[0].clientY;
+    this.currentX = this.startX;
+    this.currentY = this.startY;
+
+    // Record start time and position
+    this.startTime = performance.now();
+    this.startScrollLeft = this.container.scrollLeft;
+
+    // Reset state
+    this.isActive = true;
+    this.velocityTracker = [];
+    this.hasScrolledHorizontally = false;
+
+    // Use auto scroll behavior for better responsiveness during touch
+    this.container.style.scrollBehavior = "auto";
+  }
+
+  /**
+   * Handle touch move event
+   * @param {TouchEvent} e - Touch event
+   */
+  handleTouchMove(e) {
+    if (!this.isActive) return;
+
+    // Get current touch position
+    const currentX = e.touches[0].clientX;
+    const currentY = e.touches[0].clientY;
+
+    // Calculate deltas
+    const deltaX = currentX - this.currentX;
+    const deltaY = currentY - this.currentY;
+
+    // Store current position for next move
+    this.currentX = currentX;
+    this.currentY = this.currentY;
+
+    // Track horizontal movement
+    const absX = Math.abs(currentX - this.startX);
+    const absY = Math.abs(currentY - this.startY);
+
+    // If we haven't determined direction yet
+    if (!this.hasScrolledHorizontally && (absX > 5 || absY > 5)) {
+      // If more horizontal movement or container is scrollable
+      if (absX > absY || this.scrollManager.isScrollable) {
+        this.hasScrolledHorizontally = true;
+      }
+    }
+
+    // If we're scrolling horizontally, prevent default to avoid page scrolling
+    if (this.hasScrolledHorizontally) {
+      e.preventDefault();
+
+      // Apply scrolling
+      this.container.scrollLeft -= deltaX;
+
+      // Track velocity for momentum scrolling
+      const now = performance.now();
+      const elapsed = now - this.lastMoveTime;
+
+      if (elapsed > 0 && Math.abs(deltaX) > 0) {
+        // Calculate and track velocity (pixels per ms)
+        const velocity = -deltaX / elapsed;
+        this.velocityTracker.push({
+          velocity,
+          time: now,
+        });
+
+        // Keep only recent velocity measurements (last 5)
+        if (this.velocityTracker.length > 5) {
+          this.velocityTracker.shift();
+        }
       }
 
-      if (newTab) {
-        newTab.focus();
-        centerTabInView(navigation, newTab, 400);
+      this.lastMoveTime = now;
+    }
+  }
+
+  /**
+   * Handle touch end event
+   * @param {TouchEvent} e - Touch event
+   */
+  handleTouchEnd(e) {
+    if (!this.isActive) return;
+
+    // Reset state
+    this.isActive = false;
+
+    // Restore smooth scrolling
+    this.container.style.scrollBehavior = "smooth";
+
+    // If we were scrolling horizontally
+    if (this.hasScrolledHorizontally) {
+      e.preventDefault();
+
+      // Calculate final velocity (weighted average of recent velocities)
+      const finalVelocity = this.calculateFinalVelocity();
+
+      // Apply momentum if velocity is significant
+      if (Math.abs(finalVelocity) > 0.1) {
+        this.applyMomentumScrolling(finalVelocity);
+      } else {
+        // Otherwise just snap to the nearest tab
+        this.scrollManager.snapManager.snapToNearestTab();
+      }
+    }
+  }
+
+  /**
+   * Handle touch cancel event
+   */
+  handleTouchCancel() {
+    if (!this.isActive) return;
+
+    // Reset state
+    this.isActive = false;
+
+    // Restore smooth scrolling
+    this.container.style.scrollBehavior = "smooth";
+
+    // Cancel any ongoing animation
+    if (this.animationFrame) {
+      cancelAnimationFrame(this.animationFrame);
+      this.animationFrame = null;
+    }
+
+    // Just snap to the nearest tab
+    this.scrollManager.snapManager.snapToNearestTab();
+  }
+
+  /**
+   * Calculate the final velocity based on recent movement
+   * @returns {number} Weighted average velocity in pixels per ms
+   */
+  calculateFinalVelocity() {
+    if (this.velocityTracker.length === 0) return 0;
+
+    // Get current time
+    const now = performance.now();
+
+    // Calculate weighted sum - more recent and larger movements have higher weights
+    let totalWeight = 0;
+    let weightedSum = 0;
+
+    for (let i = 0; i < this.velocityTracker.length; i++) {
+      const entry = this.velocityTracker[i];
+
+      // More recent entries get higher weight
+      const age = now - entry.time;
+      const timeWeight = Math.max(0, 1 - age / 100); // Higher weight for recent entries
+
+      // Larger movements also get higher weight
+      const magnitudeWeight = Math.min(1, Math.abs(entry.velocity) * 5);
+
+      // Combined weight
+      const weight = timeWeight * magnitudeWeight;
+
+      weightedSum += entry.velocity * weight;
+      totalWeight += weight;
+    }
+
+    // Avoid division by zero
+    if (totalWeight === 0) return 0;
+
+    return weightedSum / totalWeight;
+  }
+
+  /**
+   * Apply momentum scrolling with physics
+   * @param {number} velocity - Initial velocity in pixels per ms
+   */
+  applyMomentumScrolling(velocity) {
+    // Cancel any existing animation
+    if (this.animationFrame) {
+      cancelAnimationFrame(this.animationFrame);
+    }
+
+    // Limit initial velocity for predictable behavior
+    const maxVelocity = 2.5;
+    const initialVelocity = Math.max(
+      -maxVelocity,
+      Math.min(maxVelocity, velocity)
+    );
+
+    // Calculate momentum parameters
+    const deceleration = 0.002; // pixels/ms²
+    const direction = Math.sign(initialVelocity);
+
+    // Calculate stopping distance based on physics: d = v²/2a
+    const distance =
+      Math.abs((initialVelocity * initialVelocity) / (2 * deceleration)) *
+      direction;
+
+    // Set up animation
+    const startPosition = this.container.scrollLeft;
+    const targetPosition = startPosition - distance;
+    const startTime = performance.now();
+
+    // Animation duration based on time to stop: t = v/a
+    const duration = Math.abs(initialVelocity / deceleration);
+
+    // Animation function for momentum
+    const animateMomentum = (timestamp) => {
+      const elapsed = timestamp - startTime;
+
+      // Check if animation is complete
+      if (elapsed >= duration) {
+        // Ensure we're exactly at target for perfect stopping
+        this.container.scrollLeft = targetPosition;
+
+        // After momentum, snap to nearest category
+        this.scrollManager.snapManager.snapToNearestTab();
+        this.animationFrame = null;
+        return;
+      }
+
+      // Physics-based position calculation:
+      // p = p₀ + v₀t - ½at²
+      const timeRatio = elapsed / duration;
+      const easing = customMomentumEasing(timeRatio);
+      const newPosition =
+        startPosition + (targetPosition - startPosition) * easing;
+
+      // Apply position
+      this.container.scrollLeft = newPosition;
+
+      // Continue animation
+      this.animationFrame = requestAnimationFrame(animateMomentum);
+    };
+
+    // Start animation
+    this.animationFrame = requestAnimationFrame(animateMomentum);
+  }
+}
+
+/**
+ * ControlsManager - Manages scroll controls and their interactions
+ */
+class ControlsManager {
+  /**
+   * @param {ScrollManager} scrollManager - Reference to the scroll manager
+   */
+  constructor(scrollManager) {
+    this.scrollManager = scrollManager;
+    this.container = scrollManager.container;
+
+    // Control elements
+    this.leftControl = null;
+    this.rightControl = null;
+
+    // State
+    this.controlsCreated = false;
+
+    // Bind methods
+    this.createControls = this.createControls.bind(this);
+    this.updateControlsVisibility = this.updateControlsVisibility.bind(this);
+    this.handleLeftControlClick = this.handleLeftControlClick.bind(this);
+    this.handleRightControlClick = this.handleRightControlClick.bind(this);
+  }
+
+  /**
+   * Initialize controls
+   */
+  initialize() {
+    this.createControls();
+    this.updateControlsVisibility();
+
+    // Add window resize listener to update controls
+    window.addEventListener(
+      "resize",
+      debounce(() => {
+        this.updateControlsVisibility();
+      }, 200)
+    );
+  }
+
+  /**
+   * Create scroll controls
+   */
+  createControls() {
+    // Remove any existing controls
+    const existingControls = this.container.querySelectorAll(".scroll-control");
+    existingControls.forEach((control) => control.remove());
+
+    // Create left control
+    this.leftControl = document.createElement("div");
+    this.leftControl.className = "scroll-control scroll-control-left";
+    this.leftControl.setAttribute("aria-label", "Scroll categories left");
+    this.leftControl.setAttribute("role", "button");
+    this.leftControl.setAttribute("tabindex", "0");
+
+    const leftButton = document.createElement("div");
+    leftButton.className = "scroll-btn";
+    leftButton.innerHTML = '<i class="fas fa-chevron-left"></i>';
+
+    this.leftControl.appendChild(leftButton);
+
+    // Create right control
+    this.rightControl = document.createElement("div");
+    this.rightControl.className = "scroll-control scroll-control-right";
+    this.rightControl.setAttribute("aria-label", "Scroll categories right");
+    this.rightControl.setAttribute("role", "button");
+    this.rightControl.setAttribute("tabindex", "0");
+
+    const rightButton = document.createElement("div");
+    rightButton.className = "scroll-btn";
+    rightButton.innerHTML = '<i class="fas fa-chevron-right"></i>';
+
+    this.rightControl.appendChild(rightButton);
+
+    // Add controls to container
+    this.container.appendChild(this.leftControl);
+    this.container.appendChild(this.rightControl);
+
+    // Add event listeners
+    this.setupControlEvents(this.leftControl, this.handleLeftControlClick);
+    this.setupControlEvents(this.rightControl, this.handleRightControlClick);
+
+    // Create scroll hint element
+    this.createScrollHint();
+
+    // Mark controls as created
+    this.controlsCreated = true;
+  }
+
+  /**
+   * Create scroll hint indicator
+   */
+  createScrollHint() {
+    const scrollHint = document.createElement("div");
+    scrollHint.className = "scroll-hint";
+    this.container.appendChild(scrollHint);
+  }
+
+  /**
+   * Set up events for a scroll control
+   * @param {HTMLElement} control - The control element
+   * @param {Function} clickHandler - Click event handler
+   */
+  setupControlEvents(control, clickHandler) {
+    // Click/touch event
+    control.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      clickHandler(e);
+    });
+
+    // Handle ripple effect
+    const button = control.querySelector(".scroll-btn");
+    button.addEventListener("mousedown", this.createRippleEffect);
+    button.addEventListener("touchstart", this.createRippleEffect, {
+      passive: true,
+    });
+
+    // Keyboard support
+    control.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        e.stopPropagation();
+        clickHandler(e);
       }
     });
-  });
+  }
+
+  /**
+   * Create ripple effect for touch feedback
+   * @param {Event} e - Mouse or touch event
+   */
+  createRippleEffect(e) {
+    const button = this;
+    const ripple = document.createElement("span");
+    ripple.className = "scroll-ripple";
+
+    // Add ripple to button
+    button.appendChild(ripple);
+
+    // Position the ripple
+    const rect = button.getBoundingClientRect();
+    const size = Math.max(rect.width, rect.height);
+
+    ripple.style.width = ripple.style.height = `${size}px`;
+
+    // Position ripple from center if no specific coordinates
+    ripple.style.left = `${(rect.width - size) / 2}px`;
+    ripple.style.top = `${(rect.height - size) / 2}px`;
+
+    // Add animation class
+    ripple.classList.add("ripple-animation");
+
+    // Remove after animation completes
+    setTimeout(() => {
+      ripple.remove();
+    }, 600);
+
+    // Provide haptic feedback if available
+    if (window.navigator && window.navigator.vibrate) {
+      window.navigator.vibrate(20);
+    }
+  }
+
+  /**
+   * Handle left control click
+   * @param {Event} e - Click event
+   */
+  handleLeftControlClick(e) {
+    // Calculate scroll amount (proportional to container width)
+    const scrollAmount = Math.min(this.container.clientWidth * 0.8, 300);
+    this.scrollManager.scrollByAmount(-scrollAmount);
+  }
+
+  /**
+   * Handle right control click
+   * @param {Event} e - Click event
+   */
+  handleRightControlClick(e) {
+    // Calculate scroll amount (proportional to container width)
+    const scrollAmount = Math.min(this.container.clientWidth * 0.8, 300);
+    this.scrollManager.scrollByAmount(scrollAmount);
+  }
+
+  /**
+   * Update scroll controls visibility based on scroll position
+   */
+  updateControlsVisibility() {
+    if (!this.controlsCreated) return;
+
+    // Get current scroll metrics
+    const scrollLeft = this.container.scrollLeft;
+    const scrollWidth = this.container.scrollWidth;
+    const clientWidth = this.container.clientWidth;
+    const maxScroll = scrollWidth - clientWidth;
+
+    // Don't show controls if not scrollable
+    if (!this.scrollManager.checkScrollability()) {
+      this.leftControl.classList.remove("active");
+      this.rightControl.classList.remove("active");
+      return;
+    }
+
+    // Left control - active when scrolled right
+    const showLeft = scrollLeft > 5;
+    this.leftControl.classList.toggle("active", showLeft);
+
+    // Right control - active when not at the end
+    const showRight = scrollLeft < maxScroll - 5;
+    this.rightControl.classList.toggle("active", showRight);
+  }
+}
+
+/**
+ * SnapManager - Manages tab snapping behavior
+ */
+class SnapManager {
+  /**
+   * @param {ScrollManager} scrollManager - Reference to the scroll manager
+   */
+  constructor(scrollManager) {
+    this.scrollManager = scrollManager;
+    this.container = scrollManager.container;
+
+    // Bind methods
+    this.snapToNearestTab = this.snapToNearestTab.bind(this);
+  }
+
+  /**
+   * Initialize snap manager
+   */
+  initialize() {
+    // No additional initialization needed
+  }
+
+  /**
+   * Snap to the nearest tab after scrolling stops
+   */
+  snapToNearestTab() {
+    const tabs = Array.from(this.container.querySelectorAll(".category-tab"));
+    if (tabs.length === 0) return;
+
+    // Get scroll metrics
+    const viewportCenter =
+      this.container.scrollLeft + this.container.clientWidth / 2;
+
+    // Find the closest tab to the viewport center
+    let closestTab = null;
+    let closestDistance = Infinity;
+
+    tabs.forEach((tab) => {
+      const tabRect = tab.getBoundingClientRect();
+      const containerRect = this.container.getBoundingClientRect();
+
+      // Calculate tab center relative to container
+      const tabCenter = tab.offsetLeft + tabRect.width / 2;
+
+      // Calculate distance to viewport center
+      const distance = Math.abs(tabCenter - viewportCenter);
+
+      if (distance < closestDistance) {
+        closestDistance = distance;
+        closestTab = tab;
+      }
+    });
+
+    // If we found a close tab, snap to it
+    if (closestTab) {
+      this.scrollManager.centerActiveTab();
+    }
+  }
+}
+
+/**
+ * KeyboardManager - Manages keyboard navigation
+ */
+class KeyboardManager {
+  /**
+   * @param {ScrollManager} scrollManager - Reference to the scroll manager
+   */
+  constructor(scrollManager) {
+    this.scrollManager = scrollManager;
+    this.container = scrollManager.container;
+
+    // Bind methods
+    this.handleKeyDown = this.handleKeyDown.bind(this);
+  }
+
+  /**
+   * Initialize keyboard manager
+   */
+  initialize() {
+    // Set appropriate ARIA attributes
+    this.container.setAttribute("role", "tablist");
+    this.container.setAttribute("aria-label", "Menu Categories");
+
+    // Set tab attributes
+    const tabs = this.container.querySelectorAll(".category-tab");
+    tabs.forEach((tab) => {
+      tab.setAttribute("role", "tab");
+      if (!tab.hasAttribute("tabindex")) {
+        tab.setAttribute("tabindex", "0");
+      }
+
+      // Add keyboard navigation
+      tab.addEventListener("keydown", this.handleKeyDown);
+    });
+  }
+
+  /**
+   * Handle key down events for keyboard navigation
+   * @param {KeyboardEvent} e - Keyboard event
+   */
+  handleKeyDown(e) {
+    // Only handle if it's a category tab
+    if (!e.target.classList.contains("category-tab")) return;
+
+    const tab = e.target;
+    let nextTab = null;
+
+    switch (e.key) {
+      case "ArrowRight":
+      case "Right":
+        e.preventDefault();
+        nextTab = this.getNextTab(tab);
+        break;
+
+      case "ArrowLeft":
+      case "Left":
+        e.preventDefault();
+        nextTab = this.getPreviousTab(tab);
+        break;
+
+      case "Home":
+        e.preventDefault();
+        nextTab = this.getFirstTab();
+        break;
+
+      case "End":
+        e.preventDefault();
+        nextTab = this.getLastTab();
+        break;
+
+      case "Enter":
+      case " ":
+        e.preventDefault();
+        tab.click();
+        break;
+
+      default:
+        return;
+    }
+
+    // Focus and scroll to next tab if found
+    if (nextTab) {
+      nextTab.focus();
+
+      // Center the tab
+      const tabRect = nextTab.getBoundingClientRect();
+      const containerRect = this.container.getBoundingClientRect();
+
+      const tabCenter = nextTab.offsetLeft + tabRect.width / 2;
+      const containerCenter = containerRect.width / 2;
+
+      this.scrollManager.scrollToPosition(tabCenter - containerCenter);
+    }
+  }
 
   /**
    * Get the next tab in sequence
-   * @param {HTMLElement} currentTab - Current tab element
-   * @returns {HTMLElement} Next tab element or null
+   * @param {HTMLElement} currentTab - Current tab
+   * @returns {HTMLElement|null} Next tab or null
    */
-  function getNextTab(currentTab) {
-    const tabs = Array.from(navigation.querySelectorAll(".category-tab"));
+  getNextTab(currentTab) {
+    const tabs = Array.from(this.container.querySelectorAll(".category-tab"));
     const currentIndex = tabs.indexOf(currentTab);
 
     if (currentIndex < tabs.length - 1) {
@@ -315,11 +1049,11 @@ function setupKeyboardNavigation(navigation) {
 
   /**
    * Get the previous tab in sequence
-   * @param {HTMLElement} currentTab - Current tab element
-   * @returns {HTMLElement} Previous tab element or null
+   * @param {HTMLElement} currentTab - Current tab
+   * @returns {HTMLElement|null} Previous tab or null
    */
-  function getPreviousTab(currentTab) {
-    const tabs = Array.from(navigation.querySelectorAll(".category-tab"));
+  getPreviousTab(currentTab) {
+    const tabs = Array.from(this.container.querySelectorAll(".category-tab"));
     const currentIndex = tabs.indexOf(currentTab);
 
     if (currentIndex > 0) {
@@ -330,213 +1064,148 @@ function setupKeyboardNavigation(navigation) {
   }
 
   /**
-   * Get the first tab in sequence
-   * @returns {HTMLElement} First tab element
+   * Get the first tab
+   * @returns {HTMLElement|null} First tab or null
    */
-  function getFirstTab() {
-    const tabs = navigation.querySelectorAll(".category-tab");
-    return tabs[0] || null;
+  getFirstTab() {
+    const tabs = this.container.querySelectorAll(".category-tab");
+    return tabs.length > 0 ? tabs[0] : null;
   }
 
   /**
-   * Get the last tab in sequence
-   * @returns {HTMLElement} Last tab element
+   * Get the last tab
+   * @returns {HTMLElement|null} Last tab or null
    */
-  function getLastTab() {
-    const tabs = navigation.querySelectorAll(".category-tab");
-    return tabs[tabs.length - 1] || null;
+  getLastTab() {
+    const tabs = this.container.querySelectorAll(".category-tab");
+    return tabs.length > 0 ? tabs[tabs.length - 1] : null;
   }
 }
 
 /**
- * Set up mouse wheel scrolling for horizontal navigation
- * @param {HTMLElement} navigation - The navigation container
+ * WheelHandler - Manages mouse wheel scrolling
  */
-function setupWheelScrolling(navigation) {
-  navigation.addEventListener(
-    "wheel",
-    (e) => {
-      // Prevent vertical scrolling of the page
-      if (
-        Math.abs(e.deltaX) < Math.abs(e.deltaY) &&
-        navigation.scrollWidth > navigation.clientWidth
-      ) {
-        e.preventDefault();
+class WheelHandler {
+  /**
+   * @param {ScrollManager} scrollManager - Reference to the scroll manager
+   */
+  constructor(scrollManager) {
+    this.scrollManager = scrollManager;
+    this.container = scrollManager.container;
 
-        // Normalize delta for consistent scrolling across browsers
-        const normalizedDelta = e.deltaY * 1.5;
+    // State
+    this.isActive = false;
+    this.wheelTimeout = null;
+    this.wheelDistance = 0;
 
-        // Apply scrolling
-        navigation.scrollLeft += normalizedDelta;
-
-        // Update indicators after scrolling
-        updateScrollIndicators(navigation);
-      }
-    },
-    { passive: false }
-  );
-}
-
-/**
- * Scroll the navigation by a specific amount
- * @param {HTMLElement} navigation - The navigation container
- * @param {number} amount - Amount to scroll in pixels
- */
-function scrollByAmount(navigation, amount) {
-  if (!navigation) return;
-
-  // Apply smooth animation
-  navigation.style.scrollBehavior = "smooth";
-  navigation.scrollBy({ left: amount, behavior: "smooth" });
-
-  // Update indicators after scrolling
-  setTimeout(() => {
-    updateScrollIndicators(navigation);
-  }, 400);
-}
-
-/**
- * Center a tab in the navigation view
- * @param {HTMLElement} navigation - The navigation container
- * @param {HTMLElement} tab - The tab to center
- * @param {number} duration - Animation duration in milliseconds
- */
-function centerTabInView(navigation, tab, duration = 300) {
-  if (!navigation || !tab) return;
-
-  // Calculate the position to center the tab
-  const tabRect = tab.getBoundingClientRect();
-  const navRect = navigation.getBoundingClientRect();
-
-  const tabCenter = tab.offsetLeft + tabRect.width / 2;
-  const navCenter = navRect.width / 2;
-
-  // Target scroll position to center the tab
-  const targetScroll = tabCenter - navCenter;
-
-  // Apply smooth scrolling
-  navigation.style.scrollBehavior = "smooth";
-  navigation.scrollTo({
-    left: targetScroll,
-    behavior: "smooth",
-  });
-
-  // Update indicators after scrolling
-  setTimeout(() => {
-    updateScrollIndicators(navigation);
-  }, duration);
-}
-
-/**
- * Snap to the nearest tab after scrolling stops
- * @param {HTMLElement} navigation - The navigation container
- */
-function snapToNearestTab(navigation) {
-  if (!navigation) return;
-
-  const tabs = Array.from(navigation.querySelectorAll(".category-tab"));
-  if (tabs.length === 0) return;
-
-  // Calculate the center point of the viewport
-  const viewportCenter = navigation.scrollLeft + navigation.clientWidth / 2;
-
-  // Find the closest tab to the center of the viewport
-  let closestTab = tabs[0];
-  let closestDistance = Infinity;
-
-  tabs.forEach((tab) => {
-    const tabCenter = tab.offsetLeft + tab.offsetWidth / 2;
-    const distance = Math.abs(tabCenter - viewportCenter);
-
-    if (distance < closestDistance) {
-      closestDistance = distance;
-      closestTab = tab;
-    }
-  });
-
-  // Center the closest tab in view
-  if (closestTab) {
-    centerTabInView(navigation, closestTab, 300);
-  }
-}
-
-/**
- * Update scroll indicators based on scroll position
- * @param {HTMLElement} navigation - The navigation container
- */
-function updateScrollIndicators(navigation) {
-  if (!navigation) return;
-
-  const leftIndicator = navigation.querySelector(".scroll-indicator-left");
-  const rightIndicator = navigation.querySelector(".scroll-indicator-right");
-
-  // Get scroll position and width
-  const scrollLeft = navigation.scrollLeft;
-  const scrollWidth = navigation.scrollWidth;
-  const clientWidth = navigation.clientWidth;
-
-  // Check if content is scrollable
-  const isScrollable = scrollWidth > clientWidth;
-
-  // Left indicator visibility (show when scrolled)
-  if (leftIndicator) {
-    const showLeft = isScrollable && scrollLeft > 20;
-    leftIndicator.classList.toggle("visible", showLeft);
+    // Bind methods
+    this.handleWheel = this.handleWheel.bind(this);
   }
 
-  // Right indicator visibility (show when more content is available)
-  if (rightIndicator) {
-    const maxScroll = scrollWidth - clientWidth;
-    const showRight = isScrollable && scrollLeft < maxScroll - 20;
-    rightIndicator.classList.toggle("visible", showRight);
-  }
-}
-
-/**
- * Set up tab visibility observer using IntersectionObserver
- * @param {HTMLElement} navigation - The navigation container
- */
-function setupTabVisibilityObserver(navigation) {
-  if (!("IntersectionObserver" in window)) return;
-
-  const options = {
-    root: navigation,
-    rootMargin: "0px",
-    threshold: 0.8, // 80% visibility threshold
-  };
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("in-view");
-      } else {
-        entry.target.classList.remove("in-view");
-      }
+  /**
+   * Initialize wheel handler
+   */
+  initialize() {
+    // Add wheel event listener
+    this.container.addEventListener("wheel", this.handleWheel, {
+      passive: false,
     });
-  }, options);
+  }
 
-  // Observe all tabs
-  const tabs = navigation.querySelectorAll(".category-tab");
-  tabs.forEach((tab) => {
-    observer.observe(tab);
-  });
+  /**
+   * Handle wheel events
+   * @param {WheelEvent} e - Wheel event
+   */
+  handleWheel(e) {
+    // Only handle wheel events if the container is scrollable
+    if (!this.scrollManager.isScrollable) return;
+
+    // Get the primary delta direction
+    const primaryDelta =
+      Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY;
+
+    // Use automatic scrolling during wheel events for better responsiveness
+    this.container.style.scrollBehavior = "auto";
+
+    // Apply scroll with scaling for better control
+    const scaledDelta = primaryDelta * 1.2;
+    this.container.scrollLeft += scaledDelta;
+
+    // Track wheel activity
+    this.isActive = true;
+    this.wheelDistance += Math.abs(scaledDelta);
+
+    // Clear existing timeout
+    if (this.wheelTimeout) {
+      clearTimeout(this.wheelTimeout);
+    }
+
+    // Set timeout to handle wheel end
+    this.wheelTimeout = setTimeout(() => {
+      // Restore smooth scrolling
+      this.container.style.scrollBehavior = "smooth";
+
+      // If significant scrolling happened, snap to nearest tab
+      if (this.wheelDistance > 50) {
+        this.scrollManager.snapManager.snapToNearestTab();
+      }
+
+      // Reset wheel activity
+      this.isActive = false;
+      this.wheelDistance = 0;
+    }, 150);
+
+    // Update controls visibility
+    this.scrollManager.controlsManager.updateControlsVisibility();
+
+    // Prevent page scrolling
+    e.preventDefault();
+  }
 }
 
 /**
- * Debounce function to limit how often a function is called
+ * Custom momentum easing function for natural inertia
+ * @param {number} t - Progress from 0 to 1
+ * @returns {number} Eased value
+ */
+function customMomentumEasing(t) {
+  // Cubic bezier approximation: cubic-bezier(0.33, 0.1, 0.17, 1)
+  return 1 - Math.pow(1 - t, 3);
+}
+
+/**
+ * Easing function for smooth animations
+ * @param {number} t - Progress from 0 to 1
+ * @returns {number} Eased value
+ */
+function easeOutCubic(t) {
+  return 1 - Math.pow(1 - t, 3);
+}
+
+/**
+ * Improved debounce function
  * @param {Function} func - Function to debounce
- * @param {number} wait - Wait time in milliseconds
+ * @param {number} wait - Wait time in ms
+ * @param {boolean} immediate - Whether to execute immediately
  * @returns {Function} Debounced function
  */
-function debounce(func, wait) {
+function debounce(func, wait, immediate) {
   let timeout;
-  return function executedFunction(...args) {
-    const later = () => {
-      clearTimeout(timeout);
-      func(...args);
+
+  return function () {
+    const context = this;
+    const args = arguments;
+
+    const later = function () {
+      timeout = null;
+      if (!immediate) func.apply(context, args);
     };
+
+    const callNow = immediate && !timeout;
 
     clearTimeout(timeout);
     timeout = setTimeout(later, wait);
+
+    if (callNow) func.apply(context, args);
   };
 }

@@ -1,6 +1,6 @@
 /**
- * UI Controller - Enhanced for mobile with improved scrolling
- * Manages all DOM interactions and UI updates
+ * UI Controller - Optimized for Premium Scrolling Integration
+ * Manages all DOM interactions and UI updates with enhanced performance
  */
 
 import { AppState } from "../models/AppState.js";
@@ -8,13 +8,6 @@ import { AppState } from "../models/AppState.js";
 export const UIController = {
   // DOM elements cache
   elements: {},
-
-  // Touch scroll handling
-  touchScrollState: {
-    isScrolling: false,
-    startX: 0,
-    scrollLeft: 0,
-  },
 
   /**
    * Initialize and cache DOM elements
@@ -29,8 +22,6 @@ export const UIController = {
       menuCategories: document.getElementById("menu-categories"),
       categoryNavigation: document.querySelector(".category-navigation"),
       categoryList: document.getElementById("category-list"),
-      scrollIndicatorLeft: null, // Will be created dynamically
-      scrollIndicatorRight: null, // Will be created dynamically
 
       // Content elements
       currentCategory: document.getElementById("current-category"),
@@ -49,213 +40,55 @@ export const UIController = {
       locationText: document.getElementById("location-text"),
     };
 
-    // Create scroll indicators
-    this.createScrollIndicators();
-
-    // Set up touch scroll handling for category navigation
-    this.setupTouchScrolling();
+    // Setup CSS variable for theming
+    this.setupThemeColors();
   },
 
   /**
-   * Create scroll indicators for horizontal navigation
+   * Setup theme color CSS variables for animations
    */
-  createScrollIndicators() {
-    // Only create if navigation exists
-    if (!this.elements.categoryNavigation) {
-      return;
-    }
+  setupThemeColors() {
+    // Extract accent color and convert to RGB for use in animations
+    const computedStyle = getComputedStyle(document.documentElement);
+    const accentColor = computedStyle.getPropertyValue("--accent-color").trim();
 
-    // Create left indicator
-    const leftIndicator = document.createElement("div");
-    leftIndicator.className = "scroll-indicator scroll-indicator-left";
-    leftIndicator.setAttribute("aria-hidden", "true");
-    this.elements.categoryNavigation.appendChild(leftIndicator);
-    this.elements.scrollIndicatorLeft = leftIndicator;
+    // Only process if we have a valid color
+    if (accentColor) {
+      let r, g, b;
 
-    // Create right indicator
-    const rightIndicator = document.createElement("div");
-    rightIndicator.className = "scroll-indicator scroll-indicator-right";
-    rightIndicator.setAttribute("aria-hidden", "true");
-    this.elements.categoryNavigation.appendChild(rightIndicator);
-    this.elements.scrollIndicatorRight = rightIndicator;
+      // Handle hex colors
+      if (accentColor.startsWith("#")) {
+        // Parse hex value
+        const hex = accentColor.substring(1);
 
-    // Make indicators clickable for easier scrolling
-    this.setupScrollIndicatorControls();
+        // Handle shorthand hex (#RGB) or full hex (#RRGGBB)
+        const expandedHex =
+          hex.length === 3
+            ? hex
+                .split("")
+                .map((h) => h + h)
+                .join("")
+            : hex;
 
-    // Initial check for indicators
-    this.updateScrollIndicators();
-  },
-
-  /**
-   * Set up click handlers for scroll indicators
-   */
-  setupScrollIndicatorControls() {
-    if (!this.elements.categoryNavigation) {
-      return;
-    }
-
-    // Add event listeners to scroll indicators
-    if (this.elements.scrollIndicatorLeft) {
-      this.elements.scrollIndicatorLeft.style.pointerEvents = "auto";
-      this.elements.scrollIndicatorLeft.addEventListener("click", () => {
-        this.scrollCategoriesBy(-200); // Scroll left
-      });
-    }
-
-    if (this.elements.scrollIndicatorRight) {
-      this.elements.scrollIndicatorRight.style.pointerEvents = "auto";
-      this.elements.scrollIndicatorRight.addEventListener("click", () => {
-        this.scrollCategoriesBy(200); // Scroll right
-      });
-    }
-  },
-
-  /**
-   * Setup touch-based scrolling for category navigation
-   */
-  setupTouchScrolling() {
-    const nav = this.elements.categoryNavigation;
-    if (!nav) return;
-
-    // Touch start event
-    nav.addEventListener(
-      "touchstart",
-      (e) => {
-        this.touchScrollState.isScrolling = true;
-        this.touchScrollState.startX = e.touches[0].pageX - nav.offsetLeft;
-        this.touchScrollState.scrollLeft = nav.scrollLeft;
-
-        // Prevent default to avoid page scrolling
-        if (nav.scrollWidth > nav.clientWidth) {
-          e.preventDefault();
-        }
-      },
-      { passive: false }
-    );
-
-    // Touch move event
-    nav.addEventListener(
-      "touchmove",
-      (e) => {
-        if (!this.touchScrollState.isScrolling) return;
-
-        const x = e.touches[0].pageX - nav.offsetLeft;
-        const distance = x - this.touchScrollState.startX;
-        nav.scrollLeft = this.touchScrollState.scrollLeft - distance;
-
-        // Update scroll indicators
-        this.updateScrollIndicators();
-
-        // Prevent default to avoid page scrolling
-        if (nav.scrollWidth > nav.clientWidth) {
-          e.preventDefault();
-        }
-      },
-      { passive: false }
-    );
-
-    // Touch end event
-    nav.addEventListener("touchend", () => {
-      this.touchScrollState.isScrolling = false;
-      this.snapToNearestCategory();
-    });
-
-    // Touch cancel event
-    nav.addEventListener("touchcancel", () => {
-      this.touchScrollState.isScrolling = false;
-    });
-  },
-
-  /**
-   * Scroll categories horizontally by a given amount
-   * @param {number} amount - Amount to scroll (negative for left, positive for right)
-   */
-  scrollCategoriesBy(amount) {
-    const nav = this.elements.categoryNavigation;
-    if (!nav) return;
-
-    // Smooth scroll by the given amount
-    nav.scrollBy({
-      left: amount,
-      behavior: "smooth",
-    });
-
-    // Update indicators after scrolling
-    setTimeout(() => {
-      this.updateScrollIndicators();
-    }, 300);
-  },
-
-  /**
-   * Snap to the nearest category tab after scrolling
-   */
-  snapToNearestCategory() {
-    const nav = this.elements.categoryNavigation;
-    if (!nav) return;
-
-    // Find the visible tabs
-    const tabs = Array.from(document.querySelectorAll(".category-tab"));
-    if (tabs.length === 0) return;
-
-    // Calculate center point of the scroll container
-    const containerCenter = nav.scrollLeft + nav.clientWidth / 2;
-
-    // Find the closest tab to the center
-    let closestTab = null;
-    let minDistance = Infinity;
-
-    tabs.forEach((tab) => {
-      const tabCenter = tab.offsetLeft + tab.offsetWidth / 2;
-      const distance = Math.abs(containerCenter - tabCenter);
-
-      if (distance < minDistance) {
-        minDistance = distance;
-        closestTab = tab;
+        r = parseInt(expandedHex.substr(0, 2), 16);
+        g = parseInt(expandedHex.substr(2, 2), 16);
+        b = parseInt(expandedHex.substr(4, 2), 16);
       }
-    });
+      // Handle rgb/rgba colors
+      else if (accentColor.startsWith("rgb")) {
+        const matches = accentColor.match(/(\d+),\s*(\d+),\s*(\d+)/);
+        if (matches) {
+          [, r, g, b] = matches.map(Number);
+        }
+      }
 
-    if (closestTab) {
-      // Calculate the position to center this tab
-      const targetScroll =
-        closestTab.offsetLeft - (nav.clientWidth - closestTab.offsetWidth) / 2;
-
-      // Smooth scroll to center the tab
-      nav.scrollTo({
-        left: targetScroll,
-        behavior: "smooth",
-      });
-    }
-  },
-
-  /**
-   * Update scroll indicators based on scroll position
-   */
-  updateScrollIndicators() {
-    const nav = this.elements.categoryNavigation;
-
-    if (!nav) {
-      return;
-    }
-
-    // Check if scrollable (content wider than container)
-    const isScrollable = nav.scrollWidth > nav.clientWidth;
-
-    // Left indicator visible if scrolled right
-    if (this.elements.scrollIndicatorLeft) {
-      this.elements.scrollIndicatorLeft.classList.toggle(
-        "active",
-        isScrollable && nav.scrollLeft > 10 // Add a small threshold
-      );
-    }
-
-    // Right indicator visible if can scroll more to the right
-    if (this.elements.scrollIndicatorRight) {
-      const canScrollMore =
-        nav.scrollLeft < nav.scrollWidth - nav.clientWidth - 10; // Add a small threshold
-      this.elements.scrollIndicatorRight.classList.toggle(
-        "active",
-        isScrollable && canScrollMore
-      );
+      // Set RGB variables if we successfully parsed the color
+      if (r !== undefined && g !== undefined && b !== undefined) {
+        document.documentElement.style.setProperty(
+          "--accent-rgb",
+          `${r}, ${g}, ${b}`
+        );
+      }
     }
   },
 
@@ -264,6 +97,11 @@ export const UIController = {
    */
   applyTheme() {
     document.body.classList.toggle("dark-theme", AppState.theme === "dark");
+
+    // Update theme colors after theme change
+    setTimeout(() => {
+      this.setupThemeColors();
+    }, 100);
   },
 
   /**
@@ -333,6 +171,9 @@ export const UIController = {
       tab.dataset.category = category;
       tab.textContent = AppState.getText("categories", category);
       tab.setAttribute("aria-label", AppState.getText("categories", category));
+      tab.setAttribute("aria-selected", "false");
+      tab.setAttribute("role", "tab");
+      tab.setAttribute("tabindex", "0");
 
       // Add to fragment instead of directly to DOM
       fragment.appendChild(tab);
@@ -341,10 +182,13 @@ export const UIController = {
     // Append all tabs at once
     this.elements.menuCategories.appendChild(fragment);
 
-    // Check if scroll indicators should be displayed
-    setTimeout(() => {
-      this.updateScrollIndicators();
-    }, 100);
+    // Reset scroll position to ensure proper rendering
+    if (this.elements.categoryNavigation) {
+      this.elements.categoryNavigation.scrollLeft = 0;
+    }
+
+    // Ensure scroll controls are synced with new content
+    this.triggerScrollUpdate();
   },
 
   /**
@@ -376,6 +220,8 @@ export const UIController = {
       button.className = "category-list-item";
       button.dataset.category = category;
       button.textContent = AppState.getText("categories", category);
+      button.setAttribute("aria-selected", "false");
+      button.setAttribute("role", "tab");
 
       listItem.appendChild(button);
       fragment.appendChild(listItem);
@@ -386,22 +232,16 @@ export const UIController = {
   },
 
   /**
-   * Update active category in navigation with enhanced scrolling
+   * Update active category in navigation
    * @param {string} category - Active category ID
    */
   updateActiveCategory(category) {
     // Update tab navigation
     const categoryTabs = document.querySelectorAll(".category-tab");
-    let activeTab = null;
-
     categoryTabs.forEach((tab) => {
       const isActive = tab.dataset.category === category;
       tab.classList.toggle("active", isActive);
       tab.setAttribute("aria-selected", isActive ? "true" : "false");
-
-      if (isActive) {
-        activeTab = tab;
-      }
     });
 
     // Update sidebar navigation if present
@@ -420,27 +260,32 @@ export const UIController = {
       );
     }
 
-    // Scroll active tab into view with centering
-    if (activeTab && this.elements.categoryNavigation) {
-      const nav = this.elements.categoryNavigation;
-
-      // Calculate the scroll position to center the active tab
-      const tabRect = activeTab.getBoundingClientRect();
-      const navRect = nav.getBoundingClientRect();
-
-      const targetScroll =
-        activeTab.offsetLeft - (nav.clientWidth - activeTab.offsetWidth) / 2;
-
-      // Smooth scroll to center the active tab
-      nav.scrollTo({
-        left: targetScroll,
-        behavior: "smooth",
+    // Trigger tabActivated event for ScrollManager
+    if (this.elements.categoryNavigation) {
+      const event = new CustomEvent("tabActivated", {
+        detail: { category },
+        bubbles: true,
       });
+      this.elements.categoryNavigation.dispatchEvent(event);
+    }
+  },
 
-      // Update scroll indicators after scrolling
+  /**
+   * Trigger a scroll update to refresh controls and position
+   */
+  triggerScrollUpdate() {
+    if (
+      this.elements.categoryNavigation &&
+      this.elements.categoryNavigation._scrollManager
+    ) {
+      // If ScrollManager is available, use it directly
+      this.elements.categoryNavigation._scrollManager.checkScrollability();
+      this.elements.categoryNavigation._scrollManager.centerActiveTab();
+    } else {
+      // Otherwise dispatch a scroll event to trigger updates
       setTimeout(() => {
-        this.updateScrollIndicators();
-      }, 300);
+        this.elements.categoryNavigation.dispatchEvent(new Event("scroll"));
+      }, 100);
     }
   },
 
@@ -491,6 +336,8 @@ export const UIController = {
       "aria-pressed",
       activeFilter === null ? "true" : "false"
     );
+    allFilter.setAttribute("role", "button");
+    allFilter.setAttribute("tabindex", "0");
 
     fragment.appendChild(allFilter);
 
@@ -519,6 +366,8 @@ export const UIController = {
         "aria-pressed",
         activeFilter === subcategory ? "true" : "false"
       );
+      filter.setAttribute("role", "button");
+      filter.setAttribute("tabindex", "0");
 
       fragment.appendChild(filter);
     });
@@ -548,6 +397,11 @@ export const UIController = {
     const isActive = this.elements.filterPanel.classList.contains("active");
     this.elements.filterToggle.classList.toggle("active", isActive);
     this.elements.filterToggle.setAttribute("aria-expanded", isActive);
+
+    // If showing the panel, provide haptic feedback on mobile
+    if (isActive && window.navigator && window.navigator.vibrate) {
+      window.navigator.vibrate(30);
+    }
   },
 
   /**
@@ -577,58 +431,64 @@ export const UIController = {
       return;
     }
 
-    // Clear existing items with a fade-out effect
-    this.elements.menuItemsGrid.style.opacity = "0";
+    // Use requestAnimationFrame for smooth transitions
+    requestAnimationFrame(() => {
+      // Fade out current items
+      this.elements.menuItemsGrid.style.opacity = "0";
 
-    setTimeout(() => {
-      // Create document fragment for better performance
-      const fragment = document.createDocumentFragment();
+      // Use a shorter timeout for better perceived performance
+      setTimeout(() => {
+        // Create document fragment for better performance
+        const fragment = document.createDocumentFragment();
 
-      // Clear existing items
-      this.elements.menuItemsGrid.innerHTML = "";
+        // Clear existing items
+        this.elements.menuItemsGrid.innerHTML = "";
 
-      // Handle empty results
-      if (!items || items.length === 0) {
-        if (this.elements.emptyState) {
-          this.elements.emptyState.classList.add("active");
+        // Handle empty results
+        if (!items || items.length === 0) {
+          if (this.elements.emptyState) {
+            this.elements.emptyState.classList.add("active");
+          }
+
+          this.elements.menuItemsGrid.style.opacity = "1";
+          return;
         }
 
-        this.elements.menuItemsGrid.style.opacity = "1";
-        return;
-      }
+        // Hide empty state
+        if (this.elements.emptyState) {
+          this.elements.emptyState.classList.remove("active");
+        }
 
-      // Hide empty state
-      if (this.elements.emptyState) {
-        this.elements.emptyState.classList.remove("active");
-      }
+        // Group items by subcategory
+        const groupedItems = this.groupItemsBySubcategory(items, category);
+        let itemIndex = 0;
 
-      // Group items by subcategory
-      const groupedItems = this.groupItemsBySubcategory(items, category);
-      let itemIndex = 0;
+        // Create items by subcategory with headers
+        for (const subcategory in groupedItems) {
+          // Add subcategory header
+          const subcategoryHeader = this.createSubcategoryHeader(
+            subcategory,
+            category
+          );
+          fragment.appendChild(subcategoryHeader);
 
-      // Create items by subcategory with headers
-      for (const subcategory in groupedItems) {
-        // Add subcategory header
-        const subcategoryHeader = this.createSubcategoryHeader(
-          subcategory,
-          category
-        );
-        fragment.appendChild(subcategoryHeader);
+          // Add items for this subcategory
+          groupedItems[subcategory].forEach((item) => {
+            const menuItem = this.createMenuItem(item, category, itemIndex);
+            fragment.appendChild(menuItem);
+            itemIndex++;
+          });
+        }
 
-        // Add items for this subcategory
-        groupedItems[subcategory].forEach((item) => {
-          const menuItem = this.createMenuItem(item, category, itemIndex);
-          fragment.appendChild(menuItem);
-          itemIndex++;
+        // Append all items at once for better performance
+        this.elements.menuItemsGrid.appendChild(fragment);
+
+        // Use requestAnimationFrame for smoother fade-in
+        requestAnimationFrame(() => {
+          this.elements.menuItemsGrid.style.opacity = "1";
         });
-      }
-
-      // Append all items at once
-      this.elements.menuItemsGrid.appendChild(fragment);
-
-      // Fade in the new items
-      this.elements.menuItemsGrid.style.opacity = "1";
-    }, 200);
+      }, 150); // Shorter timeout for better perceived performance
+    });
   },
 
   /**

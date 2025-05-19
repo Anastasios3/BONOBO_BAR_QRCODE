@@ -1,5 +1,5 @@
 /*--------------------------------------------------------------
-# Category Navigation - Refined for smooth horizontal scrolling
+# Category Navigation - Premium Scrolling Experience
 --------------------------------------------------------------*/
 .category-navigation {
   height: var(--category-nav-height);
@@ -16,9 +16,11 @@
   -webkit-overflow-scrolling: touch; /* Enable momentum scrolling on iOS */
   scroll-snap-type: x proximity; /* More natural snapping */
   overscroll-behavior-x: contain; /* Prevent page overscroll */
-  scroll-padding: 0 16px; /* Add padding for scroll snapping */
+  scroll-padding: 0 var(--space-md); /* Add padding for scroll snapping */
   padding: 0 var(--space-2xs);
   transition: background-color var(--transition-normal);
+  user-select: none; /* Prevent text selection during scrolling */
+  touch-action: pan-x; /* Optimize for horizontal swiping */
 }
 
 .category-navigation::-webkit-scrollbar {
@@ -50,10 +52,11 @@
   flex-shrink: 0; /* Prevent tabs from shrinking */
   scroll-snap-align: center; /* Snap centers of items */
   min-width: max-content; /* Ensure tab width is based on content */
-  transition: transform 0.25s ease, color 0.25s ease;
+  transition: transform 0.25s cubic-bezier(0.2, 0, 0.15, 1),
+    color 0.25s cubic-bezier(0.2, 0, 0.15, 1);
   position: relative;
   outline: none; /* Remove default focus outline */
-  will-change: transform; /* Optimize for animations */
+  will-change: transform, color; /* Optimize for animations */
 }
 
 .category-tab:hover {
@@ -69,7 +72,7 @@
 
 .category-tab.active {
   color: var(--accent-color);
-  transform: translateY(-2px); /* Maintain consistent effect with hover */
+  transform: translateY(-2px);
 }
 
 .category-tab.active::after {
@@ -81,7 +84,7 @@
   height: 3px;
   background-color: var(--accent-color);
   transform-origin: center bottom;
-  animation: tabActivate 0.3s ease-out forwards;
+  animation: tabActivate 0.3s cubic-bezier(0.2, 0, 0.15, 1) forwards;
 }
 
 @keyframes tabActivate {
@@ -95,73 +98,198 @@
   }
 }
 
-/* Refined scroll indicators */
-.scroll-indicator {
+/* Premium Navigation Controls */
+.scroll-control {
   position: absolute;
   top: 0;
   height: 100%;
-  width: 36px;
-  pointer-events: auto; /* Allow clicks */
+  width: 80px; /* Larger touch target area */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none; /* Default state - pass through events */
+  z-index: 5;
   opacity: 0;
-  transition: opacity 0.3s ease;
-  z-index: 2;
+  transition: opacity 0.3s cubic-bezier(0.2, 0, 0.15, 1);
+}
+
+.scroll-control-left {
+  left: 0;
+  background: linear-gradient(to right, var(--bg-secondary) 40%, transparent);
+  border-radius: 0 12px 12px 0;
+}
+
+.scroll-control-right {
+  right: 0;
+  background: linear-gradient(to left, var(--bg-secondary) 40%, transparent);
+  border-radius: 12px 0 0 12px;
+}
+
+/* Activated state */
+.scroll-control.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Luxurious scroll button styling */
+.scroll-btn {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background-color: var(--bg-tertiary);
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  transform: scale(0.95);
+  transition: transform 0.25s cubic-bezier(0.3, 0, 0.2, 1),
+    background-color 0.25s cubic-bezier(0.3, 0, 0.2, 1),
+    box-shadow 0.25s cubic-bezier(0.3, 0, 0.2, 1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  -webkit-tap-highlight-color: transparent;
+  overflow: hidden;
+  position: relative;
 }
 
-.scroll-indicator-left {
-  left: 0;
-  background: linear-gradient(to right, var(--bg-secondary) 60%, transparent);
-  border-radius: 0 12px 12px 0;
-}
-
-.scroll-indicator-right {
-  right: 0;
-  background: linear-gradient(to left, var(--bg-secondary) 60%, transparent);
-  border-radius: 12px 0 0 12px;
-}
-
-.scroll-indicator.visible {
-  opacity: 0.9;
-}
-
-.scroll-indicator:hover {
-  opacity: 1;
-}
-
-.scroll-indicator::after {
+.scroll-btn::before {
   content: "";
-  width: 10px;
-  height: 10px;
-  border-width: 2px;
-  border-style: solid;
-  border-radius: 1px;
-  transition: transform 0.2s ease;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--accent-color);
+  opacity: 0;
+  transition: opacity 0.25s cubic-bezier(0.3, 0, 0.2, 1);
+  border-radius: 50%;
+  z-index: -1;
 }
 
-.scroll-indicator-left::after {
-  border-color: transparent transparent var(--text-secondary)
-    var(--text-secondary);
-  transform: rotate(45deg);
-  margin-left: 10px;
+.scroll-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
-.scroll-indicator-right::after {
-  border-color: var(--text-secondary) var(--text-secondary) transparent
-    transparent;
-  transform: rotate(45deg);
-  margin-right: 10px;
+.scroll-btn:hover::before {
+  opacity: 0.15;
 }
 
-.scroll-indicator:hover::after {
-  transform: rotate(45deg) scale(1.2);
-  border-color: transparent transparent var(--text-primary) var(--text-primary);
+.scroll-btn:active {
+  transform: scale(0.92);
+  transition: transform 0.15s cubic-bezier(0.3, 0, 0.2, 1);
 }
 
-.scroll-indicator-right:hover::after {
-  border-color: var(--text-primary) var(--text-primary) transparent transparent;
+.scroll-btn i {
+  color: var(--text-primary);
+  font-size: 1.2rem;
+  transition: transform 0.3s cubic-bezier(0.3, 0, 0.2, 1),
+    color 0.3s cubic-bezier(0.3, 0, 0.2, 1);
+}
+
+.scroll-btn:hover i {
+  color: var(--accent-color);
+}
+
+.scroll-btn:active i {
+  transform: scale(0.85);
+}
+
+/* Ripple effect */
+.scroll-ripple {
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 50%;
+  pointer-events: none;
+  width: 100px;
+  height: 100px;
+  transform: scale(0);
+  opacity: 0.5;
+}
+
+.ripple-animation {
+  animation: ripple 0.6s cubic-bezier(0, 0, 0.2, 1);
+}
+
+@keyframes ripple {
+  to {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+/* Scroll notification for first-time users */
+.scroll-notification {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 4;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.scroll-notification.visible {
+  opacity: 1;
+  animation: notificationFade 4s forwards;
+}
+
+.notification-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-md);
+  color: white;
+  padding: var(--space-sm) var(--space-lg);
+  border-radius: var(--radius-md);
+}
+
+.notification-icon {
+  font-size: 1.5rem;
+  animation: notificationSwipe 1.5s infinite;
+}
+
+.notification-text {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+}
+
+@keyframes notificationSwipe {
+  0%,
+  100% {
+    transform: translateX(-10px);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translateX(10px);
+    opacity: 1;
+  }
+}
+
+@keyframes notificationFade {
+  0%,
+  10% {
+    opacity: 0;
+  }
+  25%,
+  75% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* Enhanced focus styling for accessibility */
+.scroll-btn:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--accent-color), 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 /* Mobile category dropdown */
@@ -183,8 +311,8 @@
   align-items: center;
   justify-content: space-between;
   font-weight: var(--font-weight-medium);
-  -webkit-tap-highlight-color: transparent; /* Remove tap highlight on mobile */
-  transition: background-color 0.2s ease, transform 0.2s ease;
+  -webkit-tap-highlight-color: transparent;
+  transition: all 0.25s cubic-bezier(0.3, 0, 0.2, 1);
 }
 
 .category-dropdown-btn:active {
@@ -192,7 +320,7 @@
 }
 
 .category-dropdown-btn i {
-  transition: transform var(--transition-fast);
+  transition: transform 0.3s cubic-bezier(0.3, 0, 0.2, 1);
 }
 
 .category-dropdown.active .category-dropdown-btn i {
@@ -212,10 +340,10 @@
   z-index: 100;
   max-height: 0;
   overflow-y: auto;
-  transition: max-height var(--transition-normal),
-    visibility var(--transition-normal);
+  transition: max-height 0.3s cubic-bezier(0.3, 0, 0.2, 1),
+    visibility 0.3s cubic-bezier(0.3, 0, 0.2, 1);
   visibility: hidden;
-  -webkit-overflow-scrolling: touch; /* Enable momentum scrolling */
+  -webkit-overflow-scrolling: touch;
 }
 
 .category-dropdown.active .category-dropdown-content {
@@ -228,7 +356,7 @@
   padding: var(--space-sm) var(--space-md);
   text-align: left;
   color: var(--text-secondary);
-  transition: all var(--transition-fast);
+  transition: all 0.2s cubic-bezier(0.3, 0, 0.2, 1);
   -webkit-tap-highlight-color: transparent;
   transform-origin: center;
 }
@@ -259,10 +387,85 @@
   background-color: var(--accent-color);
 }
 
+/* Animation states for tabs */
+.category-tab {
+  opacity: 1;
+  transition: opacity 0.3s ease, transform 0.25s cubic-bezier(0.2, 0, 0.15, 1),
+    color 0.25s cubic-bezier(0.2, 0, 0.15, 1);
+}
+
+.category-tab.fade-out {
+  opacity: 0.5;
+  transform: scale(0.95);
+}
+
+.category-tab.in-view {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.category-tab.active.fade-out {
+  opacity: 1;
+  transform: translateY(-2px);
+}
+
+/* Interactive scroll indicator - shows scrollability */
+.scroll-hint {
+  position: absolute;
+  bottom: 4px;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 3px;
+  width: 40px;
+  background-color: var(--border-color);
+  border-radius: 3px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.scroll-hint::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 10px;
+  background-color: var(--accent-color);
+  border-radius: 3px;
+  animation: scrollIndicator 2s infinite;
+}
+
+@keyframes scrollIndicator {
+  0% {
+    left: 0;
+  }
+  50% {
+    left: calc(100% - 10px);
+  }
+  100% {
+    left: 0;
+  }
+}
+
+.category-navigation.show-hint .scroll-hint {
+  opacity: 0.7;
+}
+
 /* Responsive adjustments */
 @media (max-width: 991px) {
   .category-tab {
     padding: 0 var(--space-md);
+  }
+
+  .scroll-btn {
+    width: 42px;
+    height: 42px;
+  }
+
+  .scroll-control {
+    width: 70px;
   }
 }
 
@@ -280,8 +483,26 @@
     font-size: var(--font-size-sm);
   }
 
-  .scroll-indicator {
-    width: 32px;
+  /* Mobile optimization */
+  .scroll-btn {
+    width: 38px;
+    height: 38px;
+  }
+
+  .scroll-btn i {
+    font-size: 1rem;
+  }
+
+  .scroll-control {
+    width: 60px;
+  }
+
+  .notification-content {
+    padding: var(--space-xs) var(--space-md);
+  }
+
+  .notification-icon {
+    font-size: 1.2rem;
   }
 }
 
@@ -303,5 +524,19 @@
     overflow-x: scroll;
     background-color: var(--bg-secondary);
     border-bottom: 1px solid var(--border-color);
+  }
+
+  /* Further mobile optimizations */
+  .scroll-control {
+    width: 54px;
+  }
+
+  .scroll-btn {
+    width: 36px;
+    height: 36px;
+  }
+
+  .scroll-hint {
+    width: 30px;
   }
 }
