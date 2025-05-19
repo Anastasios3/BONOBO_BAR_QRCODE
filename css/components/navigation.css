@@ -85,7 +85,7 @@
   opacity: 1;
 }
 
-/* Mobile category dropdown (for very small screens) */
+/* Mobile category dropdown (for very small screens) - UPDATED TO BE SCROLLABLE */
 .category-dropdown {
   display: none;
   position: relative;
@@ -126,13 +126,13 @@
   box-shadow: var(--shadow-md);
   z-index: 100;
   max-height: 0;
-  overflow: hidden;
+  overflow-y: auto; /* Make vertically scrollable */
   transition: max-height var(--transition-normal);
   visibility: hidden;
 }
 
 .category-dropdown.active .category-dropdown-content {
-  max-height: 300px;
+  max-height: 50vh; /* Limit height to half the viewport height */
   visibility: visible;
 }
 

@@ -242,65 +242,77 @@
     width: 100%;
   }
 }
-/* Add subcategory headers to menu-items.css */
+
+/* UPDATED SUBCATEGORY HEADERS - Elegant centered calligraphic style */
 .subcategory-header {
   width: 100%;
   grid-column: 1 / -1; /* Span all columns */
-  margin: var(--space-lg) 0 var(--space-md);
-  padding-bottom: var(--space-xs);
-  border-bottom: 2px solid var(--accent-color);
+  margin: var(--space-xl) 0 var(--space-lg);
+  text-align: center;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .subcategory-header:first-of-type {
-  margin-top: 0;
+  margin-top: var(--space-md);
 }
 
 .subcategory-title {
-  font-size: var(--font-size-xl);
-  font-weight: var(--font-weight-semibold);
+  font-family: "Playfair Display", "Times New Roman", serif; /* Calligraphic font */
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-medium);
   color: var(--text-primary);
   margin: 0;
-  display: flex;
-  align-items: center;
-  gap: var(--space-xs);
+  padding: 0 var(--space-lg);
+  position: relative;
+  display: inline-block;
+  letter-spacing: 1px;
+  font-style: italic;
 }
 
+/* Decorative elements instead of bottom border */
+.subcategory-title::before,
+.subcategory-title::after {
+  content: "~";
+  display: inline-block;
+  margin: 0 var(--space-sm);
+  color: var(--accent-color);
+  font-family: "Times New Roman", serif;
+  font-size: 1.2em;
+}
+
+/* Icon styling */
 .subcategory-title i {
   color: var(--accent-color);
   font-size: var(--font-size-lg);
-}
-
-/* Add subcategory icons */
-.subcategory-icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 32px;
-  height: 32px;
-  background-color: var(--bg-tertiary);
-  border-radius: var(--radius-round);
   margin-right: var(--space-xs);
 }
 
-/* Responsive adjustments */
+/* Responsive adjustments for subcategory headers */
 @media (max-width: 767px) {
+  .subcategory-header {
+    margin: var(--space-lg) 0 var(--space-md);
+  }
+
+  .subcategory-title {
+    font-size: var(--font-size-xl);
+  }
+}
+
+@media (max-width: 575px) {
   .subcategory-header {
     margin: var(--space-md) 0 var(--space-sm);
   }
 
   .subcategory-title {
     font-size: var(--font-size-lg);
-  }
-}
-
-@media (max-width: 575px) {
-  .subcategory-header {
-    margin: var(--space-md) 0 var(--space-xs);
-    padding-bottom: var(--space-2xs);
+    padding: 0 var(--space-md);
   }
 
-  .subcategory-title {
-    font-size: var(--font-size-md);
+  .subcategory-title::before,
+  .subcategory-title::after {
+    margin: 0 var(--space-xs);
   }
 }
