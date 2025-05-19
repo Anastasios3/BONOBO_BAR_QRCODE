@@ -20,7 +20,10 @@ export const UIController = {
 
       // Navigation elements
       menuCategories: document.getElementById("menu-categories"),
+      categoryNavigation: document.querySelector(".category-navigation"),
       categoryList: document.getElementById("category-list"),
+      scrollIndicatorLeft: null, // Will be created dynamically
+      scrollIndicatorRight: null, // Will be created dynamically
 
       // Content elements
       currentCategory: document.getElementById("current-category"),
@@ -38,6 +41,66 @@ export const UIController = {
       hoursContent: document.getElementById("hours-content"),
       locationText: document.getElementById("location-text"),
     };
+
+    // Create scroll indicators
+    this.createScrollIndicators();
+  },
+
+  /**
+   * Create scroll indicators for horizontal navigation
+   */
+  createScrollIndicators() {
+    // Only create if navigation exists
+    if (!this.elements.categoryNavigation) {
+      return;
+    }
+
+    // Create left indicator
+    const leftIndicator = document.createElement("div");
+    leftIndicator.className = "scroll-indicator scroll-indicator-left";
+    this.elements.categoryNavigation.appendChild(leftIndicator);
+    this.elements.scrollIndicatorLeft = leftIndicator;
+
+    // Create right indicator
+    const rightIndicator = document.createElement("div");
+    rightIndicator.className = "scroll-indicator scroll-indicator-right";
+    this.elements.categoryNavigation.appendChild(rightIndicator);
+    this.elements.scrollIndicatorRight = rightIndicator;
+
+    // Initial check for indicators
+    this.updateScrollIndicators();
+  },
+
+  /**
+   * Update scroll indicators based on scroll position
+   */
+  updateScrollIndicators() {
+    const nav = this.elements.categoryNavigation;
+
+    if (!nav) {
+      return;
+    }
+
+    // Check if scrollable (content wider than container)
+    const isScrollable = nav.scrollWidth > nav.clientWidth;
+
+    // Left indicator visible if scrolled right
+    if (this.elements.scrollIndicatorLeft) {
+      this.elements.scrollIndicatorLeft.classList.toggle(
+        "active",
+        isScrollable && nav.scrollLeft > 0
+      );
+    }
+
+    // Right indicator visible if can scroll more to the right
+    if (this.elements.scrollIndicatorRight) {
+      const canScrollMore =
+        nav.scrollLeft < nav.scrollWidth - nav.clientWidth - 1;
+      this.elements.scrollIndicatorRight.classList.toggle(
+        "active",
+        isScrollable && canScrollMore
+      );
+    }
   },
 
   /**
@@ -113,6 +176,11 @@ export const UIController = {
 
       this.elements.menuCategories.appendChild(tab);
     });
+
+    // Check if scroll indicators should be displayed
+    setTimeout(() => {
+      this.updateScrollIndicators();
+    }, 100);
   },
 
   /**
@@ -284,10 +352,6 @@ export const UIController = {
    * Display menu items in the grid
    * @param {Array} items - Menu items to display
    * @param {string} category - Current category ID
-   */
-  /**
-   * Updated displayMenuItems function for UIController.js
-   * Now groups items by subcategory and displays subcategory headers
    */
   displayMenuItems(items, category) {
     if (!this.elements.menuItemsGrid) {

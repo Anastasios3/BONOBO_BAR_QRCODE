@@ -143,6 +143,14 @@ export const EventController = {
       }
     });
 
+    // Handle scroll events for navigation
+    const categoryNavigation = UIController.elements.categoryNavigation;
+    if (categoryNavigation) {
+      categoryNavigation.addEventListener("scroll", () => {
+        UIController.updateScrollIndicators();
+      });
+    }
+
     // Handle responsive adjustments
     window.addEventListener(
       "resize",
@@ -171,6 +179,11 @@ export const EventController = {
 
     // Scroll to top if needed
     window.scrollTo({ top: 0, behavior: "smooth" });
+
+    // Scroll active category into view
+    setTimeout(() => {
+      this.scrollActiveCategoryIntoView();
+    }, 100);
   },
 
   /**
@@ -216,12 +229,47 @@ export const EventController = {
     // Display items
     const items = AppState.getFilteredItems(category, filter);
     UIController.displayMenuItems(items, category);
+
+    // Scroll active category into view after refresh
+    setTimeout(() => {
+      this.scrollActiveCategoryIntoView();
+    }, 100);
   },
 
   /**
    * Handle responsive layout adjustments
    */
   handleResponsiveLayout() {
-    // Add any responsive behavior here
+    // Update scroll indicators when window resizes
+    UIController.updateScrollIndicators();
+
+    // Scroll active tab into view if needed
+    this.scrollActiveCategoryIntoView();
+  },
+
+  /**
+   * Scroll active category tab into view if it's not visible
+   */
+  scrollActiveCategoryIntoView() {
+    const activeTab = document.querySelector(".category-tab.active");
+    const nav = UIController.elements.categoryNavigation;
+
+    if (activeTab && nav) {
+      // Calculate tab position relative to navigation
+      const tabLeft = activeTab.offsetLeft;
+      const tabRight = tabLeft + activeTab.offsetWidth;
+      const navLeft = nav.scrollLeft;
+      const navRight = navLeft + nav.clientWidth;
+
+      // If tab is not fully visible, scroll to center it
+      if (tabLeft < navLeft || tabRight > navRight) {
+        const targetScroll =
+          tabLeft - nav.clientWidth / 2 + activeTab.offsetWidth / 2;
+        nav.scrollTo({
+          left: targetScroll,
+          behavior: "smooth",
+        });
+      }
+    }
   },
 };

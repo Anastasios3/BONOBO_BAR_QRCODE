@@ -12,6 +12,7 @@
   transition: background-color var(--transition-normal);
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none; /* IE and Edge */
+  position: relative; /* Needed for absolute positioning of indicators */
 }
 
 .category-navigation::-webkit-scrollbar {
@@ -22,9 +23,10 @@
   display: flex;
   height: 100%;
   padding: 0 var(--space-lg);
-  max-width: var(--container-max-width);
   margin: 0 auto;
   position: relative;
+  width: max-content; /* Allow content to determine width */
+  min-width: 100%; /* Ensure it fills the container */
 }
 
 .category-tab {
@@ -38,6 +40,7 @@
   white-space: nowrap;
   transition: all var(--transition-fast);
   font-weight: var(--font-weight-medium);
+  flex-shrink: 0; /* Prevent tabs from shrinking */
 }
 
 .category-tab:hover {
@@ -68,7 +71,7 @@
   opacity: 0;
   transition: opacity var(--transition-fast);
   z-index: 1;
-  display: none;
+  display: none; /* Hidden by default, shown via media query */
 }
 
 .scroll-indicator-left {
