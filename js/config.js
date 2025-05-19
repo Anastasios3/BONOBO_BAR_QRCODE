@@ -21,23 +21,23 @@ export const CONFIG = {
   TIME_PERIODS: {
     MORNING: {
       START: 6,
-      END: 11,
+      END: 12,
       ORDER: ["coffee", "food", "wine", "beer", "cocktails", "spirits"],
     },
     LUNCH: {
-      START: 11,
+      START: 12,
       END: 16,
       ORDER: ["food", "coffee", "wine", "beer", "spirits", "cocktails"],
     },
     AFTERNOON: {
       START: 16,
-      END: 20,
+      END: 21,
       ORDER: ["cocktails", "coffee", "food", "beer", "wine", "spirits"],
     },
     NIGHT: {
-      START: 20,
+      START: 21,
       END: 6,
-      ORDER: ["spirits", "cocktails", "beer", "wine", "food", "coffee"],
+      ORDER: ["cocktails", "spirits", "beer", "wine", "food", "coffee"],
     },
   },
 };
