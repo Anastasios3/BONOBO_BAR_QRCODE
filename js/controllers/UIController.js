@@ -1,6 +1,6 @@
 /**
- * UI Controller - Enhanced for Ultra-Smooth Scrolling Integration
- * Manages all DOM interactions and UI updates with exceptional performance
+ * UI Controller - Optimized for Simple Horizontal Scrolling
+ * Manages all DOM interactions and UI updates
  */
 
 import { AppState } from "../models/AppState.js";
@@ -39,55 +39,6 @@ export const UIController = {
       hoursContent: document.getElementById("hours-content"),
       locationText: document.getElementById("location-text"),
     };
-
-    // Set up accent color RGB values for animations
-    this.setupAccentColor();
-  },
-
-  /**
-   * Extract RGB values from accent color for use in animations
-   */
-  setupAccentColor() {
-    const computedStyle = getComputedStyle(document.documentElement);
-    const accentColor = computedStyle.getPropertyValue("--accent-color").trim();
-
-    // Only process if we have a color
-    if (accentColor) {
-      let r, g, b;
-
-      // Parse hex color
-      if (accentColor.startsWith("#")) {
-        const hex = accentColor.substring(1);
-
-        // Handle shorthand (#RGB) or full (#RRGGBB)
-        const expandedHex =
-          hex.length === 3
-            ? hex
-                .split("")
-                .map((h) => h + h)
-                .join("")
-            : hex;
-
-        r = parseInt(expandedHex.substr(0, 2), 16);
-        g = parseInt(expandedHex.substr(2, 2), 16);
-        b = parseInt(expandedHex.substr(4, 2), 16);
-      }
-      // Parse rgb(a) color
-      else if (accentColor.startsWith("rgb")) {
-        const matches = accentColor.match(/(\d+),\s*(\d+),\s*(\d+)/);
-        if (matches) {
-          [, r, g, b] = matches.map(Number);
-        }
-      }
-
-      // Set RGB variable if color was successfully parsed
-      if (r !== undefined && g !== undefined && b !== undefined) {
-        document.documentElement.style.setProperty(
-          "--accent-rgb",
-          `${r}, ${g}, ${b}`
-        );
-      }
-    }
   },
 
   /**
@@ -95,11 +46,6 @@ export const UIController = {
    */
   applyTheme() {
     document.body.classList.toggle("dark-theme", AppState.theme === "dark");
-
-    // Update accent color variables after theme change
-    requestAnimationFrame(() => {
-      this.setupAccentColor();
-    });
   },
 
   /**
@@ -180,13 +126,13 @@ export const UIController = {
     // Append all tabs at once
     this.elements.menuCategories.appendChild(fragment);
 
-    // Reset scroll position to ensure proper rendering
+    // Reset scroll position
     if (this.elements.categoryNavigation) {
       this.elements.categoryNavigation.scrollLeft = 0;
     }
 
-    // Notify scroll manager about the content change
-    this.notifyScrollChange();
+    // Update scroll state
+    this.updateScrollState();
   },
 
   /**
@@ -258,47 +204,33 @@ export const UIController = {
       );
     }
 
-    // Notify scroll manager about active tab change
-    this.notifyActiveTabChange(category);
+    // Notify scroll handler to center the active tab
+    this.notifyTabActivated();
   },
 
   /**
-   * Notify the scroll manager that a tab has been activated
-   * @param {string} category - The activated category
+   * Notify scroll handler that a tab has been activated
    */
-  notifyActiveTabChange(category) {
+  notifyTabActivated() {
     if (this.elements.categoryNavigation) {
-      // Use custom event to notify scroll manager
-      const event = new CustomEvent("tabActivated", {
-        detail: { category },
-        bubbles: true,
-      });
+      // Create and dispatch a custom event
+      const event = new CustomEvent("tabActivated");
+      this.elements.categoryNavigation.dispatchEvent(event);
 
-      // Use requestAnimationFrame to ensure DOM is ready
-      requestAnimationFrame(() => {
-        this.elements.categoryNavigation.dispatchEvent(event);
-      });
+      // Also use the global API if available
+      if (window.menuScrolling && window.menuScrolling.centerActiveTab) {
+        window.menuScrolling.centerActiveTab();
+      }
     }
   },
 
   /**
-   * Notify the scroll manager about content changes
+   * Update scroll state and indicators
    */
-  notifyScrollChange() {
-    if (this.elements.categoryNavigation) {
-      if (this.elements.categoryNavigation._scrollManager) {
-        // If scroll manager is available, use its API directly
-        requestAnimationFrame(() => {
-          this.elements.categoryNavigation._scrollManager.checkScrollability();
-          this.elements.categoryNavigation._scrollManager.updatePositionIndicator();
-          this.elements.categoryNavigation._scrollManager.updateEdgeIndicators();
-        });
-      } else {
-        // Otherwise use a scroll event to trigger updates
-        requestAnimationFrame(() => {
-          this.elements.categoryNavigation.dispatchEvent(new Event("scroll"));
-        });
-      }
+  updateScrollState() {
+    // Use global API if available
+    if (window.menuScrolling && window.menuScrolling.updateIndicators) {
+      window.menuScrolling.updateIndicators();
     }
   },
 
@@ -390,7 +322,7 @@ export const UIController = {
   },
 
   /**
-   * Toggle filter panel visibility with smooth animation
+   * Toggle filter panel visibility
    * @param {boolean} show - Whether to show or hide the panel
    */
   toggleFilterPanel(show = null) {
@@ -435,7 +367,7 @@ export const UIController = {
   },
 
   /**
-   * Display menu items in the grid with optimized rendering and smooth transitions
+   * Display menu items in the grid with optimized rendering
    * @param {Array} items - Menu items to display
    * @param {string} category - Current category ID
    */
@@ -444,64 +376,60 @@ export const UIController = {
       return;
     }
 
-    // Use requestAnimationFrame for smoother transitions
-    requestAnimationFrame(() => {
-      // Fade out current items
-      this.elements.menuItemsGrid.style.opacity = "0";
+    // Simple fade transition
+    this.elements.menuItemsGrid.style.opacity = "0";
 
-      // Use a short timeout for better perceived performance
-      setTimeout(() => {
-        // Create document fragment for better performance
-        const fragment = document.createDocumentFragment();
+    setTimeout(() => {
+      // Create document fragment for better performance
+      const fragment = document.createDocumentFragment();
 
-        // Clear existing items
-        this.elements.menuItemsGrid.innerHTML = "";
+      // Clear existing items
+      this.elements.menuItemsGrid.innerHTML = "";
 
-        // Handle empty results
-        if (!items || items.length === 0) {
-          if (this.elements.emptyState) {
-            this.elements.emptyState.classList.add("active");
-          }
-
-          this.elements.menuItemsGrid.style.opacity = "1";
-          return;
-        }
-
-        // Hide empty state
+      // Handle empty results
+      if (!items || items.length === 0) {
         if (this.elements.emptyState) {
-          this.elements.emptyState.classList.remove("active");
+          this.elements.emptyState.classList.add("active");
         }
 
-        // Group items by subcategory
-        const groupedItems = this.groupItemsBySubcategory(items, category);
-        let itemIndex = 0;
+        this.elements.menuItemsGrid.style.opacity = "1";
+        return;
+      }
 
-        // Create items by subcategory with headers
-        for (const subcategory in groupedItems) {
-          // Add subcategory header
-          const subcategoryHeader = this.createSubcategoryHeader(
-            subcategory,
-            category
-          );
-          fragment.appendChild(subcategoryHeader);
+      // Hide empty state
+      if (this.elements.emptyState) {
+        this.elements.emptyState.classList.remove("active");
+      }
 
-          // Add items for this subcategory
-          groupedItems[subcategory].forEach((item) => {
-            const menuItem = this.createMenuItem(item, category, itemIndex);
-            fragment.appendChild(menuItem);
-            itemIndex++;
-          });
-        }
+      // Group items by subcategory
+      const groupedItems = this.groupItemsBySubcategory(items, category);
+      let itemIndex = 0;
 
-        // Append all items at once for better performance
-        this.elements.menuItemsGrid.appendChild(fragment);
+      // Create items by subcategory with headers
+      for (const subcategory in groupedItems) {
+        // Add subcategory header
+        const subcategoryHeader = this.createSubcategoryHeader(
+          subcategory,
+          category
+        );
+        fragment.appendChild(subcategoryHeader);
 
-        // Use requestAnimationFrame for smoother fade-in
-        requestAnimationFrame(() => {
-          this.elements.menuItemsGrid.style.opacity = "1";
+        // Add items for this subcategory
+        groupedItems[subcategory].forEach((item) => {
+          const menuItem = this.createMenuItem(item, category, itemIndex);
+          fragment.appendChild(menuItem);
+          itemIndex++;
         });
-      }, 100); // Shorter timeout for better perceived performance
-    });
+      }
+
+      // Append all items at once for better performance
+      this.elements.menuItemsGrid.appendChild(fragment);
+
+      // Fade in the new items
+      setTimeout(() => {
+        this.elements.menuItemsGrid.style.opacity = "1";
+      }, 30);
+    }, 150);
   },
 
   /**

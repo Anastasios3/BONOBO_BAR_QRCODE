@@ -1,5 +1,5 @@
 /*--------------------------------------------------------------
-# Category Navigation - Ultimate Scrolling Experience
+# Category Navigation - Smooth Horizontal Scrolling
 --------------------------------------------------------------*/
 .category-navigation {
   height: var(--category-nav-height);
@@ -8,24 +8,16 @@
   position: sticky;
   top: var(--header-height);
   z-index: var(--z-navigation);
-  overflow-x: scroll;
+  overflow-x: auto;
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none; /* IE and Edge */
   position: relative;
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch; /* Enable momentum scrolling on iOS */
-  scroll-snap-type: x proximity; /* More natural snapping */
   overscroll-behavior-x: contain; /* Prevent page overscroll */
-  scroll-padding: 0 var(--space-md); /* Add padding for scroll snapping */
   padding: 0 var(--space-2xs);
   transition: background-color var(--transition-normal);
   user-select: none; /* Prevent text selection during scrolling */
-  touch-action: pan-x; /* Optimize for horizontal swiping */
-  cursor: grab; /* Indicate scrollable area */
-}
-
-.category-navigation:active {
-  cursor: grabbing; /* Change cursor when actively scrolling */
 }
 
 .category-navigation::-webkit-scrollbar {
@@ -44,7 +36,6 @@
   gap: var(--space-2xs); /* Add slight spacing between tabs */
 }
 
-/* Enhanced Tab Styling */
 .category-tab {
   height: 100%;
   padding: 0 var(--space-lg);
@@ -56,13 +47,10 @@
   white-space: nowrap;
   font-weight: var(--font-weight-medium);
   flex-shrink: 0; /* Prevent tabs from shrinking */
-  scroll-snap-align: center; /* Snap centers of items */
   min-width: max-content; /* Ensure tab width is based on content */
-  transition: transform 0.35s cubic-bezier(0.19, 1, 0.22, 1),
-    color 0.35s cubic-bezier(0.19, 1, 0.22, 1);
+  transition: transform 0.25s ease, color 0.25s ease;
   position: relative;
   outline: none; /* Remove default focus outline */
-  will-change: transform, color; /* Optimize for animations */
 }
 
 .category-tab:hover {
@@ -78,7 +66,7 @@
 
 .category-tab.active {
   color: var(--accent-color);
-  transform: translateY(-2px);
+  transform: translateY(-2px); /* Maintain consistent effect with hover */
 }
 
 .category-tab.active::after {
@@ -90,7 +78,7 @@
   height: 3px;
   background-color: var(--accent-color);
   transform-origin: center bottom;
-  animation: tabActivate 0.4s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+  animation: tabActivate 0.3s ease-out forwards;
 }
 
 @keyframes tabActivate {
@@ -104,7 +92,7 @@
   }
 }
 
-/* Edge Fade Indicators - Subtle scrolling hints instead of buttons */
+/* Subtle edge fade indicators */
 .category-navigation::before,
 .category-navigation::after {
   content: "";
@@ -115,7 +103,7 @@
   z-index: 2;
   pointer-events: none;
   opacity: 0;
-  transition: opacity 0.4s ease;
+  transition: opacity 0.3s ease;
 }
 
 .category-navigation::before {
@@ -136,72 +124,24 @@
   opacity: 0.9;
 }
 
-/* Subtle scroll indicator - Single dot that shows position */
-.scroll-position-indicator {
-  position: absolute;
-  bottom: 4px;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  pointer-events: none;
-  z-index: 1;
-  background-color: transparent;
-  overflow: hidden;
-}
-
-.scroll-position-track {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0.15;
-  background-color: var(--text-tertiary);
-}
-
-.scroll-position-thumb {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  height: 100%;
-  width: 20%;
-  background-color: var(--accent-color);
-  border-radius: 2px;
-  transform-origin: left;
-  transition: transform 0.1s ease;
-}
-
-/* Subtle animation to show scrollability */
-@keyframes pulseHint {
-  0%,
-  100% {
-    opacity: 0.4;
-    transform: scaleY(1);
-  }
-  50% {
-    opacity: 0.8;
-    transform: scaleY(1.5);
-  }
-}
-
-/* First-time hint for scrolling */
+/* First-time swipe hint overlay */
 .swipe-hint {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgba(0, 0, 0, 0.75);
   color: white;
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.5s ease;
   z-index: 10;
-  backdrop-filter: blur(3px);
-  -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
 }
 
 .swipe-hint.visible {
@@ -216,7 +156,7 @@
 }
 
 .swipe-hint-icon {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   animation: swipeAnimation 1.5s infinite;
 }
 
@@ -251,26 +191,99 @@
   }
 }
 
-/* Animation states for tabs */
-.category-tab {
-  opacity: 1;
-  transition: opacity 0.4s ease, transform 0.35s cubic-bezier(0.19, 1, 0.22, 1),
-    color 0.35s cubic-bezier(0.19, 1, 0.22, 1);
+/* Mobile category dropdown */
+.category-dropdown {
+  display: none;
+  position: relative;
+  width: 100%;
+  margin-bottom: var(--space-md);
 }
 
-.category-tab.fade-out {
-  opacity: 0.5;
-  transform: scale(0.95);
+.category-dropdown-btn {
+  width: 100%;
+  padding: var(--space-sm) var(--space-md);
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: var(--font-weight-medium);
+  -webkit-tap-highlight-color: transparent;
+  transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
-.category-tab.in-view {
-  opacity: 1;
-  transform: scale(1);
+.category-dropdown-btn:active {
+  transform: scale(0.98);
 }
 
-.category-tab.active.fade-out {
-  opacity: 1;
-  transform: translateY(-2px);
+.category-dropdown-btn i {
+  transition: transform var(--transition-fast);
+}
+
+.category-dropdown.active .category-dropdown-btn i {
+  transform: rotate(180deg);
+}
+
+.category-dropdown-content {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  margin-top: var(--space-xs);
+  box-shadow: var(--shadow-md);
+  z-index: 100;
+  max-height: 0;
+  overflow-y: auto;
+  transition: max-height var(--transition-normal),
+    visibility var(--transition-normal);
+  visibility: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+
+.category-dropdown.active .category-dropdown-content {
+  max-height: 50vh;
+  visibility: visible;
+}
+
+.category-dropdown-item {
+  width: 100%;
+  padding: var(--space-sm) var(--space-md);
+  text-align: left;
+  color: var(--text-secondary);
+  transition: all var(--transition-fast);
+  -webkit-tap-highlight-color: transparent;
+  transform-origin: center;
+}
+
+.category-dropdown-item:hover {
+  background-color: var(--bg-tertiary);
+  color: var(--text-primary);
+}
+
+.category-dropdown-item:active {
+  transform: scale(0.98);
+}
+
+.category-dropdown-item.active {
+  color: var(--accent-color);
+  background-color: var(--bg-tertiary);
+  position: relative;
+  font-weight: var(--font-weight-medium);
+}
+
+.category-dropdown-item.active::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 3px;
+  background-color: var(--accent-color);
 }
 
 /* Responsive adjustments */
@@ -301,37 +314,17 @@
     gap: var(--space-xs);
   }
 
+  /* Show dropdown on very small screens */
+  .category-dropdown {
+    display: none; /* Keep horizontal scrolling on small screens too */
+  }
+
   .category-navigation {
     position: relative;
     top: 0;
     height: var(--category-nav-height-mobile);
-    overflow-x: scroll;
+    overflow-x: auto;
     background-color: var(--bg-secondary);
     border-bottom: 1px solid var(--border-color);
   }
-
-  /* Enhance tap-ability of tabs on small screens */
-  .category-tab {
-    padding: 0 var(--space-sm);
-  }
-}
-
-/* Additional animation for active tab - subtle pulse */
-.category-tab.active {
-  animation: subtlePulse 2s infinite alternate;
-}
-
-@keyframes subtlePulse {
-  0% {
-    text-shadow: 0 0 0 transparent;
-  }
-  100% {
-    text-shadow: 0 0 8px rgba(var(--accent-rgb), 0.3);
-  }
-}
-
-/* Visual feedback for scrolling action */
-.category-navigation.is-scrolling {
-  background-color: var(--bg-tertiary);
-  transition: background-color 0.2s ease;
 }
