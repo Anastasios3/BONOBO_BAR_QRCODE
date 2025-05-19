@@ -1,5 +1,5 @@
 /*--------------------------------------------------------------
-# Category Navigation - Premium Scrolling Experience
+# Category Navigation - Ultimate Scrolling Experience
 --------------------------------------------------------------*/
 .category-navigation {
   height: var(--category-nav-height);
@@ -21,6 +21,11 @@
   transition: background-color var(--transition-normal);
   user-select: none; /* Prevent text selection during scrolling */
   touch-action: pan-x; /* Optimize for horizontal swiping */
+  cursor: grab; /* Indicate scrollable area */
+}
+
+.category-navigation:active {
+  cursor: grabbing; /* Change cursor when actively scrolling */
 }
 
 .category-navigation::-webkit-scrollbar {
@@ -39,6 +44,7 @@
   gap: var(--space-2xs); /* Add slight spacing between tabs */
 }
 
+/* Enhanced Tab Styling */
 .category-tab {
   height: 100%;
   padding: 0 var(--space-lg);
@@ -52,8 +58,8 @@
   flex-shrink: 0; /* Prevent tabs from shrinking */
   scroll-snap-align: center; /* Snap centers of items */
   min-width: max-content; /* Ensure tab width is based on content */
-  transition: transform 0.25s cubic-bezier(0.2, 0, 0.15, 1),
-    color 0.25s cubic-bezier(0.2, 0, 0.15, 1);
+  transition: transform 0.35s cubic-bezier(0.19, 1, 0.22, 1),
+    color 0.35s cubic-bezier(0.19, 1, 0.22, 1);
   position: relative;
   outline: none; /* Remove default focus outline */
   will-change: transform, color; /* Optimize for animations */
@@ -84,7 +90,7 @@
   height: 3px;
   background-color: var(--accent-color);
   transform-origin: center bottom;
-  animation: tabActivate 0.3s cubic-bezier(0.2, 0, 0.15, 1) forwards;
+  animation: tabActivate 0.4s cubic-bezier(0.19, 1, 0.22, 1) forwards;
 }
 
 @keyframes tabActivate {
@@ -98,127 +104,88 @@
   }
 }
 
-/* Premium Navigation Controls */
-.scroll-control {
-  position: absolute;
-  top: 0;
-  height: 100%;
-  width: 80px; /* Larger touch target area */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  pointer-events: none; /* Default state - pass through events */
-  z-index: 5;
-  opacity: 0;
-  transition: opacity 0.3s cubic-bezier(0.2, 0, 0.15, 1);
-}
-
-.scroll-control-left {
-  left: 0;
-  background: linear-gradient(to right, var(--bg-secondary) 40%, transparent);
-  border-radius: 0 12px 12px 0;
-}
-
-.scroll-control-right {
-  right: 0;
-  background: linear-gradient(to left, var(--bg-secondary) 40%, transparent);
-  border-radius: 12px 0 0 12px;
-}
-
-/* Activated state */
-.scroll-control.active {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-/* Luxurious scroll button styling */
-.scroll-btn {
-  width: 46px;
-  height: 46px;
-  border-radius: 50%;
-  background-color: var(--bg-tertiary);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transform: scale(0.95);
-  transition: transform 0.25s cubic-bezier(0.3, 0, 0.2, 1),
-    background-color 0.25s cubic-bezier(0.3, 0, 0.2, 1),
-    box-shadow 0.25s cubic-bezier(0.3, 0, 0.2, 1);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  -webkit-tap-highlight-color: transparent;
-  overflow: hidden;
-  position: relative;
-}
-
-.scroll-btn::before {
+/* Edge Fade Indicators - Subtle scrolling hints instead of buttons */
+.category-navigation::before,
+.category-navigation::after {
   content: "";
   position: absolute;
   top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: var(--accent-color);
-  opacity: 0;
-  transition: opacity 0.25s cubic-bezier(0.3, 0, 0.2, 1);
-  border-radius: 50%;
-  z-index: -1;
-}
-
-.scroll-btn:hover {
-  transform: scale(1.05);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-}
-
-.scroll-btn:hover::before {
-  opacity: 0.15;
-}
-
-.scroll-btn:active {
-  transform: scale(0.92);
-  transition: transform 0.15s cubic-bezier(0.3, 0, 0.2, 1);
-}
-
-.scroll-btn i {
-  color: var(--text-primary);
-  font-size: 1.2rem;
-  transition: transform 0.3s cubic-bezier(0.3, 0, 0.2, 1),
-    color 0.3s cubic-bezier(0.3, 0, 0.2, 1);
-}
-
-.scroll-btn:hover i {
-  color: var(--accent-color);
-}
-
-.scroll-btn:active i {
-  transform: scale(0.85);
-}
-
-/* Ripple effect */
-.scroll-ripple {
-  position: absolute;
-  background-color: rgba(255, 255, 255, 0.7);
-  border-radius: 50%;
+  height: 100%;
+  width: 40px;
+  z-index: 2;
   pointer-events: none;
-  width: 100px;
-  height: 100px;
-  transform: scale(0);
-  opacity: 0.5;
+  opacity: 0;
+  transition: opacity 0.4s ease;
 }
 
-.ripple-animation {
-  animation: ripple 0.6s cubic-bezier(0, 0, 0.2, 1);
+.category-navigation::before {
+  left: 0;
+  background: linear-gradient(to right, var(--bg-secondary) 20%, transparent);
 }
 
-@keyframes ripple {
-  to {
-    transform: scale(2);
-    opacity: 0;
+.category-navigation::after {
+  right: 0;
+  background: linear-gradient(to left, var(--bg-secondary) 20%, transparent);
+}
+
+.category-navigation.show-start-fade::before {
+  opacity: 0.9;
+}
+
+.category-navigation.show-end-fade::after {
+  opacity: 0.9;
+}
+
+/* Subtle scroll indicator - Single dot that shows position */
+.scroll-position-indicator {
+  position: absolute;
+  bottom: 4px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  pointer-events: none;
+  z-index: 1;
+  background-color: transparent;
+  overflow: hidden;
+}
+
+.scroll-position-track {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.15;
+  background-color: var(--text-tertiary);
+}
+
+.scroll-position-thumb {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 100%;
+  width: 20%;
+  background-color: var(--accent-color);
+  border-radius: 2px;
+  transform-origin: left;
+  transition: transform 0.1s ease;
+}
+
+/* Subtle animation to show scrollability */
+@keyframes pulseHint {
+  0%,
+  100% {
+    opacity: 0.4;
+    transform: scaleY(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scaleY(1.5);
   }
 }
 
-/* Scroll notification for first-time users */
-.scroll-notification {
+/* First-time hint for scrolling */
+.swipe-hint {
   position: absolute;
   top: 0;
   left: 0;
@@ -227,44 +194,42 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  pointer-events: none;
-  z-index: 4;
-  opacity: 0;
-  transition: opacity 0.6s ease;
-  background-color: rgba(0, 0, 0, 0.6);
-}
-
-.scroll-notification.visible {
-  opacity: 1;
-  animation: notificationFade 4s forwards;
-}
-
-.notification-content {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  gap: var(--space-md);
+  background-color: rgba(0, 0, 0, 0.75);
   color: white;
-  padding: var(--space-sm) var(--space-lg);
-  border-radius: var(--radius-md);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+  z-index: 10;
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
 }
 
-.notification-icon {
+.swipe-hint.visible {
+  opacity: 1;
+  animation: fadeInOut 3s forwards;
+}
+
+.swipe-hint-content {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.swipe-hint-icon {
   font-size: 1.5rem;
-  animation: notificationSwipe 1.5s infinite;
+  animation: swipeAnimation 1.5s infinite;
 }
 
-.notification-text {
+.swipe-hint-text {
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-medium);
 }
 
-@keyframes notificationSwipe {
+@keyframes swipeAnimation {
   0%,
   100% {
     transform: translateX(-10px);
-    opacity: 0.6;
+    opacity: 0.7;
   }
   50% {
     transform: translateX(10px);
@@ -272,13 +237,13 @@
   }
 }
 
-@keyframes notificationFade {
+@keyframes fadeInOut {
   0%,
   10% {
     opacity: 0;
   }
-  25%,
-  75% {
+  20%,
+  80% {
     opacity: 1;
   }
   100% {
@@ -286,112 +251,11 @@
   }
 }
 
-/* Enhanced focus styling for accessibility */
-.scroll-btn:focus-visible {
-  outline: none;
-  box-shadow: 0 0 0 3px var(--accent-color), 0 4px 12px rgba(0, 0, 0, 0.15);
-}
-
-/* Mobile category dropdown */
-.category-dropdown {
-  display: none;
-  position: relative;
-  width: 100%;
-  margin-bottom: var(--space-md);
-}
-
-.category-dropdown-btn {
-  width: 100%;
-  padding: var(--space-sm) var(--space-md);
-  background-color: var(--bg-secondary);
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius-md);
-  color: var(--text-primary);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  font-weight: var(--font-weight-medium);
-  -webkit-tap-highlight-color: transparent;
-  transition: all 0.25s cubic-bezier(0.3, 0, 0.2, 1);
-}
-
-.category-dropdown-btn:active {
-  transform: scale(0.98);
-}
-
-.category-dropdown-btn i {
-  transition: transform 0.3s cubic-bezier(0.3, 0, 0.2, 1);
-}
-
-.category-dropdown.active .category-dropdown-btn i {
-  transform: rotate(180deg);
-}
-
-.category-dropdown-content {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  width: 100%;
-  background-color: var(--card-bg);
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius-md);
-  margin-top: var(--space-xs);
-  box-shadow: var(--shadow-md);
-  z-index: 100;
-  max-height: 0;
-  overflow-y: auto;
-  transition: max-height 0.3s cubic-bezier(0.3, 0, 0.2, 1),
-    visibility 0.3s cubic-bezier(0.3, 0, 0.2, 1);
-  visibility: hidden;
-  -webkit-overflow-scrolling: touch;
-}
-
-.category-dropdown.active .category-dropdown-content {
-  max-height: 50vh;
-  visibility: visible;
-}
-
-.category-dropdown-item {
-  width: 100%;
-  padding: var(--space-sm) var(--space-md);
-  text-align: left;
-  color: var(--text-secondary);
-  transition: all 0.2s cubic-bezier(0.3, 0, 0.2, 1);
-  -webkit-tap-highlight-color: transparent;
-  transform-origin: center;
-}
-
-.category-dropdown-item:hover {
-  background-color: var(--bg-tertiary);
-  color: var(--text-primary);
-}
-
-.category-dropdown-item:active {
-  transform: scale(0.98);
-}
-
-.category-dropdown-item.active {
-  color: var(--accent-color);
-  background-color: var(--bg-tertiary);
-  position: relative;
-  font-weight: var(--font-weight-medium);
-}
-
-.category-dropdown-item.active::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
-  height: 100%;
-  width: 3px;
-  background-color: var(--accent-color);
-}
-
 /* Animation states for tabs */
 .category-tab {
   opacity: 1;
-  transition: opacity 0.3s ease, transform 0.25s cubic-bezier(0.2, 0, 0.15, 1),
-    color 0.25s cubic-bezier(0.2, 0, 0.15, 1);
+  transition: opacity 0.4s ease, transform 0.35s cubic-bezier(0.19, 1, 0.22, 1),
+    color 0.35s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
 .category-tab.fade-out {
@@ -409,63 +273,10 @@
   transform: translateY(-2px);
 }
 
-/* Interactive scroll indicator - shows scrollability */
-.scroll-hint {
-  position: absolute;
-  bottom: 4px;
-  left: 50%;
-  transform: translateX(-50%);
-  height: 3px;
-  width: 40px;
-  background-color: var(--border-color);
-  border-radius: 3px;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  pointer-events: none;
-  z-index: 3;
-}
-
-.scroll-hint::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 10px;
-  background-color: var(--accent-color);
-  border-radius: 3px;
-  animation: scrollIndicator 2s infinite;
-}
-
-@keyframes scrollIndicator {
-  0% {
-    left: 0;
-  }
-  50% {
-    left: calc(100% - 10px);
-  }
-  100% {
-    left: 0;
-  }
-}
-
-.category-navigation.show-hint .scroll-hint {
-  opacity: 0.7;
-}
-
 /* Responsive adjustments */
 @media (max-width: 991px) {
   .category-tab {
     padding: 0 var(--space-md);
-  }
-
-  .scroll-btn {
-    width: 42px;
-    height: 42px;
-  }
-
-  .scroll-control {
-    width: 70px;
   }
 }
 
@@ -482,39 +293,12 @@
     padding: 0 var(--space-sm);
     font-size: var(--font-size-sm);
   }
-
-  /* Mobile optimization */
-  .scroll-btn {
-    width: 38px;
-    height: 38px;
-  }
-
-  .scroll-btn i {
-    font-size: 1rem;
-  }
-
-  .scroll-control {
-    width: 60px;
-  }
-
-  .notification-content {
-    padding: var(--space-xs) var(--space-md);
-  }
-
-  .notification-icon {
-    font-size: 1.2rem;
-  }
 }
 
 @media (max-width: 575px) {
   .category-tabs {
     padding: 0 var(--space-xs);
     gap: var(--space-xs);
-  }
-
-  /* Show dropdown on very small screens */
-  .category-dropdown {
-    display: none; /* Keep horizontal scrolling on small screens too */
   }
 
   .category-navigation {
@@ -526,17 +310,28 @@
     border-bottom: 1px solid var(--border-color);
   }
 
-  /* Further mobile optimizations */
-  .scroll-control {
-    width: 54px;
+  /* Enhance tap-ability of tabs on small screens */
+  .category-tab {
+    padding: 0 var(--space-sm);
   }
+}
 
-  .scroll-btn {
-    width: 36px;
-    height: 36px;
-  }
+/* Additional animation for active tab - subtle pulse */
+.category-tab.active {
+  animation: subtlePulse 2s infinite alternate;
+}
 
-  .scroll-hint {
-    width: 30px;
+@keyframes subtlePulse {
+  0% {
+    text-shadow: 0 0 0 transparent;
   }
+  100% {
+    text-shadow: 0 0 8px rgba(var(--accent-rgb), 0.3);
+  }
+}
+
+/* Visual feedback for scrolling action */
+.category-navigation.is-scrolling {
+  background-color: var(--bg-tertiary);
+  transition: background-color 0.2s ease;
 }

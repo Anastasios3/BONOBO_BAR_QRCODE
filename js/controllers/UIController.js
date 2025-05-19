@@ -1,6 +1,6 @@
 /**
- * UI Controller - Optimized for Premium Scrolling Integration
- * Manages all DOM interactions and UI updates with enhanced performance
+ * UI Controller - Enhanced for Ultra-Smooth Scrolling Integration
+ * Manages all DOM interactions and UI updates with exceptional performance
  */
 
 import { AppState } from "../models/AppState.js";
@@ -40,28 +40,26 @@ export const UIController = {
       locationText: document.getElementById("location-text"),
     };
 
-    // Setup CSS variable for theming
-    this.setupThemeColors();
+    // Set up accent color RGB values for animations
+    this.setupAccentColor();
   },
 
   /**
-   * Setup theme color CSS variables for animations
+   * Extract RGB values from accent color for use in animations
    */
-  setupThemeColors() {
-    // Extract accent color and convert to RGB for use in animations
+  setupAccentColor() {
     const computedStyle = getComputedStyle(document.documentElement);
     const accentColor = computedStyle.getPropertyValue("--accent-color").trim();
 
-    // Only process if we have a valid color
+    // Only process if we have a color
     if (accentColor) {
       let r, g, b;
 
-      // Handle hex colors
+      // Parse hex color
       if (accentColor.startsWith("#")) {
-        // Parse hex value
         const hex = accentColor.substring(1);
 
-        // Handle shorthand hex (#RGB) or full hex (#RRGGBB)
+        // Handle shorthand (#RGB) or full (#RRGGBB)
         const expandedHex =
           hex.length === 3
             ? hex
@@ -74,7 +72,7 @@ export const UIController = {
         g = parseInt(expandedHex.substr(2, 2), 16);
         b = parseInt(expandedHex.substr(4, 2), 16);
       }
-      // Handle rgb/rgba colors
+      // Parse rgb(a) color
       else if (accentColor.startsWith("rgb")) {
         const matches = accentColor.match(/(\d+),\s*(\d+),\s*(\d+)/);
         if (matches) {
@@ -82,7 +80,7 @@ export const UIController = {
         }
       }
 
-      // Set RGB variables if we successfully parsed the color
+      // Set RGB variable if color was successfully parsed
       if (r !== undefined && g !== undefined && b !== undefined) {
         document.documentElement.style.setProperty(
           "--accent-rgb",
@@ -98,10 +96,10 @@ export const UIController = {
   applyTheme() {
     document.body.classList.toggle("dark-theme", AppState.theme === "dark");
 
-    // Update theme colors after theme change
-    setTimeout(() => {
-      this.setupThemeColors();
-    }, 100);
+    // Update accent color variables after theme change
+    requestAnimationFrame(() => {
+      this.setupAccentColor();
+    });
   },
 
   /**
@@ -187,8 +185,8 @@ export const UIController = {
       this.elements.categoryNavigation.scrollLeft = 0;
     }
 
-    // Ensure scroll controls are synced with new content
-    this.triggerScrollUpdate();
+    // Notify scroll manager about the content change
+    this.notifyScrollChange();
   },
 
   /**
@@ -260,32 +258,47 @@ export const UIController = {
       );
     }
 
-    // Trigger tabActivated event for ScrollManager
+    // Notify scroll manager about active tab change
+    this.notifyActiveTabChange(category);
+  },
+
+  /**
+   * Notify the scroll manager that a tab has been activated
+   * @param {string} category - The activated category
+   */
+  notifyActiveTabChange(category) {
     if (this.elements.categoryNavigation) {
+      // Use custom event to notify scroll manager
       const event = new CustomEvent("tabActivated", {
         detail: { category },
         bubbles: true,
       });
-      this.elements.categoryNavigation.dispatchEvent(event);
+
+      // Use requestAnimationFrame to ensure DOM is ready
+      requestAnimationFrame(() => {
+        this.elements.categoryNavigation.dispatchEvent(event);
+      });
     }
   },
 
   /**
-   * Trigger a scroll update to refresh controls and position
+   * Notify the scroll manager about content changes
    */
-  triggerScrollUpdate() {
-    if (
-      this.elements.categoryNavigation &&
-      this.elements.categoryNavigation._scrollManager
-    ) {
-      // If ScrollManager is available, use it directly
-      this.elements.categoryNavigation._scrollManager.checkScrollability();
-      this.elements.categoryNavigation._scrollManager.centerActiveTab();
-    } else {
-      // Otherwise dispatch a scroll event to trigger updates
-      setTimeout(() => {
-        this.elements.categoryNavigation.dispatchEvent(new Event("scroll"));
-      }, 100);
+  notifyScrollChange() {
+    if (this.elements.categoryNavigation) {
+      if (this.elements.categoryNavigation._scrollManager) {
+        // If scroll manager is available, use its API directly
+        requestAnimationFrame(() => {
+          this.elements.categoryNavigation._scrollManager.checkScrollability();
+          this.elements.categoryNavigation._scrollManager.updatePositionIndicator();
+          this.elements.categoryNavigation._scrollManager.updateEdgeIndicators();
+        });
+      } else {
+        // Otherwise use a scroll event to trigger updates
+        requestAnimationFrame(() => {
+          this.elements.categoryNavigation.dispatchEvent(new Event("scroll"));
+        });
+      }
     }
   },
 
@@ -377,7 +390,7 @@ export const UIController = {
   },
 
   /**
-   * Toggle filter panel visibility
+   * Toggle filter panel visibility with smooth animation
    * @param {boolean} show - Whether to show or hide the panel
    */
   toggleFilterPanel(show = null) {
@@ -422,7 +435,7 @@ export const UIController = {
   },
 
   /**
-   * Display menu items in the grid with optimized rendering
+   * Display menu items in the grid with optimized rendering and smooth transitions
    * @param {Array} items - Menu items to display
    * @param {string} category - Current category ID
    */
@@ -431,12 +444,12 @@ export const UIController = {
       return;
     }
 
-    // Use requestAnimationFrame for smooth transitions
+    // Use requestAnimationFrame for smoother transitions
     requestAnimationFrame(() => {
       // Fade out current items
       this.elements.menuItemsGrid.style.opacity = "0";
 
-      // Use a shorter timeout for better perceived performance
+      // Use a short timeout for better perceived performance
       setTimeout(() => {
         // Create document fragment for better performance
         const fragment = document.createDocumentFragment();
@@ -487,7 +500,7 @@ export const UIController = {
         requestAnimationFrame(() => {
           this.elements.menuItemsGrid.style.opacity = "1";
         });
-      }, 150); // Shorter timeout for better perceived performance
+      }, 100); // Shorter timeout for better perceived performance
     });
   },
 
