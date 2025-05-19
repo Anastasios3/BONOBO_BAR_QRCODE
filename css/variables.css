@@ -1,5 +1,5 @@
 /*--------------------------------------------------------------
-# Root Variables and Theming
+# Root Variables and Theming - Enhanced for mobile
 --------------------------------------------------------------*/
 :root {
   /* Brand color palette */
@@ -24,6 +24,10 @@
   /* Functional colors */
   --gold: #d4af37;
   --gold-light: #f5e6a9;
+  --success: #10b981;
+  --warning: #f59e0b;
+  --error: #ef4444;
+  --info: #3b82f6;
 
   /* Light theme colors */
   --bg-primary: var(--neutral-50);
@@ -37,23 +41,27 @@
   --accent-color: var(--brand-secondary);
   --accent-light: var(--brand-tertiary);
 
-  /* Measurements */
+  /* Measurements - Desktop defaults */
   --header-height: 70px;
   --category-nav-height: 56px;
+  --category-nav-height-mobile: 50px;
   --footer-height: auto;
   --container-max-width: 1400px;
   --card-min-width: 260px;
+  --content-padding: var(--space-lg);
+  --menu-item-radius: var(--radius-md);
 
   /* Typography */
   --font-primary: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI",
     Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-  --font-size-xs: 0.75rem;
-  --font-size-sm: 0.875rem;
-  --font-size-md: 1rem;
-  --font-size-lg: 1.125rem;
-  --font-size-xl: 1.25rem;
-  --font-size-2xl: 1.5rem;
-  --font-size-3xl: 2rem;
+  --font-size-xs: 0.75rem; /* 12px */
+  --font-size-sm: 0.875rem; /* 14px */
+  --font-size-md: 1rem; /* 16px */
+  --font-size-lg: 1.125rem; /* 18px */
+  --font-size-xl: 1.25rem; /* 20px */
+  --font-size-2xl: 1.5rem; /* 24px */
+  --font-size-3xl: 2rem; /* 32px */
+  --font-size-4xl: 2.5rem; /* 40px */
   --font-weight-light: 300;
   --font-weight-regular: 400;
   --font-weight-medium: 500;
@@ -68,15 +76,18 @@
   --space-lg: 1.5rem; /* 24px */
   --space-xl: 2rem; /* 32px */
   --space-2xl: 3rem; /* 48px */
+  --space-3xl: 4rem; /* 64px */
 
   /* Borders & Effects */
   --radius-sm: 4px;
   --radius-md: 8px;
   --radius-lg: 12px;
+  --radius-xl: 16px;
   --radius-round: 9999px;
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.05);
-  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.05), 0 4px 6px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.05), 0 10px 10px rgba(0, 0, 0, 0.04);
 
   /* Transitions */
   --transition-fast: 150ms ease-in-out;
@@ -87,6 +98,9 @@
   --z-header: 100;
   --z-navigation: 90;
   --z-dropdown: 80;
+  --z-drawer: 85;
+  --z-overlay: 95;
+  --z-backtop: 70;
   --z-footer: 10;
 }
 
@@ -102,4 +116,49 @@
   --card-bg: var(--neutral-800);
   --accent-color: var(--brand-light);
   --accent-light: var(--brand-accent);
+}
+
+/* Responsive variable adjustments */
+@media (max-width: 991px) {
+  :root {
+    --header-height: 60px;
+    --category-nav-height: 50px;
+    --card-min-width: 220px;
+    --content-padding: var(--space-md);
+    --menu-item-radius: var(--radius-sm);
+
+    /* Reduce font sizes slightly */
+    --font-size-3xl: 1.75rem;
+    --font-size-2xl: 1.375rem;
+  }
+}
+
+@media (max-width: 767px) {
+  :root {
+    --header-height: 56px;
+    --category-nav-height: 46px;
+    --card-min-width: 200px;
+    --content-padding: var(--space-sm);
+
+    /* Further reduce font sizes */
+    --font-size-3xl: 1.625rem;
+    --font-size-2xl: 1.25rem;
+    --font-size-xl: 1.125rem;
+  }
+}
+
+@media (max-width: 575px) {
+  :root {
+    --header-height: 52px;
+    --category-nav-height: 42px;
+    --card-min-width: 100%;
+    --content-padding: var(--space-xs);
+    --menu-item-radius: var(--radius-sm);
+
+    /* Mobile font sizes */
+    --font-size-3xl: 1.5rem;
+    --font-size-2xl: 1.25rem;
+    --font-size-xl: 1.125rem;
+    --font-size-lg: 1rem;
+  }
 }

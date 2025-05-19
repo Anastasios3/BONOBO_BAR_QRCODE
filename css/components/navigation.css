@@ -1,5 +1,5 @@
 /*--------------------------------------------------------------
-# Category Navigation
+# Category Navigation - Optimized for mobile
 --------------------------------------------------------------*/
 .category-navigation {
   height: var(--category-nav-height);
@@ -10,10 +10,12 @@
   z-index: var(--z-navigation);
   overflow-x: auto;
   transition: background-color var(--transition-normal);
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
 }
 
 .category-navigation::-webkit-scrollbar {
-  display: none;
+  display: none; /* Chrome, Safari, Opera */
 }
 
 .category-tabs {
@@ -22,6 +24,7 @@
   padding: 0 var(--space-lg);
   max-width: var(--container-max-width);
   margin: 0 auto;
+  position: relative;
 }
 
 .category-tab {
@@ -33,7 +36,7 @@
   color: var(--text-secondary);
   position: relative;
   white-space: nowrap;
-  transition: color var(--transition-fast);
+  transition: all var(--transition-fast);
   font-weight: var(--font-weight-medium);
 }
 
@@ -55,13 +58,155 @@
   background-color: var(--accent-color);
 }
 
+/* Scroll indicators */
+.scroll-indicator {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 40px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity var(--transition-fast);
+  z-index: 1;
+  display: none;
+}
+
+.scroll-indicator-left {
+  left: 0;
+  background: linear-gradient(to right, var(--bg-secondary), transparent);
+}
+
+.scroll-indicator-right {
+  right: 0;
+  background: linear-gradient(to left, var(--bg-secondary), transparent);
+}
+
+.scroll-indicator.active {
+  opacity: 1;
+}
+
+/* Mobile category dropdown (for very small screens) */
+.category-dropdown {
+  display: none;
+  position: relative;
+  width: 100%;
+  margin-bottom: var(--space-md);
+}
+
+.category-dropdown-btn {
+  width: 100%;
+  padding: var(--space-sm) var(--space-md);
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: var(--font-weight-medium);
+}
+
+.category-dropdown-btn i {
+  transition: transform var(--transition-fast);
+}
+
+.category-dropdown.active .category-dropdown-btn i {
+  transform: rotate(180deg);
+}
+
+.category-dropdown-content {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  margin-top: var(--space-xs);
+  box-shadow: var(--shadow-md);
+  z-index: 100;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height var(--transition-normal);
+  visibility: hidden;
+}
+
+.category-dropdown.active .category-dropdown-content {
+  max-height: 300px;
+  visibility: visible;
+}
+
+.category-dropdown-item {
+  width: 100%;
+  padding: var(--space-sm) var(--space-md);
+  text-align: left;
+  color: var(--text-secondary);
+  transition: all var(--transition-fast);
+}
+
+.category-dropdown-item:hover {
+  background-color: var(--bg-tertiary);
+  color: var(--text-primary);
+}
+
+.category-dropdown-item.active {
+  color: var(--accent-color);
+  background-color: var(--bg-tertiary);
+}
+
 /* Responsive adjustments */
+@media (max-width: 991px) {
+  .category-tab {
+    padding: 0 var(--space-md);
+  }
+}
+
 @media (max-width: 767px) {
+  .category-navigation {
+    height: var(--category-nav-height-mobile);
+  }
+
   .category-tabs {
     padding: 0 var(--space-md);
   }
 
   .category-tab {
-    padding: 0 var(--space-md);
+    padding: 0 var(--space-sm);
+    font-size: var(--font-size-sm);
+  }
+
+  .scroll-indicator {
+    display: block;
+  }
+}
+
+@media (max-width: 575px) {
+  .category-tabs {
+    padding: 0 var(--space-xs);
+    margin: 0 var(--space-xs);
+  }
+
+  .category-dropdown {
+    display: block;
+    margin: var(--space-sm) var(--space-md);
+  }
+
+  .category-navigation {
+    position: relative;
+    top: 0;
+    height: auto;
+    overflow: visible;
+    background: transparent;
+    border-bottom: none;
+  }
+}
+
+@media (max-width: 380px) {
+  .category-navigation {
+    margin-bottom: var(--space-xs);
+  }
+
+  .category-dropdown {
+    margin: var(--space-xs) var(--space-sm);
   }
 }

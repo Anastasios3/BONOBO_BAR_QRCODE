@@ -285,6 +285,10 @@ export const UIController = {
    * @param {Array} items - Menu items to display
    * @param {string} category - Current category ID
    */
+  /**
+   * Updated displayMenuItems function for UIController.js
+   * Now groups items by subcategory and displays subcategory headers
+   */
   displayMenuItems(items, category) {
     if (!this.elements.menuItemsGrid) {
       return;
@@ -311,15 +315,176 @@ export const UIController = {
         this.elements.emptyState.classList.remove("active");
       }
 
-      // Create items with staggered animation
-      items.forEach((item, index) => {
-        const menuItem = this.createMenuItem(item, category, index);
-        this.elements.menuItemsGrid.appendChild(menuItem);
-      });
+      // Group items by subcategory
+      const groupedItems = this.groupItemsBySubcategory(items, category);
+      let itemIndex = 0;
+
+      // Create items by subcategory with headers
+      for (const subcategory in groupedItems) {
+        // Add subcategory header
+        const subcategoryHeader = this.createSubcategoryHeader(
+          subcategory,
+          category
+        );
+        this.elements.menuItemsGrid.appendChild(subcategoryHeader);
+
+        // Add items for this subcategory
+        groupedItems[subcategory].forEach((item) => {
+          const menuItem = this.createMenuItem(item, category, itemIndex);
+          this.elements.menuItemsGrid.appendChild(menuItem);
+          itemIndex++;
+        });
+      }
 
       // Fade in the new items
       this.elements.menuItemsGrid.style.opacity = "1";
     }, 200);
+  },
+
+  /**
+   * Group menu items by subcategory
+   * @param {Array} items - Menu items to group
+   * @param {string} category - Current category ID
+   * @returns {Object} Items grouped by subcategory
+   */
+  groupItemsBySubcategory(items, category) {
+    const grouped = {};
+
+    // First sort items by subcategory
+    const sortedItems = [...items].sort((a, b) => {
+      if (a.subcategory === b.subcategory) {
+        // Secondary sort by name if same subcategory
+        return a.name.en.localeCompare(b.name.en);
+      }
+      return a.subcategory.localeCompare(b.subcategory);
+    });
+
+    // Group items
+    sortedItems.forEach((item) => {
+      const subcategory = item.subcategory;
+      if (!grouped[subcategory]) {
+        grouped[subcategory] = [];
+      }
+      grouped[subcategory].push(item);
+    });
+
+    return grouped;
+  },
+
+  /**
+   * Create a subcategory header element
+   * @param {string} subcategory - Subcategory ID
+   * @param {string} category - Parent category ID
+   * @returns {HTMLElement} Subcategory header element
+   */
+  createSubcategoryHeader(subcategory, category) {
+    const header = document.createElement("div");
+    header.className = "subcategory-header";
+
+    const title = document.createElement("h2");
+    title.className = "subcategory-title";
+
+    // Add icon based on subcategory
+    let iconClass = "fa-glass-whiskey";
+
+    // Set appropriate icon for each subcategory type
+    if (category === "wine") {
+      switch (subcategory) {
+        case "red":
+          iconClass = "fa-wine-bottle";
+          break;
+        case "white":
+          iconClass = "fa-wine-glass-alt";
+          break;
+        case "rose":
+          iconClass = "fa-wine-glass";
+          break;
+        case "sparkling":
+          iconClass = "fa-champagne-glasses";
+          break;
+        default:
+          iconClass = "fa-wine-glass";
+      }
+    } else if (category === "spirits") {
+      switch (subcategory) {
+        case "whisky":
+          iconClass = "fa-whiskey-glass";
+          break;
+        case "vodka":
+          iconClass = "fa-glass-whiskey";
+          break;
+        case "rum":
+          iconClass = "fa-glass-whiskey";
+          break;
+        case "tequila":
+          iconClass = "fa-cocktail";
+          break;
+        default:
+          iconClass = "fa-glass-whiskey";
+      }
+    } else if (category === "beer") {
+      iconClass = "fa-beer-mug-empty";
+    } else if (category === "coffee") {
+      switch (subcategory) {
+        case "coffee":
+          iconClass = "fa-mug-hot";
+          break;
+        case "tea":
+          iconClass = "fa-mug-saucer";
+          break;
+        case "chocolate":
+          iconClass = "fa-mug-hot";
+          break;
+        case "soft":
+          iconClass = "fa-glass";
+          break;
+        default:
+          iconClass = "fa-mug-hot";
+      }
+    } else if (category === "food") {
+      switch (subcategory) {
+        case "snacks":
+          iconClass = "fa-burger";
+          break;
+        case "main":
+          iconClass = "fa-utensils";
+          break;
+        case "desserts":
+          iconClass = "fa-ice-cream";
+          break;
+        default:
+          iconClass = "fa-utensils";
+      }
+    } else if (category === "cocktails") {
+      switch (subcategory) {
+        case "classic":
+          iconClass = "fa-martini-glass-citrus";
+          break;
+        case "signature":
+          iconClass = "fa-cocktail";
+          break;
+        case "mocktails":
+          iconClass = "fa-glass-water";
+          break;
+        default:
+          iconClass = "fa-martini-glass";
+      }
+    }
+
+    // Create icon element
+    const icon = document.createElement("i");
+    icon.className = `fas ${iconClass}`;
+
+    // Append icon and subcategory name
+    title.appendChild(icon);
+    title.appendChild(
+      document.createTextNode(
+        AppState.getText("subcategories", category, subcategory) || subcategory
+      )
+    );
+
+    header.appendChild(title);
+    return header;
   },
 
   /**
