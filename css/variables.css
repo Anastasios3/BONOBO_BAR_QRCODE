@@ -1,5 +1,5 @@
 /*--------------------------------------------------------------
-# Root Variables and Theming - Enhanced for mobile
+# Root Variables and Theming - Comprehensive Design System for All Screens
 --------------------------------------------------------------*/
 :root {
   /* Brand color palette */
@@ -41,13 +41,13 @@
   --accent-color: var(--brand-secondary);
   --accent-light: var(--brand-tertiary);
 
-  /* Measurements - Desktop defaults */
+  /* Core measurements - Base desktop defaults */
   --header-height: 70px;
   --category-nav-height: 56px;
   --category-nav-height-mobile: 50px;
   --footer-height: auto;
   --container-max-width: 1400px;
-  --card-min-width: 260px;
+  --card-min-width: 280px;
   --content-padding: var(--space-lg);
   --menu-item-radius: var(--radius-md);
 
@@ -68,7 +68,7 @@
   --font-weight-semibold: 600;
   --font-weight-bold: 700;
 
-  /* Spacing */
+  /* Consistent spacing system */
   --space-2xs: 0.25rem; /* 4px */
   --space-xs: 0.5rem; /* 8px */
   --space-sm: 0.75rem; /* 12px */
@@ -94,14 +94,15 @@
   --transition-normal: 250ms ease-in-out;
   --transition-slow: 350ms ease-in-out;
 
-  /* Z-index layers */
-  --z-header: 100;
-  --z-navigation: 90;
-  --z-dropdown: 80;
-  --z-drawer: 85;
-  --z-overlay: 95;
-  --z-backtop: 70;
-  --z-footer: 10;
+  /* Z-index hierarchy - Carefully organized stacking contexts */
+  --z-header: 1000;
+  --z-navigation: 900;
+  --z-dropdown: 800;
+  --z-drawer: 850;
+  --z-overlay: 950;
+  --z-backtop: 700;
+  --z-footer: 100;
+  --z-content: 1;
 }
 
 /* Dark theme variables */
@@ -118,49 +119,117 @@
   --accent-light: var(--brand-accent);
 }
 
-/* Responsive variable adjustments */
+/* Large desktop screens */
+@media (min-width: 1440px) {
+  :root {
+    --header-height: 80px;
+    --category-nav-height: 64px;
+    --container-max-width: 1320px;
+    --card-min-width: 320px;
+    --content-padding: var(--space-2xl);
+    --menu-item-radius: var(--radius-lg);
+
+    /* Enlarged typography for better readability on large displays */
+    --font-size-md: 1.0625rem; /* 17px */
+    --font-size-lg: 1.1875rem; /* 19px */
+    --font-size-xl: 1.375rem; /* 22px */
+    --font-size-2xl: 1.75rem; /* 28px */
+    --font-size-3xl: 2.25rem; /* 36px */
+    --font-size-4xl: 3rem; /* 48px */
+
+    /* Increased spacing */
+    --space-lg: 1.75rem; /* 28px */
+    --space-xl: 2.5rem; /* 40px */
+    --space-2xl: 3.5rem; /* 56px */
+  }
+}
+
+/* Medium-large desktop screens */
+@media (min-width: 1200px) and (max-width: 1439px) {
+  :root {
+    --header-height: 76px;
+    --category-nav-height: 60px;
+    --container-max-width: 1140px;
+    --card-min-width: 300px;
+    --content-padding: var(--space-xl);
+
+    /* Slightly enlarged typography */
+    --font-size-2xl: 1.625rem; /* 26px */
+    --font-size-3xl: 2.125rem; /* 34px */
+  }
+}
+
+/* Standard desktop screens */
+@media (min-width: 992px) and (max-width: 1199px) {
+  :root {
+    --header-height: 72px;
+    --category-nav-height: 58px;
+    --container-max-width: 960px;
+    --card-min-width: 280px;
+    --content-padding: var(--space-lg);
+  }
+}
+
+/* Small desktop / tablet landscape */
 @media (max-width: 991px) {
+  :root {
+    --header-height: 64px;
+    --category-nav-height: 52px;
+    --category-nav-height-mobile: 48px;
+    --card-min-width: 240px;
+    --content-padding: var(--space-md);
+    --menu-item-radius: var(--radius-md);
+
+    /* Adjust font sizes */
+    --font-size-3xl: 1.75rem; /* 28px */
+    --font-size-2xl: 1.375rem; /* 22px */
+  }
+}
+
+/* Tablet portrait */
+@media (max-width: 767px) {
   :root {
     --header-height: 60px;
     --category-nav-height: 50px;
+    --category-nav-height-mobile: 46px;
     --card-min-width: 220px;
-    --content-padding: var(--space-md);
-    --menu-item-radius: var(--radius-sm);
-
-    /* Reduce font sizes slightly */
-    --font-size-3xl: 1.75rem;
-    --font-size-2xl: 1.375rem;
-  }
-}
-
-@media (max-width: 767px) {
-  :root {
-    --header-height: 56px;
-    --category-nav-height: 46px;
-    --card-min-width: 200px;
     --content-padding: var(--space-sm);
 
     /* Further reduce font sizes */
-    --font-size-3xl: 1.625rem;
-    --font-size-2xl: 1.25rem;
-    --font-size-xl: 1.125rem;
+    --font-size-3xl: 1.625rem; /* 26px */
+    --font-size-2xl: 1.25rem; /* 20px */
+    --font-size-xl: 1.125rem; /* 18px */
   }
 }
 
+/* Mobile devices */
 @media (max-width: 575px) {
   :root {
-    --header-height: 52px;
-    --category-nav-height: 42px;
+    --header-height: 56px;
+    --category-nav-height: 46px;
+    --category-nav-height-mobile: 42px;
     --card-min-width: 100%;
     --content-padding: var(--space-xs);
     --menu-item-radius: var(--radius-sm);
 
-    /* Mobile font sizes */
-    --font-size-3xl: 1.5rem;
-    --font-size-2xl: 1.25rem;
-    --font-size-xl: 1.125rem;
-    --font-size-lg: 1rem;
+    /* Mobile-optimized font sizes */
+    --font-size-3xl: 1.5rem; /* 24px */
+    --font-size-2xl: 1.25rem; /* 20px */
+    --font-size-xl: 1.125rem; /* 18px */
+    --font-size-lg: 1rem; /* 16px */
+
+    /* Reduced spacing */
+    --space-lg: 1.25rem; /* 20px */
+    --space-xl: 1.75rem; /* 28px */
   }
 }
 
-/*--------------------------------------------------------------
+/* Small mobile devices */
+@media (max-width: 380px) {
+  :root {
+    --header-height: 52px;
+    --category-nav-height: 42px;
+    --category-nav-height-mobile: 38px;
+    --space-md: 0.875rem; /* 14px */
+  }
+}

@@ -1,39 +1,46 @@
 /*--------------------------------------------------------------
-# Category Navigation - Smooth Horizontal Scrolling (With Fixed Swipe Hint)
+# Category Navigation - Complete Redesign
 --------------------------------------------------------------*/
 .category-navigation {
   height: var(--category-nav-height);
   background-color: var(--bg-secondary);
   border-bottom: 1px solid var(--border-color);
-  position: sticky;
-  top: var(--header-height);
+  position: relative;
   z-index: var(--z-navigation);
+  width: 100%;
+  overflow: visible;
+  display: flex;
+  justify-content: center;
+}
+
+.category-tabs-container {
+  position: relative;
+  width: 100%;
+  max-width: var(--container-max-width);
+  height: 100%;
   overflow-x: auto;
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none; /* IE and Edge */
-  position: relative;
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch; /* Enable momentum scrolling on iOS */
   overscroll-behavior-x: contain; /* Prevent page overscroll */
-  padding: 0 var(--space-2xs);
-  transition: background-color var(--transition-normal);
-  user-select: none; /* Prevent text selection during scrolling */
 }
 
-.category-navigation::-webkit-scrollbar {
+.category-tabs-container::-webkit-scrollbar {
   display: none; /* Chrome, Safari, Opera */
 }
 
 .category-tabs {
   display: flex;
   height: 100%;
-  padding: 0 var(--space-lg);
+  padding: 0;
   margin: 0 auto;
   position: relative;
   width: max-content; /* Allow content to determine width */
   min-width: 100%; /* Ensure it fills the container */
   align-items: center;
-  gap: var(--space-2xs); /* Add slight spacing between tabs */
+  justify-content: center;
+  gap: var(--space-md);
 }
 
 .category-tab {
@@ -48,25 +55,23 @@
   font-weight: var(--font-weight-medium);
   flex-shrink: 0; /* Prevent tabs from shrinking */
   min-width: max-content; /* Ensure tab width is based on content */
-  transition: transform 0.25s ease, color 0.25s ease;
-  position: relative;
-  outline: none; /* Remove default focus outline */
+  transition: color 0.25s ease;
 }
 
 .category-tab:hover {
   color: var(--text-primary);
-  transform: translateY(-2px); /* Subtle hover effect */
 }
 
 .category-tab:focus-visible {
   color: var(--text-primary);
   box-shadow: 0 0 0 2px var(--accent-color);
   border-radius: var(--radius-sm);
+  outline: none;
 }
 
 .category-tab.active {
   color: var(--accent-color);
-  transform: translateY(-2px); /* Maintain consistent effect with hover */
+  font-weight: var(--font-weight-semibold);
 }
 
 .category-tab.active::after {
@@ -92,9 +97,9 @@
   }
 }
 
-/* Subtle edge fade indicators */
-.category-navigation::before,
-.category-navigation::after {
+/* Edge fade indicators */
+.category-tabs-container::before,
+.category-tabs-container::after {
   content: "";
   position: absolute;
   top: 0;
@@ -106,25 +111,70 @@
   transition: opacity 0.3s ease;
 }
 
-.category-navigation::before {
+.category-tabs-container::before {
   left: 0;
   background: linear-gradient(to right, var(--bg-secondary) 20%, transparent);
 }
 
-.category-navigation::after {
+.category-tabs-container::after {
   right: 0;
   background: linear-gradient(to left, var(--bg-secondary) 20%, transparent);
 }
 
-.category-navigation.show-start-fade::before {
+.category-tabs-container.show-start-fade::before {
   opacity: 0.9;
 }
 
-.category-navigation.show-end-fade::after {
+.category-tabs-container.show-end-fade::after {
   opacity: 0.9;
 }
 
-/* FIXED: First-time swipe hint overlay */
+/* Navigation buttons for larger screens */
+.category-nav-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.15); /* Semi-transparent background */
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  opacity: 0.7; /* Default opacity reduced */
+  visibility: hidden;
+  backdrop-filter: blur(2px); /* Slight blur effect to improve visibility */
+}
+
+.category-nav-button i {
+  font-size: 0.8rem; /* Smaller icon size */
+}
+
+.category-nav-button.prev {
+  left: var(--space-md);
+}
+
+.category-nav-button.next {
+  right: var(--space-md);
+}
+
+.category-nav-button:hover {
+  background-color: var(--accent-color);
+  color: white;
+  opacity: 0.9;
+}
+
+.category-navigation:hover .category-nav-button {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* First-time swipe hint overlay */
 .swipe-hint-container {
   position: fixed;
   top: 0;
@@ -151,7 +201,7 @@
   max-width: 90%;
   pointer-events: none;
   position: relative;
-  margin-top: -50px; /* Position it where the navigation bar is */
+  margin-top: -50px;
 }
 
 .swipe-hint.visible {
@@ -207,105 +257,32 @@
   }
 }
 
-/* Mobile category dropdown */
-.category-dropdown {
-  display: none;
-  position: relative;
-  width: 100%;
-  margin-bottom: var(--space-md);
-}
-
-.category-dropdown-btn {
-  width: 100%;
-  padding: var(--space-sm) var(--space-md);
-  background-color: var(--bg-secondary);
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius-md);
-  color: var(--text-primary);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  font-weight: var(--font-weight-medium);
-  -webkit-tap-highlight-color: transparent;
-  transition: background-color 0.2s ease, transform 0.2s ease;
-}
-
-.category-dropdown-btn:active {
-  transform: scale(0.98);
-}
-
-.category-dropdown-btn i {
-  transition: transform var(--transition-fast);
-}
-
-.category-dropdown.active .category-dropdown-btn i {
-  transform: rotate(180deg);
-}
-
-.category-dropdown-content {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  width: 100%;
-  background-color: var(--card-bg);
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius-md);
-  margin-top: var(--space-xs);
-  box-shadow: var(--shadow-md);
-  z-index: 100;
-  max-height: 0;
-  overflow-y: auto;
-  transition: max-height var(--transition-normal),
-    visibility var(--transition-normal);
-  visibility: hidden;
-  -webkit-overflow-scrolling: touch;
-}
-
-.category-dropdown.active .category-dropdown-content {
-  max-height: 50vh;
-  visibility: visible;
-}
-
-.category-dropdown-item {
-  width: 100%;
-  padding: var(--space-sm) var(--space-md);
-  text-align: left;
-  color: var(--text-secondary);
-  transition: all var(--transition-fast);
-  -webkit-tap-highlight-color: transparent;
-  transform-origin: center;
-}
-
-.category-dropdown-item:hover {
-  background-color: var(--bg-tertiary);
-  color: var(--text-primary);
-}
-
-.category-dropdown-item:active {
-  transform: scale(0.98);
-}
-
-.category-dropdown-item.active {
-  color: var(--accent-color);
-  background-color: var(--bg-tertiary);
-  position: relative;
-  font-weight: var(--font-weight-medium);
-}
-
-.category-dropdown-item.active::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
-  height: 100%;
-  width: 3px;
-  background-color: var(--accent-color);
-}
-
 /* Responsive adjustments */
+@media (min-width: 1200px) {
+  .category-tabs {
+    justify-content: center;
+    gap: var(--space-xl);
+  }
+
+  .category-tab {
+    padding: 0 var(--space-xl);
+    font-size: var(--font-size-md);
+  }
+}
+
 @media (max-width: 991px) {
+  .category-tabs {
+    justify-content: flex-start;
+    padding: 0 var(--space-md);
+    gap: var(--space-md);
+  }
+
   .category-tab {
     padding: 0 var(--space-md);
+  }
+
+  .category-nav-button {
+    display: none;
   }
 }
 
@@ -315,7 +292,9 @@
   }
 
   .category-tabs {
-    padding: 0 var(--space-md);
+    padding: 0 var(--space-sm);
+    gap: var(--space-sm);
+    justify-content: flex-start;
   }
 
   .category-tab {
@@ -326,21 +305,8 @@
 
 @media (max-width: 575px) {
   .category-tabs {
-    padding: 0 var(--space-xs);
     gap: var(--space-xs);
-  }
-
-  /* Show dropdown on very small screens */
-  .category-dropdown {
-    display: none; /* Keep horizontal scrolling on small screens too */
-  }
-
-  .category-navigation {
-    position: relative;
-    top: 0;
-    height: var(--category-nav-height-mobile);
-    overflow-x: auto;
-    background-color: var(--bg-secondary);
-    border-bottom: 1px solid var(--border-color);
+    justify-content: flex-start;
+    padding: 0 var(--space-xs);
   }
 }

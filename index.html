@@ -19,6 +19,10 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <div class="app-container">
@@ -53,49 +57,57 @@
         </div>
       </header>
 
-      <!-- Horizontal scrollable category navigation -->
-      <div class="category-navigation">
-        <div id="menu-categories" class="category-tabs">
-          <!-- Categories dynamically inserted here -->
+      <!-- Fixed layout section for navigation -->
+      <div class="fixed-layout">
+        <!-- Improved horizontal scrollable category navigation -->
+        <div class="category-navigation">
+          <div class="category-tabs-container">
+            <div id="menu-categories" class="category-tabs">
+              <!-- Categories dynamically inserted here -->
+            </div>
+          </div>
+          <!-- Navigation buttons added via JavaScript -->
         </div>
-        <!-- Scroll indicators are added dynamically by JavaScript -->
       </div>
 
-      <!-- Main content area with menu display -->
-      <main class="menu-container">
-        <!-- Category title and optional filter -->
-        <div class="menu-header">
-          <h1 id="current-category" class="menu-title">Food & Snacks</h1>
+      <!-- Content area for better structure -->
+      <div class="content-area">
+        <!-- Main content area with menu display -->
+        <main class="menu-container">
+          <!-- Category title and optional filter -->
+          <div class="menu-header">
+            <h1 id="current-category" class="menu-title">Food & Snacks</h1>
 
-          <div class="menu-actions">
-            <button id="filter-toggle" class="filter-btn">
-              <span>Filter</span>
-              <i class="fas fa-chevron-down"></i>
-            </button>
+            <div class="menu-actions">
+              <button id="filter-toggle" class="filter-btn">
+                <span>Filter</span>
+                <i class="fas fa-chevron-down"></i>
+              </button>
+            </div>
           </div>
-        </div>
 
-        <!-- Simple filter panel (hidden by default) -->
-        <div id="filter-panel" class="filter-panel">
-          <div id="subcategory-filters" class="subcategory-filters">
-            <!-- Subcategory filters inserted here -->
+          <!-- Simple filter panel (hidden by default) -->
+          <div id="filter-panel" class="filter-panel">
+            <div id="subcategory-filters" class="subcategory-filters">
+              <!-- Subcategory filters inserted here -->
+            </div>
           </div>
-        </div>
 
-        <!-- Menu items grid - the main focus -->
-        <div id="menu-items" class="menu-items-grid">
-          <!-- Menu items dynamically inserted here -->
-        </div>
-
-        <!-- Empty state when no items are selected -->
-        <div id="empty-state" class="empty-state">
-          <div class="empty-icon">
-            <i class="fas fa-glass-martini-alt"></i>
+          <!-- Menu items grid - the main focus -->
+          <div id="menu-items" class="menu-items-grid">
+            <!-- Menu items dynamically inserted here -->
           </div>
-          <h2 id="empty-title">Select a category</h2>
-          <p id="empty-message">Choose a category to view our offerings</p>
-        </div>
-      </main>
+
+          <!-- Empty state when no items are selected -->
+          <div id="empty-state" class="empty-state">
+            <div class="empty-icon">
+              <i class="fas fa-glass-martini-alt"></i>
+            </div>
+            <h2 id="empty-title">Select a category</h2>
+            <p id="empty-message">Choose a category to view our offerings</p>
+          </div>
+        </main>
+      </div>
 
       <!-- Completely Rewritten Footer -->
       <footer class="site-footer">
@@ -226,6 +238,14 @@
           </div>
         </div>
       </footer>
+
+      <!-- Back to top button -->
+      <button class="back-to-top" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+      </button>
+
+      <!-- Filter overlay for mobile -->
+      <div class="filter-overlay"></div>
     </div>
 
     <script src="js/main.js" type="module"></script>
