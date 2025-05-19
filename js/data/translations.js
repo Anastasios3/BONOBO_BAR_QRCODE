@@ -14,6 +14,8 @@ export const TRANSLATIONS = {
     glassLabel: "Glass",
     bottleLabel: "Bottle",
     priceLabel: "Price",
+    hoursContent: "Monday - Sunday: 09:00 - 02:00",
+    location: "22 Arkadiou Street, Old Town, Rethymno 74100, Crete, Greece",
     subcategories: {
       coffee: {
         coffee: "Coffee",
@@ -72,6 +74,8 @@ export const TRANSLATIONS = {
     glassLabel: "Ποτήρι",
     bottleLabel: "Φιάλη",
     priceLabel: "Τιμή",
+    hoursContent: "Δευτέρα - Κυριακή: 09:00 - 02:00",
+    location: "Αρκαδίου 22, Παλιά Πόλη, Ρέθυμνο 74100, Κρήτη, Ελλάδα",
     subcategories: {
       coffee: {
         coffee: "Καφές",
