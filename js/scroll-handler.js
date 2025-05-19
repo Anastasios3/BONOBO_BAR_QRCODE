@@ -22,7 +22,7 @@ function initializeScrolling() {
   // Show first-time guidance if needed
   const isFirstVisit = !localStorage.getItem("category_scrolled");
   if (isFirstVisit) {
-    showScrollGuidance(categoryNavigation);
+    showScrollGuidance();
   }
 
   // Center active tab on page load
@@ -79,49 +79,57 @@ function updateEdgeIndicators(container) {
 
 /**
  * Show first-time scrolling guidance
- * @param {HTMLElement} container - The scrollable container
+ * FIXED: Now displayed in a fixed position overlay for better visibility
  */
-function showScrollGuidance(container) {
-  // Create guidance element
-  const hint = document.createElement("div");
-  hint.className = "swipe-hint";
+function showScrollGuidance() {
+  // First check if there's already a hint container
+  let hintContainer = document.querySelector(".swipe-hint-container");
 
-  const content = document.createElement("div");
-  content.className = "swipe-hint-content";
+  if (!hintContainer) {
+    // Create a new container for the hint that's fixed to the viewport
+    hintContainer = document.createElement("div");
+    hintContainer.className = "swipe-hint-container";
+    document.body.appendChild(hintContainer);
 
-  const icon = document.createElement("div");
-  icon.className = "swipe-hint-icon";
-  icon.innerHTML =
-    '<i class="fas fa-chevron-left"></i><i class="fas fa-chevron-right"></i>';
+    // Create the hint element within the container
+    const hint = document.createElement("div");
+    hint.className = "swipe-hint";
 
-  const text = document.createElement("div");
-  text.className = "swipe-hint-text";
-  text.textContent = "Swipe to browse categories";
+    const content = document.createElement("div");
+    content.className = "swipe-hint-content";
 
-  content.appendChild(icon);
-  content.appendChild(text);
-  hint.appendChild(content);
+    const icon = document.createElement("div");
+    icon.className = "swipe-hint-icon";
+    icon.innerHTML =
+      '<i class="fas fa-chevron-left"></i><i class="fas fa-chevron-right"></i>';
 
-  // Add to container
-  container.appendChild(hint);
+    const text = document.createElement("div");
+    text.className = "swipe-hint-text";
+    text.textContent = "Swipe to browse categories";
 
-  // Show with slight delay
-  setTimeout(() => {
-    hint.classList.add("visible");
+    content.appendChild(icon);
+    content.appendChild(text);
+    hint.appendChild(content);
+    hintContainer.appendChild(hint);
 
-    // Remove after animation
+    // Show with slight delay
     setTimeout(() => {
-      hint.classList.remove("visible");
+      hint.classList.add("visible");
 
-      // Remove from DOM
+      // Remove after animation
       setTimeout(() => {
-        hint.remove();
-      }, 1000);
+        hint.classList.remove("visible");
 
-      // Mark as visited
-      localStorage.setItem("category_scrolled", "true");
-    }, 3000);
-  }, 800);
+        // Remove from DOM
+        setTimeout(() => {
+          hintContainer.remove();
+        }, 1000);
+
+        // Mark as visited
+        localStorage.setItem("category_scrolled", "true");
+      }, 3000);
+    }, 800);
+  }
 }
 
 /**

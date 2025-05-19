@@ -1,5 +1,5 @@
 /*--------------------------------------------------------------
-# Category Navigation - Smooth Horizontal Scrolling
+# Category Navigation - Smooth Horizontal Scrolling (With Fixed Swipe Hint)
 --------------------------------------------------------------*/
 .category-navigation {
   height: var(--category-nav-height);
@@ -124,44 +124,57 @@
   opacity: 0.9;
 }
 
-/* First-time swipe hint overlay */
-.swipe-hint {
-  position: absolute;
+/* FIXED: First-time swipe hint overlay */
+.swipe-hint-container {
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
-  opacity: 0;
   pointer-events: none;
-  transition: opacity 0.5s ease;
-  z-index: 10;
-  backdrop-filter: blur(2px);
-  -webkit-backdrop-filter: blur(2px);
+  z-index: 9999;
+}
+
+.swipe-hint {
+  background-color: rgba(0, 0, 0, 0.75);
+  color: white;
+  padding: 16px 24px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  text-align: center;
+  max-width: 90%;
+  pointer-events: none;
+  position: relative;
+  margin-top: -50px; /* Position it where the navigation bar is */
 }
 
 .swipe-hint.visible {
   opacity: 1;
-  animation: fadeInOut 3s forwards;
+  transform: translateY(0);
+  animation: hintPulse 3s forwards;
 }
 
 .swipe-hint-content {
   display: flex;
+  flex-direction: column;
   align-items: center;
   gap: var(--space-sm);
 }
 
 .swipe-hint-icon {
-  font-size: 1.25rem;
+  font-size: 1.5rem;
+  margin-bottom: 8px;
   animation: swipeAnimation 1.5s infinite;
 }
 
 .swipe-hint-text {
-  font-size: var(--font-size-sm);
+  font-size: var(--font-size-md);
   font-weight: var(--font-weight-medium);
 }
 
@@ -177,17 +190,20 @@
   }
 }
 
-@keyframes fadeInOut {
+@keyframes hintPulse {
   0%,
   10% {
     opacity: 0;
+    transform: translateY(10px);
   }
   20%,
   80% {
     opacity: 1;
+    transform: translateY(0);
   }
   100% {
     opacity: 0;
+    transform: translateY(-10px);
   }
 }
 
