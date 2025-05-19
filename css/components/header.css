@@ -1,0 +1,131 @@
+/*--------------------------------------------------------------
+# Header Styles
+--------------------------------------------------------------*/
+.main-header {
+  height: var(--header-height);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--space-lg);
+  background-color: var(--bg-primary);
+  box-shadow: var(--shadow-sm);
+  position: sticky;
+  top: 0;
+  z-index: var(--z-header);
+  transition: background-color var(--transition-normal);
+}
+
+.header-left,
+.header-right {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.header-right {
+  justify-content: flex-end;
+}
+
+.logo-container {
+  height: 50px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 150px;
+}
+
+.logo-container img {
+  position: absolute;
+  height: 100%;
+  width: auto;
+  transition: opacity var(--transition-normal);
+}
+
+#logo-light-mode {
+  opacity: 1;
+}
+
+#logo-dark-mode {
+  opacity: 0;
+}
+
+.dark-theme #logo-light-mode {
+  opacity: 0;
+}
+
+.dark-theme #logo-dark-mode {
+  opacity: 1;
+}
+
+.icon-btn {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+  border-radius: var(--radius-round);
+  transition: all var(--transition-fast);
+}
+
+.icon-btn:hover {
+  background-color: var(--bg-tertiary);
+  color: var(--text-primary);
+}
+
+.icon-btn i {
+  font-size: var(--font-size-lg);
+}
+
+/* Theme toggle specifics */
+#theme-toggle .fa-sun {
+  display: none;
+}
+
+.dark-theme #theme-toggle .fa-moon {
+  display: none;
+}
+
+.dark-theme #theme-toggle .fa-sun {
+  display: inline-block;
+}
+
+/* Language toggle */
+.language-toggle {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2xs);
+  background-color: var(--bg-secondary);
+  border-radius: var(--radius-round);
+  padding: var(--space-2xs) var(--space-xs);
+}
+
+.lang-option {
+  padding: var(--space-2xs) var(--space-xs);
+  border-radius: var(--radius-round);
+  color: var(--text-secondary);
+  transition: all var(--transition-fast);
+}
+
+.lang-option:hover {
+  color: var(--text-primary);
+}
+
+.lang-option.active {
+  background-color: var(--accent-color);
+  color: white;
+}
+
+/* Responsive adjustments */
+@media (max-width: 767px) {
+  .main-header {
+    padding: 0 var(--space-md);
+  }
+}
+
+@media (max-width: 575px) {
+  .logo-container {
+    height: 40px;
+  }
+}

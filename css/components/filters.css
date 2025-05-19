@@ -1,0 +1,67 @@
+/*--------------------------------------------------------------
+# Filter Styles
+--------------------------------------------------------------*/
+.filter-btn {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: var(--space-xs) var(--space-md);
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  color: var(--text-secondary);
+  transition: all var(--transition-fast);
+}
+
+.filter-btn:hover {
+  background-color: var(--bg-tertiary);
+  color: var(--text-primary);
+}
+
+.filter-btn i {
+  font-size: var(--font-size-sm);
+  transition: transform var(--transition-fast);
+}
+
+.filter-btn.active i {
+  transform: rotate(180deg);
+}
+
+/* Filter Panel */
+.filter-panel {
+  background-color: var(--bg-secondary);
+  border-radius: var(--radius-md);
+  padding: var(--space-lg);
+  margin-bottom: var(--space-xl);
+  display: none; /* Hidden by default, shown via JS */
+  box-shadow: var(--shadow-md);
+  transition: all var(--transition-normal);
+}
+
+.filter-panel.active {
+  display: block;
+}
+
+.subcategory-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+}
+
+.filter-chip {
+  padding: var(--space-xs) var(--space-md);
+  background-color: var(--bg-tertiary);
+  border-radius: var(--radius-round);
+  color: var(--text-secondary);
+  transition: all var(--transition-fast);
+}
+
+.filter-chip:hover {
+  background-color: var(--bg-tertiary);
+  color: var(--text-primary);
+}
+
+.filter-chip.active {
+  background-color: var(--accent-color);
+  color: white;
+}

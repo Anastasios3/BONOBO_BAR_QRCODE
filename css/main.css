@@ -1,0 +1,16 @@
+/* Main CSS file - imports all modular CSS components */
+
+/* Core styles */
+@import "variables.css";
+@import "reset.css";
+@import "layout.css";
+
+/* Component styles */
+@import "components/header.css";
+@import "components/navigation.css";
+@import "components/menu-items.css";
+@import "components/filters.css";
+@import "components/footer.css";
+
+/* Utilities */
+@import "utils.css";

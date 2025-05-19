@@ -1,0 +1,105 @@
+/*--------------------------------------------------------------
+# Root Variables and Theming
+--------------------------------------------------------------*/
+:root {
+  /* Brand color palette */
+  --brand-primary: #231942;
+  --brand-secondary: #5e548e;
+  --brand-tertiary: #9f86c0;
+  --brand-light: #be95c4;
+  --brand-accent: #e0b1cb;
+
+  /* Neutral colors */
+  --neutral-50: #fafafa;
+  --neutral-100: #f5f5f5;
+  --neutral-200: #e5e5e5;
+  --neutral-300: #d4d4d4;
+  --neutral-400: #a3a3a3;
+  --neutral-500: #737373;
+  --neutral-600: #525252;
+  --neutral-700: #404040;
+  --neutral-800: #262626;
+  --neutral-900: #171717;
+
+  /* Functional colors */
+  --gold: #d4af37;
+  --gold-light: #f5e6a9;
+
+  /* Light theme colors */
+  --bg-primary: var(--neutral-50);
+  --bg-secondary: var(--neutral-100);
+  --bg-tertiary: var(--neutral-200);
+  --text-primary: var(--neutral-900);
+  --text-secondary: var(--neutral-700);
+  --text-tertiary: var(--neutral-500);
+  --border-color: var(--neutral-200);
+  --card-bg: white;
+  --accent-color: var(--brand-secondary);
+  --accent-light: var(--brand-tertiary);
+
+  /* Measurements */
+  --header-height: 70px;
+  --category-nav-height: 56px;
+  --footer-height: auto;
+  --container-max-width: 1400px;
+  --card-min-width: 260px;
+
+  /* Typography */
+  --font-primary: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-md: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 2rem;
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  /* Spacing */
+  --space-2xs: 0.25rem; /* 4px */
+  --space-xs: 0.5rem; /* 8px */
+  --space-sm: 0.75rem; /* 12px */
+  --space-md: 1rem; /* 16px */
+  --space-lg: 1.5rem; /* 24px */
+  --space-xl: 2rem; /* 32px */
+  --space-2xl: 3rem; /* 48px */
+
+  /* Borders & Effects */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-round: 9999px;
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.05);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.05);
+
+  /* Transitions */
+  --transition-fast: 150ms ease-in-out;
+  --transition-normal: 250ms ease-in-out;
+  --transition-slow: 350ms ease-in-out;
+
+  /* Z-index layers */
+  --z-header: 100;
+  --z-navigation: 90;
+  --z-dropdown: 80;
+  --z-footer: 10;
+}
+
+/* Dark theme variables */
+.dark-theme {
+  --bg-primary: var(--neutral-900);
+  --bg-secondary: var(--neutral-800);
+  --bg-tertiary: var(--neutral-700);
+  --text-primary: var(--neutral-100);
+  --text-secondary: var(--neutral-300);
+  --text-tertiary: var(--neutral-500);
+  --border-color: var(--neutral-700);
+  --card-bg: var(--neutral-800);
+  --accent-color: var(--brand-light);
+  --accent-light: var(--brand-accent);
+}
