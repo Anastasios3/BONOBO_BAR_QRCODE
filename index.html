@@ -16,102 +16,112 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Open+Sans:wght@300;400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
   </head>
   <body>
     <div class="app-container">
-      <header>
-        <div class="theme-toggle">
-          <button id="theme-toggle" aria-label="Toggle theme">
+      <!-- Clean, minimalist header with logo -->
+      <header class="main-header">
+        <div class="header-left">
+          <button id="theme-toggle" class="icon-btn" aria-label="Toggle theme">
             <i class="fas fa-moon"></i>
             <i class="fas fa-sun"></i>
           </button>
         </div>
-        <div class="logo">
+
+        <div class="logo-container">
           <img
             src="assets/logowhenonlightmode.svg"
-            alt="Bonobo Bar & More Logo"
-            class="logo-light-mode"
+            alt="Bonobo Bar & More"
             id="logo-light-mode"
           />
           <img
             src="assets/logowhenondarkmode.svg"
-            alt="Bonobo Bar & More Logo"
-            class="logo-dark-mode"
+            alt="Bonobo Bar & More"
             id="logo-dark-mode"
           />
         </div>
-        <div class="language-toggle">
-          <button id="language-toggle" aria-label="Toggle language">
-            <span class="lang-option active" data-lang="en">EN</span>
-            <span class="lang-separator">/</span>
-            <span class="lang-option" data-lang="el">EL</span>
-          </button>
+
+        <div class="header-right">
+          <div class="language-toggle">
+            <button class="lang-option active" data-lang="en">EN</button>
+            <span>/</span>
+            <button class="lang-option" data-lang="el">EL</button>
+          </div>
         </div>
       </header>
 
-      <main>
-        <section class="menu-navigation">
-          <div class="menu-categories" id="menu-categories">
-            <!-- Categories will be dynamically inserted here -->
-          </div>
-          <div class="scroll-indicator" id="scroll-indicator"></div>
-        </section>
+      <!-- Prominent horizontal category navigation -->
+      <div class="category-navigation">
+        <div id="menu-categories" class="category-tabs">
+          <!-- Categories dynamically inserted here -->
+        </div>
+      </div>
 
-        <section class="menu-display">
-          <div class="menu-title" id="current-category-title">
-            <!-- Current category title will be displayed here -->
+      <!-- Main content area with menu display -->
+      <main class="menu-container">
+        <!-- Category title and optional filter -->
+        <div class="menu-header">
+          <h1 id="current-category" class="menu-title">Food & Snacks</h1>
+
+          <div class="menu-actions">
+            <button id="filter-toggle" class="filter-btn">
+              <span>Filter</span>
+              <i class="fas fa-chevron-down"></i>
+            </button>
           </div>
-          <div class="subcategory-tabs" id="subcategory-tabs">
-            <!-- Subcategory tabs will be dynamically inserted here -->
+        </div>
+
+        <!-- Simple filter panel (hidden by default) -->
+        <div id="filter-panel" class="filter-panel">
+          <div id="subcategory-filters" class="subcategory-filters">
+            <!-- Subcategory filters inserted here -->
           </div>
-          <div class="menu-items" id="menu-items">
-            <!-- Menu items will be dynamically inserted here -->
+        </div>
+
+        <!-- Menu items grid - the main focus -->
+        <div id="menu-items" class="menu-items-grid">
+          <!-- Menu items dynamically inserted here -->
+        </div>
+
+        <!-- Empty state when no items are selected -->
+        <div id="empty-state" class="empty-state">
+          <div class="empty-icon">
+            <i class="fas fa-glass-martini-alt"></i>
           </div>
-          <div class="menu-empty" id="menu-empty">
-            <div class="empty-icon">
-              <i class="fas fa-glass-martini-alt"></i>
-            </div>
-            <p id="empty-message">Select a category to view items</p>
-          </div>
-        </section>
+          <h2 id="empty-title">Select a category</h2>
+          <p id="empty-message">Choose a category to view our offerings</p>
+        </div>
       </main>
 
-      <footer>
+      <!-- Streamlined footer -->
+      <footer class="dark-footer">
         <div class="footer-content">
-          <div class="footer-section about-section">
+          <div class="footer-info">
             <h3>Bonobo Bar & More</h3>
-            <p class="footer-description">
+            <p>
               A unique experience in the heart of Rethymno offering exceptional
               drinks, creative cocktails, and friendly atmosphere.
             </p>
-          </div>
 
-          <div class="footer-section hours-section">
-            <h3 id="hours-heading">Hours</h3>
-            <p id="hours-content">Monday - Sunday: 09:00 - 02:00</p>
-            <div class="contact-info">
-              <p>
-                <i class="fas fa-map-marker-alt"></i>
-                <span id="location-text"
-                  >El. Venizelou 47, Rethymno, Crete, 741 00</span
-                >
-              </p>
-              <p>
-                <i class="fas fa-phone"></i>
-                <a href="tel:+306932467584">+30 693 246 7584</a>
-              </p>
-              <p>
-                <i class="fas fa-envelope"></i>
-                <a href="mailto:bonobobargr@gmail.com">bonobobargr@gmail.com</a>
-              </p>
-            </div>
-          </div>
+            <h4>Hours</h4>
+            <p>
+              <i class="fas fa-clock"></i>
+              <span id="hours-content">Monday - Sunday: 09:00 - 02:00</span>
+            </p>
 
-          <div class="footer-section social-section">
-            <h3>Follow Us</h3>
+            <p>
+              <i class="fas fa-phone"></i>
+              <a href="tel:+306932467584">+30 693 246 7584</a>
+            </p>
+            <p>
+              <i class="fas fa-envelope"></i>
+              <a href="mailto:bonobobargr@gmail.com">bonobobargr@gmail.com</a>
+            </p>
+
+            <h4>Follow Us</h4>
             <div class="footer-social">
               <a
                 href="https://www.instagram.com/bonobobargr?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
@@ -134,37 +144,29 @@
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="TripAdvisor"
-                class="tripadvisor-link"
               >
                 <i class="fab fa-tripadvisor"></i>
               </a>
-              <a
-                href="https://g.co/kgs/AugUFv5"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Google Reviews"
-                class="google-reviews-link"
-              >
-                <i class="fab fa-google"></i>
-              </a>
-            </div>
-            <div class="footer-logo">
-              <img
-                src="assets/circularwhenlightmode.svg"
-                alt="Bonobo Bar & More Logo"
-                class="footer-logo-light-mode"
-              />
-              <img
-                src="assets/circularwhendarkmode.svg"
-                alt="Bonobo Bar & More Logo"
-                class="footer-logo-dark-mode"
-              />
             </div>
           </div>
+
+          <div class="footer-logo">
+            <img
+              src="assets/circularwhenlightmode.svg"
+              alt="Bonobo Bar Logo"
+              class="footer-logo-light"
+            />
+            <img
+              src="assets/circularwhendarkmode.svg"
+              alt="Bonobo Bar Logo"
+              class="footer-logo-dark"
+            />
+          </div>
         </div>
+
         <div class="footer-bottom">
           <p>© 2025 Bonobo Bar & More. All rights reserved.</p>
-          <p class="footer-credits">
+          <p>
             Made with <i class="fas fa-heart"></i> by
             <a
               href="https://antatarakis.com/#contact"
@@ -177,7 +179,6 @@
       </footer>
     </div>
 
-    <!-- QR Code Library is no longer needed -->
     <script src="app.js"></script>
   </body>
 </html>

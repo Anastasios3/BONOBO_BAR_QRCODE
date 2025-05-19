@@ -1,132 +1,212 @@
 {
   "items": [
     {
-      "id": "beer001",
-      "name": {
-        "en": "Heineken",
-        "el": "Χάινεκεν"
-      },
-      "description": {
-        "en": "Premium lager beer with a well-balanced taste and subtle bitterness",
-        "el": "Premium μπύρα λάγκερ με ισορροπημένη γεύση και διακριτική πικράδα"
-      },
-      "price": 4.5,
-      "image": "heineken.jpg",
-      "categories": ["cold", "beer", "imported"],
-      "subcategory": "bottles",
-      "available": true
-    },
-    {
-      "id": "beer002",
       "name": {
         "en": "Mythos",
         "el": "Μύθος"
       },
       "description": {
-        "en": "Greek lager beer with a crisp, refreshing flavor profile",
-        "el": "Ελληνική μπύρα λάγκερ με τραγανή, δροσιστική γεύση"
+        "en": "Classic Greek lager with a smooth, refreshing taste and light malty notes",
+        "el": "Κλασική ελληνική λάγκερ με απαλή, δροσιστική γεύση και ελαφριές νότες βύνης"
       },
-      "price": 4.0,
-      "image": "mythos.jpg",
-      "categories": ["cold", "beer", "local"],
-      "subcategory": "bottles",
+      "price": 3.5,
+      "subcategory": "draft",
       "available": true
     },
     {
-      "id": "beer003",
-      "name": {
-        "en": "Fix",
-        "el": "Φιξ"
-      },
-      "description": {
-        "en": "Traditional Greek beer with a rich heritage and smooth taste",
-        "el": "Παραδοσιακή ελληνική μπύρα με πλούσια ιστορία και απαλή γεύση"
-      },
-      "price": 4.0,
-      "image": "fix.jpg",
-      "categories": ["cold", "beer", "local"],
-      "subcategory": "bottles",
-      "available": true
-    },
-    {
-      "id": "beer004",
       "name": {
         "en": "Alpha",
         "el": "Άλφα"
       },
       "description": {
-        "en": "Greek premium lager with a light, clean taste",
-        "el": "Ελληνική premium λάγκερ με ελαφριά, καθαρή γεύση"
+        "en": "Balanced Greek lager with a bright golden color and delicate hop aroma",
+        "el": "Ισορροπημένη ελληνική λάγκερ με λαμπερό χρυσό χρώμα και λεπτό άρωμα λυκίσκου"
       },
-      "price": 4.0,
-      "image": "alpha.jpg",
-      "categories": ["cold", "beer", "local"],
-      "subcategory": "bottles",
-      "available": true
-    },
-    {
-      "id": "beer005",
-      "name": {
-        "en": "Stella Artois",
-        "el": "Στέλλα Αρτουά"
-      },
-      "description": {
-        "en": "Belgian pilsner with a full flavor and distinctive aroma",
-        "el": "Βελγική pilsner με γεμάτη γεύση και χαρακτηριστικό άρωμα"
-      },
-      "price": 5.0,
-      "image": "stella.jpg",
-      "categories": ["cold", "beer", "imported"],
-      "subcategory": "bottles",
-      "available": true
-    },
-    {
-      "id": "beer006",
-      "name": {
-        "en": "Amstel Draft",
-        "el": "Άμστελ Βαρελίσια"
-      },
-      "description": {
-        "en": "Fresh draft beer with a mild flavor and golden color",
-        "el": "Φρέσκια βαρελίσια μπύρα με ήπια γεύση και χρυσαφί χρώμα"
-      },
-      "price": 4.5,
-      "image": "amstel-draft.jpg",
-      "categories": ["cold", "beer", "draft"],
+      "price": 3.5,
       "subcategory": "draft",
       "available": true
     },
     {
-      "id": "beer007",
       "name": {
-        "en": "Chania Beer",
-        "el": "Μπύρα Χανίων"
+        "en": "Fix Hellas",
+        "el": "Φιξ Ελλάς"
       },
       "description": {
-        "en": "Local Cretan craft beer with unique character and bold flavor",
-        "el": "Τοπική κρητική χειροποίητη μπύρα με μοναδικό χαρακτήρα και έντονη γεύση"
+        "en": "Historic Greek beer with a crisp taste, medium body and pleasant finish",
+        "el": "Ιστορική ελληνική μπύρα με τραγανή γεύση, μέτριο σώμα και ευχάριστο τελείωμα"
       },
-      "price": 6.5,
-      "image": "chania-beer.jpg",
-      "categories": ["cold", "beer", "craft", "local"],
+      "price": 3.5,
+      "subcategory": "draft",
+      "available": true
+    },
+    {
+      "name": {
+        "en": "Heineken",
+        "el": "Heineken"
+      },
+      "description": {
+        "en": "International premium lager with a distinctive balanced taste and subtle bitter notes",
+        "el": "Διεθνής premium λάγκερ με χαρακτηριστική ισορροπημένη γεύση και διακριτικές πικρές νότες"
+      },
+      "price": 4.0,
+      "subcategory": "draft",
+      "available": true
+    },
+    {
+      "name": {
+        "en": "Guinness",
+        "el": "Guinness"
+      },
+      "description": {
+        "en": "Iconic Irish dry stout with creamy texture and rich flavors of coffee and chocolate",
+        "el": "Εμβληματική ιρλανδική μαύρη μπύρα με κρεμώδη υφή και πλούσιες γεύσεις καφέ και σοκολάτας"
+      },
+      "price": 5.5,
+      "subcategory": "draft",
+      "available": true
+    },
+    {
+      "name": {
+        "en": "Stella Artois",
+        "el": "Stella Artois"
+      },
+      "description": {
+        "en": "Belgian premium lager with a distinctive taste and elegant hoppy bitterness",
+        "el": "Βελγική premium λάγκερ με χαρακτηριστική γεύση και κομψή πικράδα λυκίσκου"
+      },
+      "price": 4.5,
+      "subcategory": "bottles",
+      "available": true
+    },
+    {
+      "name": {
+        "en": "Corona Extra",
+        "el": "Corona Extra"
+      },
+      "description": {
+        "en": "Light and refreshing Mexican beer, traditionally served with a lime wedge",
+        "el": "Ελαφριά και δροσιστική μεξικάνικη μπύρα, παραδοσιακά σερβίρεται με μια φέτα λάιμ"
+      },
+      "price": 5.0,
+      "subcategory": "bottles",
+      "available": true
+    },
+    {
+      "name": {
+        "en": "Budweiser",
+        "el": "Budweiser"
+      },
+      "description": {
+        "en": "American-style lager known for its crisp flavor and smooth finish",
+        "el": "Λάγκερ αμερικανικού τύπου γνωστή για την τραγανή γεύση και το απαλό τελείωμά της"
+      },
+      "price": 4.5,
+      "subcategory": "bottles",
+      "available": true
+    },
+    {
+      "name": {
+        "en": "Amstel",
+        "el": "Άμστελ"
+      },
+      "description": {
+        "en": "Light-bodied lager with a distinctive malty character and clean, crisp finish",
+        "el": "Λάγκερ με ελαφρύ σώμα, χαρακτηριστικό χαρακτήρα βύνης και καθαρό, τραγανό τελείωμα"
+      },
+      "price": 4.0,
+      "subcategory": "bottles",
+      "available": true
+    },
+    {
+      "name": {
+        "en": "Hoegaarden",
+        "el": "Hoegaarden"
+      },
+      "description": {
+        "en": "Belgian white beer with notes of coriander and orange peel, smooth and slightly sweet",
+        "el": "Βελγική λευκή μπύρα με νότες κόλιανδρου και φλούδας πορτοκαλιού, απαλή και ελαφρώς γλυκιά"
+      },
+      "price": 5.5,
+      "subcategory": "bottles",
+      "available": true
+    },
+    {
+      "name": {
+        "en": "Charma Cretan Ale",
+        "el": "Charma Κρητική Ale"
+      },
+      "description": {
+        "en": "Local Cretan ale with rich malty flavor balanced with aromatic hops",
+        "el": "Τοπική κρητική ale με πλούσια γεύση βύνης εξισορροπημένη με αρωματικούς λυκίσκους"
+      },
+      "price": 6.0,
       "subcategory": "craft",
       "available": true
     },
     {
-      "id": "beer008",
       "name": {
-        "en": "Charma Lager",
-        "el": "Χάρμα Λάγκερ"
+        "en": "Septem Monday's Pilsner",
+        "el": "Septem Monday's Pilsner"
       },
       "description": {
-        "en": "Craft beer from Crete with natural ingredients and artisanal brewing methods",
-        "el": "Χειροποίητη μπύρα από την Κρήτη με φυσικά συστατικά και παραδοσιακές μεθόδους ζυθοποίησης"
+        "en": "Greek craft pilsner with crisp malt character and delicate hoppy aroma",
+        "el": "Ελληνική χειροποίητη pilsner με τραγανό χαρακτήρα βύνης και λεπτό άρωμα λυκίσκου"
       },
       "price": 6.5,
-      "image": "charma.jpg",
-      "categories": ["cold", "beer", "craft", "local"],
       "subcategory": "craft",
       "available": true
+    },
+    {
+      "name": {
+        "en": "Volkan Black",
+        "el": "Volkan Black"
+      },
+      "description": {
+        "en": "Dark Greek craft beer brewed with rare honey from Santorini and volcanic rock filtered water",
+        "el": "Σκούρα ελληνική χειροποίητη μπύρα με σπάνιο μέλι από τη Σαντορίνη και νερό φιλτραρισμένο σε ηφαιστειακό πέτρωμα"
+      },
+      "price": 7.0,
+      "subcategory": "craft",
+      "available": true
+    },
+    {
+      "name": {
+        "en": "BrewDog Punk IPA",
+        "el": "BrewDog Punk IPA"
+      },
+      "description": {
+        "en": "Light golden IPA with tropical fruits and bursts of caramel and citrus",
+        "el": "Ανοιχτόχρωμη χρυσή IPA με τροπικά φρούτα και εκρήξεις καραμέλας και εσπεριδοειδών"
+      },
+      "price": 7.5,
+      "subcategory": "craft",
+      "available": true
+    },
+    {
+      "name": {
+        "en": "Mikkeller Passion Pool",
+        "el": "Mikkeller Passion Pool"
+      },
+      "description": {
+        "en": "Fruity sour ale with passion fruit, balanced acidity and a refreshing finish",
+        "el": "Φρουτώδης ξινή ale με φρούτα του πάθους, ισορροπημένη οξύτητα και δροσιστικό τελείωμα"
+      },
+      "price": 8.0,
+      "subcategory": "craft",
+      "available": true
+    },
+    {
+      "name": {
+        "en": "Delphi Valley Pilsner",
+        "el": "Delphi Valley Pilsner"
+      },
+      "description": {
+        "en": "Small-batch pilsner with floral notes and clean, crisp finish",
+        "el": "Pilsner μικρής παραγωγής με ανθώδεις νότες και καθαρό, τραγανό τελείωμα"
+      },
+      "price": 7.0,
+      "subcategory": "craft",
+      "available": false
     }
   ]
 }

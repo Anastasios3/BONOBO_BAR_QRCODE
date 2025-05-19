@@ -1,768 +1,1206 @@
 /**
  * Bonobo Bar & More Digital Menu
- * Complete redesign with subcategories, improved UI/UX, and enhanced functionality
+ * JavaScript implementation for menu display and interaction
+ *
+ * This file handles all dynamic content loading, user interactions,
+ * and state management for the Bonobo Bar digital menu.
  */
 
-// ======== STATE MANAGEMENT ========
-const AppState = {
-  language: "en",
-  currentCategory: null,
-  currentSubcategory: null,
-  menuData: {},
-  categoriesOrder: [],
-  subcategories: {
-    coffee: ["coffee", "tea", "chocolate", "soft"],
-    food: ["snacks", "main", "desserts"],
-    spirits: ["whisky", "vodka", "rum", "tequila", "others", "liqueur"],
-    beer: ["draft", "bottles", "craft"],
-    wine: ["white", "rose", "red", "sparkling"],
-    cocktails: ["classic", "signature", "mocktails"],
-  },
-  translations: {
-    en: {
-      welcome: "Welcome to Bonobo Bar & More",
-      subheading: "Experience the extraordinary in Rethymno",
-      emptyMessage: "Select a category to view items",
-      hours: "Hours",
-      hoursContent: "Monday - Sunday: 09:00 - 02:00",
-      location: "El. Venizelou 47, Rethymno, Greece",
-      subcategoryAll: "All Items",
-      subcategories: {
-        coffee: {
-          coffee: "Coffee",
-          tea: "Tea",
-          chocolate: "Chocolate",
-          soft: "Soft Drinks",
+document.addEventListener("DOMContentLoaded", function () {
+  "use strict";
+
+  /**
+   * Application State
+   * Centralized state management for the application
+   */
+  const AppState = {
+    // Core state values
+    language: localStorage.getItem("bonobo-language") || "en",
+    theme:
+      localStorage.getItem("bonobo-theme") ||
+      (window.matchMedia("(prefers-color-scheme: dark)").matches
+        ? "dark"
+        : "light"),
+    currentCategory: null,
+    currentFilter: null,
+    menuData: {},
+    isLoading: true,
+
+    // Category order based on time of day
+    categoriesOrder: [],
+
+    // Subcategory definitions
+    subcategories: {
+      coffee: ["coffee", "tea", "chocolate", "soft"],
+      food: ["snacks", "main", "desserts"],
+      spirits: ["whisky", "vodka", "rum", "tequila", "others", "liqueur"],
+      beer: ["draft", "bottles", "craft"],
+      wine: ["white", "rose", "red", "sparkling"],
+      cocktails: ["classic", "signature", "mocktails"],
+    },
+
+    // Translation data
+    translations: {
+      en: {
+        allItems: "All Items",
+        filterBy: "Filter By",
+        emptyTitle: "Select a category",
+        emptyMessage: "Choose a category to view our offerings",
+        loadingMessage: "Loading items...",
+        errorTitle: "Something went wrong",
+        errorMessage: "We couldn't load the menu data. Please try again.",
+        glassLabel: "Glass",
+        bottleLabel: "Bottle",
+        priceLabel: "Price",
+        subcategories: {
+          coffee: {
+            coffee: "Coffee",
+            tea: "Tea",
+            chocolate: "Chocolate",
+            soft: "Soft Drinks",
+          },
+          food: {
+            snacks: "Snacks",
+            main: "Main Dishes",
+            desserts: "Desserts",
+          },
+          spirits: {
+            whisky: "Whisky",
+            vodka: "Vodka",
+            rum: "Rum",
+            tequila: "Tequila",
+            others: "Others",
+            liqueur: "Liqueur",
+          },
+          beer: {
+            draft: "Draft",
+            bottles: "Bottles",
+            craft: "Craft",
+          },
+          wine: {
+            white: "White",
+            rose: "Rosé",
+            red: "Red",
+            sparkling: "Sparkling",
+          },
+          cocktails: {
+            classic: "Classic",
+            signature: "Signature",
+            mocktails: "Mocktails",
+          },
         },
-        food: {
-          snacks: "Snacks",
-          main: "Main Dishes",
-          desserts: "Desserts",
-        },
-        spirits: {
-          whisky: "Whisky",
-          vodka: "Vodka",
-          rum: "Rum",
-          tequila: "Tequila",
-          others: "Others",
-          liqueur: "Liqueur",
-        },
-        beer: {
-          draft: "Draft",
-          bottles: "Bottles",
-          craft: "Craft",
-        },
-        wine: {
-          white: "White",
-          rose: "Rosé",
-          red: "Red",
-          sparkling: "Sparkling",
-        },
-        cocktails: {
-          classic: "Classic",
-          signature: "Signature",
-          mocktails: "Mocktails",
+        categories: {
+          coffee: "Coffee & More",
+          food: "Food & Snacks",
+          spirits: "Spirit List",
+          beer: "Beer List",
+          wine: "Wine List",
+          cocktails: "Cocktail List",
         },
       },
-      categories: {
-        coffee: "Coffee & More",
-        food: "Food & Snacks",
-        spirits: "Spirit List",
-        beer: "Beer List",
-        wine: "Wine List",
-        cocktails: "Cocktail List",
+      el: {
+        allItems: "Όλα τα Είδη",
+        filterBy: "Φίλτρο",
+        emptyTitle: "Επιλέξτε κατηγορία",
+        emptyMessage: "Επιλέξτε μια κατηγορία για να δείτε τα προϊόντα μας",
+        loadingMessage: "Φόρτωση προϊόντων...",
+        errorTitle: "Κάτι πήγε στραβά",
+        errorMessage:
+          "Δεν ήταν δυνατή η φόρτωση των δεδομένων του μενού. Παρακαλώ δοκιμάστε ξανά.",
+        glassLabel: "Ποτήρι",
+        bottleLabel: "Φιάλη",
+        priceLabel: "Τιμή",
+        subcategories: {
+          coffee: {
+            coffee: "Καφές",
+            tea: "Τσάι",
+            chocolate: "Σοκολάτα",
+            soft: "Αναψυκτικά",
+          },
+          food: {
+            snacks: "Σνακ",
+            main: "Κύρια Πιάτα",
+            desserts: "Επιδόρπια",
+          },
+          spirits: {
+            whisky: "Ουίσκι",
+            vodka: "Βότκα",
+            rum: "Ρούμι",
+            tequila: "Τεκίλα",
+            others: "Άλλα",
+            liqueur: "Λικέρ",
+          },
+          beer: {
+            draft: "Βαρελίσια",
+            bottles: "Φιάλες",
+            craft: "Χειροποίητες",
+          },
+          wine: {
+            white: "Λευκό",
+            rose: "Ροζέ",
+            red: "Κόκκινο",
+            sparkling: "Αφρώδες",
+          },
+          cocktails: {
+            classic: "Κλασικά",
+            signature: "Signature",
+            mocktails: "Mocktails",
+          },
+        },
+        categories: {
+          coffee: "Καφές & Περισσότερα",
+          food: "Φαγητό & Σνακ",
+          spirits: "Λίστα Ποτών",
+          beer: "Λίστα Μπύρας",
+          wine: "Λίστα Κρασιών",
+          cocktails: "Λίστα Κοκτέιλ",
+        },
       },
     },
-    el: {
-      welcome: "Καλωσήρθατε στο Bonobo Bar & More",
-      subheading: "Ζήστε την εξαιρετική εμπειρία στο Ρέθυμνο",
-      emptyMessage: "Επιλέξτε κατηγορία για να δείτε τα προϊόντα",
-      hours: "Ωράριο Λειτουργίας",
-      hoursContent: "Δευτέρα - Κυριακή: 09:00 - 02:00",
-      location: " Ελ. Βενιζέλου 47, Ρέθυμνο, Ελλάδα",
-      subcategoryAll: "Όλα τα Είδη",
-      subcategories: {
-        coffee: {
-          coffee: "Καφές",
-          tea: "Τσάι",
-          chocolate: "Σοκολάτα",
-          soft: "Αναψυκτικά",
-        },
-        food: {
-          snacks: "Σνακ",
-          main: "Κύρια Πιάτα",
-          desserts: "Επιδόρπια",
-        },
-        spirits: {
-          whisky: "Ουίσκι",
-          vodka: "Βότκα",
-          rum: "Ρούμι",
-          tequila: "Τεκίλα",
-          others: "Περισσότερα",
-          liqueur: "Λικέρ",
-        },
-        beer: {
-          draft: "Βαρελίσια",
-          bottles: "Μπουκάλια",
-          craft: "Χειροποίητες",
-        },
-        wine: {
-          white: "Λευκό",
-          rose: "Ροζέ",
-          red: "Κόκκινο",
-          sparkling: "Αφρώδες",
-        },
-        cocktails: {
-          classic: "Κλασικά",
-          signature: "Signature",
-          mocktails: "Mocktails",
-        },
-      },
-      categories: {
-        coffee: "Καφές & Περισσότερα",
-        food: "Φαγητό & Σνακ",
-        spirits: "Λίστα Ποτών",
-        beer: "Λίστα Μπύρας",
-        wine: "Λίστα Κρασιών",
-        cocktails: "Λίστα Κοκτέιλ",
-      },
-    },
-  },
-};
 
-// ======== DOM ELEMENTS ========
-const DOM = {
-  themeToggle: document.getElementById("theme-toggle"),
-  languageToggle: document.getElementById("language-toggle"),
-  langOptions: document.querySelectorAll(".lang-option"),
-  menuCategories: document.getElementById("menu-categories"),
-  scrollIndicator: document.getElementById("scroll-indicator"),
-  currentCategoryTitle: document.getElementById("current-category-title"),
-  subcategoryTabs: document.getElementById("subcategory-tabs"),
-  menuItems: document.getElementById("menu-items"),
-  menuEmpty: document.getElementById("menu-empty"),
-  emptyMessage: document.getElementById("empty-message"),
-  hoursHeading: document.getElementById("hours-heading"),
-  hoursContent: document.getElementById("hours-content"),
-  locationText: document.getElementById("location-text"),
-  logoLightMode: document.getElementById("logo-light-mode"),
-  logoDarkMode: document.getElementById("logo-dark-mode"),
-};
+    /**
+     * Get text translation
+     * @param {string} key - Translation key
+     * @param {string} category - Optional category for nested translations
+     * @param {string} subcategory - Optional subcategory for deeply nested translations
+     * @returns {string} Translated text
+     */
+    getText(key, category = null, subcategory = null) {
+      const langData = this.translations[this.language];
 
-// ======== INITIALIZATION ========
-async function initializeApp() {
-  try {
-    // Setup event listeners
-    setupEventListeners();
-
-    // Set theme based on user preference
-    initializeTheme();
-
-    // Determine time-based category order
-    determineTimeBasedOrder();
-
-    // Load all menu data
-    await loadAllMenuData();
-
-    // Initialize UI with current language
-    updateUITexts();
-
-    // Generate category buttons
-    generateCategoryButtons();
-
-    // Initialize scroll indicator for mobile
-    initScrollIndicator();
-
-    // Lazy load categories
-    lazyLoadCategories();
-
-    // Apply animations once everything is loaded
-    document.body.classList.add("app-loaded");
-  } catch (error) {
-    console.error("Error initializing app:", error);
-  }
-}
-
-// ======== EVENT LISTENERS ========
-function setupEventListeners() {
-  // Theme toggle
-  DOM.themeToggle.addEventListener("click", toggleTheme);
-
-  // Language toggle
-  DOM.langOptions.forEach((option) => {
-    option.addEventListener("click", () => {
-      const lang = option.dataset.lang;
-      if (lang !== AppState.language) {
-        changeLanguage(lang);
+      if (!langData) {
+        return "";
       }
-    });
-  });
 
-  // Handle window resize
-  window.addEventListener(
-    "resize",
-    debounce(() => {
-      adjustUIForScreenSize();
-      if (window.innerWidth >= 768) {
-        DOM.scrollIndicator.style.display = "none";
+      if (category && subcategory) {
+        return langData[key]?.[category]?.[subcategory] || "";
+      }
+
+      if (category) {
+        return langData[key]?.[category] || "";
+      }
+
+      return langData[key] || "";
+    },
+
+    /**
+     * Set language and save to localStorage
+     * @param {string} lang - Language code ('en' or 'el')
+     */
+    setLanguage(lang) {
+      if (lang && (lang === "en" || lang === "el")) {
+        this.language = lang;
+        localStorage.setItem("bonobo-language", lang);
+      }
+    },
+
+    /**
+     * Set theme and save to localStorage
+     * @param {string} theme - Theme name ('light' or 'dark')
+     */
+    setTheme(theme) {
+      if (theme && (theme === "light" || theme === "dark")) {
+        this.theme = theme;
+        localStorage.setItem("bonobo-theme", theme);
+        document.body.classList.toggle("dark-theme", theme === "dark");
+      }
+    },
+
+    /**
+     * Determine optimal category order based on time of day
+     */
+    determineCategoryOrder() {
+      const hour = new Date().getHours();
+
+      if (hour >= 6 && hour < 11) {
+        // Morning (6am - 11am): Coffee, Food, Wine, Beer, Cocktails, Spirits
+        this.categoriesOrder = [
+          "coffee",
+          "food",
+          "wine",
+          "beer",
+          "cocktails",
+          "spirits",
+        ];
+      } else if (hour >= 11 && hour < 16) {
+        // Lunch (11am - 4pm): Food, Coffee, Wine, Beer, Spirits, Cocktails
+        this.categoriesOrder = [
+          "food",
+          "coffee",
+          "wine",
+          "beer",
+          "spirits",
+          "cocktails",
+        ];
+      } else if (hour >= 16 && hour < 20) {
+        // Afternoon (4pm - 8pm): Cocktails, Coffee, Food, Beer, Wine, Spirits
+        this.categoriesOrder = [
+          "cocktails",
+          "coffee",
+          "food",
+          "beer",
+          "wine",
+          "spirits",
+        ];
       } else {
-        initScrollIndicator();
+        // Night (8pm - 6am): Spirits, Cocktails, Beer, Wine, Food, Coffee
+        this.categoriesOrder = [
+          "spirits",
+          "cocktails",
+          "beer",
+          "wine",
+          "food",
+          "coffee",
+        ];
       }
-    }, 250)
-  );
-}
+    },
 
-// ======== THEME HANDLING ========
-function initializeTheme() {
-  // Check for saved theme preference
-  const savedTheme = localStorage.getItem("bonobo-theme");
+    /**
+     * Get all available categories that have data
+     * @returns {Array} Array of category IDs
+     */
+    getAvailableCategories() {
+      return Object.keys(this.menuData).filter(
+        (category) =>
+          this.menuData[category] && this.menuData[category].length > 0
+      );
+    },
 
-  if (savedTheme === "dark") {
-    document.body.classList.add("dark-theme");
-  } else if (savedTheme === "light") {
-    document.body.classList.remove("dark-theme");
-  } else {
-    // If no saved preference, check system preference
-    if (
-      window.matchMedia &&
-      window.matchMedia("(prefers-color-scheme: dark)").matches
-    ) {
-      document.body.classList.add("dark-theme");
-    }
-  }
+    /**
+     * Get filtered menu items for a category
+     * @param {string} category - Category ID
+     * @param {string|null} filter - Optional subcategory filter
+     * @returns {Array} Filtered menu items
+     */
+    getFilteredItems(category, filter = null) {
+      if (!this.menuData[category]) {
+        return [];
+      }
 
-  // Listen for system theme changes
-  window
-    .matchMedia("(prefers-color-scheme: dark)")
-    .addEventListener("change", (e) => {
-      if (!localStorage.getItem("bonobo-theme")) {
-        if (e.matches) {
-          document.body.classList.add("dark-theme");
-        } else {
-          document.body.classList.remove("dark-theme");
+      let items = [...this.menuData[category]];
+
+      // Filter by subcategory if specified
+      if (filter) {
+        items = items.filter((item) => item.subcategory === filter);
+      }
+
+      // Only show available items
+      items = items.filter((item) => item.available !== false);
+
+      return items;
+    },
+  };
+
+  /**
+   * UI Controller
+   * Manages all DOM interactions and UI updates
+   */
+  const UIController = {
+    // DOM elements cache
+    elements: {},
+
+    /**
+     * Initialize and cache DOM elements
+     */
+    initializeDOM() {
+      this.elements = {
+        // Header elements
+        themeToggle: document.getElementById("theme-toggle"),
+        languageOptions: document.querySelectorAll(".lang-option"),
+
+        // Navigation elements
+        menuCategories: document.getElementById("menu-categories"),
+        categoryList: document.getElementById("category-list"),
+
+        // Content elements
+        currentCategory: document.getElementById("current-category"),
+        menuItemsGrid: document.getElementById("menu-items"), // FIXED: Changed from 'menu-items-grid' to 'menu-items'
+        emptyState: document.getElementById("empty-state"),
+        emptyTitle: document.getElementById("empty-title"),
+        emptyMessage: document.getElementById("empty-message"),
+
+        // Filter elements
+        filterToggle: document.getElementById("filter-toggle"),
+        filterPanel: document.getElementById("filter-panel"),
+        subcategoryFilters: document.getElementById("subcategory-filters"),
+
+        // Footer elements
+        hoursContent: document.getElementById("hours-content"),
+        locationText: document.getElementById("location-text"),
+      };
+    },
+
+    /**
+     * Apply theme from state
+     */
+    applyTheme() {
+      document.body.classList.toggle("dark-theme", AppState.theme === "dark");
+    },
+
+    /**
+     * Update UI text elements based on current language
+     */
+    updateUITexts() {
+      // Update language option active states
+      if (this.elements.languageOptions) {
+        this.elements.languageOptions.forEach((option) => {
+          option.classList.toggle(
+            "active",
+            option.dataset.lang === AppState.language
+          );
+        });
+      }
+
+      // Update empty state texts
+      if (this.elements.emptyTitle && this.elements.emptyMessage) {
+        this.elements.emptyTitle.textContent = AppState.getText("emptyTitle");
+        this.elements.emptyMessage.textContent =
+          AppState.getText("emptyMessage");
+      }
+
+      // Update footer texts
+      if (this.elements.hoursContent) {
+        this.elements.hoursContent.textContent =
+          AppState.getText("hoursContent");
+      }
+
+      if (this.elements.locationText) {
+        this.elements.locationText.textContent = AppState.getText("location");
+      }
+
+      // Update filter button text
+      if (this.elements.filterToggle) {
+        const filterText = this.elements.filterToggle.querySelector("span");
+        if (filterText) {
+          filterText.textContent = AppState.getText("filterBy");
         }
       }
-    });
-}
+    },
 
-function toggleTheme() {
-  const isDarkTheme = document.body.classList.toggle("dark-theme");
-  localStorage.setItem("bonobo-theme", isDarkTheme ? "dark" : "light");
-}
+    /**
+     * Generate category navigation tabs
+     */
+    generateCategoryTabs() {
+      if (!this.elements.menuCategories) {
+        return;
+      }
 
-// ======== LANGUAGE HANDLING ========
-function changeLanguage(lang) {
-  AppState.language = lang;
+      this.elements.menuCategories.innerHTML = "";
 
-  // Update active language in UI
-  DOM.langOptions.forEach((option) => {
-    option.classList.toggle("active", option.dataset.lang === lang);
-  });
+      // Create a tab for each category with data
+      AppState.categoriesOrder.forEach((category) => {
+        // Skip categories with no data
+        if (
+          !AppState.menuData[category] ||
+          AppState.menuData[category].length === 0
+        ) {
+          return;
+        }
 
-  // Update all UI texts
-  updateUITexts();
-
-  // Re-render current category if one is selected
-  if (AppState.currentCategory) {
-    renderMenuItems(AppState.currentCategory, AppState.currentSubcategory);
-  }
-
-  // Save language preference
-  localStorage.setItem("bonobo-language", lang);
-}
-
-function updateUITexts() {
-  const texts = AppState.translations[AppState.language];
-
-  // Update empty message
-  DOM.emptyMessage.textContent = texts.emptyMessage;
-
-  // Update footer texts
-  DOM.hoursHeading.textContent = texts.hours;
-  DOM.hoursContent.textContent = texts.hoursContent;
-  DOM.locationText.textContent = texts.location;
-
-  // Update category buttons (if they exist)
-  const categoryButtons = document.querySelectorAll(".category-btn");
-  categoryButtons.forEach((button) => {
-    const category = button.dataset.category;
-    button.textContent = texts.categories[category];
-  });
-
-  // Update current category title (if one is selected)
-  if (AppState.currentCategory) {
-    DOM.currentCategoryTitle.innerHTML = `<h2>${
-      texts.categories[AppState.currentCategory]
-    }</h2>`;
-
-    // Update subcategory tabs
-    updateSubcategoryTabs(AppState.currentCategory);
-  } else {
-    DOM.currentCategoryTitle.innerHTML = "";
-  }
-}
-
-// ======== TIME-BASED CATEGORY ORDERING ========
-function determineTimeBasedOrder() {
-  const hour = new Date().getHours();
-
-  // Define different orders based on time of day
-  if (hour >= 6 && hour < 11) {
-    // Morning (6am - 11am): Coffee, Food, Wine, Beer, Cocktails, Spirits
-    AppState.categoriesOrder = [
-      "coffee",
-      "food",
-      "wine",
-      "beer",
-      "cocktails",
-      "spirits",
-    ];
-  } else if (hour >= 11 && hour < 16) {
-    // Lunch (11am - 4pm): Food, Coffee, Wine, Beer, Spirits, Cocktails
-    AppState.categoriesOrder = [
-      "food",
-      "coffee",
-      "wine",
-      "beer",
-      "spirits",
-      "cocktails",
-    ];
-  } else if (hour >= 16 && hour < 20) {
-    // Afternoon (4pm - 8pm): Cocktails, Coffee, Food, Beer, Wine, Spirits
-    AppState.categoriesOrder = [
-      "cocktails",
-      "coffee",
-      "food",
-      "beer",
-      "wine",
-      "spirits",
-    ];
-  } else {
-    // Night (8pm - 6am): Spirits, Cocktails, Beer, Wine, Food, Coffee
-    AppState.categoriesOrder = [
-      "spirits",
-      "cocktails",
-      "beer",
-      "wine",
-      "food",
-      "coffee",
-    ];
-  }
-}
-
-// ======== DATA LOADING - IMPROVED ========
-async function loadAllMenuData() {
-  try {
-    const categories = [
-      "coffee",
-      "food",
-      "spirits",
-      "beer",
-      "wine",
-      "cocktails",
-    ];
-    const promises = categories.map((category) => loadCategoryData(category));
-
-    // Use Promise.allSettled to handle failures gracefully
-    const results = await Promise.allSettled(promises);
-
-    // Log the load status
-    const loadStatus = results
-      .map((result, index) => {
-        const category = categories[index];
-        return `${category}: ${
-          result.status === "fulfilled" ? "loaded" : "failed"
-        }`;
-      })
-      .join(", ");
-
-    console.log("Menu data loading complete:", loadStatus);
-
-    // Log available items for debugging
-    console.log(
-      "Menu data loaded:",
-      Object.entries(AppState.menuData)
-        .map(([key, value]) => `${key}: ${value ? value.length : 0} items`)
-        .join(", ")
-    );
-  } catch (error) {
-    console.error("Error loading menu data:", error);
-  }
-}
-
-async function loadCategoryData(category) {
-  try {
-    const response = await fetch(`data/${category}.json`);
-    if (!response.ok) {
-      throw new Error(
-        `Failed to load ${category} data (HTTP ${response.status})`
-      );
-    }
-    const data = await response.json();
-    if (data && data.items && Array.isArray(data.items)) {
-      AppState.menuData[category] = data.items;
-      return data.items.length;
-    } else {
-      console.warn(
-        `Warning: ${category}.json doesn't contain an 'items' array`
-      );
-      AppState.menuData[category] = [];
-      return 0;
-    }
-  } catch (error) {
-    console.error(`Error loading ${category} data:`, error);
-    AppState.menuData[category] = [];
-    return 0;
-  }
-}
-
-// ======== UI RENDERING ========
-function generateCategoryButtons() {
-  DOM.menuCategories.innerHTML = "";
-
-  AppState.categoriesOrder.forEach((category) => {
-    const button = document.createElement("button");
-    button.className = "category-btn";
-    button.dataset.category = category;
-    button.textContent =
-      AppState.translations[AppState.language].categories[category];
-
-    button.addEventListener("click", () => {
-      showCategory(category);
-    });
-
-    DOM.menuCategories.appendChild(button);
-  });
-}
-
-function showCategory(category) {
-  // Update active button
-  const buttons = document.querySelectorAll(".category-btn");
-  buttons.forEach((button) => {
-    button.classList.toggle("active", button.dataset.category === category);
-  });
-
-  // Update state
-  AppState.currentCategory = category;
-  AppState.currentSubcategory = null; // Reset subcategory
-
-  // Update category title
-  DOM.currentCategoryTitle.innerHTML = `<h2>${
-    AppState.translations[AppState.language].categories[category]
-  }</h2>`;
-
-  // Generate subcategory tabs
-  updateSubcategoryTabs(category);
-
-  // Render items for this category
-  renderMenuItems(category, null);
-
-  // Update scroll indicator position
-  updateScrollIndicatorPosition(category);
-
-  // Hide empty message
-  DOM.menuEmpty.style.display = "none";
-}
-
-function updateSubcategoryTabs(category) {
-  DOM.subcategoryTabs.innerHTML = "";
-
-  if (!AppState.subcategories[category]) {
-    DOM.subcategoryTabs.style.display = "none";
-    return;
-  }
-
-  DOM.subcategoryTabs.style.display = "flex";
-
-  // Add "All" tab
-  const allTab = document.createElement("button");
-  allTab.className = `subcategory-tab ${
-    AppState.currentSubcategory === null ? "active" : ""
-  }`;
-  allTab.textContent = AppState.translations[AppState.language].subcategoryAll;
-  allTab.addEventListener("click", () => {
-    selectSubcategory(null);
-  });
-  DOM.subcategoryTabs.appendChild(allTab);
-
-  // Add subcategory tabs
-  AppState.subcategories[category].forEach((subcategory) => {
-    const tab = document.createElement("button");
-    tab.className = `subcategory-tab ${
-      AppState.currentSubcategory === subcategory ? "active" : ""
-    }`;
-    tab.dataset.subcategory = subcategory;
-    tab.textContent =
-      AppState.translations[AppState.language].subcategories[category][
-        subcategory
-      ];
-
-    tab.addEventListener("click", () => {
-      selectSubcategory(subcategory);
-    });
-
-    DOM.subcategoryTabs.appendChild(tab);
-  });
-}
-
-function selectSubcategory(subcategory) {
-  AppState.currentSubcategory = subcategory;
-
-  // Update active subcategory tab
-  const tabs = document.querySelectorAll(".subcategory-tab");
-  tabs.forEach((tab) => {
-    if (!tab.dataset.subcategory) {
-      // This is the "All" tab
-      tab.classList.toggle("active", subcategory === null);
-    } else {
-      tab.classList.toggle("active", tab.dataset.subcategory === subcategory);
-    }
-  });
-
-  // Render items for the selected subcategory
-  renderMenuItems(AppState.currentCategory, subcategory);
-}
-
-function renderMenuItems(category, subcategory) {
-  const items = AppState.menuData[category] || [];
-  const lang = AppState.language;
-
-  // Clear previous items with a fade-out effect
-  DOM.menuItems.style.opacity = "0";
-
-  setTimeout(() => {
-    DOM.menuItems.innerHTML = "";
-
-    if (items.length === 0) {
-      DOM.menuEmpty.style.display = "flex";
-      DOM.menuItems.style.opacity = "1";
-      return;
-    }
-
-    // Filter by subcategory if specified
-    let filteredItems = items;
-    if (subcategory) {
-      filteredItems = items.filter((item) => item.subcategory === subcategory);
-    }
-
-    // Sort items by availability
-    const sortedItems = [...filteredItems].sort((a, b) => {
-      if (a.available === b.available) return 0;
-      return a.available ? -1 : 1;
-    });
-
-    if (sortedItems.length === 0) {
-      DOM.menuEmpty.style.display = "flex";
-      DOM.menuItems.style.opacity = "1";
-      return;
-    }
-
-    DOM.menuEmpty.style.display = "none";
-
-    // Group by subcategory for better organization (when showing all)
-    if (!subcategory && AppState.subcategories[category]) {
-      // Get all subcategories present in the data
-      const presentSubcategories = [
-        ...new Set(sortedItems.map((item) => item.subcategory)),
-      ];
-
-      // Sort subcategories according to our predefined order
-      const orderedSubcategories = AppState.subcategories[category].filter(
-        (sub) => presentSubcategories.includes(sub)
-      );
-
-      // Render items grouped by subcategory
-      orderedSubcategories.forEach((subcategory) => {
-        const subcategoryItems = sortedItems.filter(
-          (item) => item.subcategory === subcategory
+        const tab = document.createElement("button");
+        tab.className = "category-tab";
+        tab.dataset.category = category;
+        tab.textContent = AppState.getText("categories", category);
+        tab.setAttribute(
+          "aria-label",
+          AppState.getText("categories", category)
         );
 
-        if (subcategoryItems.length > 0) {
-          // Add subcategory heading
-          const headingText =
-            AppState.translations[lang].subcategories[category][subcategory];
-          const heading = document.createElement("div");
-          heading.className = "subcategory-heading";
-          heading.textContent = headingText;
-          heading.style.gridColumn = "1 / -1"; // Span all columns
-          DOM.menuItems.appendChild(heading);
-
-          // Add items for this subcategory
-          createMenuItems(subcategoryItems, lang);
-        }
-      });
-    } else {
-      // Simple rendering without subcategory grouping
-      createMenuItems(sortedItems, lang);
-    }
-
-    // Fade in the new items
-    DOM.menuItems.style.opacity = "1";
-
-    // Update layout
-    adjustUIForScreenSize();
-
-    // Setup intersection observer for animations
-    setupIntersectionObserver();
-  }, 200); // Short delay for the fade-out effect
-}
-
-function createMenuItems(items, lang) {
-  items.forEach((item) => {
-    if (!item.available) return;
-
-    const itemElement = document.createElement("div");
-    itemElement.className = "menu-item animate-on-scroll";
-
-    const name = item.name[lang] || item.name.en || "";
-    const description = item.description
-      ? item.description[lang] || item.description.en || ""
-      : "";
-
-    itemElement.innerHTML = `
-      <div class="menu-item-content">
-        <div class="menu-item-name">${name}</div>
-        <div class="menu-item-description">${description}</div>
-      </div>
-      <div class="menu-item-price">${
-        item.price ? item.price.toFixed(2) + "€" : ""
-      }</div>
-    `;
-
-    DOM.menuItems.appendChild(itemElement);
-  });
-}
-
-// ======== SCROLL INDICATOR FOR MOBILE ========
-function initScrollIndicator() {
-  if (!DOM.scrollIndicator || window.innerWidth >= 768) {
-    if (DOM.scrollIndicator) DOM.scrollIndicator.style.display = "none";
-    return;
-  }
-
-  DOM.scrollIndicator.style.display = "flex";
-  const categories = AppState.categoriesOrder;
-
-  // Create dots
-  DOM.scrollIndicator.innerHTML = "";
-  for (let i = 0; i < categories.length; i++) {
-    const dot = document.createElement("div");
-    dot.className = i === 0 ? "scroll-dot active" : "scroll-dot";
-    DOM.scrollIndicator.appendChild(dot);
-  }
-
-  // Add scroll listener to update active dot
-  DOM.menuCategories.addEventListener("scroll", updateScrollIndicator);
-}
-
-function updateScrollIndicator() {
-  if (window.innerWidth >= 768) return;
-
-  const scrollPos = DOM.menuCategories.scrollLeft;
-  const totalWidth =
-    DOM.menuCategories.scrollWidth - DOM.menuCategories.clientWidth;
-
-  // Avoid division by zero
-  if (totalWidth === 0) return;
-
-  const scrollPercent = scrollPos / totalWidth;
-  const categories = AppState.categoriesOrder;
-  const activeDotIndex = Math.round(scrollPercent * (categories.length - 1));
-
-  // Update active dot
-  const dots = DOM.scrollIndicator.querySelectorAll(".scroll-dot");
-  dots.forEach((dot, i) => {
-    dot.classList.toggle("active", i === activeDotIndex);
-  });
-}
-
-function updateScrollIndicatorPosition(category) {
-  if (window.innerWidth >= 768) return;
-
-  // Find the index of the category
-  const index = AppState.categoriesOrder.indexOf(category);
-  if (index === -1) return;
-
-  // Update active dot
-  const dots = DOM.scrollIndicator.querySelectorAll(".scroll-dot");
-  dots.forEach((dot, i) => {
-    dot.classList.toggle("active", i === index);
-  });
-
-  // Scroll the category into view
-  const buttons = DOM.menuCategories.querySelectorAll(".category-btn");
-  if (buttons[index]) {
-    buttons[index].scrollIntoView({ behavior: "smooth", inline: "center" });
-  }
-}
-
-// ======== PERFORMANCE OPTIMIZATIONS ========
-function lazyLoadCategories() {
-  // Only load the first (active) category initially
-  if (AppState.categoriesOrder.length > 0) {
-    const firstCategory = AppState.categoriesOrder[0];
-    showCategory(firstCategory);
-
-    // Preload next category data after a short delay
-    setTimeout(() => {
-      const secondCategory = AppState.categoriesOrder[1];
-      if (secondCategory && AppState.menuData[secondCategory]) {
-        // Just access the data to ensure it's loaded, but don't render
-        const items = AppState.menuData[secondCategory];
-        console.log(`Preloaded ${items.length} items for ${secondCategory}`);
-      }
-    }, 1000);
-  }
-}
-
-function setupIntersectionObserver() {
-  if (!("IntersectionObserver" in window)) return;
-
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("visible");
-          observer.unobserve(entry.target);
-        }
+        this.elements.menuCategories.appendChild(tab);
       });
     },
-    { threshold: 0.1 }
-  );
 
-  // Observe menu items for animation
-  document.querySelectorAll(".animate-on-scroll").forEach((item) => {
-    observer.observe(item);
-  });
-}
+    /**
+     * Generate sidebar category list (for potential future use)
+     */
+    generateCategoryList() {
+      if (!this.elements.categoryList) {
+        return;
+      }
 
-// ======== RESPONSIVE ADJUSTMENTS ========
-function adjustUIForScreenSize() {
-  const isMobile = window.innerWidth < 576;
-  const isTablet = window.innerWidth >= 576 && window.innerWidth < 992;
+      this.elements.categoryList.innerHTML = "";
 
-  // Adjust menu items layout
-  if (isMobile) {
-    DOM.menuItems.style.gridTemplateColumns = "1fr";
-  } else if (isTablet) {
-    DOM.menuItems.style.gridTemplateColumns = "repeat(2, 1fr)";
-  } else {
-    DOM.menuItems.style.gridTemplateColumns = "repeat(3, 1fr)";
-  }
-}
+      // Create a list item for each category with data
+      AppState.categoriesOrder.forEach((category) => {
+        if (
+          !AppState.menuData[category] ||
+          AppState.menuData[category].length === 0
+        ) {
+          return;
+        }
 
-// ======== UTILITY FUNCTIONS ========
-function debounce(func, wait) {
-  let timeout;
-  return function executedFunction(...args) {
-    const later = () => {
-      clearTimeout(timeout);
-      func(...args);
-    };
-    clearTimeout(timeout);
-    timeout = setTimeout(later, wait);
+        const listItem = document.createElement("li");
+
+        const button = document.createElement("button");
+        button.className = "category-list-item";
+        button.dataset.category = category;
+        button.textContent = AppState.getText("categories", category);
+
+        listItem.appendChild(button);
+        this.elements.categoryList.appendChild(listItem);
+      });
+    },
+
+    /**
+     * Update active category in navigation
+     * @param {string} category - Active category ID
+     */
+    updateActiveCategory(category) {
+      // Update tab navigation
+      const categoryTabs = document.querySelectorAll(".category-tab");
+      categoryTabs.forEach((tab) => {
+        tab.classList.toggle("active", tab.dataset.category === category);
+      });
+
+      // Update sidebar navigation if present
+      const categoryListItems = document.querySelectorAll(
+        ".category-list-item"
+      );
+      categoryListItems.forEach((item) => {
+        item.classList.toggle("active", item.dataset.category === category);
+      });
+
+      // Update category title
+      if (this.elements.currentCategory) {
+        this.elements.currentCategory.textContent = AppState.getText(
+          "categories",
+          category
+        );
+      }
+    },
+
+    /**
+     * Generate filter options for a category
+     * @param {string} category - Category ID
+     * @param {string|null} activeFilter - Currently active filter
+     */
+    generateFilterOptions(category, activeFilter = null) {
+      if (!this.elements.subcategoryFilters) {
+        return;
+      }
+
+      const subcategories = AppState.subcategories[category];
+
+      // Clear existing filters
+      this.elements.subcategoryFilters.innerHTML = "";
+
+      // If no subcategories for this category, hide the filter panel
+      if (!subcategories || subcategories.length === 0) {
+        if (this.elements.filterPanel) {
+          this.elements.filterPanel.classList.remove("active");
+        }
+
+        if (this.elements.filterToggle) {
+          this.elements.filterToggle.style.display = "none";
+        }
+
+        return;
+      }
+
+      // Show filter toggle
+      if (this.elements.filterToggle) {
+        this.elements.filterToggle.style.display = "flex";
+      }
+
+      // Create "All Items" filter
+      const allFilter = document.createElement("button");
+      allFilter.className = `filter-chip ${
+        activeFilter === null ? "active" : ""
+      }`;
+      allFilter.textContent = AppState.getText("allItems");
+      allFilter.dataset.filter = "all";
+
+      this.elements.subcategoryFilters.appendChild(allFilter);
+
+      // Create filter for each subcategory
+      subcategories.forEach((subcategory) => {
+        // Skip if we don't have items in this subcategory
+        const hasItems = AppState.menuData[category].some(
+          (item) => item.subcategory === subcategory && item.available !== false
+        );
+
+        if (!hasItems) {
+          return;
+        }
+
+        const filter = document.createElement("button");
+        filter.className = `filter-chip ${
+          activeFilter === subcategory ? "active" : ""
+        }`;
+        filter.textContent = AppState.getText(
+          "subcategories",
+          category,
+          subcategory
+        );
+        filter.dataset.filter = subcategory;
+
+        this.elements.subcategoryFilters.appendChild(filter);
+      });
+    },
+
+    /**
+     * Toggle filter panel visibility
+     * @param {boolean} show - Whether to show or hide the panel
+     */
+    toggleFilterPanel(show = null) {
+      if (!this.elements.filterPanel || !this.elements.filterToggle) {
+        return;
+      }
+
+      if (show === null) {
+        // Toggle if no specific state provided
+        this.elements.filterPanel.classList.toggle("active");
+      } else {
+        // Set to specific state
+        this.elements.filterPanel.classList.toggle("active", show);
+      }
+
+      // Update toggle button state
+      const isActive = this.elements.filterPanel.classList.contains("active");
+      this.elements.filterToggle.classList.toggle("active", isActive);
+      this.elements.filterToggle.setAttribute("aria-expanded", isActive);
+    },
+
+    /**
+     * Update active filter selection
+     * @param {string|null} filter - Active filter ID
+     */
+    updateActiveFilter(filter) {
+      const filterChips = document.querySelectorAll(".filter-chip");
+
+      filterChips.forEach((chip) => {
+        const isActive =
+          (chip.dataset.filter === "all" && filter === null) ||
+          chip.dataset.filter === filter;
+
+        chip.classList.toggle("active", isActive);
+      });
+    },
+
+    /**
+     * Display menu items in the grid
+     * @param {Array} items - Menu items to display
+     * @param {string} category - Current category ID
+     */
+    displayMenuItems(items, category) {
+      if (!this.elements.menuItemsGrid) {
+        return;
+      }
+
+      // Clear existing items with a fade-out effect
+      this.elements.menuItemsGrid.style.opacity = "0";
+
+      setTimeout(() => {
+        this.elements.menuItemsGrid.innerHTML = "";
+
+        // Handle empty results
+        if (!items || items.length === 0) {
+          if (this.elements.emptyState) {
+            this.elements.emptyState.classList.add("active");
+          }
+
+          this.elements.menuItemsGrid.style.opacity = "1";
+          return;
+        }
+
+        // Hide empty state
+        if (this.elements.emptyState) {
+          this.elements.emptyState.classList.remove("active");
+        }
+
+        // Create items with staggered animation
+        items.forEach((item, index) => {
+          const menuItem = this.createMenuItem(item, category, index);
+          this.elements.menuItemsGrid.appendChild(menuItem);
+        });
+
+        // Fade in the new items
+        this.elements.menuItemsGrid.style.opacity = "1";
+      }, 200);
+    },
+
+    /**
+     * Create a menu item element
+     * @param {Object} item - Menu item data
+     * @param {string} category - Item's category
+     * @param {number} index - Item index for staggered animation
+     * @returns {HTMLElement} Menu item element
+     */
+    createMenuItem(item, category, index) {
+      const menuItem = document.createElement("div");
+      menuItem.className = "menu-item";
+      menuItem.style.animationDelay = `${index * 50}ms`;
+
+      const itemDetails = document.createElement("div");
+      itemDetails.className = "menu-details";
+
+      const lang = AppState.language;
+
+      // Item name
+      const name = document.createElement("h3");
+      name.className = "menu-item-name";
+      name.textContent = item.name[lang] || item.name.en || "";
+
+      // Item description
+      const description = document.createElement("p");
+      description.className = "menu-item-description";
+      description.textContent = item.description
+        ? item.description[lang] || item.description.en || ""
+        : "";
+
+      itemDetails.appendChild(name);
+      itemDetails.appendChild(description);
+
+      // Pricing section
+      const pricing = document.createElement("div");
+      pricing.className = "menu-pricing";
+
+      // Dual pricing for wine and spirits
+      if (category === "wine" || category === "spirits") {
+        const dualPricing = document.createElement("div");
+        dualPricing.className = "price-dual";
+
+        // Glass price
+        const glassPrice = document.createElement("div");
+        glassPrice.className = "price-glass";
+
+        const glassLabel = document.createElement("span");
+        glassLabel.className = "price-label";
+        glassLabel.textContent = AppState.getText("glassLabel");
+
+        const glassAmount = document.createElement("span");
+        glassAmount.className = "price-amount";
+        glassAmount.textContent = this.formatPrice(
+          item.priceGlass || item.price
+        );
+
+        glassPrice.appendChild(glassLabel);
+        glassPrice.appendChild(glassAmount);
+
+        // Bottle price
+        const bottlePrice = document.createElement("div");
+        bottlePrice.className = "price-bottle";
+
+        const bottleLabel = document.createElement("span");
+        bottleLabel.className = "price-label";
+        bottleLabel.textContent = AppState.getText("bottleLabel");
+
+        const bottleAmount = document.createElement("span");
+        bottleAmount.className = "price-amount";
+        bottleAmount.textContent = this.formatPrice(
+          item.priceBottle || (item.price ? item.price * 5 : null)
+        );
+
+        bottlePrice.appendChild(bottleLabel);
+        bottlePrice.appendChild(bottleAmount);
+
+        dualPricing.appendChild(glassPrice);
+        dualPricing.appendChild(bottlePrice);
+        pricing.appendChild(dualPricing);
+      } else {
+        // Single price display
+        const singlePrice = document.createElement("div");
+        singlePrice.className = "price-single";
+
+        const priceAmount = document.createElement("span");
+        priceAmount.className = "price-amount";
+        priceAmount.textContent = this.formatPrice(item.price);
+
+        singlePrice.appendChild(priceAmount);
+        pricing.appendChild(singlePrice);
+      }
+
+      // Assemble menu item
+      menuItem.appendChild(itemDetails);
+      menuItem.appendChild(pricing);
+
+      return menuItem;
+    },
+
+    /**
+     * Format price with currency symbol
+     * @param {number} price - Price value
+     * @returns {string} Formatted price string
+     */
+    formatPrice(price) {
+      if (price === undefined || price === null) {
+        return "";
+      }
+
+      return `${price.toFixed(2)}€`;
+    },
+
+    /**
+     * Show loading state
+     */
+    showLoading() {
+      if (this.elements.menuItemsGrid) {
+        this.elements.menuItemsGrid.innerHTML = "";
+        this.elements.menuItemsGrid.style.opacity = "0.5";
+      }
+
+      if (this.elements.emptyState) {
+        this.elements.emptyState.classList.add("active");
+      }
+
+      if (this.elements.emptyTitle && this.elements.emptyMessage) {
+        this.elements.emptyTitle.textContent = "Loading...";
+        this.elements.emptyMessage.textContent =
+          AppState.getText("loadingMessage");
+      }
+    },
+
+    /**
+     * Show error state
+     * @param {string} title - Error title
+     * @param {string} message - Error message
+     */
+    showError(title, message) {
+      if (this.elements.emptyState) {
+        this.elements.emptyState.classList.add("active");
+      }
+
+      if (this.elements.emptyTitle && this.elements.emptyMessage) {
+        this.elements.emptyTitle.textContent =
+          title || AppState.getText("errorTitle");
+        this.elements.emptyMessage.textContent =
+          message || AppState.getText("errorMessage");
+      }
+
+      if (this.elements.menuItemsGrid) {
+        this.elements.menuItemsGrid.innerHTML = "";
+        this.elements.menuItemsGrid.style.opacity = "1";
+      }
+    },
   };
-}
 
-// ======== INITIALIZE THE APP ========
-document.addEventListener("DOMContentLoaded", initializeApp);
+  /**
+   * Data Controller
+   * Handles all data fetching and processing
+   */
+  const DataController = {
+    /**
+     * Load data for all categories
+     * @returns {Promise} Result of data loading
+     */
+    async loadAllData() {
+      try {
+        const categories = [
+          "coffee",
+          "food",
+          "spirits",
+          "beer",
+          "wine",
+          "cocktails",
+        ];
+        const promises = categories.map((category) =>
+          this.loadCategoryData(category)
+        );
+
+        // Wait for all data loading attempts
+        const results = await Promise.allSettled(promises);
+
+        // Log loading results
+        console.log(
+          "Menu data loading results:",
+          results
+            .map((result, i) => `${categories[i]}: ${result.status}`)
+            .join(", ")
+        );
+
+        // Check if we have at least some data
+        const loadedCategories = AppState.getAvailableCategories();
+
+        if (loadedCategories.length === 0) {
+          throw new Error("Failed to load any menu data");
+        }
+
+        return loadedCategories;
+      } catch (error) {
+        console.error("Error loading menu data:", error);
+        throw error;
+      }
+    },
+
+    /**
+     * Load data for a specific category
+     * @param {string} category - Category ID
+     * @returns {Promise} Result of data loading
+     */
+    async loadCategoryData(category) {
+      try {
+        const response = await fetch(`data/${category}.json`);
+
+        if (!response.ok) {
+          throw new Error(
+            `Failed to load ${category} data (HTTP ${response.status})`
+          );
+        }
+
+        const data = await response.json();
+
+        if (data && data.items && Array.isArray(data.items)) {
+          // Process items before storing
+          const processedItems = this.processItems(data.items, category);
+          AppState.menuData[category] = processedItems;
+          return processedItems.length;
+        } else {
+          console.warn(
+            `Warning: ${category}.json doesn't contain valid 'items' array`
+          );
+          AppState.menuData[category] = [];
+          return 0;
+        }
+      } catch (error) {
+        console.error(`Error loading ${category} data:`, error);
+        AppState.menuData[category] = [];
+        return 0;
+      }
+    },
+
+    /**
+     * Process and normalize menu items
+     * @param {Array} items - Raw menu items
+     * @param {string} category - Item category
+     * @returns {Array} Processed items
+     */
+    processItems(items, category) {
+      return items.map((item) => {
+        // Ensure required fields exist
+        const processedItem = {
+          ...item,
+          available: item.available !== false, // Default to available if not specified
+        };
+
+        // Handle dual pricing for wine and spirits
+        if (category === "spirits" || category === "wine") {
+          if (processedItem.priceBottle === undefined && processedItem.price) {
+            processedItem.priceGlass = processedItem.price;
+            processedItem.priceBottle = processedItem.price * 5; // Default bottle price
+          }
+        }
+
+        return processedItem;
+      });
+    },
+  };
+
+  /**
+   * Event Controller
+   * Manages all event handling
+   */
+  const EventController = {
+    /**
+     * Initialize all event listeners
+     */
+    initializeEventListeners() {
+      this.setupThemeToggle();
+      this.setupLanguageToggle();
+      this.setupCategorySelection();
+      this.setupFilterToggle();
+      this.setupFilterSelection();
+      this.setupGlobalEvents();
+    },
+
+    /**
+     * Set up theme toggle functionality
+     */
+    setupThemeToggle() {
+      const themeToggle = UIController.elements.themeToggle;
+
+      if (themeToggle) {
+        themeToggle.addEventListener("click", () => {
+          const newTheme = AppState.theme === "dark" ? "light" : "dark";
+          AppState.setTheme(newTheme);
+        });
+      }
+    },
+
+    /**
+     * Set up language selection
+     */
+    setupLanguageToggle() {
+      const languageOptions = UIController.elements.languageOptions;
+
+      if (languageOptions) {
+        languageOptions.forEach((option) => {
+          option.addEventListener("click", () => {
+            const lang = option.dataset.lang;
+
+            if (lang && lang !== AppState.language) {
+              AppState.setLanguage(lang);
+              UIController.updateUITexts();
+
+              // Refresh current view if needed
+              if (AppState.currentCategory) {
+                this.refreshCurrentView();
+              }
+            }
+          });
+        });
+      }
+    },
+
+    /**
+     * Set up category selection events
+     */
+    setupCategorySelection() {
+      const menuCategories = UIController.elements.menuCategories;
+
+      if (menuCategories) {
+        menuCategories.addEventListener("click", (e) => {
+          const categoryTab = e.target.closest(".category-tab");
+
+          if (categoryTab) {
+            const category = categoryTab.dataset.category;
+
+            if (category && category !== AppState.currentCategory) {
+              this.selectCategory(category);
+            }
+          }
+        });
+      }
+    },
+
+    /**
+     * Set up filter toggle functionality
+     */
+    setupFilterToggle() {
+      const filterToggle = UIController.elements.filterToggle;
+
+      if (filterToggle) {
+        filterToggle.addEventListener("click", () => {
+          UIController.toggleFilterPanel();
+        });
+      }
+    },
+
+    /**
+     * Set up filter selection events
+     */
+    setupFilterSelection() {
+      const subcategoryFilters = UIController.elements.subcategoryFilters;
+
+      if (subcategoryFilters) {
+        subcategoryFilters.addEventListener("click", (e) => {
+          const filterChip = e.target.closest(".filter-chip");
+
+          if (filterChip) {
+            const filter = filterChip.dataset.filter;
+            const newFilter = filter === "all" ? null : filter;
+
+            if (newFilter !== AppState.currentFilter) {
+              this.selectFilter(newFilter);
+            }
+          }
+        });
+      }
+    },
+
+    /**
+     * Set up global document events
+     */
+    setupGlobalEvents() {
+      // Close filter panel when clicking outside
+      document.addEventListener("click", (e) => {
+        const filterPanel = UIController.elements.filterPanel;
+        const filterToggle = UIController.elements.filterToggle;
+
+        if (
+          filterPanel &&
+          filterPanel.classList.contains("active") &&
+          filterToggle &&
+          !filterToggle.contains(e.target) &&
+          !filterPanel.contains(e.target)
+        ) {
+          UIController.toggleFilterPanel(false);
+        }
+      });
+
+      // Handle keyboard events
+      document.addEventListener("keydown", (e) => {
+        // Close filter panel on Escape key
+        if (e.key === "Escape") {
+          UIController.toggleFilterPanel(false);
+        }
+      });
+
+      // Handle responsive adjustments
+      window.addEventListener(
+        "resize",
+        debounce(() => {
+          this.handleResponsiveLayout();
+        }, 250)
+      );
+    },
+
+    /**
+     * Select a category and display its items
+     * @param {string} category - Category ID
+     */
+    selectCategory(category) {
+      AppState.currentCategory = category;
+      AppState.currentFilter = null;
+
+      // Update UI
+      UIController.updateActiveCategory(category);
+      UIController.generateFilterOptions(category);
+      UIController.toggleFilterPanel(false);
+
+      // Display items
+      const items = AppState.getFilteredItems(category);
+      UIController.displayMenuItems(items, category);
+
+      // Scroll to top if needed
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    },
+
+    /**
+     * Select a filter and update displayed items
+     * @param {string|null} filter - Filter ID
+     */
+    selectFilter(filter) {
+      if (!AppState.currentCategory) {
+        return;
+      }
+
+      AppState.currentFilter = filter;
+
+      // Update UI
+      UIController.updateActiveFilter(filter);
+
+      // Get and display filtered items
+      const items = AppState.getFilteredItems(AppState.currentCategory, filter);
+      UIController.displayMenuItems(items, AppState.currentCategory);
+    },
+
+    /**
+     * Refresh the current view (after language change)
+     */
+    refreshCurrentView() {
+      const category = AppState.currentCategory;
+      const filter = AppState.currentFilter;
+
+      if (!category) {
+        return;
+      }
+
+      // Regenerate category navigation
+      UIController.generateCategoryTabs();
+      UIController.generateCategoryList();
+
+      // Update active category
+      UIController.updateActiveCategory(category);
+
+      // Update filter options
+      UIController.generateFilterOptions(category, filter);
+
+      // Display items
+      const items = AppState.getFilteredItems(category, filter);
+      UIController.displayMenuItems(items, category);
+    },
+
+    /**
+     * Handle responsive layout adjustments
+     */
+    handleResponsiveLayout() {
+      // Add any responsive behavior here
+    },
+  };
+
+  /**
+   * Application Controller
+   * Coordinates the overall application flow
+   */
+  const AppController = {
+    /**
+     * Initialize the application
+     */
+    async init() {
+      try {
+        // Initialize UI elements
+        UIController.initializeDOM();
+
+        // Apply theme from state
+        UIController.applyTheme();
+
+        // Determine optimal category order
+        AppState.determineCategoryOrder();
+
+        // Show loading state
+        UIController.showLoading();
+
+        // Load menu data
+        await DataController.loadAllData();
+
+        // Initialize UI with current language
+        UIController.updateUITexts();
+
+        // Generate category navigation
+        UIController.generateCategoryTabs();
+        UIController.generateCategoryList();
+
+        // Set up event listeners
+        EventController.initializeEventListeners();
+
+        // Select first category
+        this.selectInitialCategory();
+
+        // Add loaded class to body for animations
+        document.body.classList.add("app-loaded");
+      } catch (error) {
+        console.error("Application initialization failed:", error);
+        UIController.showError(
+          AppState.getText("errorTitle"),
+          AppState.getText("errorMessage")
+        );
+      }
+    },
+
+    /**
+     * Select the initial category to display
+     */
+    selectInitialCategory() {
+      // Try to use the time-based order first
+      for (const category of AppState.categoriesOrder) {
+        if (
+          AppState.menuData[category] &&
+          AppState.menuData[category].length > 0
+        ) {
+          EventController.selectCategory(category);
+          return;
+        }
+      }
+
+      // Fall back to any available category
+      const availableCategories = AppState.getAvailableCategories();
+
+      if (availableCategories.length > 0) {
+        EventController.selectCategory(availableCategories[0]);
+      }
+    },
+  };
+
+  /**
+   * Utility function: Debounce
+   * @param {Function} func - Function to debounce
+   * @param {number} wait - Milliseconds to wait
+   * @returns {Function} Debounced function
+   */
+  function debounce(func, wait) {
+    let timeout;
+
+    return function executedFunction(...args) {
+      const later = () => {
+        clearTimeout(timeout);
+        func(...args);
+      };
+
+      clearTimeout(timeout);
+      timeout = setTimeout(later, wait);
+    };
+  }
+
+  // Initialize the application
+  AppController.init();
+});
