@@ -1,5 +1,5 @@
 /**
- * UI Controller - Optimized for Simple Horizontal Scrolling with Modal Support
+ * UI Controller - Updated for new pricing structure and category ordering
  * Manages all DOM interactions and UI updates
  */
 
@@ -375,7 +375,7 @@ export const UIController = {
   },
 
   /**
-   * Display menu items in the grid with optimized rendering
+   * Display menu items in the grid with new pricing structure
    * @param {Array} items - Menu items to display
    * @param {string} category - Current category ID
    */
@@ -409,26 +409,31 @@ export const UIController = {
         this.elements.emptyState.classList.remove("active");
       }
 
-      // Group items by subcategory
+      // Group items by subcategory in the correct order
       const groupedItems = this.groupItemsBySubcategory(items, category);
       let itemIndex = 0;
 
-      // Create items by subcategory with headers
-      for (const subcategory in groupedItems) {
-        // Add subcategory header
-        const subcategoryHeader = this.createSubcategoryHeader(
-          subcategory,
-          category
-        );
-        fragment.appendChild(subcategoryHeader);
+      // Get the correct order for this category
+      const subcategoryOrder = AppState.subcategories[category] || [];
 
-        // Add items for this subcategory
-        groupedItems[subcategory].forEach((item) => {
-          const menuItem = this.createMenuItem(item, category, itemIndex);
-          fragment.appendChild(menuItem);
-          itemIndex++;
-        });
-      }
+      // Create items by subcategory with headers in the correct order
+      subcategoryOrder.forEach((subcategory) => {
+        if (groupedItems[subcategory] && groupedItems[subcategory].length > 0) {
+          // Add subcategory header
+          const subcategoryHeader = this.createSubcategoryHeader(
+            subcategory,
+            category
+          );
+          fragment.appendChild(subcategoryHeader);
+
+          // Add items for this subcategory
+          groupedItems[subcategory].forEach((item) => {
+            const menuItem = this.createMenuItem(item, category, itemIndex);
+            fragment.appendChild(menuItem);
+            itemIndex++;
+          });
+        }
+      });
 
       // Append all items at once for better performance
       this.elements.menuItemsGrid.appendChild(fragment);
@@ -441,7 +446,7 @@ export const UIController = {
   },
 
   /**
-   * Group menu items by subcategory with optimized sorting
+   * Group menu items by subcategory
    * @param {Array} items - Menu items to group
    * @param {string} category - Current category ID
    * @returns {Object} Items grouped by subcategory
@@ -449,17 +454,8 @@ export const UIController = {
   groupItemsBySubcategory(items, category) {
     const grouped = {};
 
-    // First sort items by subcategory
-    const sortedItems = [...items].sort((a, b) => {
-      if (a.subcategory === b.subcategory) {
-        // Secondary sort by name if same subcategory
-        return a.name.en.localeCompare(b.name.en);
-      }
-      return a.subcategory.localeCompare(b.subcategory);
-    });
-
-    // Group items
-    sortedItems.forEach((item) => {
+    // Group items by subcategory
+    items.forEach((item) => {
       const subcategory = item.subcategory;
       if (!grouped[subcategory]) {
         grouped[subcategory] = [];
@@ -467,11 +463,18 @@ export const UIController = {
       grouped[subcategory].push(item);
     });
 
+    // Sort items within each subcategory
+    Object.keys(grouped).forEach((subcategory) => {
+      grouped[subcategory].sort((a, b) => {
+        return a.name.en.localeCompare(b.name.en);
+      });
+    });
+
     return grouped;
   },
 
   /**
-   * Create a subcategory header element with minimal modern design
+   * Create a subcategory header element
    * @param {string} subcategory - Subcategory ID
    * @param {string} category - Parent category ID
    * @returns {HTMLElement} Subcategory header element
@@ -482,8 +485,6 @@ export const UIController = {
 
     const title = document.createElement("h2");
     title.className = "subcategory-title";
-
-    // Just add the text, no icon or decorative elements
     title.textContent =
       AppState.getText("subcategories", category, subcategory) || subcategory;
 
@@ -492,7 +493,7 @@ export const UIController = {
   },
 
   /**
-   * Create a menu item element with enhanced structure for mobile and modal support
+   * Create a menu item element with new pricing structure
    * @param {Object} item - Menu item data
    * @param {string} category - Item's category
    * @param {number} index - Item index for staggered animation
@@ -501,7 +502,7 @@ export const UIController = {
   createMenuItem(item, category, index) {
     const menuItem = document.createElement("div");
     menuItem.className = "menu-item";
-    menuItem.style.animationDelay = `${index * 30}ms`; // Faster animation delay
+    menuItem.style.animationDelay = `${index * 30}ms`;
 
     // Add appropriate ARIA attributes
     menuItem.setAttribute("role", "listitem");
@@ -530,7 +531,6 @@ export const UIController = {
     // Add hover effect for desktop
     menuItem.addEventListener("mouseenter", () => {
       if (window.innerWidth > 768) {
-        // Only on desktop
         menuItem.style.transform = "translateY(-2px)";
         menuItem.style.transition = "transform 0.2s ease";
       }
@@ -538,7 +538,6 @@ export const UIController = {
 
     menuItem.addEventListener("mouseleave", () => {
       if (window.innerWidth > 768) {
-        // Only on desktop
         menuItem.style.transform = "";
       }
     });
@@ -587,48 +586,133 @@ export const UIController = {
     const pricing = document.createElement("div");
     pricing.className = "menu-pricing";
 
-    // Dual pricing for wine and spirits
-    if (category === "wine" || category === "spirits") {
-      const dualPricing = document.createElement("div");
-      dualPricing.className = "price-dual";
+    // Handle different pricing structures based on category and item
+    this.createPricingDisplay(item, category, pricing);
 
-      // Glass price
-      const glassPrice = document.createElement("div");
-      glassPrice.className = "price-glass";
+    // Assemble menu item
+    menuItem.appendChild(itemDetails);
+    menuItem.appendChild(pricing);
 
-      const glassLabel = document.createElement("span");
-      glassLabel.className = "price-label";
-      glassLabel.textContent = AppState.getText("glassLabel");
+    return menuItem;
+  },
 
-      const glassAmount = document.createElement("span");
-      glassAmount.className = "price-amount";
-      glassAmount.textContent = this.formatPrice(item.priceGlass || item.price);
+  /**
+   * Create pricing display based on category and item type
+   * @param {Object} item - Menu item data
+   * @param {string} category - Item's category
+   * @param {HTMLElement} pricing - Pricing container element
+   */
+  createPricingDisplay(item, category, pricing) {
+    // Wine category - bottle only (some have glass option)
+    if (category === "wine") {
+      if (item.priceGlass && item.priceBottle) {
+        // Dual pricing for wine
+        const dualPricing = document.createElement("div");
+        dualPricing.className = "price-dual";
 
-      glassPrice.appendChild(glassLabel);
-      glassPrice.appendChild(glassAmount);
+        // Glass price
+        const glassPrice = document.createElement("div");
+        glassPrice.className = "price-glass";
 
-      // Bottle price
-      const bottlePrice = document.createElement("div");
-      bottlePrice.className = "price-bottle";
+        const glassLabel = document.createElement("span");
+        glassLabel.className = "price-label";
+        glassLabel.textContent = AppState.getText("glassLabel");
 
-      const bottleLabel = document.createElement("span");
-      bottleLabel.className = "price-label";
-      bottleLabel.textContent = AppState.getText("bottleLabel");
+        const glassAmount = document.createElement("span");
+        glassAmount.className = "price-amount";
+        glassAmount.textContent = this.formatPrice(item.priceGlass);
 
-      const bottleAmount = document.createElement("span");
-      bottleAmount.className = "price-amount";
-      bottleAmount.textContent = this.formatPrice(
-        item.priceBottle || (item.price ? item.price * 5 : null)
-      );
+        glassPrice.appendChild(glassLabel);
+        glassPrice.appendChild(glassAmount);
 
-      bottlePrice.appendChild(bottleLabel);
-      bottlePrice.appendChild(bottleAmount);
+        // Bottle price
+        const bottlePrice = document.createElement("div");
+        bottlePrice.className = "price-bottle";
 
-      dualPricing.appendChild(glassPrice);
-      dualPricing.appendChild(bottlePrice);
-      pricing.appendChild(dualPricing);
-    } else {
-      // Single price display
+        const bottleLabel = document.createElement("span");
+        bottleLabel.className = "price-label";
+        bottleLabel.textContent = AppState.getText("bottleLabel");
+
+        const bottleAmount = document.createElement("span");
+        bottleAmount.className = "price-amount";
+        bottleAmount.textContent = this.formatPrice(item.priceBottle);
+
+        bottlePrice.appendChild(bottleLabel);
+        bottlePrice.appendChild(bottleAmount);
+
+        dualPricing.appendChild(glassPrice);
+        dualPricing.appendChild(bottlePrice);
+        pricing.appendChild(dualPricing);
+      } else {
+        // Single price (bottle only)
+        const singlePrice = document.createElement("div");
+        singlePrice.className = "price-single";
+
+        const priceAmount = document.createElement("span");
+        priceAmount.className = "price-amount";
+        priceAmount.textContent = this.formatPrice(
+          item.priceBottle || item.price
+        );
+
+        singlePrice.appendChild(priceAmount);
+        pricing.appendChild(singlePrice);
+      }
+    }
+    // Coffee category - single/double shot options
+    else if (category === "coffee") {
+      if (item.priceSingle && item.priceDouble) {
+        // Dual pricing for coffee (single/double shot)
+        const dualPricing = document.createElement("div");
+        dualPricing.className = "price-dual";
+
+        // Single shot price
+        const singlePrice = document.createElement("div");
+        singlePrice.className = "price-glass";
+
+        const singleLabel = document.createElement("span");
+        singleLabel.className = "price-label";
+        singleLabel.textContent = AppState.getText("singleShotLabel");
+
+        const singleAmount = document.createElement("span");
+        singleAmount.className = "price-amount";
+        singleAmount.textContent = this.formatPrice(item.priceSingle);
+
+        singlePrice.appendChild(singleLabel);
+        singlePrice.appendChild(singleAmount);
+
+        // Double shot price
+        const doublePrice = document.createElement("div");
+        doublePrice.className = "price-bottle";
+
+        const doubleLabel = document.createElement("span");
+        doubleLabel.className = "price-label";
+        doubleLabel.textContent = AppState.getText("doubleShotLabel");
+
+        const doubleAmount = document.createElement("span");
+        doubleAmount.className = "price-amount";
+        doubleAmount.textContent = this.formatPrice(item.priceDouble);
+
+        doublePrice.appendChild(doubleLabel);
+        doublePrice.appendChild(doubleAmount);
+
+        dualPricing.appendChild(singlePrice);
+        dualPricing.appendChild(doublePrice);
+        pricing.appendChild(dualPricing);
+      } else {
+        // Single price
+        const singlePrice = document.createElement("div");
+        singlePrice.className = "price-single";
+
+        const priceAmount = document.createElement("span");
+        priceAmount.className = "price-amount";
+        priceAmount.textContent = this.formatPrice(item.price);
+
+        singlePrice.appendChild(priceAmount);
+        pricing.appendChild(singlePrice);
+      }
+    }
+    // All other categories - single price only
+    else {
       const singlePrice = document.createElement("div");
       singlePrice.className = "price-single";
 
@@ -639,12 +723,6 @@ export const UIController = {
       singlePrice.appendChild(priceAmount);
       pricing.appendChild(singlePrice);
     }
-
-    // Assemble menu item
-    menuItem.appendChild(itemDetails);
-    menuItem.appendChild(pricing);
-
-    return menuItem;
   },
 
   /**

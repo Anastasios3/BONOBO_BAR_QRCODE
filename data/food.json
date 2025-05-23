@@ -1,7 +1,87 @@
 {
   "items": [
     {
-      "id": "food001",
+      "id": "breakfast001",
+      "name": {
+        "en": "Continental Breakfast",
+        "el": "Ηπειρωτικό Πρωινό"
+      },
+      "description": {
+        "en": "Fresh croissant, butter, jam, orange juice, and coffee or tea",
+        "el": "Φρέσκο κρουασάν, βούτυρο, μαρμελάδα, χυμός πορτοκάλι και καφές ή τσάι"
+      },
+      "price": 8.5,
+      "image": "continental-breakfast.jpg",
+      "categories": ["breakfast", "morning"],
+      "subcategory": "breakfast",
+      "available": true
+    },
+    {
+      "id": "breakfast002",
+      "name": {
+        "en": "Greek Breakfast",
+        "el": "Ελληνικό Πρωινό"
+      },
+      "description": {
+        "en": "Local cheese, olives, tomatoes, cucumber, barley rusk, olive oil and oregano",
+        "el": "Τοπικό τυρί, ελιές, ντομάτες, αγγούρι, κριθαράκι παξιμάδι, ελαιόλαδο και ρίγανη"
+      },
+      "price": 9.5,
+      "image": "greek-breakfast.jpg",
+      "categories": ["breakfast", "traditional"],
+      "subcategory": "breakfast",
+      "available": true
+    },
+    {
+      "id": "breakfast003",
+      "name": {
+        "en": "Eggs Benedict",
+        "el": "Eggs Benedict"
+      },
+      "description": {
+        "en": "Poached eggs on English muffin with ham and hollandaise sauce",
+        "el": "Ποσέ αυγά σε αγγλικό ψωμάκι με ζαμπόν και σάλτσα hollandaise"
+      },
+      "price": 12.0,
+      "image": "eggs-benedict.jpg",
+      "categories": ["breakfast", "eggs"],
+      "subcategory": "breakfast",
+      "available": true
+    },
+    {
+      "id": "breakfast004",
+      "name": {
+        "en": "Avocado Toast",
+        "el": "Avocado Toast"
+      },
+      "description": {
+        "en": "Sourdough bread with smashed avocado, cherry tomatoes, and poached egg",
+        "el": "Ψωμί προζυμιού με τριμμένο αβοκάντο, κεράσι ντομάτες και ποσέ αυγό"
+      },
+      "price": 10.5,
+      "image": "avocado-toast.jpg",
+      "categories": ["breakfast", "healthy"],
+      "subcategory": "breakfast",
+      "available": true
+    },
+    {
+      "id": "breakfast005",
+      "name": {
+        "en": "Granola Bowl",
+        "el": "Granola Bowl"
+      },
+      "description": {
+        "en": "Homemade granola with Greek yogurt, seasonal fruits, and honey",
+        "el": "Σπιτική γκρανόλα με ελληνικό γιαούρτι, εποχιακά φρούτα και μέλι"
+      },
+      "price": 8.0,
+      "image": "granola-bowl.jpg",
+      "categories": ["breakfast", "healthy"],
+      "subcategory": "breakfast",
+      "available": true
+    },
+    {
+      "id": "salad001",
       "name": {
         "en": "Greek Salad",
         "el": "Χωριάτικη Σαλάτα"
@@ -10,62 +90,62 @@
         "en": "Fresh tomatoes, cucumbers, bell peppers, onions, olives, and feta cheese with extra virgin olive oil",
         "el": "Φρέσκες ντομάτες, αγγούρια, πιπεριές, κρεμμύδια, ελιές και φέτα με έξτρα παρθένο ελαιόλαδο"
       },
-      "price": 7.5,
+      "price": 9.5,
       "image": "greek-salad.jpg",
       "categories": ["salad", "traditional"],
-      "subcategory": "main",
+      "subcategory": "salads",
       "available": true
     },
     {
-      "id": "food002",
+      "id": "salad002",
       "name": {
-        "en": "Dakos",
-        "el": "Ντάκος"
+        "en": "Caesar Salad",
+        "el": "Caesar Salad"
       },
       "description": {
-        "en": "Traditional Cretan dish with barley rusk topped with grated tomato, mizithra cheese, olives, and olive oil",
-        "el": "Παραδοσιακό κρητικό πιάτο με κρίθινο παξιμάδι, τριμμένη ντομάτα, μυζήθρα, ελιές και ελαιόλαδο"
+        "en": "Crisp romaine lettuce, parmesan cheese, croutons, and Caesar dressing",
+        "el": "Τραγανό μαρούλι ρωμάνα, παρμεζάνα, κρουτόν και Caesar dressing"
       },
-      "price": 6.5,
-      "image": "dakos.jpg",
-      "categories": ["traditional", "cretan"],
-      "subcategory": "main",
+      "price": 8.5,
+      "image": "caesar-salad.jpg",
+      "categories": ["salad", "classic"],
+      "subcategory": "salads",
       "available": true
     },
     {
-      "id": "food003",
+      "id": "salad003",
       "name": {
-        "en": "Cheese Platter",
-        "el": "Ποικιλία Τυριών"
+        "en": "Quinoa Power Salad",
+        "el": "Quinoa Power Salad"
       },
       "description": {
-        "en": "Selection of local and imported cheeses served with crackers and seasonal fruits",
-        "el": "Επιλογή από τοπικά και εισαγόμενα τυριά σερβιρισμένα με κράκερς και εποχιακά φρούτα"
+        "en": "Quinoa, mixed greens, avocado, cherry tomatoes, nuts, and lemon vinaigrette",
+        "el": "Κινόα, μικτά πράσινα, αβοκάντο, κεράσι ντομάτες, ξηροί καρποί και λεμονάτη βινεγκρέτ"
       },
-      "price": 12.0,
-      "image": "cheese-platter.jpg",
-      "categories": ["platter", "sharing"],
-      "subcategory": "main",
+      "price": 11.0,
+      "image": "quinoa-salad.jpg",
+      "categories": ["salad", "healthy"],
+      "subcategory": "salads",
       "available": true
     },
     {
-      "id": "food004",
+      "id": "salad004",
       "name": {
-        "en": "Club Sandwich",
-        "el": "Κλαμπ Σάντουιτς"
+        "en": "Grilled Chicken Salad",
+        "el": "Σαλάτα με Ψητό Κοτόπουλο"
       },
       "description": {
-        "en": "Triple-decker sandwich with grilled chicken, bacon, lettuce, tomato, and mayonnaise, served with fries",
-        "el": "Τριπλό σάντουιτς με ψητό κοτόπουλο, μπέικον, μαρούλι, ντομάτα και μαγιονέζα, σερβίρεται με πατάτες"
+        "en": "Mixed greens, grilled chicken breast, cherry tomatoes, cucumber, and balsamic dressing",
+        "el": "Μικτά πράσινα, ψητό στήθος κοτόπουλου, κεράσι ντομάτες, αγγούρι και μπαλσάμικο dressing"
       },
-      "price": 9.5,
-      "image": "club-sandwich.jpg",
-      "categories": ["sandwich", "main"],
-      "subcategory": "main",
+      "price": 12.5,
+      "image": "chicken-salad.jpg",
+      "categories": ["salad", "protein"],
+      "subcategory": "salads",
       "available": true
     },
     {
-      "id": "food005",
+      "id": "snack001",
       "name": {
         "en": "Mixed Nuts",
         "el": "Ανάμεικτοι Ξηροί Καρποί"
@@ -81,7 +161,7 @@
       "available": true
     },
     {
-      "id": "food006",
+      "id": "snack002",
       "name": {
         "en": "Olive Mix",
         "el": "Ποικιλία Ελιών"
@@ -97,35 +177,403 @@
       "available": true
     },
     {
-      "id": "food007",
+      "id": "snack003",
       "name": {
-        "en": "Chocolate Cake",
-        "el": "Κέικ Σοκολάτας"
+        "en": "Bruschetta",
+        "el": "Bruschetta"
       },
       "description": {
-        "en": "Rich, moist chocolate cake with chocolate ganache and fresh berries",
-        "el": "Πλούσιο, αφράτο κέικ σοκολάτας με γκανάς σοκολάτας και φρέσκα μούρα"
+        "en": "Toasted bread with fresh tomatoes, basil, garlic, and olive oil",
+        "el": "Ψημένο ψωμί με φρέσκες ντομάτες, βασιλικό, σκόρδο και ελαιόλαδο"
       },
       "price": 6.5,
-      "image": "chocolate-cake.jpg",
-      "categories": ["dessert", "chocolate"],
-      "subcategory": "desserts",
+      "image": "bruschetta.jpg",
+      "categories": ["snack", "italian"],
+      "subcategory": "snacks",
       "available": true
     },
     {
-      "id": "food008",
+      "id": "snack004",
       "name": {
-        "en": "Baklava",
-        "el": "Μπακλαβάς"
+        "en": "Hummus & Pita",
+        "el": "Χούμους & Πίτα"
       },
       "description": {
-        "en": "Traditional Greek pastry made with layers of filo, honey, and chopped nuts",
-        "el": "Παραδοσιακό ελληνικό γλυκό με στρώσεις φύλλου, μέλι και ψιλοκομμένους ξηρούς καρπούς"
+        "en": "Creamy chickpea hummus served with warm pita bread and olive oil drizzle",
+        "el": "Κρεμώδης χούμους ρεβιθιού σερβιρισμένος με ζεστή πίτα και ψιλή βροχή ελαιολάδου"
       },
-      "price": 5.5,
-      "image": "baklava.jpg",
-      "categories": ["dessert", "traditional"],
-      "subcategory": "desserts",
+      "price": 7.0,
+      "image": "hummus-pita.jpg",
+      "categories": ["snack", "mediterranean"],
+      "subcategory": "snacks",
+      "available": true
+    },
+    {
+      "id": "club001",
+      "name": {
+        "en": "Classic Club Sandwich",
+        "el": "Κλασικό Κλαμπ Σάντουιτς"
+      },
+      "description": {
+        "en": "Triple-decker sandwich with grilled chicken, bacon, lettuce, tomato, and mayonnaise, served with fries",
+        "el": "Τριπλό σάντουιτς με ψητό κοτόπουλο, μπέικον, μαρούλι, ντομάτα και μαγιονέζα, σερβίρεται με πατάτες"
+      },
+      "price": 12.5,
+      "image": "club-sandwich.jpg",
+      "categories": ["sandwich", "main"],
+      "subcategory": "club-sandwich",
+      "available": true
+    },
+    {
+      "id": "club002",
+      "name": {
+        "en": "Turkey Club",
+        "el": "Turkey Club"
+      },
+      "description": {
+        "en": "Triple-layer sandwich with sliced turkey, bacon, lettuce, tomato, and avocado",
+        "el": "Τριπλό σάντουιτς με φέτες γαλοπούλας, μπέικον, μαρούλι, ντομάτα και αβοκάντο"
+      },
+      "price": 13.0,
+      "image": "turkey-club.jpg",
+      "categories": ["sandwich", "main"],
+      "subcategory": "club-sandwich",
+      "available": true
+    },
+    {
+      "id": "sando001",
+      "name": {
+        "en": "Grilled Cheese Sando",
+        "el": "Grilled Cheese Sando"
+      },
+      "description": {
+        "en": "Perfectly grilled sandwich with melted cheese blend and crispy golden bread",
+        "el": "Τέλεια ψημένο σάντουιτς με λιωμένο μείγμα τυριών και τραγανό χρυσό ψωμί"
+      },
+      "price": 8.5,
+      "image": "grilled-cheese.jpg",
+      "categories": ["sandwich", "comfort"],
+      "subcategory": "sandos",
+      "available": true
+    },
+    {
+      "id": "sando002",
+      "name": {
+        "en": "Caprese Sando",
+        "el": "Caprese Sando"
+      },
+      "description": {
+        "en": "Fresh mozzarella, tomatoes, basil, and balsamic glaze on ciabatta bread",
+        "el": "Φρέσκια μοτσαρέλα, ντομάτες, βασιλικός και μπαλσάμικο glaze σε ψωμί ciabatta"
+      },
+      "price": 10.0,
+      "image": "caprese-sando.jpg",
+      "categories": ["sandwich", "vegetarian"],
+      "subcategory": "sandos",
+      "available": true
+    },
+    {
+      "id": "sando003",
+      "name": {
+        "en": "Prosciutto & Arugula Sando",
+        "el": "Prosciutto & Arugula Sando"
+      },
+      "description": {
+        "en": "Thinly sliced prosciutto, fresh arugula, and cream cheese on sourdough",
+        "el": "Λεπτά κομμένο prosciutto, φρέσκια ρόκα και cream cheese σε ψωμί προζυμιού"
+      },
+      "price": 11.5,
+      "image": "prosciutto-sando.jpg",
+      "categories": ["sandwich", "gourmet"],
+      "subcategory": "sandos",
+      "available": true
+    },
+    {
+      "id": "burger001",
+      "name": {
+        "en": "Classic Beef Burger",
+        "el": "Κλασικό Μπέργκερ Βοδινού"
+      },
+      "description": {
+        "en": "Juicy beef patty, lettuce, tomato, onion, pickles, and special sauce on a brioche bun",
+        "el": "Ζουμερό μπιφτέκι βοδινού, μαρούλι, ντομάτα, κρεμμύδι, τουρσί και ειδική σάλτσα σε brioche ψωμάκι"
+      },
+      "price": 14.0,
+      "image": "beef-burger.jpg",
+      "categories": ["burger", "beef"],
+      "subcategory": "burgers",
+      "available": true
+    },
+    {
+      "id": "burger002",
+      "name": {
+        "en": "Chicken Burger",
+        "el": "Μπέργκερ Κοτόπουλου"
+      },
+      "description": {
+        "en": "Grilled chicken breast, avocado, lettuce, tomato, and garlic aioli",
+        "el": "Ψητό στήθος κοτόπουλου, αβοκάντο, μαρούλι, ντομάτα και σκορδαλιά"
+      },
+      "price": 13.5,
+      "image": "chicken-burger.jpg",
+      "categories": ["burger", "chicken"],
+      "subcategory": "burgers",
+      "available": true
+    },
+    {
+      "id": "burger003",
+      "name": {
+        "en": "Veggie Burger",
+        "el": "Veggie Burger"
+      },
+      "description": {
+        "en": "Plant-based patty with lettuce, tomato, onion, and vegan mayo",
+        "el": "Φυτικό μπιφτέκι με μαρούλι, ντομάτα, κρεμμύδι και vegan μαγιονέζα"
+      },
+      "price": 12.5,
+      "image": "veggie-burger.jpg",
+      "categories": ["burger", "vegetarian"],
+      "subcategory": "burgers",
+      "available": true
+    },
+    {
+      "id": "pancake001",
+      "name": {
+        "en": "Classic Pancakes",
+        "el": "Κλασικά Παν-κέικ"
+      },
+      "description": {
+        "en": "Fluffy pancakes served with butter, maple syrup, and seasonal berries",
+        "el": "Αφράτα παν-κέικ σερβιρισμένα με βούτυρο, σιρόπι σφενδάμου και εποχιακά μούρα"
+      },
+      "price": 9.0,
+      "image": "classic-pancakes.jpg",
+      "categories": ["pancakes", "sweet"],
+      "subcategory": "pancakes",
+      "available": true
+    },
+    {
+      "id": "pancake002",
+      "name": {
+        "en": "Chocolate Chip Pancakes",
+        "el": "Παν-κέικ με Σοκολατένιες Σταγόνες"
+      },
+      "description": {
+        "en": "Fluffy pancakes loaded with chocolate chips and served with whipped cream",
+        "el": "Αφράτα παν-κέικ γεμάτα με σοκολατένιες σταγόνες και σερβιρισμένα με σαντιγί"
+      },
+      "price": 10.5,
+      "image": "chocolate-pancakes.jpg",
+      "categories": ["pancakes", "chocolate"],
+      "subcategory": "pancakes",
+      "available": true
+    },
+    {
+      "id": "pancake003",
+      "name": {
+        "en": "Banana Nutella Pancakes",
+        "el": "Παν-κέικ με Μπανάνα και Nutella"
+      },
+      "description": {
+        "en": "Pancakes topped with sliced bananas, Nutella, and crushed hazelnuts",
+        "el": "Παν-κέικ με φέτες μπανάνας, Nutella και τριμμένα φουντούκια"
+      },
+      "price": 11.5,
+      "image": "banana-nutella-pancakes.jpg",
+      "categories": ["pancakes", "nutella"],
+      "subcategory": "pancakes",
+      "available": true
+    },
+    {
+      "id": "waffle001",
+      "name": {
+        "en": "Belgian Waffles",
+        "el": "Βελγικές Βάφλες"
+      },
+      "description": {
+        "en": "Crispy Belgian waffles served with fresh strawberries and whipped cream",
+        "el": "Τραγανές βελγικές βάφλες σερβιρισμένες με φρέσκες φράουλες και σαντιγί"
+      },
+      "price": 10.0,
+      "image": "belgian-waffles.jpg",
+      "categories": ["waffles", "sweet"],
+      "subcategory": "waffles",
+      "available": true
+    },
+    {
+      "id": "waffle002",
+      "name": {
+        "en": "Nutella Waffle",
+        "el": "Βάφλα με Nutella"
+      },
+      "description": {
+        "en": "Warm waffle drizzled with Nutella and topped with sliced almonds",
+        "el": "Ζεστή βάφλα με Nutella και φέτες αμυγδάλων"
+      },
+      "price": 11.0,
+      "image": "nutella-waffle.jpg",
+      "categories": ["waffles", "nutella"],
+      "subcategory": "waffles",
+      "available": true
+    },
+    {
+      "id": "waffle003",
+      "name": {
+        "en": "Savory Waffle",
+        "el": "Αλμυρή Βάφλα"
+      },
+      "description": {
+        "en": "Herb-infused waffle topped with scrambled eggs, bacon, and hollandaise sauce",
+        "el": "Βάφλα με βότανα, αυγά σκραμπλ, μπέικον και σάλτσα hollandaise"
+      },
+      "price": 12.5,
+      "image": "savory-waffle.jpg",
+      "categories": ["waffles", "savory"],
+      "subcategory": "waffles",
+      "available": true
+    },
+    {
+      "id": "fruit001",
+      "name": {
+        "en": "Tropical Fruit Salad",
+        "el": "Τροπική Φρουτοσαλάτα"
+      },
+      "description": {
+        "en": "Fresh pineapple, mango, kiwi, passion fruit, and coconut flakes",
+        "el": "Φρέσκος ανανάς, μάνγκο, ακτινίδιο, φρούτο του πάθους και νιφάδες καρύδας"
+      },
+      "price": 8.0,
+      "image": "tropical-fruit-salad.jpg",
+      "categories": ["fruit", "healthy"],
+      "subcategory": "fruitsalads",
+      "available": true
+    },
+    {
+      "id": "fruit002",
+      "name": {
+        "en": "Greek Fruit Bowl",
+        "el": "Ελληνικό Μπολ Φρούτων"
+      },
+      "description": {
+        "en": "Seasonal Greek fruits with Greek honey and crushed walnuts",
+        "el": "Εποχιακά ελληνικά φρούτα με ελληνικό μέλι και τριμμένα καρύδια"
+      },
+      "price": 7.5,
+      "image": "greek-fruit-bowl.jpg",
+      "categories": ["fruit", "local"],
+      "subcategory": "fruitsalads",
+      "available": true
+    },
+    {
+      "id": "fruit003",
+      "name": {
+        "en": "Berry Medley",
+        "el": "Μείγμα Μούρων"
+      },
+      "description": {
+        "en": "Fresh strawberries, blueberries, raspberries, and blackberries with mint",
+        "el": "Φρέσκες φράουλες, μύρτιλλα, βατόμουρα και μαύρα μούρα με μέντα"
+      },
+      "price": 9.0,
+      "image": "berry-medley.jpg",
+      "categories": ["fruit", "berries"],
+      "subcategory": "fruitsalads",
+      "available": true
+    },
+    {
+      "id": "platter001",
+      "name": {
+        "en": "Cheese Platter",
+        "el": "Ποικιλία Τυριών"
+      },
+      "description": {
+        "en": "Selection of local and imported cheeses served with crackers and seasonal fruits",
+        "el": "Επιλογή από τοπικά και εισαγόμενα τυριά σερβιρισμένα με κράκερς και εποχιακά φρούτα"
+      },
+      "price": 15.0,
+      "image": "cheese-platter.jpg",
+      "categories": ["platter", "sharing"],
+      "subcategory": "finger-food",
+      "available": true
+    },
+    {
+      "id": "platter002",
+      "name": {
+        "en": "Charcuterie Board",
+        "el": "Πλατό Αλλαντικών"
+      },
+      "description": {
+        "en": "Assorted cured meats, cheeses, olives, nuts, and artisanal crackers",
+        "el": "Ποικιλία από καπνιστά κρέατα, τυριά, ελιές, ξηρούς καρπούς και χειροποίητα κράκερς"
+      },
+      "price": 18.0,
+      "image": "charcuterie-board.jpg",
+      "categories": ["platter", "sharing"],
+      "subcategory": "finger-food",
+      "available": true
+    },
+    {
+      "id": "platter003",
+      "name": {
+        "en": "Mezze Platter",
+        "el": "Πλατό Μεζέδων"
+      },
+      "description": {
+        "en": "Traditional Greek mezze with dolmades, tzatziki, feta, olives, and pita bread",
+        "el": "Παραδοσιακοί ελληνικοί μεζέδες με ντολμάδες, τζατζίκι, φέτα, ελιές και ψωμί πίτα"
+      },
+      "price": 16.5,
+      "image": "mezze-platter.jpg",
+      "categories": ["platter", "greek"],
+      "subcategory": "finger-food",
+      "available": true
+    },
+    {
+      "id": "finger001",
+      "name": {
+        "en": "Chicken Wings",
+        "el": "Κοτόπουλο Φτερούγες"
+      },
+      "description": {
+        "en": "Crispy chicken wings with choice of buffalo, BBQ, or honey mustard sauce",
+        "el": "Τραγανές φτερούγες κοτόπουλου με επιλογή buffalo, BBQ ή μουστάρδα μελιού"
+      },
+      "price": 11.0,
+      "image": "chicken-wings.jpg",
+      "categories": ["finger-food", "chicken"],
+      "subcategory": "finger-food",
+      "available": true
+    },
+    {
+      "id": "finger002",
+      "name": {
+        "en": "Mozzarella Sticks",
+        "el": "Mozzarella Sticks"
+      },
+      "description": {
+        "en": "Golden fried mozzarella sticks served with marinara sauce",
+        "el": "Χρυσαφένια τηγανητά sticks μοτσαρέλας σερβιρισμένα με σάλτσα μαρινάρα"
+      },
+      "price": 8.5,
+      "image": "mozzarella-sticks.jpg",
+      "categories": ["finger-food", "cheese"],
+      "subcategory": "finger-food",
+      "available": true
+    },
+    {
+      "id": "finger003",
+      "name": {
+        "en": "Calamari Rings",
+        "el": "Κρίκοι Καλαμαριού"
+      },
+      "description": {
+        "en": "Crispy fried squid rings served with lemon and garlic aioli",
+        "el": "Τραγανοί τηγανητοί κρίκοι καλαμαριού σερβιρισμένοι με λεμόνι και σκορδαλιά"
+      },
+      "price": 12.0,
+      "image": "calamari-rings.jpg",
+      "categories": ["finger-food", "seafood"],
+      "subcategory": "finger-food",
       "available": true
     }
   ]

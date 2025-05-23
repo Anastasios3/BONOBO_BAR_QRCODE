@@ -10,7 +10,8 @@
         "en": "Concentrated coffee brewed by forcing hot water through finely-ground coffee beans",
         "el": "Συμπυκνωμένος καφές παρασκευασμένος με διέλευση ζεστού νερού από λεπτοαλεσμένους κόκκους καφέ"
       },
-      "price": 2.5,
+      "priceSingle": 2.5,
+      "priceDouble": 3.5,
       "image": "espresso.jpg",
       "categories": ["hot", "coffee"],
       "subcategory": "coffee",
@@ -35,6 +36,22 @@
     {
       "id": "coffee003",
       "name": {
+        "en": "Flat White",
+        "el": "Flat White"
+      },
+      "description": {
+        "en": "Double shot espresso with steamed milk and minimal foam, creating a smooth, velvety texture",
+        "el": "Διπλό εσπρέσσο με ζεστό γάλα και ελάχιστος αφρός, δημιουργώντας απαλή, βελούδινη υφή"
+      },
+      "price": 4.0,
+      "image": "flat-white.jpg",
+      "categories": ["hot", "coffee"],
+      "subcategory": "coffee",
+      "available": true
+    },
+    {
+      "id": "coffee004",
+      "name": {
         "en": "Freddo Espresso",
         "el": "Φρέντο Εσπρέσσο"
       },
@@ -42,14 +59,15 @@
         "en": "Chilled espresso shaken with ice cubes, a Greek specialty",
         "el": "Κρύος εσπρέσσο χτυπημένος με παγάκια, ελληνική σπεσιαλιτέ"
       },
-      "price": 3.0,
+      "priceSingle": 3.0,
+      "priceDouble": 4.0,
       "image": "freddo-espresso.jpg",
       "categories": ["cold", "coffee"],
       "subcategory": "coffee",
       "available": true
     },
     {
-      "id": "coffee004",
+      "id": "coffee005",
       "name": {
         "en": "Freddo Cappuccino",
         "el": "Φρέντο Καπουτσίνο"
@@ -65,7 +83,24 @@
       "available": true
     },
     {
-      "id": "coffee005",
+      "id": "coffee006",
+      "name": {
+        "en": "Americano",
+        "el": "Αμερικάνο"
+      },
+      "description": {
+        "en": "Espresso diluted with hot water, creating a coffee similar to drip coffee",
+        "el": "Εσπρέσσο αραιωμένο με ζεστό νερό, δημιουργώντας καφέ παρόμοιο με φίλτρου"
+      },
+      "priceSingle": 3.0,
+      "priceDouble": 4.0,
+      "image": "americano.jpg",
+      "categories": ["hot", "coffee"],
+      "subcategory": "coffee",
+      "available": true
+    },
+    {
+      "id": "coffee007",
       "name": {
         "en": "Green Tea",
         "el": "Πράσινο Τσάι"
@@ -81,7 +116,23 @@
       "available": true
     },
     {
-      "id": "coffee006",
+      "id": "coffee008",
+      "name": {
+        "en": "Earl Grey",
+        "el": "Earl Grey"
+      },
+      "description": {
+        "en": "Classic black tea blend flavored with bergamot oil for a distinctive citrus taste",
+        "el": "Κλασικό μείγμα μαύρου τσαγιού με άρωμα περγαμόντο για μια χαρακτηριστική εσπεριδοειδή γεύση"
+      },
+      "price": 3.5,
+      "image": "earl-grey.jpg",
+      "categories": ["hot", "tea"],
+      "subcategory": "tea",
+      "available": true
+    },
+    {
+      "id": "coffee009",
       "name": {
         "en": "Mountain Tea",
         "el": "Τσάι του Βουνού"
@@ -97,7 +148,23 @@
       "available": true
     },
     {
-      "id": "coffee007",
+      "id": "coffee010",
+      "name": {
+        "en": "Chamomile Tea",
+        "el": "Χαμομήλι"
+      },
+      "description": {
+        "en": "Soothing herbal tea with gentle floral notes and calming properties",
+        "el": "Καταπραϋντικό βοτανικό τσάι με απαλές ανθικές νότες και χαλαρωτικές ιδιότητες"
+      },
+      "price": 3.5,
+      "image": "chamomile-tea.jpg",
+      "categories": ["hot", "tea", "herbal"],
+      "subcategory": "tea",
+      "available": true
+    },
+    {
+      "id": "coffee011",
       "name": {
         "en": "Hot Chocolate",
         "el": "Ζεστή Σοκολάτα"
@@ -113,7 +180,7 @@
       "available": true
     },
     {
-      "id": "coffee008",
+      "id": "coffee012",
       "name": {
         "en": "Iced Chocolate",
         "el": "Κρύα Σοκολάτα"
@@ -129,7 +196,23 @@
       "available": true
     },
     {
-      "id": "coffee009",
+      "id": "coffee013",
+      "name": {
+        "en": "Mocha",
+        "el": "Μόκα"
+      },
+      "description": {
+        "en": "Perfect blend of espresso, steamed milk, and chocolate syrup topped with whipped cream",
+        "el": "Τέλειο μείγμα εσπρέσσο, ζεστού γάλατος και σιροπιού σοκολάτας με σαντιγί"
+      },
+      "price": 4.5,
+      "image": "mocha.jpg",
+      "categories": ["hot", "chocolate"],
+      "subcategory": "chocolate",
+      "available": true
+    },
+    {
+      "id": "coffee014",
       "name": {
         "en": "Fresh Orange Juice",
         "el": "Φρέσκος Χυμός Πορτοκάλι"
@@ -145,7 +228,23 @@
       "available": true
     },
     {
-      "id": "coffee010",
+      "id": "coffee015",
+      "name": {
+        "en": "Fresh Apple Juice",
+        "el": "Φρέσκος Χυμός Μήλο"
+      },
+      "description": {
+        "en": "Freshly squeezed apple juice with a crisp, sweet taste",
+        "el": "Φρεσκοστυμμένος χυμός μήλου με τραγανή, γλυκιά γεύση"
+      },
+      "price": 4.0,
+      "image": "apple-juice.jpg",
+      "categories": ["cold", "fresh", "juice"],
+      "subcategory": "soft",
+      "available": true
+    },
+    {
+      "id": "coffee016",
       "name": {
         "en": "Sparkling Water",
         "el": "Ανθρακούχο Νερό"
@@ -157,6 +256,54 @@
       "price": 2.5,
       "image": "sparkling-water.jpg",
       "categories": ["cold", "water"],
+      "subcategory": "soft",
+      "available": true
+    },
+    {
+      "id": "coffee017",
+      "name": {
+        "en": "Still Water",
+        "el": "Φυσικό Νερό"
+      },
+      "description": {
+        "en": "Pure mineral water sourced from natural springs",
+        "el": "Καθαρό μεταλλικό νερό από φυσικές πηγές"
+      },
+      "price": 2.0,
+      "image": "still-water.jpg",
+      "categories": ["cold", "water"],
+      "subcategory": "soft",
+      "available": true
+    },
+    {
+      "id": "coffee018",
+      "name": {
+        "en": "Coca Cola",
+        "el": "Coca Cola"
+      },
+      "description": {
+        "en": "Classic Coca-Cola with its signature refreshing taste",
+        "el": "Κλασική Coca-Cola με τη χαρακτηριστική δροσιστική γεύση της"
+      },
+      "price": 3.0,
+      "image": "coca-cola.jpg",
+      "categories": ["cold", "soda"],
+      "subcategory": "soft",
+      "available": true
+    },
+    {
+      "id": "coffee019",
+      "name": {
+        "en": "Sprite",
+        "el": "Sprite"
+      },
+      "description": {
+        "en": "Lemon-lime flavored carbonated soft drink with a crisp, clean taste",
+        "el": "Ανθρακούχο αναψυκτικό με γεύση λεμόνι-λάιμ και τραγανή, καθαρή γεύση"
+      },
+      "price": 3.0,
+      "image": "sprite.jpg",
+      "categories": ["cold", "soda"],
       "subcategory": "soft",
       "available": true
     }

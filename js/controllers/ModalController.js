@@ -1,6 +1,6 @@
 /**
- * Modal Controller - Simplified and Focused
- * Handles product detail modals with focus on description
+ * Modal Controller - Updated for new pricing structure
+ * Handles product detail modals with focus on description and updated pricing
  */
 
 import { AppState } from "../models/AppState.js";
@@ -266,7 +266,7 @@ export const ModalController = {
   },
 
   /**
-   * Update pricing section based on item type
+   * Update pricing section based on item type and category
    */
   updatePricing() {
     if (!this.elements.priceContainer || !this.currentItem) return;
@@ -277,40 +277,93 @@ export const ModalController = {
     // Clear existing content
     this.elements.priceContainer.innerHTML = "";
 
-    // Check if this item has dual pricing (wine/spirits)
-    if (
-      (category === "wine" || category === "spirits") &&
-      (item.priceGlass || item.priceBottle)
-    ) {
-      // Dual pricing
-      const dualPricing = document.createElement("div");
-      dualPricing.className = "modal-price-dual";
+    // Handle different pricing structures
+    if (category === "wine") {
+      // Wine pricing - check for glass and bottle options
+      if (item.priceGlass && item.priceBottle) {
+        // Dual pricing for wine
+        const dualPricing = document.createElement("div");
+        dualPricing.className = "modal-price-dual";
 
-      // Glass price
-      const glassPrice = document.createElement("div");
-      glassPrice.className = "price-option";
-      glassPrice.innerHTML = `
-        <div class="price-option-label">${AppState.getText("glassLabel")}</div>
-        <div class="price-option-amount">${this.formatPrice(
-          item.priceGlass || item.price
-        )}</div>
-      `;
+        // Glass price
+        const glassPrice = document.createElement("div");
+        glassPrice.className = "price-option";
+        glassPrice.innerHTML = `
+          <div class="price-option-label">${AppState.getText(
+            "glassLabel"
+          )}</div>
+          <div class="price-option-amount">${this.formatPrice(
+            item.priceGlass
+          )}</div>
+        `;
 
-      // Bottle price
-      const bottlePrice = document.createElement("div");
-      bottlePrice.className = "price-option";
-      bottlePrice.innerHTML = `
-        <div class="price-option-label">${AppState.getText("bottleLabel")}</div>
-        <div class="price-option-amount">${this.formatPrice(
-          item.priceBottle || (item.price ? item.price * 5 : null)
-        )}</div>
-      `;
+        // Bottle price
+        const bottlePrice = document.createElement("div");
+        bottlePrice.className = "price-option";
+        bottlePrice.innerHTML = `
+          <div class="price-option-label">${AppState.getText(
+            "bottleLabel"
+          )}</div>
+          <div class="price-option-amount">${this.formatPrice(
+            item.priceBottle
+          )}</div>
+        `;
 
-      dualPricing.appendChild(glassPrice);
-      dualPricing.appendChild(bottlePrice);
-      this.elements.priceContainer.appendChild(dualPricing);
+        dualPricing.appendChild(glassPrice);
+        dualPricing.appendChild(bottlePrice);
+        this.elements.priceContainer.appendChild(dualPricing);
+      } else {
+        // Single pricing (bottle only)
+        const singlePrice = document.createElement("div");
+        singlePrice.className = "modal-price-single";
+        singlePrice.textContent = this.formatPrice(
+          item.priceBottle || item.price
+        );
+        this.elements.priceContainer.appendChild(singlePrice);
+      }
+    } else if (category === "coffee") {
+      // Coffee pricing - check for single and double shot options
+      if (item.priceSingle && item.priceDouble) {
+        // Dual pricing for coffee
+        const dualPricing = document.createElement("div");
+        dualPricing.className = "modal-price-dual";
+
+        // Single shot price
+        const singlePrice = document.createElement("div");
+        singlePrice.className = "price-option";
+        singlePrice.innerHTML = `
+          <div class="price-option-label">${AppState.getText(
+            "singleShotLabel"
+          )}</div>
+          <div class="price-option-amount">${this.formatPrice(
+            item.priceSingle
+          )}</div>
+        `;
+
+        // Double shot price
+        const doublePrice = document.createElement("div");
+        doublePrice.className = "price-option";
+        doublePrice.innerHTML = `
+          <div class="price-option-label">${AppState.getText(
+            "doubleShotLabel"
+          )}</div>
+          <div class="price-option-amount">${this.formatPrice(
+            item.priceDouble
+          )}</div>
+        `;
+
+        dualPricing.appendChild(singlePrice);
+        dualPricing.appendChild(doublePrice);
+        this.elements.priceContainer.appendChild(dualPricing);
+      } else {
+        // Single pricing
+        const singlePrice = document.createElement("div");
+        singlePrice.className = "modal-price-single";
+        singlePrice.textContent = this.formatPrice(item.price);
+        this.elements.priceContainer.appendChild(singlePrice);
+      }
     } else {
-      // Single pricing
+      // All other categories - single pricing only
       const singlePrice = document.createElement("div");
       singlePrice.className = "modal-price-single";
       singlePrice.textContent = this.formatPrice(item.price);
