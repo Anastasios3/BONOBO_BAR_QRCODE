@@ -1,131 +1,483 @@
 {
   "items": [
     {
-      "id": "cocktail001",
+      "id": "signature-cocktail-001",
       "name": {
-        "en": "Margarita",
-        "el": "Μαργαρίτα"
+        "en": "Genesis",
+        "el": "Genesis"
       },
       "description": {
-        "en": "Classic tequila cocktail with fresh lime juice, triple sec, and salt rim",
-        "el": "Κλασικό κοκτέιλ με τεκίλα, φρέσκο χυμό λάιμ, triple sec και αλάτι στο χείλος του ποτηριού"
-      },
-      "price": 9.0,
-      "image": "margarita.jpg",
-      "categories": ["classic", "signature"],
-      "subcategory": "classic",
-      "available": true
-    },
-    {
-      "id": "cocktail002",
-      "name": {
-        "en": "Mojito",
-        "el": "Μοχίτο"
-      },
-      "description": {
-        "en": "Refreshing rum cocktail with fresh mint leaves, lime, sugar, and soda water",
-        "el": "Δροσιστικό κοκτέιλ με ρούμι, φρέσκα φύλλα μέντας, λάιμ, ζάχαρη και σόδα"
-      },
-      "price": 8.5,
-      "image": "mojito.jpg",
-      "categories": ["classic", "refreshing"],
-      "subcategory": "classic",
-      "available": true
-    },
-    {
-      "id": "cocktail003",
-      "name": {
-        "en": "Negroni",
-        "el": "Νεγκρόνι"
-      },
-      "description": {
-        "en": "Bold Italian cocktail with gin, sweet vermouth, and Campari, garnished with orange peel",
-        "el": "Δυνατό ιταλικό κοκτέιλ με τζιν, γλυκό βερμούτ και Campari, γαρνιρισμένο με φλούδα πορτοκαλιού"
+        "en": "Sparkling wine, mastha, mandarin, passion fruit, elderflower & CO2",
+        "el": "Αφρώδες κρασί, μαστίχα, μανταρίνι, passion fruit, elderflower & CO2"
       },
       "price": 10.0,
-      "image": "negroni.jpg",
-      "categories": ["classic", "strong"],
-      "subcategory": "classic",
+      "image": "genesis.jpg",
+      "categories": ["signature"],
+      "subcategory": "signature",
       "available": true
     },
     {
-      "id": "cocktail004",
+      "id": "signature-cocktail-002",
       "name": {
-        "en": "Espresso Martini",
-        "el": "Εσπρέσο Μαρτίνι"
+        "en": "Exploration",
+        "el": "Exploration"
       },
       "description": {
-        "en": "Rich, creamy coffee cocktail with vodka, espresso, and coffee liqueur",
-        "el": "Πλούσιο, κρεμώδες κοκτέιλ καφέ με βότκα, εσπρέσο και λικέρ καφέ"
-      },
-      "price": 9.5,
-      "image": "espresso-martini.jpg",
-      "categories": ["signature", "coffee"],
-      "subcategory": "classic",
-      "available": true
-    },
-    {
-      "id": "cocktail005",
-      "name": {
-        "en": "Bonobo Sunset",
-        "el": "Ηλιοβασίλεμα Μπονόμπο"
-      },
-      "description": {
-        "en": "Our signature cocktail with white rum, passion fruit, mango, and a touch of vanilla",
-        "el": "Το signature κοκτέιλ μας με λευκό ρούμι, φρούτα του πάθους, μάνγκο και μια νότα βανίλιας"
+        "en": "Vodka, rhubarb, watermelon, tarragon & tonka",
+        "el": "Vodka, ραβέντι, καρπούζι, εστραγκόν & tonka"
       },
       "price": 11.0,
-      "image": "bonobo-sunset.jpg",
-      "categories": ["signature", "tropical"],
+      "image": "exploration.jpg",
+      "categories": ["signature"],
       "subcategory": "signature",
       "available": true
     },
     {
-      "id": "cocktail006",
+      "id": "signature-cocktail-003",
       "name": {
-        "en": "Mediterranean Breeze",
-        "el": "Μεσογειακή Αύρα"
+        "en": "Reverence",
+        "el": "Reverence"
       },
       "description": {
-        "en": "House special with mastiha liqueur, cucumber, basil, and fresh lime",
-        "el": "Ειδικό του μαγαζιού με λικέρ μαστίχας, αγγούρι, βασιλικό και φρέσκο λάιμ"
+        "en": "Tequila Blanco, melon, green apple, lime & lemongrass",
+        "el": "Tequila λευκή, πεπόνι, πράσινο μήλο, λάιμ & λεμονόχορτο"
       },
-      "price": 10.5,
-      "image": "mediterranean-breeze.jpg",
-      "categories": ["signature", "refreshing"],
+      "price": 11.0,
+      "image": "reverence.jpg",
+      "categories": ["signature"],
       "subcategory": "signature",
       "available": true
     },
     {
-      "id": "cocktail007",
+      "id": "signature-cocktail-004",
       "name": {
-        "en": "Virgin Colada",
-        "el": "Κολάδα χωρίς Αλκοόλ"
+        "en": "Endeavor",
+        "el": "Endeavor"
       },
       "description": {
-        "en": "Alcohol-free cocktail with pineapple, coconut cream, and a hint of lime",
-        "el": "Κοκτέιλ χωρίς αλκοόλ με ανανά, κρέμα καρύδας και μια νότα από λάιμ"
+        "en": "Vodka, Aperol, strawberry & passion fruit soda",
+        "el": "Vodka, Aperol, σόδα φράουλας & passion fruit"
+      },
+      "price": 10.0,
+      "image": "endeavor.jpg",
+      "categories": ["signature"],
+      "subcategory": "signature",
+      "available": true
+    },
+    {
+      "id": "signature-cocktail-005",
+      "name": {
+        "en": "Reflection",
+        "el": "Reflection"
+      },
+      "description": {
+        "en": "Gin, orange, lime, cucumber & ginger soda",
+        "el": "Τζιν, πορτοκάλι, λάιμ, αγγούρι & σόδα τζίντζερ"
+      },
+      "price": 10.0,
+      "image": "reflection.jpg",
+      "categories": ["signature"],
+      "subcategory": "signature",
+      "available": true
+    },
+    {
+      "id": "signature-cocktail-006",
+      "name": {
+        "en": "Heritage",
+        "el": "Heritage"
+      },
+      "description": {
+        "en": "35N moscato, Gin, citrus, cucumber, basil, lime",
+        "el": "Μοσχάτο 35Ν, Gin, εσπεριδοειδή, αγγούρι, βασιλικός, λάιμ"
+      },
+      "price": 11.0,
+      "image": "heritage.jpg",
+      "categories": ["signature"],
+      "subcategory": "signature",
+      "available": true
+    },
+    {
+      "id": "signature-cocktail-007",
+      "name": {
+        "en": "Legacy",
+        "el": "Legacy"
+      },
+      "description": {
+        "en": "Polynesian rum blend, apricot, lime, brown sugar",
+        "el": "Μίγμα πολυνησιακών ρουμιών, βερίκοκο, λάιμ, καστανή ζάχαρη"
+      },
+      "price": 11.0,
+      "image": "legacy.jpg",
+      "categories": ["signature"],
+      "subcategory": "signature",
+      "available": true
+    },
+    {
+      "id": "signature-cocktail-008",
+      "name": {
+        "en": "Harmony",
+        "el": "Harmony"
+      },
+      "description": {
+        "en": "White rum, banana, coconut, lime, salted honey & bitters",
+        "el": "Λευκό ρούμι, μπανάνα, καρύδα, λάιμ, αλατισμένο μέλι & bitters"
+      },
+      "price": 12.0,
+      "image": "harmony.jpg",
+      "categories": ["signature"],
+      "subcategory": "signature",
+      "available": true
+    },
+    {
+      "id": "signature-cocktail-009",
+      "name": {
+        "en": "Serenity",
+        "el": "Serenity"
+      },
+      "description": {
+        "en": "Tequila reposado, pineapple, mango, agave & lime",
+        "el": "Tequila παλαιωμένη, ανανάς, μάνγκο, αγαύη & λάιμ"
+      },
+      "price": 12.0,
+      "image": "serenity.jpg",
+      "categories": ["signature"],
+      "subcategory": "signature",
+      "available": true
+    },
+    {
+      "id": "signature-cocktail-010",
+      "name": {
+        "en": "Monkey's Reviver",
+        "el": "Monkey's Reviver"
+      },
+      "description": {
+        "en": "Mezcal, Lillet Blanc, orange liquer, lime & pomegranate",
+        "el": "Mezcal, Lillet Blanc, λικέρ πορτοκάλι, λάιμ, ρόδι"
+      },
+      "price": 13.0,
+      "image": "monkeys-reviver.jpg",
+      "categories": ["signature"],
+      "subcategory": "signature",
+      "available": true
+    },
+    {
+      "id": "classic-cocktail-001",
+      "name": {
+        "en": "Mojito",
+        "el": "Mojito"
+      },
+      "description": {
+        "en": "White rum, lime juice, sugar, mint leaves, soda water",
+        "el": "Λευκό ρούμι, χυμός λάιμ, ζάχαρη, φύλλα μέντας, σόδα"
+      },
+      "price": 8.0,
+      "image": "mojito.jpg",
+      "categories": ["classic"],
+      "subcategory": "classic",
+      "available": true
+    },
+    {
+      "id": "classic-cocktail-002",
+      "name": {
+        "en": "Daiquiri",
+        "el": "Daiquiri"
+      },
+      "description": {
+        "en": "White rum, lime juice, simple syrup",
+        "el": "Λευκό ρούμι, χυμός λάιμ, σιρόπι ζάχαρης"
+      },
+      "price": 8.0,
+      "image": "daiquiri.jpg",
+      "categories": ["classic"],
+      "subcategory": "classic",
+      "available": true
+    },
+    {
+      "id": "classic-cocktail-003",
+      "name": {
+        "en": "Paloma",
+        "el": "Paloma"
+      },
+      "description": {
+        "en": "Tequila, lime juice, grapefruit soda",
+        "el": "Τεκίλα, χυμός λάιμ, αναψυκτικό γκρέιπφρουτ"
+      },
+      "price": 8.0,
+      "image": "paloma.jpg",
+      "categories": ["classic"],
+      "subcategory": "classic",
+      "available": true
+    },
+    {
+      "id": "classic-cocktail-004",
+      "name": {
+        "en": "Margarita",
+        "el": "Margarita"
+      },
+      "description": {
+        "en": "Tequila, Triple Sec, lime juice, salt rim",
+        "el": "Τεκίλα, Triple Sec, χυμός λάιμ, αλάτι στο χείλος"
+      },
+      "price": 8.0,
+      "image": "margarita.jpg",
+      "categories": ["classic"],
+      "subcategory": "classic",
+      "available": true
+    },
+    {
+      "id": "classic-cocktail-005",
+      "name": {
+        "en": "Aperol Spritz",
+        "el": "Aperol Spritz"
+      },
+      "description": {
+        "en": "Aperol, Prosecco, soda water, orange slice",
+        "el": "Aperol, Prosecco, σόδα, φέτα πορτοκαλιού"
       },
       "price": 7.0,
-      "image": "virgin-colada.jpg",
-      "categories": ["mocktail", "tropical"],
-      "subcategory": "mocktails",
+      "image": "aperol-spritz.jpg",
+      "categories": ["classic"],
+      "subcategory": "classic",
       "available": true
     },
     {
-      "id": "cocktail008",
+      "id": "classic-cocktail-006",
       "name": {
-        "en": "Berry Burst",
-        "el": "Έκρηξη Μούρων"
+        "en": "Mai Tai",
+        "el": "Mai Tai"
       },
       "description": {
-        "en": "Refreshing mocktail with mixed berries, fresh mint, and sparkling water",
-        "el": "Δροσιστικό mocktail με ανάμεικτα μούρα, φρέσκια μέντα και ανθρακούχο νερό"
+        "en": "White rum, dark rum, Orange Curaçao, lime juice, orgeat syrup",
+        "el": "Λευκό ρούμι, σκούρο ρούμι, Orange Curaçao, χυμός λάιμ, σιρόπι αμυγδάλου"
       },
-      "price": 7.5,
-      "image": "berry-burst.jpg",
-      "categories": ["mocktail", "refreshing"],
-      "subcategory": "mocktails",
+      "price": 9.0,
+      "image": "mai-tai.jpg",
+      "categories": ["classic"],
+      "subcategory": "classic",
+      "available": true
+    },
+    {
+      "id": "classic-cocktail-007",
+      "name": {
+        "en": "Caipirinha",
+        "el": "Caipirinha"
+      },
+      "description": {
+        "en": "Cachaça, lime, sugar",
+        "el": "Κασάσα, λάιμ, ζάχαρη"
+      },
+      "price": 8.0,
+      "image": "caipirinha.jpg",
+      "categories": ["classic"],
+      "subcategory": "classic",
+      "available": true
+    },
+    {
+      "id": "classic-cocktail-008",
+      "name": {
+        "en": "Caipiroska",
+        "el": "Caipiroska"
+      },
+      "description": {
+        "en": "Vodka, lime, sugar",
+        "el": "Βότκα, λάιμ, ζάχαρη"
+      },
+      "price": 8.0,
+      "image": "caipiroska.jpg",
+      "categories": ["classic"],
+      "subcategory": "classic",
+      "available": true
+    },
+    {
+      "id": "classic-cocktail-009",
+      "name": {
+        "en": "Old Fashioned",
+        "el": "Old Fashioned"
+      },
+      "description": {
+        "en": "Bourbon or rye whiskey, sugar cube, Angostura bitters, orange twist",
+        "el": "Μπέρμπον ή ουίσκι σίκαλης, κύβος ζάχαρης, Angostura bitters, φλούδα πορτοκαλιού"
+      },
+      "price": 9.0,
+      "image": "old-fashioned.jpg",
+      "categories": ["classic"],
+      "subcategory": "classic",
+      "available": true
+    },
+    {
+      "id": "classic-cocktail-010",
+      "name": {
+        "en": "Negroni",
+        "el": "Negroni"
+      },
+      "description": {
+        "en": "Gin, Campari, sweet vermouth",
+        "el": "Τζιν, Campari, γλυκό βερμούτ"
+      },
+      "price": 9.0,
+      "image": "negroni.jpg",
+      "categories": ["classic"],
+      "subcategory": "classic",
+      "available": true
+    },
+    {
+      "id": "classic-cocktail-011",
+      "name": {
+        "en": "Americano",
+        "el": "Americano"
+      },
+      "description": {
+        "en": "Campari, sweet vermouth, soda water",
+        "el": "Campari, γλυκό βερμούτ, σόδα"
+      },
+      "price": 7.0,
+      "image": "americano.jpg",
+      "categories": ["classic"],
+      "subcategory": "classic",
+      "available": true
+    },
+    {
+      "id": "classic-cocktail-012",
+      "name": {
+        "en": "Moscow Mule",
+        "el": "Moscow Mule"
+      },
+      "description": {
+        "en": "Vodka, lime juice, ginger beer",
+        "el": "Βότκα, χυμός λάιμ, μπύρα τζίντζερ"
+      },
+      "price": 8.0,
+      "image": "moscow-mule.jpg",
+      "categories": ["classic"],
+      "subcategory": "classic",
+      "available": true
+    },
+    {
+      "id": "classic-cocktail-013",
+      "name": {
+        "en": "Espresso Martini",
+        "el": "Espresso Martini"
+      },
+      "description": {
+        "en": "Vodka, coffee liqueur, espresso, simple syrup",
+        "el": "Βότκα, λικέρ καφέ, εσπρέσο, σιρόπι ζάχαρης"
+      },
+      "price": 8.0,
+      "image": "espresso-martini.jpg",
+      "categories": ["classic"],
+      "subcategory": "classic",
+      "available": true
+    },
+    {
+      "id": "classic-cocktail-014",
+      "name": {
+        "en": "Porn Star",
+        "el": "Porn Star"
+      },
+      "description": {
+        "en": "Vanilla vodka, passion fruit liqueur, passion fruit puree, lime juice, Prosecco shot on the side",
+        "el": "Βότκα βανίλιας, λικέρ φρούτου του πάθους, πουρές φρούτου του πάθους, χυμός λάιμ, σφηνάκι Prosecco"
+      },
+      "price": 9.0,
+      "image": "porn-star.jpg",
+      "categories": ["classic"],
+      "subcategory": "classic",
+      "available": true
+    },
+    {
+      "id": "classic-cocktail-015",
+      "name": {
+        "en": "Dry Martini",
+        "el": "Dry Martini"
+      },
+      "description": {
+        "en": "Gin, dry vermouth, olive or lemon twist",
+        "el": "Τζιν, ξηρό βερμούτ, ελιά ή στριφτή φλούδα λεμονιού"
+      },
+      "price": 9.0,
+      "image": "dry-martini.jpg",
+      "categories": ["classic"],
+      "subcategory": "classic",
+      "available": true
+    },
+    {
+      "id": "classic-cocktail-016",
+      "name": {
+        "en": "Piña Colada",
+        "el": "Piña Colada"
+      },
+      "description": {
+        "en": "White rum, coconut cream, pineapple juice",
+        "el": "Λευκό ρούμι, κρέμα καρύδας, χυμός ανανά"
+      },
+      "price": 8.0,
+      "image": "pina-colada.jpg",
+      "categories": ["classic"],
+      "subcategory": "classic",
+      "available": true
+    },
+    {
+      "id": "classic-cocktail-017",
+      "name": {
+        "en": "Dark & Stormy",
+        "el": "Dark & Stormy"
+      },
+      "description": {
+        "en": "Dark rum, lime juice, ginger beer",
+        "el": "Σκούρο ρούμι, χυμός λάιμ, μπύρα τζίντζερ"
+      },
+      "price": 9.0,
+      "image": "dark-stormy.jpg",
+      "categories": ["classic"],
+      "subcategory": "classic",
+      "available": true
+    },
+    {
+      "id": "classic-cocktail-018",
+      "name": {
+        "en": "Cosmopolitan",
+        "el": "Cosmopolitan"
+      },
+      "description": {
+        "en": "Vodka, Triple Sec, cranberry juice, lime juice",
+        "el": "Βότκα, Triple Sec, χυμός κράνμπερι, χυμός λάιμ"
+      },
+      "price": 8.0,
+      "image": "cosmopolitan.jpg",
+      "categories": ["classic"],
+      "subcategory": "classic",
+      "available": true
+    },
+    {
+      "id": "classic-cocktail-019",
+      "name": {
+        "en": "Bloody Mary",
+        "el": "Bloody Mary"
+      },
+      "description": {
+        "en": "Vodka, tomato juice, lemon juice, Worcestershire sauce, Tabasco, salt, pepper, celery",
+        "el": "Βότκα, χυμός ντομάτας, χυμός λεμονιού, σάλτσα Worcestershire, Tabasco, αλάτι, πιπέρι, σέλινο"
+      },
+      "price": 9.0,
+      "image": "bloody-mary.jpg",
+      "categories": ["classic"],
+      "subcategory": "classic",
+      "available": true
+    },
+    {
+      "id": "classic-cocktail-020",
+      "name": {
+        "en": "Zombie",
+        "el": "Zombie"
+      },
+      "description": {
+        "en": "Golden rum, dark rum, 151 rum, lime juice, pineapple juice, passion fruit syrup, grenadine",
+        "el": "Xρυσό ρούμι, σκούρο ρούμι, ρούμι 151, χυμός λάιμ, χυμός ανανά, σιρόπι φρούτου του πάθους, γρεναδίνη"
+      },
+      "price": 12.0,
+      "image": "zombie.jpg",
+      "categories": ["classic"],
+      "subcategory": "classic",
       "available": true
     }
   ]

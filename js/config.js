@@ -26,11 +26,11 @@ export const CONFIG = {
     },
     LUNCH: {
       START: 12,
-      END: 16,
+      END: 17,
       ORDER: ["food", "coffee", "wine", "beer", "spirits", "cocktails"],
     },
     AFTERNOON: {
-      START: 16,
+      START: 17,
       END: 21,
       ORDER: ["cocktails", "coffee", "food", "beer", "wine", "spirits"],
     },
