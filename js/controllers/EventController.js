@@ -1,10 +1,11 @@
 /**
- * Event Controller - Enhanced with improved mobile interactions
+ * Event Controller - Enhanced with improved mobile interactions and Modal Support
  * Manages all event handling for the application
  */
 
 import { AppState } from "../models/AppState.js";
 import { UIController } from "./UIController.js";
+import { ModalController } from "./ModalController.js";
 import { debounce } from "../utils/helpers.js";
 
 export const EventController = {
@@ -12,6 +13,7 @@ export const EventController = {
    * Initialize all event listeners
    */
   initializeEventListeners() {
+    this.setupModalController();
     this.setupThemeToggle();
     this.setupLanguageToggle();
     this.setupCategorySelection();
@@ -20,6 +22,14 @@ export const EventController = {
     this.setupGlobalEvents();
     this.setupScrollNavigation();
     this.setupBackToTop();
+  },
+
+  /**
+   * Initialize modal controller
+   */
+  setupModalController() {
+    // Initialize the modal system
+    ModalController.init();
   },
 
   /**
@@ -50,7 +60,7 @@ export const EventController = {
   },
 
   /**
-   * Set up language selection
+   * Set up language selection with modal sync
    */
   setupLanguageToggle() {
     const languageOptions = UIController.elements.languageOptions;
@@ -68,6 +78,9 @@ export const EventController = {
             if (AppState.currentCategory) {
               this.refreshCurrentView();
             }
+
+            // Notify modal of language change
+            ModalController.onAppLanguageChange();
 
             // Provide haptic feedback on mobile devices if supported
             if (window.navigator && window.navigator.vibrate) {
@@ -157,6 +170,9 @@ export const EventController = {
     menuContainer.addEventListener(
       "touchstart",
       (e) => {
+        // Don't handle swipes if modal is open
+        if (ModalController.isModalOpen()) return;
+
         touchStartX = e.changedTouches[0].screenX;
       },
       { passive: true }
@@ -165,6 +181,9 @@ export const EventController = {
     menuContainer.addEventListener(
       "touchend",
       (e) => {
+        // Don't handle swipes if modal is open
+        if (ModalController.isModalOpen()) return;
+
         touchEndX = e.changedTouches[0].screenX;
         this.handleCategorySwipe(touchStartX, touchEndX, minSwipeDistance);
       },
@@ -353,7 +372,7 @@ export const EventController = {
         if (e.deltaY !== 0) {
           e.preventDefault();
           categoryNavigation.scrollLeft += e.deltaY;
-          UIController.updateScrollIndicators();
+          this.updateScrollIndicators();
         }
       },
       { passive: false }
@@ -363,17 +382,20 @@ export const EventController = {
     categoryNavigation.addEventListener(
       "scroll",
       debounce(() => {
-        UIController.updateScrollIndicators();
+        this.updateScrollIndicators();
       }, 50)
     );
   },
 
   /**
-   * Set up global document events
+   * Set up global document events with modal awareness
    */
   setupGlobalEvents() {
     // Close filter panel when clicking outside
     document.addEventListener("click", (e) => {
+      // Don't handle if modal is open
+      if (ModalController.isModalOpen()) return;
+
       const filterPanel = UIController.elements.filterPanel;
       const filterToggle = UIController.elements.filterToggle;
 
@@ -388,8 +410,13 @@ export const EventController = {
       }
     });
 
-    // Handle keyboard events
+    // Handle keyboard events with modal awareness
     document.addEventListener("keydown", (e) => {
+      // Don't handle app keyboard events if modal is open
+      if (ModalController.isModalOpen()) {
+        return; // Let modal handle its own keyboard events
+      }
+
       // Close filter panel on Escape key
       if (e.key === "Escape") {
         UIController.toggleFilterPanel(false);
@@ -405,7 +432,7 @@ export const EventController = {
       categoryNavigation.addEventListener(
         "scroll",
         debounce(() => {
-          UIController.updateScrollIndicators();
+          this.updateScrollIndicators();
         }, 100)
       );
     }
@@ -478,7 +505,7 @@ export const EventController = {
     // Wait for the orientation change to complete
     setTimeout(() => {
       // Update scroll indicators
-      UIController.updateScrollIndicators();
+      this.updateScrollIndicators();
 
       // Scroll active category into view
       this.scrollActiveCategoryIntoView();
@@ -645,7 +672,7 @@ export const EventController = {
    */
   handleResponsiveLayout() {
     // Update scroll indicators when window resizes
-    UIController.updateScrollIndicators();
+    this.updateScrollIndicators();
 
     // Scroll active tab into view if needed
     this.scrollActiveCategoryIntoView();
@@ -660,6 +687,13 @@ export const EventController = {
   },
 
   /**
+   * Update scroll indicators
+   */
+  updateScrollIndicators() {
+    UIController.updateScrollIndicators();
+  },
+
+  /**
    * Scroll active category tab into view if it's not visible
    */
   scrollActiveCategoryIntoView() {
@@ -667,9 +701,14 @@ export const EventController = {
     const nav = UIController.elements.categoryNavigation;
 
     if (activeTab && nav) {
-      // Use the UIController method to center the active tab
+      // Use the global scroll API to center the active tab
       setTimeout(() => {
-        UIController.snapToNearestCategory();
+        if (
+          window.menuScrolling &&
+          window.menuScrolling.snapToNearestCategory
+        ) {
+          window.menuScrolling.snapToNearestCategory();
+        }
       }, 50);
     }
   },

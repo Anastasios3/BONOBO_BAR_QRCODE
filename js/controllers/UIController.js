@@ -1,9 +1,10 @@
 /**
- * UI Controller - Optimized for Simple Horizontal Scrolling
+ * UI Controller - Optimized for Simple Horizontal Scrolling with Modal Support
  * Manages all DOM interactions and UI updates
  */
 
 import { AppState } from "../models/AppState.js";
+import { ModalController } from "./ModalController.js";
 
 export const UIController = {
   // DOM elements cache
@@ -232,6 +233,13 @@ export const UIController = {
     if (window.menuScrolling && window.menuScrolling.updateIndicators) {
       window.menuScrolling.updateIndicators();
     }
+  },
+
+  /**
+   * Update scroll indicators (for external use)
+   */
+  updateScrollIndicators() {
+    this.updateScrollState();
   },
 
   /**
@@ -484,7 +492,7 @@ export const UIController = {
   },
 
   /**
-   * Create a menu item element with enhanced structure for mobile
+   * Create a menu item element with enhanced structure for mobile and modal support
    * @param {Object} item - Menu item data
    * @param {string} category - Item's category
    * @param {number} index - Item index for staggered animation
@@ -498,6 +506,43 @@ export const UIController = {
     // Add appropriate ARIA attributes
     menuItem.setAttribute("role", "listitem");
 
+    // Make menu item clickable for modal
+    menuItem.style.cursor = "pointer";
+    menuItem.setAttribute("tabindex", "0");
+    menuItem.setAttribute(
+      "aria-label",
+      `View details for ${item.name.en || item.name}`
+    );
+
+    // Add click event listener for modal
+    menuItem.addEventListener("click", () => {
+      ModalController.open(item, category);
+    });
+
+    // Add keyboard support
+    menuItem.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        ModalController.open(item, category);
+      }
+    });
+
+    // Add hover effect for desktop
+    menuItem.addEventListener("mouseenter", () => {
+      if (window.innerWidth > 768) {
+        // Only on desktop
+        menuItem.style.transform = "translateY(-2px)";
+        menuItem.style.transition = "transform 0.2s ease";
+      }
+    });
+
+    menuItem.addEventListener("mouseleave", () => {
+      if (window.innerWidth > 768) {
+        // Only on desktop
+        menuItem.style.transform = "";
+      }
+    });
+
     const itemDetails = document.createElement("div");
     itemDetails.className = "menu-details";
 
@@ -508,12 +553,32 @@ export const UIController = {
     name.className = "menu-item-name";
     name.textContent = item.name[lang] || item.name.en || "";
 
-    // Item description
+    // Item description (truncated)
     const description = document.createElement("p");
     description.className = "menu-item-description";
-    description.textContent = item.description
+    const fullDescription = item.description
       ? item.description[lang] || item.description.en || ""
       : "";
+
+    // Truncate description for grid view
+    const truncatedDescription =
+      fullDescription.length > 120
+        ? fullDescription.substring(0, 120) + "..."
+        : fullDescription;
+
+    description.textContent = truncatedDescription;
+
+    // Add "Read more" indicator if description is truncated
+    if (fullDescription.length > 120) {
+      const readMore = document.createElement("span");
+      readMore.className = "read-more-indicator";
+      readMore.textContent = " (tap for more)";
+      readMore.style.color = "var(--accent-color)";
+      readMore.style.fontWeight = "var(--font-weight-medium)";
+      readMore.style.fontSize = "var(--font-size-xs)";
+      readMore.style.fontStyle = "italic";
+      description.appendChild(readMore);
+    }
 
     itemDetails.appendChild(name);
     itemDetails.appendChild(description);
