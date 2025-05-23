@@ -10,7 +10,6 @@ export const ModalController = {
   isOpen: false,
   currentItem: null,
   currentCategory: null,
-  scrollPosition: 0,
 
   // DOM elements cache
   elements: {
@@ -193,15 +192,8 @@ export const ModalController = {
     this.currentItem = item;
     this.currentCategory = category;
 
-    // Store current scroll position
-    this.scrollPosition =
-      window.pageYOffset || document.documentElement.scrollTop;
-
-    // Prevent body scroll
+    // Prevent body scroll without changing position
     document.body.style.overflow = "hidden";
-    document.body.style.position = "fixed";
-    document.body.style.top = `-${this.scrollPosition}px`;
-    document.body.style.width = "100%";
 
     // Populate modal content
     this.populateContent();
@@ -233,14 +225,8 @@ export const ModalController = {
     this.elements.overlay.classList.remove("active");
     this.isOpen = false;
 
-    // Restore body scroll
+    // Restore body scroll without changing position
     document.body.style.overflow = "";
-    document.body.style.position = "";
-    document.body.style.top = "";
-    document.body.style.width = "";
-
-    // Restore scroll position
-    window.scrollTo(0, this.scrollPosition);
 
     // Clear current item
     this.currentItem = null;
