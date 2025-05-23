@@ -1,14 +1,14 @@
 {
   "items": [
     {
-      "id": "spirit001",
+      "id": "whiskey-001",
       "name": {
         "en": "Johnie Walker Red Label",
         "el": "Johnie Walker Red Label"
       },
       "description": {
-        "en": "Scotland, 40% ABV",
-        "el": "Σκωτία, 40% ABV"
+        "en": "Scotland, Blended, 40%ABV",
+        "el": "Σκωτία, Blended, 40%ABV"
       },
       "price": 8.0,
       "image": "johnie-walker-red-label.jpg",
@@ -17,14 +17,14 @@
       "available": true
     },
     {
-      "id": "spirit002",
+      "id": "whiskey-002",
       "name": {
         "en": "Johnie Walker Black Label",
         "el": "Johnie Walker Black Label"
       },
       "description": {
-        "en": "Scotland, 40% ABV",
-        "el": "Σκωτία, 40% ABV"
+        "en": "Scotland, Blended, 40%ABV",
+        "el": "Σκωτία, Blended, 40%ABV"
       },
       "price": 9.0,
       "image": "johnie-walker-black-label.jpg",
@@ -33,14 +33,14 @@
       "available": true
     },
     {
-      "id": "spirit003",
+      "id": "whiskey-003",
       "name": {
         "en": "Famous Grouse",
         "el": "Famous Grouse"
       },
       "description": {
-        "en": "Scotland, 40% ABV",
-        "el": "Σκωτία, 40% ABV"
+        "en": "Scotland, Blended, 40%ABV",
+        "el": "Σκωτία, Blended, 40%ABV"
       },
       "price": 8.0,
       "image": "famous-grouse.jpg",
@@ -49,14 +49,14 @@
       "available": true
     },
     {
-      "id": "spirit004",
+      "id": "whiskey-004",
       "name": {
         "en": "Haig Gold Label",
         "el": "Haig Gold Label"
       },
       "description": {
-        "en": "Scotland, 40% ABV",
-        "el": "Σκωτία, 40% ABV"
+        "en": "Scotland, Blended, 40%ABV",
+        "el": "Σκωτία, Blended, 40%ABV"
       },
       "price": 8.0,
       "image": "haig-gold-label.jpg",
@@ -65,14 +65,14 @@
       "available": true
     },
     {
-      "id": "spirit005",
+      "id": "whiskey-005",
       "name": {
         "en": "Dewar`s White Label",
         "el": "Dewar`s White Label"
       },
       "description": {
-        "en": "Scotland, 40% ABV",
-        "el": "Σκωτία, 40% ABV"
+        "en": "Scotland, Blended, 40%ABV",
+        "el": "Σκωτία, Blended, 40%ABV"
       },
       "price": 8.0,
       "image": "dewars-white-label.jpg",
@@ -81,30 +81,30 @@
       "available": true
     },
     {
-      "id": "spirit006",
+      "id": "whiskey-006",
       "name": {
         "en": "J&B",
         "el": "J&B"
       },
       "description": {
-        "en": "Scotland, 40% ABV",
-        "el": "Σκωτία, 40% ABV"
+        "en": "Scotland, Blended, 40%ABV",
+        "el": "Σκωτία, Blended, 40%ABV"
       },
       "price": 8.0,
-      "image": "jb.jpg",
+      "image": "j-b.jpg",
       "categories": ["whisky", "scotch", "blended"],
       "subcategory": "whisky",
       "available": true
     },
     {
-      "id": "spirit007",
+      "id": "whiskey-007",
       "name": {
         "en": "Cutty Sark",
         "el": "Cutty Sark"
       },
       "description": {
-        "en": "Scotland, 40% ABV",
-        "el": "Σκωτία, 40% ABV"
+        "en": "Scotland, Blended, 40%ABV",
+        "el": "Σκωτία, Blended, 40%ABV"
       },
       "price": 8.0,
       "image": "cutty-sark.jpg",
@@ -113,14 +113,14 @@
       "available": true
     },
     {
-      "id": "spirit008",
+      "id": "whiskey-008",
       "name": {
         "en": "Dimple Golden Selection",
         "el": "Dimple Golden Selection"
       },
       "description": {
-        "en": "Scotland, 40% ABV",
-        "el": "Σκωτία, 40% ABV"
+        "en": "Scotland, Blended, 40%ABV",
+        "el": "Σκωτία, Blended, 40%ABV"
       },
       "price": 9.0,
       "image": "dimple-golden-selection.jpg",
@@ -129,14 +129,14 @@
       "available": true
     },
     {
-      "id": "spirit009",
+      "id": "whiskey-009",
       "name": {
         "en": "Chivas 12 years",
         "el": "Chivas 12 years"
       },
       "description": {
-        "en": "Scotland, 40% ABV",
-        "el": "Σκωτία, 40% ABV"
+        "en": "Scotland, Blended, 40%ABV",
+        "el": "Σκωτία, Blended, 40%ABV"
       },
       "price": 9.0,
       "image": "chivas-12-years.jpg",
@@ -145,14 +145,14 @@
       "available": true
     },
     {
-      "id": "spirit010",
+      "id": "whiskey-010",
       "name": {
         "en": "Monkey Shoulder",
         "el": "Monkey Shoulder"
       },
       "description": {
-        "en": "Scotland, 40% ABV",
-        "el": "Σκωτία, 40% ABV"
+        "en": "Scotland, Blended, 40%ABV",
+        "el": "Σκωτία, Blended, 40%ABV"
       },
       "price": 9.0,
       "image": "monkey-shoulder.jpg",
@@ -161,14 +161,14 @@
       "available": true
     },
     {
-      "id": "spirit011",
+      "id": "whiskey-011",
       "name": {
         "en": "Compass Box Hedonism",
         "el": "Compass Box Hedonism"
       },
       "description": {
-        "en": "Scotland, 43% ABV",
-        "el": "Σκωτία, 43% ABV"
+        "en": "Scotland, Blended, 43%ABV",
+        "el": "Σκωτία, Blended, 43%ABV"
       },
       "price": 19.0,
       "image": "compass-box-hedonism.jpg",
@@ -177,14 +177,14 @@
       "available": true
     },
     {
-      "id": "spirit012",
+      "id": "whiskey-012",
       "name": {
         "en": "Compass Box Peat Monster",
         "el": "Compass Box Peat Monster"
       },
       "description": {
-        "en": "Scotland, 46% ABV",
-        "el": "Σκωτία, 46% ABV"
+        "en": "Scotland, Blended, 46%ABV",
+        "el": "Σκωτία, Blended, 46%ABV"
       },
       "price": 14.0,
       "image": "compass-box-peat-monster.jpg",
@@ -193,14 +193,14 @@
       "available": true
     },
     {
-      "id": "spirit013",
+      "id": "whiskey-013",
       "name": {
         "en": "Auchentochan American oak",
         "el": "Auchentochan American oak"
       },
       "description": {
-        "en": "Lowlands, Scotland, 40% ABV",
-        "el": "Lowlands, Σκωτία, 40% ABV"
+        "en": "Scotland, Lowlands, 40%ABV",
+        "el": "Σκωτία, Lowlands, 40%ABV"
       },
       "price": 10.0,
       "image": "auchentochan-american-oak.jpg",
@@ -209,14 +209,14 @@
       "available": true
     },
     {
-      "id": "spirit014",
+      "id": "whiskey-014",
       "name": {
         "en": "Oban 14 years",
         "el": "Oban 14 years"
       },
       "description": {
-        "en": "Highlands, Scotland, 43% ABV",
-        "el": "Highlands, Σκωτία, 43% ABV"
+        "en": "Scotland, Highlands, 43%ABV",
+        "el": "Σκωτία, Highlands, 43%ABV"
       },
       "price": 16.0,
       "image": "oban-14-years.jpg",
@@ -225,14 +225,14 @@
       "available": true
     },
     {
-      "id": "spirit015",
+      "id": "whiskey-015",
       "name": {
         "en": "Tomatin Cask Strength",
         "el": "Tomatin Cask Strength"
       },
       "description": {
-        "en": "Highlands, Scotland, 57.5% ABV",
-        "el": "Highlands, Σκωτία, 57.5% ABV"
+        "en": "Scotland, Highlands, 57,5%ABV",
+        "el": "Σκωτία, Highlands, 57,5%ABV"
       },
       "price": 14.0,
       "image": "tomatin-cask-strength.jpg",
@@ -241,14 +241,14 @@
       "available": true
     },
     {
-      "id": "spirit016",
+      "id": "whiskey-016",
       "name": {
         "en": "Clynelish 14 years",
         "el": "Clynelish 14 years"
       },
       "description": {
-        "en": "Highlands, Scotland, 46% ABV",
-        "el": "Highlands, Σκωτία, 46% ABV"
+        "en": "Scotland, Highlands, 46%ABV",
+        "el": "Σκωτία, Highlands, 46%ABV"
       },
       "price": 15.0,
       "image": "clynelish-14-years.jpg",
@@ -257,30 +257,30 @@
       "available": true
     },
     {
-      "id": "spirit017",
+      "id": "whiskey-017",
       "name": {
         "en": "Loch Lomond Grain",
         "el": "Loch Lomond Grain"
       },
       "description": {
-        "en": "Highlands, Scotland, 46% ABV",
-        "el": "Highlands, Σκωτία, 46% ABV"
+        "en": "Scotland, Highlands, 46%ABV",
+        "el": "Σκωτία, Highlands, 46%ABV"
       },
       "price": 9.0,
       "image": "loch-lomond-grain.jpg",
-      "categories": ["whisky", "scotch", "single-malt", "highlands"],
+      "categories": ["whisky", "scotch", "grain", "highlands"],
       "subcategory": "whisky",
       "available": true
     },
     {
-      "id": "spirit018",
+      "id": "whiskey-018",
       "name": {
         "en": "Glengoyne 10 years",
         "el": "Glengoyne 10 years"
       },
       "description": {
-        "en": "Highlands, Scotland, 40% ABV",
-        "el": "Highlands, Σκωτία, 40% ABV"
+        "en": "Scotland, Highlands, 40%ABV",
+        "el": "Σκωτία, Highlands, 40%ABV"
       },
       "price": 14.0,
       "image": "glengoyne-10-years.jpg",
@@ -289,14 +289,14 @@
       "available": true
     },
     {
-      "id": "spirit019",
+      "id": "whiskey-019",
       "name": {
         "en": "Glengoyne Cask Strength",
         "el": "Glengoyne Cask Strength"
       },
       "description": {
-        "en": "Highlands, Scotland, 59.8% ABV",
-        "el": "Highlands, Σκωτία, 59.8% ABV"
+        "en": "Scotland, Highlands, 59,8%ABV",
+        "el": "Σκωτία, Highlands, 59,8%ABV"
       },
       "price": 18.0,
       "image": "glengoyne-cask-strength.jpg",
@@ -305,14 +305,14 @@
       "available": true
     },
     {
-      "id": "spirit020",
+      "id": "whiskey-020",
       "name": {
         "en": "Glen Dronach 12 years",
         "el": "Glen Dronach 12 years"
       },
       "description": {
-        "en": "Highlands, Scotland, 43% ABV",
-        "el": "Highlands, Σκωτία, 43% ABV"
+        "en": "Scotland, Highlands, 43%ABV",
+        "el": "Σκωτία, Highlands, 43%ABV"
       },
       "price": 17.0,
       "image": "glen-dronach-12-years.jpg",
@@ -321,14 +321,14 @@
       "available": true
     },
     {
-      "id": "spirit021",
+      "id": "whiskey-021",
       "name": {
         "en": "Deveron 12 years",
         "el": "Deveron 12 years"
       },
       "description": {
-        "en": "Highlands, Scotland, 40% ABV",
-        "el": "Highlands, Σκωτία, 40% ABV"
+        "en": "Scotland, Highlands, 40%ABV",
+        "el": "Σκωτία, Highlands, 40%ABV"
       },
       "price": 13.0,
       "image": "deveron-12-years.jpg",
@@ -337,14 +337,14 @@
       "available": true
     },
     {
-      "id": "spirit022",
+      "id": "whiskey-022",
       "name": {
         "en": "Single Malts Of Scotland Clynelish 8 years",
         "el": "Single Malts Of Scotland Clynelish 8 years"
       },
       "description": {
-        "en": "Highlands, Scotland, 48% ABV",
-        "el": "Highlands, Σκωτία, 48% ABV"
+        "en": "Scotland, Highlands, 48%ABV",
+        "el": "Σκωτία, Highlands, 48%ABV"
       },
       "price": 19.0,
       "image": "single-malts-of-scotland-clynelish-8-years.jpg",
@@ -353,14 +353,14 @@
       "available": true
     },
     {
-      "id": "spirit023",
+      "id": "whiskey-023",
       "name": {
         "en": "AnCnoc 12 years",
         "el": "AnCnoc 12 years"
       },
       "description": {
-        "en": "Speyside, Scotland, 40% ABV",
-        "el": "Speyside, Σκωτία, 40% ABV"
+        "en": "Scotland, Speyside, 40%ABV",
+        "el": "Σκωτία, Speyside, 40%ABV"
       },
       "price": 11.0,
       "image": "ancnoc-12-years.jpg",
@@ -369,14 +369,14 @@
       "available": true
     },
     {
-      "id": "spirit024",
+      "id": "whiskey-024",
       "name": {
         "en": "Glenfiddich 12 years",
         "el": "Glenfiddich 12 years"
       },
       "description": {
-        "en": "Speyside, Scotland, 40% ABV",
-        "el": "Speyside, Σκωτία, 40% ABV"
+        "en": "Scotland, Speyside, 40%ABV",
+        "el": "Σκωτία, Speyside, 40%ABV"
       },
       "price": 10.0,
       "image": "glenfiddich-12-years.jpg",
@@ -385,14 +385,14 @@
       "available": true
     },
     {
-      "id": "spirit025",
+      "id": "whiskey-025",
       "name": {
         "en": "Aberlour 12 years Double Cask Matured",
         "el": "Aberlour 12 years Double Cask Matured"
       },
       "description": {
-        "en": "Speyside, Scotland, 40% ABV",
-        "el": "Speyside, Σκωτία, 40% ABV"
+        "en": "Scotland, Speyside, 40%ABV",
+        "el": "Σκωτία, Speyside, 40%ABV"
       },
       "price": 13.0,
       "image": "aberlour-12-years-double-cask-matured.jpg",
@@ -401,14 +401,14 @@
       "available": true
     },
     {
-      "id": "spirit026",
+      "id": "whiskey-026",
       "name": {
         "en": "Mortlach 12 years",
         "el": "Mortlach 12 years"
       },
       "description": {
-        "en": "Speyside, Scotland, 43.4% ABV",
-        "el": "Speyside, Σκωτία, 43.4% ABV"
+        "en": "Scotland, Speyside, 43,4%ABV",
+        "el": "Σκωτία, Speyside, 43,4%ABV"
       },
       "price": 16.0,
       "image": "mortlach-12-years.jpg",
@@ -417,14 +417,14 @@
       "available": true
     },
     {
-      "id": "spirit027",
+      "id": "whiskey-027",
       "name": {
         "en": "Cardhu 12 years",
         "el": "Cardhu 12 years"
       },
       "description": {
-        "en": "Speyside, Scotland, 40% ABV",
-        "el": "Speyside, Σκωτία, 40% ABV"
+        "en": "Scotland, Speyside, 40%ABV",
+        "el": "Σκωτία, Speyside, 40%ABV"
       },
       "price": 10.0,
       "image": "cardhu-12-years.jpg",
@@ -433,14 +433,14 @@
       "available": true
     },
     {
-      "id": "spirit028",
+      "id": "whiskey-028",
       "name": {
         "en": "Tamdu 12 years",
         "el": "Tamdu 12 years"
       },
       "description": {
-        "en": "Speyside, Scotland, 40% ABV",
-        "el": "Speyside, Σκωτία, 40% ABV"
+        "en": "Scotland, Speyside, 40%ABV",
+        "el": "Σκωτία, Speyside, 40%ABV"
       },
       "price": 15.0,
       "image": "tamdu-12-years.jpg",
@@ -449,14 +449,14 @@
       "available": true
     },
     {
-      "id": "spirit029",
+      "id": "whiskey-029",
       "name": {
         "en": "Glenfarclas 10 years",
         "el": "Glenfarclas 10 years"
       },
       "description": {
-        "en": "Speyside, Scotland, 40% ABV",
-        "el": "Speyside, Σκωτία, 40% ABV"
+        "en": "Scotland, Speyside, 40%ABV",
+        "el": "Σκωτία, Speyside, 40%ABV"
       },
       "price": 12.0,
       "image": "glenfarclas-10-years.jpg",
@@ -465,14 +465,14 @@
       "available": true
     },
     {
-      "id": "spirit030",
+      "id": "whiskey-030",
       "name": {
         "en": "Glenlivet Nadurra Olorooso Finish",
         "el": "Glenlivet Nadurra Olorooso Finish"
       },
       "description": {
-        "en": "Speyside, Scotland, 60.3% ABV",
-        "el": "Speyside, Σκωτία, 60.3% ABV"
+        "en": "Scotland, Speyside, 60,3%ABV",
+        "el": "Σκωτία, Speyside, 60,3%ABV"
       },
       "price": 16.0,
       "image": "glenlivet-nadurra-olorooso-finish.jpg",
@@ -481,14 +481,14 @@
       "available": true
     },
     {
-      "id": "spirit031",
+      "id": "whiskey-031",
       "name": {
         "en": "Single Malts Of Scotland Linkwood 12 years",
         "el": "Single Malts Of Scotland Linkwood 12 years"
       },
       "description": {
-        "en": "Speyside, Scotland, 48% ABV",
-        "el": "Speyside, Σκωτία, 48% ABV"
+        "en": "Scotland, Speyside, 48%ABV",
+        "el": "Σκωτία, Speyside, 48%ABV"
       },
       "price": 20.0,
       "image": "single-malts-of-scotland-linkwood-12-years.jpg",
@@ -497,14 +497,14 @@
       "available": true
     },
     {
-      "id": "spirit032",
+      "id": "whiskey-032",
       "name": {
         "en": "Glenallachie 12 Year",
         "el": "Glenallachie 12 Year"
       },
       "description": {
-        "en": "Speyside, Scotland, 46% ABV",
-        "el": "Speyside, Σκωτία, 46% ABV"
+        "en": "Scotland, Speyside, 46%ABV",
+        "el": "Σκωτία, Speyside, 46%ABV"
       },
       "price": 15.0,
       "image": "glenallachie-12-year.jpg",
@@ -513,14 +513,14 @@
       "available": true
     },
     {
-      "id": "spirit033",
+      "id": "whiskey-033",
       "name": {
         "en": "Aultmore Foggie Moss 12 years",
         "el": "Aultmore Foggie Moss 12 years"
       },
       "description": {
-        "en": "Speyside, Scotland, 46% ABV",
-        "el": "Speyside, Σκωτία, 46% ABV"
+        "en": "Scotland, Speyside, 46%ABV",
+        "el": "Σκωτία, Speyside, 46%ABV"
       },
       "price": 18.0,
       "image": "aultmore-foggie-moss-12-years.jpg",
@@ -529,14 +529,14 @@
       "available": true
     },
     {
-      "id": "spirit034",
+      "id": "whiskey-034",
       "name": {
         "en": "Balvenie 14 years",
         "el": "Balvenie 14 years"
       },
       "description": {
-        "en": "Speyside, Scotland, 48.3% ABV",
-        "el": "Speyside, Σκωτία, 48.3% ABV"
+        "en": "Scotland, Speyside, 48,3%ABV",
+        "el": "Σκωτία, Speyside, 48,3%ABV"
       },
       "price": 21.0,
       "image": "balvenie-14-years.jpg",
@@ -545,14 +545,14 @@
       "available": true
     },
     {
-      "id": "spirit035",
+      "id": "whiskey-035",
       "name": {
         "en": "Glen Scotia Double Cask",
         "el": "Glen Scotia Double Cask"
       },
       "description": {
-        "en": "Campbeltown, Scotland, 46% ABV",
-        "el": "Campbeltown, Σκωτία, 46% ABV"
+        "en": "Scotland, Campbeltown, 46%ABV",
+        "el": "Σκωτία, Campbeltown, 46%ABV"
       },
       "price": 14.0,
       "image": "glen-scotia-double-cask.jpg",
@@ -561,14 +561,14 @@
       "available": true
     },
     {
-      "id": "spirit036",
+      "id": "whiskey-036",
       "name": {
         "en": "Laphroaig 10 years",
         "el": "Laphroaig 10 years"
       },
       "description": {
-        "en": "Islay, Scotland, 40% ABV",
-        "el": "Islay, Σκωτία, 40% ABV"
+        "en": "Scotland, Islay, 40%ABV",
+        "el": "Σκωτία, Islay, 40%ABV"
       },
       "price": 14.0,
       "image": "laphroaig-10-years.jpg",
@@ -577,14 +577,14 @@
       "available": true
     },
     {
-      "id": "spirit037",
+      "id": "whiskey-037",
       "name": {
         "en": "Ardberg 10 years",
         "el": "Ardberg 10 years"
       },
       "description": {
-        "en": "Islay, Scotland, 46% ABV",
-        "el": "Islay, Σκωτία, 46% ABV"
+        "en": "Scotland, Islay, 46%ABV",
+        "el": "Σκωτία, Islay, 46%ABV"
       },
       "price": 16.0,
       "image": "ardberg-10-years.jpg",
@@ -593,14 +593,14 @@
       "available": true
     },
     {
-      "id": "spirit038",
+      "id": "whiskey-038",
       "name": {
         "en": "Lagavulin 16 years",
         "el": "Lagavulin 16 years"
       },
       "description": {
-        "en": "Islay, Scotland, 43% ABV",
-        "el": "Islay, Σκωτία, 43% ABV"
+        "en": "Scotland, Islay, 43%ABV",
+        "el": "Σκωτία, Islay, 43%ABV"
       },
       "price": 19.0,
       "image": "lagavulin-16-years.jpg",
@@ -609,14 +609,14 @@
       "available": true
     },
     {
-      "id": "spirit039",
+      "id": "whiskey-039",
       "name": {
         "en": "Bruichladdich Classic Laddie",
         "el": "Bruichladdich Classic Laddie"
       },
       "description": {
-        "en": "Islay, Scotland, 50% ABV",
-        "el": "Islay, Σκωτία, 50% ABV"
+        "en": "Scotland, Islay, 50%ABV",
+        "el": "Σκωτία, Islay, 50%ABV"
       },
       "price": 16.0,
       "image": "bruichladdich-classic-laddie.jpg",
@@ -625,30 +625,30 @@
       "available": true
     },
     {
-      "id": "spirit040",
+      "id": "whiskey-040",
       "name": {
         "en": "Bruichladdich Port Charlotte 10 y.o. heavily peated",
         "el": "Bruichladdich Port Charlotte 10 y.o. heavily peated"
       },
       "description": {
-        "en": "Islay, Scotland, 50% ABV",
-        "el": "Islay, Σκωτία, 50% ABV"
+        "en": "Scotland, Islay, 50%ABV",
+        "el": "Σκωτία, Islay, 50%ABV"
       },
       "price": 17.0,
       "image": "bruichladdich-port-charlotte-10-yo-heavily-peated.jpg",
-      "categories": ["whisky", "scotch", "single-malt", "islay"],
+      "categories": ["whisky", "scotch", "single-malt", "islay", "peated"],
       "subcategory": "whisky",
       "available": true
     },
     {
-      "id": "spirit041",
+      "id": "whiskey-041",
       "name": {
         "en": "Bunnahabhain Toiteach",
         "el": "Bunnahabhain Toiteach"
       },
       "description": {
-        "en": "Islay, Scotland, 46.3% ABV",
-        "el": "Islay, Σκωτία, 46.3% ABV"
+        "en": "Scotland, Islay, 46,3%ABV",
+        "el": "Σκωτία, Islay, 46,3%ABV"
       },
       "price": 17.0,
       "image": "bunnahabhain-toiteach.jpg",
@@ -657,14 +657,14 @@
       "available": true
     },
     {
-      "id": "spirit042",
+      "id": "whiskey-042",
       "name": {
         "en": "Bowmore 15 Sherry Cask 43%",
         "el": "Bowmore 15 Sherry Cask 43%"
       },
       "description": {
-        "en": "Islay, Scotland, 43% ABV",
-        "el": "Islay, Σκωτία, 43% ABV"
+        "en": "Scotland, Islay, 43%ABV",
+        "el": "Σκωτία, Islay, 43%ABV"
       },
       "price": 19.0,
       "image": "bowmore-15-sherry-cask-43.jpg",
@@ -673,14 +673,14 @@
       "available": true
     },
     {
-      "id": "spirit043",
+      "id": "whiskey-043",
       "name": {
         "en": "Caol ila 12 years",
         "el": "Caol ila 12 years"
       },
       "description": {
-        "en": "Islay, Scotland, 43% ABV",
-        "el": "Islay, Σκωτία, 43% ABV"
+        "en": "Scotland, Islay, 43%ABV",
+        "el": "Σκωτία, Islay, 43%ABV"
       },
       "price": 14.0,
       "image": "caol-ila-12-years.jpg",
@@ -689,14 +689,14 @@
       "available": true
     },
     {
-      "id": "spirit044",
+      "id": "whiskey-044",
       "name": {
         "en": "Smokehead Sherry Cask Blast",
         "el": "Smokehead Sherry Cask Blast"
       },
       "description": {
-        "en": "Islay, Scotland, 48% ABV",
-        "el": "Islay, Σκωτία, 48% ABV"
+        "en": "Scotland, Islay, 48%ABV",
+        "el": "Σκωτία, Islay, 48%ABV"
       },
       "price": 18.0,
       "image": "smokehead-sherry-cask-blast.jpg",
@@ -705,14 +705,14 @@
       "available": true
     },
     {
-      "id": "spirit045",
+      "id": "whiskey-045",
       "name": {
         "en": "Port Askaig 100% Proof",
         "el": "Port Askaig 100% Proof"
       },
       "description": {
-        "en": "Islay, Scotland, 57.1% ABV",
-        "el": "Islay, Σκωτία, 57.1% ABV"
+        "en": "Scotland, Islay, 57,1%ABV",
+        "el": "Σκωτία, Islay, 57,1%ABV"
       },
       "price": 16.0,
       "image": "port-askaig-100-proof.jpg",
@@ -721,14 +721,14 @@
       "available": true
     },
     {
-      "id": "spirit046",
+      "id": "whiskey-046",
       "name": {
         "en": "Kilchoman Machir Bay",
         "el": "Kilchoman Machir Bay"
       },
       "description": {
-        "en": "Islay, Scotland, 46% ABV",
-        "el": "Islay, Σκωτία, 46% ABV"
+        "en": "Scotland, Islay, 46%ABV",
+        "el": "Σκωτία, Islay, 46%ABV"
       },
       "price": 14.0,
       "image": "kilchoman-machir-bay.jpg",
@@ -737,14 +737,14 @@
       "available": true
     },
     {
-      "id": "spirit047",
+      "id": "whiskey-047",
       "name": {
         "en": "Mac-Talla Classic",
         "el": "Mac-Talla Classic"
       },
       "description": {
-        "en": "Islay, Scotland, 46% ABV",
-        "el": "Islay, Σκωτία, 46% ABV"
+        "en": "Scotland, Islay, 46%ABV",
+        "el": "Σκωτία, Islay, 46%ABV"
       },
       "price": 15.0,
       "image": "mac-talla-classic.jpg",
@@ -753,46 +753,46 @@
       "available": true
     },
     {
-      "id": "spirit048",
+      "id": "whiskey-048",
       "name": {
         "en": "Elements of Isla Peat Pure",
         "el": "Elements of Isla Peat Pure"
       },
       "description": {
-        "en": "Islay, Scotland, 45% ABV",
-        "el": "Islay, Σκωτία, 45% ABV"
+        "en": "Scotland, Islay, 45%ABV",
+        "el": "Σκωτία, Islay, 45%ABV"
       },
       "price": 12.0,
       "image": "elements-of-isla-peat-pure.jpg",
-      "categories": ["whisky", "scotch", "single-malt", "islay"],
+      "categories": ["whisky", "scotch", "single-malt", "islay", "peated"],
       "subcategory": "whisky",
       "available": true
     },
     {
-      "id": "spirit049",
+      "id": "whiskey-049",
       "name": {
         "en": "Elements Peat Full Proof",
         "el": "Elements Peat Full Proof"
       },
       "description": {
-        "en": "Islay, Scotland, 59.3% ABV",
-        "el": "Islay, Σκωτία, 59.3% ABV"
+        "en": "Scotland, Islay, 59,3%ABV",
+        "el": "Σκωτία, Islay, 59,3%ABV"
       },
       "price": 15.0,
       "image": "elements-peat-full-proof.jpg",
-      "categories": ["whisky", "scotch", "single-malt", "islay"],
+      "categories": ["whisky", "scotch", "single-malt", "islay", "peated"],
       "subcategory": "whisky",
       "available": true
     },
     {
-      "id": "spirit050",
+      "id": "whiskey-050",
       "name": {
         "en": "Elements CI 8",
         "el": "Elements CI 8"
       },
       "description": {
-        "en": "Islay, Scotland, 55.2% ABV",
-        "el": "Islay, Σκωτία, 55.2% ABV"
+        "en": "Scotland, Islay, 55,2%ABV",
+        "el": "Σκωτία, Islay, 55,2%ABV"
       },
       "price": 22.0,
       "image": "elements-ci-8.jpg",
@@ -801,14 +801,14 @@
       "available": true
     },
     {
-      "id": "spirit051",
+      "id": "whiskey-051",
       "name": {
         "en": "Talisker Single Malt 10 y.o.",
         "el": "Talisker Single Malt 10 y.o."
       },
       "description": {
-        "en": "Islands, Scotland, 45.8% ABV",
-        "el": "Islands, Σκωτία, 45.8% ABV"
+        "en": "Scotland, Islands, 45,8%ABV",
+        "el": "Σκωτία, Islands, 45,8%ABV"
       },
       "price": 11.0,
       "image": "talisker-single-malt-10-yo.jpg",
@@ -817,14 +817,14 @@
       "available": true
     },
     {
-      "id": "spirit052",
+      "id": "whiskey-052",
       "name": {
         "en": "Arran Barrel Reserve",
         "el": "Arran Barrel Reserve"
       },
       "description": {
-        "en": "Islands, Scotland, 43% ABV",
-        "el": "Islands, Σκωτία, 43% ABV"
+        "en": "Scotland, Islands, 43%ABV",
+        "el": "Σκωτία, Islands, 43%ABV"
       },
       "price": 10.0,
       "image": "arran-barrel-reserve.jpg",
@@ -833,14 +833,14 @@
       "available": true
     },
     {
-      "id": "spirit053",
+      "id": "whiskey-053",
       "name": {
         "en": "Arran Sherry Cask",
         "el": "Arran Sherry Cask"
       },
       "description": {
-        "en": "Islands, Scotland, 55.8% ABV",
-        "el": "Islands, Σκωτία, 55.8% ABV"
+        "en": "Scotland, Islands, 55,8%ABV",
+        "el": "Σκωτία, Islands, 55,8%ABV"
       },
       "price": 16.0,
       "image": "arran-sherry-cask.jpg",
@@ -849,14 +849,14 @@
       "available": true
     },
     {
-      "id": "spirit054",
+      "id": "whiskey-054",
       "name": {
         "en": "Arran Amarone Finish",
         "el": "Arran Amarone Finish"
       },
       "description": {
-        "en": "Islands, Scotland, 50% ABV",
-        "el": "Islands, Σκωτία, 50% ABV"
+        "en": "Scotland, Islands, 50%ABV",
+        "el": "Σκωτία, Islands, 50%ABV"
       },
       "price": 15.0,
       "image": "arran-amarone-finish.jpg",
@@ -865,14 +865,14 @@
       "available": true
     },
     {
-      "id": "spirit055",
+      "id": "whiskey-055",
       "name": {
         "en": "Arran Port Finish",
         "el": "Arran Port Finish"
       },
       "description": {
-        "en": "Islands, Scotland, 50% ABV",
-        "el": "Islands, Σκωτία, 50% ABV"
+        "en": "Scotland, Islands, 50%ABV",
+        "el": "Σκωτία, Islands, 50%ABV"
       },
       "price": 15.0,
       "image": "arran-port-finish.jpg",
@@ -881,14 +881,14 @@
       "available": true
     },
     {
-      "id": "spirit056",
+      "id": "whiskey-056",
       "name": {
         "en": "Torabhaig Legacy 2017",
         "el": "Torabhaig Legacy 2017"
       },
       "description": {
-        "en": "Islands, Scotland, 46% ABV",
-        "el": "Islands, Σκωτία, 46% ABV"
+        "en": "Scotland, Islands, 46%ABV",
+        "el": "Σκωτία, Islands, 46%ABV"
       },
       "price": 15.0,
       "image": "torabhaig-legacy-2017.jpg",
@@ -897,14 +897,14 @@
       "available": true
     },
     {
-      "id": "spirit057",
+      "id": "whiskey-057",
       "name": {
         "en": "Single Malts Of Scotland Orkney 13 years",
         "el": "Single Malts Of Scotland Orkney 13 years"
       },
       "description": {
-        "en": "Islands, Scotland, 48% ABV",
-        "el": "Islands, Σκωτία, 48% ABV"
+        "en": "Scotland, Islands, 48%ABV",
+        "el": "Σκωτία, Islands, 48%ABV"
       },
       "price": 20.0,
       "image": "single-malts-of-scotland-orkney-13-years.jpg",
@@ -913,206 +913,206 @@
       "available": true
     },
     {
-      "id": "spirit058",
+      "id": "whiskey-058",
       "name": {
         "en": "Jameson",
         "el": "Jameson"
       },
       "description": {
-        "en": "Ireland, 40% ABV",
-        "el": "Ιρλανδία, 40% ABV"
+        "en": "Ireland, Irish Blend, 40%ABV",
+        "el": "Ιρλανδία, Irish Blend, 40%ABV"
       },
       "price": 8.0,
       "image": "jameson.jpg",
-      "categories": ["whisky", "irish"],
+      "categories": ["whisky", "irish", "blend"],
       "subcategory": "whisky",
       "available": true
     },
     {
-      "id": "spirit059",
+      "id": "whiskey-059",
       "name": {
         "en": "Jameson Black Barrel",
         "el": "Jameson Black Barrel"
       },
       "description": {
-        "en": "Ireland, 40% ABV",
-        "el": "Ιρλανδία, 40% ABV"
+        "en": "Ireland, Irish Blend, 40%ABV",
+        "el": "Ιρλανδία, Irish Blend, 40%ABV"
       },
       "price": 9.0,
       "image": "jameson-black-barrel.jpg",
-      "categories": ["whisky", "irish"],
+      "categories": ["whisky", "irish", "blend"],
       "subcategory": "whisky",
       "available": true
     },
     {
-      "id": "spirit060",
+      "id": "whiskey-060",
       "name": {
         "en": "Bushmills Original",
         "el": "Bushmills Original"
       },
       "description": {
-        "en": "Ireland, 40% ABV",
-        "el": "Ιρλανδία, 40% ABV"
+        "en": "Ireland, Irish Blend, 40%ABV",
+        "el": "Ιρλανδία, Irish Blend, 40%ABV"
       },
       "price": 8.0,
       "image": "bushmills-original.jpg",
-      "categories": ["whisky", "irish"],
+      "categories": ["whisky", "irish", "blend"],
       "subcategory": "whisky",
       "available": true
     },
     {
-      "id": "spirit061",
+      "id": "whiskey-061",
       "name": {
         "en": "Tullamore Dew",
         "el": "Tullamore Dew"
       },
       "description": {
-        "en": "Ireland, 40% ABV",
-        "el": "Ιρλανδία, 40% ABV"
+        "en": "Ireland, Irish Blend, 40%ABV",
+        "el": "Ιρλανδία, Irish Blend, 40%ABV"
       },
       "price": 8.0,
       "image": "tullamore-dew.jpg",
-      "categories": ["whisky", "irish"],
+      "categories": ["whisky", "irish", "blend"],
       "subcategory": "whisky",
       "available": true
     },
     {
-      "id": "spirit062",
+      "id": "whiskey-062",
       "name": {
         "en": "Redbreast 12 years",
         "el": "Redbreast 12 years"
       },
       "description": {
-        "en": "Ireland, 40% ABV",
-        "el": "Ιρλανδία, 40% ABV"
+        "en": "Ireland, Single Pot Still, 40%ABV",
+        "el": "Ιρλανδία, Single Pot Still, 40%ABV"
       },
       "price": 14.0,
       "image": "redbreast-12-years.jpg",
-      "categories": ["whisky", "irish"],
+      "categories": ["whisky", "irish", "single-pot-still"],
       "subcategory": "whisky",
       "available": true
     },
     {
-      "id": "spirit063",
+      "id": "whiskey-063",
       "name": {
         "en": "Connemara Original Peated",
         "el": "Connemara Original Peated"
       },
       "description": {
-        "en": "Ireland, 40% ABV",
-        "el": "Ιρλανδία, 40% ABV"
+        "en": "Ireland, Peated Malt, 40%ABV",
+        "el": "Ιρλανδία, Peated Malt, 40%ABV"
       },
       "price": 10.0,
       "image": "connemara-original-peated.jpg",
-      "categories": ["whisky", "irish"],
+      "categories": ["whisky", "irish", "peated"],
       "subcategory": "whisky",
       "available": true
     },
     {
-      "id": "spirit064",
+      "id": "whiskey-064",
       "name": {
         "en": "Teeling Single Grain",
         "el": "Teeling Single Grain"
       },
       "description": {
-        "en": "Ireland, 46% ABV",
-        "el": "Ιρλανδία, 46% ABV"
+        "en": "Ireland, Single Grain, 46%ABV",
+        "el": "Ιρλανδία, Single Grain, 46%ABV"
       },
       "price": 12.0,
       "image": "teeling-single-grain.jpg",
-      "categories": ["whisky", "irish"],
+      "categories": ["whisky", "irish", "single-grain"],
       "subcategory": "whisky",
       "available": true
     },
     {
-      "id": "spirit065",
+      "id": "whiskey-065",
       "name": {
         "en": "Teeling Small Batch Whiskey",
         "el": "Teeling Small Batch Whiskey"
       },
       "description": {
-        "en": "Ireland, 46% ABV",
-        "el": "Ιρλανδία, 46% ABV"
+        "en": "Ireland, Small Batch, 46%ABV",
+        "el": "Ιρλανδία, Small Batch, 46%ABV"
       },
       "price": 9.0,
       "image": "teeling-small-batch-whiskey.jpg",
-      "categories": ["whisky", "irish"],
+      "categories": ["whisky", "irish", "small-batch"],
       "subcategory": "whisky",
       "available": true
     },
     {
-      "id": "spirit066",
+      "id": "whiskey-066",
       "name": {
         "en": "Green Spot Chateau Montelena ex-Zinfandel Casks",
         "el": "Green Spot Chateau Montelena ex-Zinfandel Casks"
       },
       "description": {
-        "en": "Ireland, 46% ABV",
-        "el": "Ιρλανδία, 46% ABV"
+        "en": "Ireland, Single Pot Still, 46%ABV",
+        "el": "Ιρλανδία, Single Pot Still, 46%ABV"
       },
       "price": 16.0,
       "image": "green-spot-chateau-montelena-ex-zinfandel-casks.jpg",
-      "categories": ["whisky", "irish"],
+      "categories": ["whisky", "irish", "single-pot-still"],
       "subcategory": "whisky",
       "available": true
     },
     {
-      "id": "spirit067",
+      "id": "whiskey-067",
       "name": {
         "en": "Green Spot Chateau Leoville Bartong",
         "el": "Green Spot Chateau Leoville Bartong"
       },
       "description": {
-        "en": "Ireland, 46% ABV",
-        "el": "Ιρλανδία, 46% ABV"
+        "en": "Ireland, Single Pot Still, 46%ABV",
+        "el": "Ιρλανδία, Single Pot Still, 46%ABV"
       },
       "price": 16.0,
       "image": "green-spot-chateau-leoville-bartong.jpg",
-      "categories": ["whisky", "irish"],
+      "categories": ["whisky", "irish", "single-pot-still"],
       "subcategory": "whisky",
       "available": true
     },
     {
-      "id": "spirit068",
+      "id": "whiskey-068",
       "name": {
         "en": "Yellow Spot 12 Year Single Pot Still",
         "el": "Yellow Spot 12 Year Single Pot Still"
       },
       "description": {
-        "en": "Ireland, 46% ABV",
-        "el": "Ιρλανδία, 46% ABV"
+        "en": "Ireland, Single Pot Still, 46%ABV",
+        "el": "Ιρλανδία, Single Pot Still, 46%ABV"
       },
       "price": 19.0,
       "image": "yellow-spot-12-year-single-pot-still.jpg",
-      "categories": ["whisky", "irish"],
+      "categories": ["whisky", "irish", "single-pot-still"],
       "subcategory": "whisky",
       "available": true
     },
     {
-      "id": "spirit069",
+      "id": "whiskey-069",
       "name": {
         "en": "Waterford Organic Gaia 1.1",
         "el": "Waterford Organic Gaia 1.1"
       },
       "description": {
-        "en": "Ireland, 50% ABV",
-        "el": "Ιρλανδία, 50% ABV"
+        "en": "Ireland, Single Malt, 50%ABV",
+        "el": "Ιρλανδία, Single Malt, 50%ABV"
       },
       "price": 18.0,
       "image": "waterford-organic-gaia-1-1.jpg",
-      "categories": ["whisky", "irish"],
+      "categories": ["whisky", "irish", "single-malt"],
       "subcategory": "whisky",
       "available": true
     },
     {
-      "id": "spirit070",
+      "id": "whiskey-070",
       "name": {
         "en": "Four Roses Bourbon",
         "el": "Four Roses Bourbon"
       },
       "description": {
-        "en": "USA, 40% ABV",
-        "el": "ΗΠΑ, 40% ABV"
+        "en": "USA, Kentucky, 40%ABV",
+        "el": "ΗΠΑ, Kentucky, 40%ABV"
       },
       "price": 8.0,
       "image": "four-roses-bourbon.jpg",
@@ -1121,14 +1121,14 @@
       "available": true
     },
     {
-      "id": "spirit071",
+      "id": "whiskey-071",
       "name": {
         "en": "Bulleit Bourbon",
         "el": "Bulleit Bourbon"
       },
       "description": {
-        "en": "USA, 45% ABV",
-        "el": "ΗΠΑ, 45% ABV"
+        "en": "USA, Kentucky, 45%ABV",
+        "el": "ΗΠΑ, Kentucky, 45%ABV"
       },
       "price": 9.0,
       "image": "bulleit-bourbon.jpg",
@@ -1137,14 +1137,14 @@
       "available": true
     },
     {
-      "id": "spirit072",
+      "id": "whiskey-072",
       "name": {
         "en": "Bulleit Rye",
         "el": "Bulleit Rye"
       },
       "description": {
-        "en": "USA, 45% ABV",
-        "el": "ΗΠΑ, 45% ABV"
+        "en": "USA, Indiana, 45%ABV",
+        "el": "ΗΠΑ, Indiana, 45%ABV"
       },
       "price": 10.0,
       "image": "bulleit-rye.jpg",
@@ -1153,30 +1153,30 @@
       "available": true
     },
     {
-      "id": "spirit073",
+      "id": "whiskey-073",
       "name": {
         "en": "Canadian Club",
         "el": "Canadian Club"
       },
       "description": {
-        "en": "Canada, 40% ABV",
-        "el": "Καναδάς, 40% ABV"
+        "en": "Canada, Blended, 40%ABV",
+        "el": "Καναδάς, Blended, 40%ABV"
       },
       "price": 9.0,
       "image": "canadian-club.jpg",
-      "categories": ["whisky", "canadian"],
+      "categories": ["whisky", "canadian", "blended"],
       "subcategory": "whisky",
       "available": true
     },
     {
-      "id": "spirit074",
+      "id": "whiskey-074",
       "name": {
         "en": "Jack Daniel`s",
         "el": "Jack Daniel`s"
       },
       "description": {
-        "en": "USA, 40% ABV",
-        "el": "ΗΠΑ, 40% ABV"
+        "en": "USA, Tennessee, 40%ABV",
+        "el": "ΗΠΑ, Tennessee, 40%ABV"
       },
       "price": 9.0,
       "image": "jack-daniels.jpg",
@@ -1185,14 +1185,14 @@
       "available": true
     },
     {
-      "id": "spirit075",
+      "id": "whiskey-075",
       "name": {
         "en": "Jack Daniel`s Single Barrel",
         "el": "Jack Daniel`s Single Barrel"
       },
       "description": {
-        "en": "USA, 45% ABV",
-        "el": "ΗΠΑ, 45% ABV"
+        "en": "USA, Tennessee, 45%ABV",
+        "el": "ΗΠΑ, Tennessee, 45%ABV"
       },
       "price": 12.0,
       "image": "jack-daniels-single-barrel.jpg",
@@ -1201,14 +1201,14 @@
       "available": true
     },
     {
-      "id": "spirit076",
+      "id": "whiskey-076",
       "name": {
         "en": "Eagle Rare Single Barrel Bourbon",
         "el": "Eagle Rare Single Barrel Bourbon"
       },
       "description": {
-        "en": "USA, 45% ABV",
-        "el": "ΗΠΑ, 45% ABV"
+        "en": "USA, Kentucky, 45%ABV",
+        "el": "ΗΠΑ, Kentucky, 45%ABV"
       },
       "price": 14.0,
       "image": "eagle-rare-single-barrel-bourbon.jpg",
@@ -1217,14 +1217,14 @@
       "available": true
     },
     {
-      "id": "spirit077",
+      "id": "whiskey-077",
       "name": {
         "en": "Few Bourbon Whisky",
         "el": "Few Bourbon Whisky"
       },
       "description": {
-        "en": "USA, 46.5% ABV",
-        "el": "ΗΠΑ, 46.5% ABV"
+        "en": "USA, Illinois, 46,5%ABV",
+        "el": "ΗΠΑ, Illinois, 46,5%ABV"
       },
       "price": 16.0,
       "image": "few-bourbon-whisky.jpg",
@@ -1233,14 +1233,14 @@
       "available": true
     },
     {
-      "id": "spirit078",
+      "id": "whiskey-078",
       "name": {
         "en": "Maker`s Mark Bourbon",
         "el": "Maker`s Mark Bourbon"
       },
       "description": {
-        "en": "USA, 45% ABV",
-        "el": "ΗΠΑ, 45% ABV"
+        "en": "USA, Kentucky, 45%ABV",
+        "el": "ΗΠΑ, Kentucky, 45%ABV"
       },
       "price": 10.0,
       "image": "makers-mark-bourbon.jpg",
@@ -1249,14 +1249,14 @@
       "available": true
     },
     {
-      "id": "spirit079",
+      "id": "whiskey-079",
       "name": {
         "en": "Michter`s Small Batch Bourbon",
         "el": "Michter`s Small Batch Bourbon"
       },
       "description": {
-        "en": "USA, 45.7% ABV",
-        "el": "ΗΠΑ, 45.7% ABV"
+        "en": "USA, Kentucky, 45,7%ABV",
+        "el": "ΗΠΑ, Kentucky, 45,7%ABV"
       },
       "price": 18.0,
       "image": "michters-small-batch-bourbon.jpg",
@@ -1265,14 +1265,14 @@
       "available": true
     },
     {
-      "id": "spirit080",
+      "id": "whiskey-080",
       "name": {
         "en": "Michter`s Small Batch Sour Mash",
         "el": "Michter`s Small Batch Sour Mash"
       },
       "description": {
-        "en": "USA, 43% ABV",
-        "el": "ΗΠΑ, 43% ABV"
+        "en": "USA, Kentucky, 43%ABV",
+        "el": "ΗΠΑ, Kentucky, 43%ABV"
       },
       "price": 18.0,
       "image": "michters-small-batch-sour-mash.jpg",
@@ -1281,30 +1281,30 @@
       "available": true
     },
     {
-      "id": "spirit081",
+      "id": "whiskey-081",
       "name": {
-        "en": "Millstone 100 Rye (distilled in the Netherlands)",
-        "el": "Millstone 100 Rye (distilled in the Netherlands)"
+        "en": "Millstone 100 Rye",
+        "el": "Millstone 100 Rye"
       },
       "description": {
-        "en": "Netherlands, 50% ABV",
-        "el": "Ολλανδία, 50% ABV"
+        "en": "Netherlands, Rye, 50%ABV",
+        "el": "Ολλανδία, Rye, 50%ABV"
       },
       "price": 18.0,
       "image": "millstone-100-rye.jpg",
-      "categories": ["whisky", "rye", "dutch"],
+      "categories": ["whisky", "dutch", "rye"],
       "subcategory": "whisky",
       "available": true
     },
     {
-      "id": "spirit082",
+      "id": "whiskey-082",
       "name": {
         "en": "Sazerac Rye 6 year",
         "el": "Sazerac Rye 6 year"
       },
       "description": {
-        "en": "USA, 45% ABV",
-        "el": "ΗΠΑ, 45% ABV"
+        "en": "USA, Kentucky, 45%ABV",
+        "el": "ΗΠΑ, Kentucky, 45%ABV"
       },
       "price": 14.0,
       "image": "sazerac-rye-6-year.jpg",
@@ -1313,30 +1313,30 @@
       "available": true
     },
     {
-      "id": "spirit083",
+      "id": "whiskey-083",
       "name": {
-        "en": "Koval Millet Regular 500ml",
-        "el": "Koval Millet Regular 500ml"
+        "en": "Koval Millet",
+        "el": "Koval Millet"
       },
       "description": {
-        "en": "USA, 40% ABV",
-        "el": "ΗΠΑ, 40% ABV"
+        "en": "USA, Illinois, 40%ABV",
+        "el": "ΗΠΑ, Illinois, 40%ABV"
       },
       "price": 16.0,
-      "image": "koval-millet-regular-500ml.jpg",
+      "image": "koval-millet.jpg",
       "categories": ["whisky", "american"],
       "subcategory": "whisky",
       "available": true
     },
     {
-      "id": "spirit084",
+      "id": "whiskey-084",
       "name": {
         "en": "Nikka Coffey Malt",
         "el": "Nikka Coffey Malt"
       },
       "description": {
-        "en": "Japan, 45% ABV",
-        "el": "Ιαπωνία, 45% ABV"
+        "en": "Japan, Coffey Still, 45%ABV",
+        "el": "Ιαπωνία, Coffey Still, 45%ABV"
       },
       "price": 16.0,
       "image": "nikka-coffey-malt.jpg",
@@ -1345,14 +1345,14 @@
       "available": true
     },
     {
-      "id": "spirit085",
+      "id": "whiskey-085",
       "name": {
         "en": "Nikka Coffey Grain",
         "el": "Nikka Coffey Grain"
       },
       "description": {
-        "en": "Japan, 45% ABV",
-        "el": "Ιαπωνία, 45% ABV"
+        "en": "Japan, Coffey Still, 45%ABV",
+        "el": "Ιαπωνία, Coffey Still, 45%ABV"
       },
       "price": 15.0,
       "image": "nikka-coffey-grain.jpg",
@@ -1361,30 +1361,30 @@
       "available": true
     },
     {
-      "id": "spirit086",
+      "id": "whiskey-086",
       "name": {
         "en": "Nikka From The Barrel",
         "el": "Nikka From The Barrel"
       },
       "description": {
-        "en": "Japan, 51.4% ABV",
-        "el": "Ιαπωνία, 51.4% ABV"
+        "en": "Japan, Blended, 51,4%ABV",
+        "el": "Ιαπωνία, Blended, 51,4%ABV"
       },
       "price": 16.0,
       "image": "nikka-from-the-barrel.jpg",
-      "categories": ["whisky", "japanese"],
+      "categories": ["whisky", "japanese", "blended"],
       "subcategory": "whisky",
       "available": true
     },
     {
-      "id": "spirit087",
+      "id": "whiskey-087",
       "name": {
         "en": "Nikka Yoichi Single Malt",
         "el": "Nikka Yoichi Single Malt"
       },
       "description": {
-        "en": "Japan, 45% ABV",
-        "el": "Ιαπωνία, 45% ABV"
+        "en": "Japan, Yoichi, 45%ABV",
+        "el": "Ιαπωνία, Yoichi, 45%ABV"
       },
       "price": 20.0,
       "image": "nikka-yoichi-single-malt.jpg",
@@ -1393,14 +1393,14 @@
       "available": true
     },
     {
-      "id": "spirit088",
+      "id": "whiskey-088",
       "name": {
         "en": "Kavalan Single Malt",
         "el": "Kavalan Single Malt"
       },
       "description": {
-        "en": "Taiwan, 40% ABV",
-        "el": "Ταϊβάν, 40% ABV"
+        "en": "Taiwan, Single Malt, 40%ABV",
+        "el": "Ταϊβάν, Single Malt, 40%ABV"
       },
       "price": 17.0,
       "image": "kavalan-single-malt.jpg",
@@ -1409,238 +1409,1470 @@
       "available": true
     },
     {
-      "id": "spirit089",
+      "id": "whiskey-089",
       "name": {
         "en": "Amrut Fusion",
         "el": "Amrut Fusion"
       },
       "description": {
-        "en": "India, 50% ABV",
-        "el": "Ινδία, 50% ABV"
+        "en": "India, Single Malt, 50%ABV",
+        "el": "Ινδία, Single Malt, 50%ABV"
       },
       "price": 18.0,
       "image": "amrut-fusion.jpg",
-      "categories": ["whisky", "indian"],
+      "categories": ["whisky", "indian", "single-malt"],
       "subcategory": "whisky",
       "available": true
     },
     {
-      "id": "spirit090",
+      "id": "whiskey-001",
       "name": {
-        "en": "Martel V.S. Cognac",
-        "el": "Martel V.S. Cognac"
+        "en": "Johnie Walker Red Label",
+        "el": "Johnie Walker Red Label"
       },
       "description": {
-        "en": "France, 40% ABV",
-        "el": "Γαλλία, 40% ABV"
-      },
-      "price": 11.0,
-      "image": "martel-vs-cognac.jpg",
-      "categories": ["cognac", "french"],
-      "subcategory": "others",
-      "available": true
-    },
-    {
-      "id": "spirit091",
-      "name": {
-        "en": "Hennessy V.S. Cognac",
-        "el": "Hennessy V.S. Cognac"
-      },
-      "description": {
-        "en": "France, 40% ABV",
-        "el": "Γαλλία, 40% ABV"
-      },
-      "price": 12.0,
-      "image": "hennessy-vs-cognac.jpg",
-      "categories": ["cognac", "french"],
-      "subcategory": "others",
-      "available": true
-    },
-    {
-      "id": "spirit092",
-      "name": {
-        "en": "35 Tsikoudia Blended",
-        "el": "35 Τσικουδιά Blended"
-      },
-      "description": {
-        "en": "Greece, 38% ABV",
-        "el": "Ελλάδα, 38% ABV"
-      },
-      "price": 7.0,
-      "image": "35-tsikoudia-blended.jpg",
-      "categories": ["tsikoudia", "greek"],
-      "subcategory": "others",
-      "available": true
-    },
-    {
-      "id": "spirit093",
-      "name": {
-        "en": "35 Tsikoudia Moshato Single Variety",
-        "el": "35 Τσικουδιά Moshato Single Variety"
-      },
-      "description": {
-        "en": "Greece, 38% ABV",
-        "el": "Ελλάδα, 38% ABV"
-      },
-      "price": 7.0,
-      "image": "35-tsikoudia-moshato-single-variety.jpg",
-      "categories": ["tsikoudia", "greek"],
-      "subcategory": "others",
-      "available": true
-    },
-    {
-      "id": "spirit094",
-      "name": {
-        "en": "35 Tsikoudia Syrah Single Variety",
-        "el": "35 Τσικουδιά Syrah Single Variety"
-      },
-      "description": {
-        "en": "Greece, 38% ABV",
-        "el": "Ελλάδα, 38% ABV"
-      },
-      "price": 7.0,
-      "image": "35-tsikoudia-syrah-single-variety.jpg",
-      "categories": ["tsikoudia", "greek"],
-      "subcategory": "others",
-      "available": true
-    },
-    {
-      "id": "spirit095",
-      "name": {
-        "en": "Puro Aged Tsipouro",
-        "el": "Puro Aged Tsipouro"
-      },
-      "description": {
-        "en": "Greece, 40% ABV",
-        "el": "Ελλάδα, 40% ABV"
-      },
-      "price": 13.0,
-      "image": "puro-aged-tsipouro.jpg",
-      "categories": ["tsipouro", "greek", "aged"],
-      "subcategory": "others",
-      "available": true
-    },
-    {
-      "id": "spirit096",
-      "name": {
-        "en": "Metaxa 5*",
-        "el": "Metaxa 5*"
-      },
-      "description": {
-        "en": "Greece, 38% ABV",
-        "el": "Ελλάδα, 38% ABV"
-      },
-      "price": 7.0,
-      "image": "metaxa-5.jpg",
-      "categories": ["metaxa", "greek"],
-      "subcategory": "others",
-      "available": true
-    },
-    {
-      "id": "spirit097",
-      "name": {
-        "en": "Metaxa 7*",
-        "el": "Metaxa 7*"
-      },
-      "description": {
-        "en": "Greece, 40% ABV",
-        "el": "Ελλάδα, 40% ABV"
+        "en": "Scotland, Blended, 40%ABV",
+        "el": "Σκωτία, Blended, 40%ABV"
       },
       "price": 8.0,
-      "image": "metaxa-7.jpg",
-      "categories": ["metaxa", "greek"],
-      "subcategory": "others",
+      "image": "johnie-walker-red-label.jpg",
+      "categories": ["whisky", "scotch", "blended"],
+      "subcategory": "whisky",
       "available": true
     },
     {
-      "id": "spirit098",
+      "id": "whiskey-002",
       "name": {
-        "en": "Metaxa Private Reserve",
-        "el": "Metaxa Private Reserve"
+        "en": "Johnie Walker Black Label",
+        "el": "Johnie Walker Black Label"
       },
       "description": {
-        "en": "Greece, 40% ABV",
-        "el": "Ελλάδα, 40% ABV"
+        "en": "Scotland, Blended, 40%ABV",
+        "el": "Σκωτία, Blended, 40%ABV"
+      },
+      "price": 9.0,
+      "image": "johnie-walker-black-label.jpg",
+      "categories": ["whisky", "scotch", "blended"],
+      "subcategory": "whisky",
+      "available": true
+    },
+    {
+      "id": "whiskey-003",
+      "name": {
+        "en": "Famous Grouse",
+        "el": "Famous Grouse"
+      },
+      "description": {
+        "en": "Scotland, Blended, 40%ABV",
+        "el": "Σκωτία, Blended, 40%ABV"
+      },
+      "price": 8.0,
+      "image": "famous-grouse.jpg",
+      "categories": ["whisky", "scotch", "blended"],
+      "subcategory": "whisky",
+      "available": true
+    },
+    {
+      "id": "whiskey-004",
+      "name": {
+        "en": "Haig Gold Label",
+        "el": "Haig Gold Label"
+      },
+      "description": {
+        "en": "Scotland, Blended, 40%ABV",
+        "el": "Σκωτία, Blended, 40%ABV"
+      },
+      "price": 8.0,
+      "image": "haig-gold-label.jpg",
+      "categories": ["whisky", "scotch", "blended"],
+      "subcategory": "whisky",
+      "available": true
+    },
+    {
+      "id": "whiskey-005",
+      "name": {
+        "en": "Dewar`s White Label",
+        "el": "Dewar`s White Label"
+      },
+      "description": {
+        "en": "Scotland, Blended, 40%ABV",
+        "el": "Σκωτία, Blended, 40%ABV"
+      },
+      "price": 8.0,
+      "image": "dewars-white-label.jpg",
+      "categories": ["whisky", "scotch", "blended"],
+      "subcategory": "whisky",
+      "available": true
+    },
+    {
+      "id": "whiskey-006",
+      "name": {
+        "en": "J&B",
+        "el": "J&B"
+      },
+      "description": {
+        "en": "Scotland, Blended, 40%ABV",
+        "el": "Σκωτία, Blended, 40%ABV"
+      },
+      "price": 8.0,
+      "image": "j-b.jpg",
+      "categories": ["whisky", "scotch", "blended"],
+      "subcategory": "whisky",
+      "available": true
+    },
+    {
+      "id": "whiskey-007",
+      "name": {
+        "en": "Cutty Sark",
+        "el": "Cutty Sark"
+      },
+      "description": {
+        "en": "Scotland, Blended, 40%ABV",
+        "el": "Σκωτία, Blended, 40%ABV"
+      },
+      "price": 8.0,
+      "image": "cutty-sark.jpg",
+      "categories": ["whisky", "scotch", "blended"],
+      "subcategory": "whisky",
+      "available": true
+    },
+    {
+      "id": "whiskey-008",
+      "name": {
+        "en": "Dimple Golden Selection",
+        "el": "Dimple Golden Selection"
+      },
+      "description": {
+        "en": "Scotland, Blended, 40%ABV",
+        "el": "Σκωτία, Blended, 40%ABV"
+      },
+      "price": 9.0,
+      "image": "dimple-golden-selection.jpg",
+      "categories": ["whisky", "scotch", "blended"],
+      "subcategory": "whisky",
+      "available": true
+    },
+    {
+      "id": "whiskey-009",
+      "name": {
+        "en": "Chivas 12 years",
+        "el": "Chivas 12 years"
+      },
+      "description": {
+        "en": "Scotland, Blended, 40%ABV",
+        "el": "Σκωτία, Blended, 40%ABV"
+      },
+      "price": 9.0,
+      "image": "chivas-12-years.jpg",
+      "categories": ["whisky", "scotch", "blended"],
+      "subcategory": "whisky",
+      "available": true
+    },
+    {
+      "id": "whiskey-010",
+      "name": {
+        "en": "Monkey Shoulder",
+        "el": "Monkey Shoulder"
+      },
+      "description": {
+        "en": "Scotland, Blended, 40%ABV",
+        "el": "Σκωτία, Blended, 40%ABV"
+      },
+      "price": 9.0,
+      "image": "monkey-shoulder.jpg",
+      "categories": ["whisky", "scotch", "blended"],
+      "subcategory": "whisky",
+      "available": true
+    },
+    {
+      "id": "whiskey-011",
+      "name": {
+        "en": "Compass Box Hedonism",
+        "el": "Compass Box Hedonism"
+      },
+      "description": {
+        "en": "Scotland, Blended, 43%ABV",
+        "el": "Σκωτία, Blended, 43%ABV"
+      },
+      "price": 19.0,
+      "image": "compass-box-hedonism.jpg",
+      "categories": ["whisky", "scotch", "blended"],
+      "subcategory": "whisky",
+      "available": true
+    },
+    {
+      "id": "whiskey-012",
+      "name": {
+        "en": "Compass Box Peat Monster",
+        "el": "Compass Box Peat Monster"
+      },
+      "description": {
+        "en": "Scotland, Blended, 46%ABV",
+        "el": "Σκωτία, Blended, 46%ABV"
+      },
+      "price": 14.0,
+      "image": "compass-box-peat-monster.jpg",
+      "categories": ["whisky", "scotch", "blended"],
+      "subcategory": "whisky",
+      "available": true
+    },
+    {
+      "id": "whiskey-013",
+      "name": {
+        "en": "Auchentochan American oak",
+        "el": "Auchentochan American oak"
+      },
+      "description": {
+        "en": "Scotland, Lowlands, 40%ABV",
+        "el": "Σκωτία, Lowlands, 40%ABV"
+      },
+      "price": 10.0,
+      "image": "auchentochan-american-oak.jpg",
+      "categories": ["whisky", "scotch", "single-malt", "lowlands"],
+      "subcategory": "whisky",
+      "available": true
+    },
+    {
+      "id": "whiskey-014",
+      "name": {
+        "en": "Oban 14 years",
+        "el": "Oban 14 years"
+      },
+      "description": {
+        "en": "Scotland, Highlands, 43%ABV",
+        "el": "Σκωτία, Highlands, 43%ABV"
+      },
+      "price": 16.0,
+      "image": "oban-14-years.jpg",
+      "categories": ["whisky", "scotch", "single-malt", "highlands"],
+      "subcategory": "whisky",
+      "available": true
+    },
+    {
+      "id": "whiskey-015",
+      "name": {
+        "en": "Tomatin Cask Strength",
+        "el": "Tomatin Cask Strength"
+      },
+      "description": {
+        "en": "Scotland, Highlands, 57,5%ABV",
+        "el": "Σκωτία, Highlands, 57,5%ABV"
+      },
+      "price": 14.0,
+      "image": "tomatin-cask-strength.jpg",
+      "categories": ["whisky", "scotch", "single-malt", "highlands"],
+      "subcategory": "whisky",
+      "available": true
+    },
+    {
+      "id": "whiskey-016",
+      "name": {
+        "en": "Clynelish 14 years",
+        "el": "Clynelish 14 years"
+      },
+      "description": {
+        "en": "Scotland, Highlands, 46%ABV",
+        "el": "Σκωτία, Highlands, 46%ABV"
+      },
+      "price": 15.0,
+      "image": "clynelish-14-years.jpg",
+      "categories": ["whisky", "scotch", "single-malt", "highlands"],
+      "subcategory": "whisky",
+      "available": true
+    },
+    {
+      "id": "whiskey-017",
+      "name": {
+        "en": "Loch Lomond Grain",
+        "el": "Loch Lomond Grain"
+      },
+      "description": {
+        "en": "Scotland, Highlands, 46%ABV",
+        "el": "Σκωτία, Highlands, 46%ABV"
+      },
+      "price": 9.0,
+      "image": "loch-lomond-grain.jpg",
+      "categories": ["whisky", "scotch", "grain", "highlands"],
+      "subcategory": "whisky",
+      "available": true
+    },
+    {
+      "id": "whiskey-018",
+      "name": {
+        "en": "Glengoyne 10 years",
+        "el": "Glengoyne 10 years"
+      },
+      "description": {
+        "en": "Scotland, Highlands, 40%ABV",
+        "el": "Σκωτία, Highlands, 40%ABV"
+      },
+      "price": 14.0,
+      "image": "glengoyne-10-years.jpg",
+      "categories": ["whisky", "scotch", "single-malt", "highlands"],
+      "subcategory": "whisky",
+      "available": true
+    },
+    {
+      "id": "whiskey-019",
+      "name": {
+        "en": "Glengoyne Cask Strength",
+        "el": "Glengoyne Cask Strength"
+      },
+      "description": {
+        "en": "Scotland, Highlands, 59,8%ABV",
+        "el": "Σκωτία, Highlands, 59,8%ABV"
+      },
+      "price": 18.0,
+      "image": "glengoyne-cask-strength.jpg",
+      "categories": ["whisky", "scotch", "single-malt", "highlands"],
+      "subcategory": "whisky",
+      "available": true
+    },
+    {
+      "id": "whiskey-020",
+      "name": {
+        "en": "Glen Dronach 12 years",
+        "el": "Glen Dronach 12 years"
+      },
+      "description": {
+        "en": "Scotland, Highlands, 43%ABV",
+        "el": "Σκωτία, Highlands, 43%ABV"
       },
       "price": 17.0,
-      "image": "metaxa-private-reserve.jpg",
-      "categories": ["metaxa", "greek", "premium"],
-      "subcategory": "others",
+      "image": "glen-dronach-12-years.jpg",
+      "categories": ["whisky", "scotch", "single-malt", "highlands"],
+      "subcategory": "whisky",
       "available": true
     },
     {
-      "id": "spirit099",
+      "id": "whiskey-021",
       "name": {
-        "en": "Skinos Mastiha Spirit",
-        "el": "Skinos Mastiha Spirit"
+        "en": "Deveron 12 years",
+        "el": "Deveron 12 years"
       },
       "description": {
-        "en": "Greece, 30% ABV",
-        "el": "Ελλάδα, 30% ABV"
+        "en": "Scotland, Highlands, 40%ABV",
+        "el": "Σκωτία, Highlands, 40%ABV"
+      },
+      "price": 13.0,
+      "image": "deveron-12-years.jpg",
+      "categories": ["whisky", "scotch", "single-malt", "highlands"],
+      "subcategory": "whisky",
+      "available": true
+    },
+    {
+      "id": "whiskey-022",
+      "name": {
+        "en": "Single Malts Of Scotland Clynelish 8 years",
+        "el": "Single Malts Of Scotland Clynelish 8 years"
+      },
+      "description": {
+        "en": "Scotland, Highlands, 48%ABV",
+        "el": "Σκωτία, Highlands, 48%ABV"
+      },
+      "price": 19.0,
+      "image": "single-malts-of-scotland-clynelish-8-years.jpg",
+      "categories": ["whisky", "scotch", "single-malt", "highlands"],
+      "subcategory": "whisky",
+      "available": true
+    },
+    {
+      "id": "whiskey-023",
+      "name": {
+        "en": "AnCnoc 12 years",
+        "el": "AnCnoc 12 years"
+      },
+      "description": {
+        "en": "Scotland, Speyside, 40%ABV",
+        "el": "Σκωτία, Speyside, 40%ABV"
+      },
+      "price": 11.0,
+      "image": "ancnoc-12-years.jpg",
+      "categories": ["whisky", "scotch", "single-malt", "speyside"],
+      "subcategory": "whisky",
+      "available": true
+    },
+    {
+      "id": "whiskey-024",
+      "name": {
+        "en": "Glenfiddich 12 years",
+        "el": "Glenfiddich 12 years"
+      },
+      "description": {
+        "en": "Scotland, Speyside, 40%ABV",
+        "el": "Σκωτία, Speyside, 40%ABV"
+      },
+      "price": 10.0,
+      "image": "glenfiddich-12-years.jpg",
+      "categories": ["whisky", "scotch", "single-malt", "speyside"],
+      "subcategory": "whisky",
+      "available": true
+    },
+    {
+      "id": "whiskey-025",
+      "name": {
+        "en": "Aberlour 12 years Double Cask Matured",
+        "el": "Aberlour 12 years Double Cask Matured"
+      },
+      "description": {
+        "en": "Scotland, Speyside, 40%ABV",
+        "el": "Σκωτία, Speyside, 40%ABV"
+      },
+      "price": 13.0,
+      "image": "aberlour-12-years-double-cask-matured.jpg",
+      "categories": ["whisky", "scotch", "single-malt", "speyside"],
+      "subcategory": "whisky",
+      "available": true
+    },
+    {
+      "id": "whiskey-026",
+      "name": {
+        "en": "Mortlach 12 years",
+        "el": "Mortlach 12 years"
+      },
+      "description": {
+        "en": "Scotland, Speyside, 43,4%ABV",
+        "el": "Σκωτία, Speyside, 43,4%ABV"
+      },
+      "price": 16.0,
+      "image": "mortlach-12-years.jpg",
+      "categories": ["whisky", "scotch", "single-malt", "speyside"],
+      "subcategory": "whisky",
+      "available": true
+    },
+    {
+      "id": "whiskey-027",
+      "name": {
+        "en": "Cardhu 12 years",
+        "el": "Cardhu 12 years"
+      },
+      "description": {
+        "en": "Scotland, Speyside, 40%ABV",
+        "el": "Σκωτία, Speyside, 40%ABV"
+      },
+      "price": 10.0,
+      "image": "cardhu-12-years.jpg",
+      "categories": ["whisky", "scotch", "single-malt", "speyside"],
+      "subcategory": "whisky",
+      "available": true
+    },
+    {
+      "id": "whiskey-028",
+      "name": {
+        "en": "Tamdu 12 years",
+        "el": "Tamdu 12 years"
+      },
+      "description": {
+        "en": "Scotland, Speyside, 40%ABV",
+        "el": "Σκωτία, Speyside, 40%ABV"
+      },
+      "price": 15.0,
+      "image": "tamdu-12-years.jpg",
+      "categories": ["whisky", "scotch", "single-malt", "speyside"],
+      "subcategory": "whisky",
+      "available": true
+    },
+    {
+      "id": "whiskey-029",
+      "name": {
+        "en": "Glenfarclas 10 years",
+        "el": "Glenfarclas 10 years"
+      },
+      "description": {
+        "en": "Scotland, Speyside, 40%ABV",
+        "el": "Σκωτία, Speyside, 40%ABV"
+      },
+      "price": 12.0,
+      "image": "glenfarclas-10-years.jpg",
+      "categories": ["whisky", "scotch", "single-malt", "speyside"],
+      "subcategory": "whisky",
+      "available": true
+    },
+    {
+      "id": "whiskey-030",
+      "name": {
+        "en": "Glenlivet Nadurra Olorooso Finish",
+        "el": "Glenlivet Nadurra Olorooso Finish"
+      },
+      "description": {
+        "en": "Scotland, Speyside, 60,3%ABV",
+        "el": "Σκωτία, Speyside, 60,3%ABV"
+      },
+      "price": 16.0,
+      "image": "glenlivet-nadurra-olorooso-finish.jpg",
+      "categories": ["whisky", "scotch", "single-malt", "speyside"],
+      "subcategory": "whisky",
+      "available": true
+    },
+    {
+      "id": "whiskey-031",
+      "name": {
+        "en": "Single Malts Of Scotland Linkwood 12 years",
+        "el": "Single Malts Of Scotland Linkwood 12 years"
+      },
+      "description": {
+        "en": "Scotland, Speyside, 48%ABV",
+        "el": "Σκωτία, Speyside, 48%ABV"
+      },
+      "price": 20.0,
+      "image": "single-malts-of-scotland-linkwood-12-years.jpg",
+      "categories": ["whisky", "scotch", "single-malt", "speyside"],
+      "subcategory": "whisky",
+      "available": true
+    },
+    {
+      "id": "whiskey-032",
+      "name": {
+        "en": "Glenallachie 12 Year",
+        "el": "Glenallachie 12 Year"
+      },
+      "description": {
+        "en": "Scotland, Speyside, 46%ABV",
+        "el": "Σκωτία, Speyside, 46%ABV"
+      },
+      "price": 15.0,
+      "image": "glenallachie-12-year.jpg",
+      "categories": ["whisky", "scotch", "single-malt", "speyside"],
+      "subcategory": "whisky",
+      "available": true
+    },
+    {
+      "id": "whiskey-033",
+      "name": {
+        "en": "Aultmore Foggie Moss 12 years",
+        "el": "Aultmore Foggie Moss 12 years"
+      },
+      "description": {
+        "en": "Scotland, Speyside, 46%ABV",
+        "el": "Σκωτία, Speyside, 46%ABV"
+      },
+      "price": 18.0,
+      "image": "aultmore-foggie-moss-12-years.jpg",
+      "categories": ["whisky", "scotch", "single-malt", "speyside"],
+      "subcategory": "whisky",
+      "available": true
+    },
+    {
+      "id": "whiskey-034",
+      "name": {
+        "en": "Balvenie 14 years",
+        "el": "Balvenie 14 years"
+      },
+      "description": {
+        "en": "Scotland, Speyside, 48,3%ABV",
+        "el": "Σκωτία, Speyside, 48,3%ABV"
+      },
+      "price": 21.0,
+      "image": "balvenie-14-years.jpg",
+      "categories": ["whisky", "scotch", "single-malt", "speyside"],
+      "subcategory": "whisky",
+      "available": true
+    },
+    {
+      "id": "whiskey-035",
+      "name": {
+        "en": "Glen Scotia Double Cask",
+        "el": "Glen Scotia Double Cask"
+      },
+      "description": {
+        "en": "Scotland, Campbeltown, 46%ABV",
+        "el": "Σκωτία, Campbeltown, 46%ABV"
+      },
+      "price": 14.0,
+      "image": "glen-scotia-double-cask.jpg",
+      "categories": ["whisky", "scotch", "single-malt", "campbeltown"],
+      "subcategory": "whisky",
+      "available": true
+    },
+    {
+      "id": "whiskey-036",
+      "name": {
+        "en": "Laphroaig 10 years",
+        "el": "Laphroaig 10 years"
+      },
+      "description": {
+        "en": "Scotland, Islay, 40%ABV",
+        "el": "Σκωτία, Islay, 40%ABV"
+      },
+      "price": 14.0,
+      "image": "laphroaig-10-years.jpg",
+      "categories": ["whisky", "scotch", "single-malt", "islay"],
+      "subcategory": "whisky",
+      "available": true
+    },
+    {
+      "id": "whiskey-037",
+      "name": {
+        "en": "Ardberg 10 years",
+        "el": "Ardberg 10 years"
+      },
+      "description": {
+        "en": "Scotland, Islay, 46%ABV",
+        "el": "Σκωτία, Islay, 46%ABV"
+      },
+      "price": 16.0,
+      "image": "ardberg-10-years.jpg",
+      "categories": ["whisky", "scotch", "single-malt", "islay"],
+      "subcategory": "whisky",
+      "available": true
+    },
+    {
+      "id": "whiskey-038",
+      "name": {
+        "en": "Lagavulin 16 years",
+        "el": "Lagavulin 16 years"
+      },
+      "description": {
+        "en": "Scotland, Islay, 43%ABV",
+        "el": "Σκωτία, Islay, 43%ABV"
+      },
+      "price": 19.0,
+      "image": "lagavulin-16-years.jpg",
+      "categories": ["whisky", "scotch", "single-malt", "islay"],
+      "subcategory": "whisky",
+      "available": true
+    },
+    {
+      "id": "whiskey-039",
+      "name": {
+        "en": "Bruichladdich Classic Laddie",
+        "el": "Bruichladdich Classic Laddie"
+      },
+      "description": {
+        "en": "Scotland, Islay, 50%ABV",
+        "el": "Σκωτία, Islay, 50%ABV"
+      },
+      "price": 16.0,
+      "image": "bruichladdich-classic-laddie.jpg",
+      "categories": ["whisky", "scotch", "single-malt", "islay"],
+      "subcategory": "whisky",
+      "available": true
+    },
+    {
+      "id": "whiskey-040",
+      "name": {
+        "en": "Bruichladdich Port Charlotte 10 y.o. heavily peated",
+        "el": "Bruichladdich Port Charlotte 10 y.o. heavily peated"
+      },
+      "description": {
+        "en": "Scotland, Islay, 50%ABV",
+        "el": "Σκωτία, Islay, 50%ABV"
+      },
+      "price": 17.0,
+      "image": "bruichladdich-port-charlotte-10-yo-heavily-peated.jpg",
+      "categories": ["whisky", "scotch", "single-malt", "islay", "peated"],
+      "subcategory": "whisky",
+      "available": true
+    },
+    {
+      "id": "whiskey-041",
+      "name": {
+        "en": "Bunnahabhain Toiteach",
+        "el": "Bunnahabhain Toiteach"
+      },
+      "description": {
+        "en": "Scotland, Islay, 46,3%ABV",
+        "el": "Σκωτία, Islay, 46,3%ABV"
+      },
+      "price": 17.0,
+      "image": "bunnahabhain-toiteach.jpg",
+      "categories": ["whisky", "scotch", "single-malt", "islay"],
+      "subcategory": "whisky",
+      "available": true
+    },
+    {
+      "id": "whiskey-042",
+      "name": {
+        "en": "Bowmore 15 Sherry Cask 43%",
+        "el": "Bowmore 15 Sherry Cask 43%"
+      },
+      "description": {
+        "en": "Scotland, Islay, 43%ABV",
+        "el": "Σκωτία, Islay, 43%ABV"
+      },
+      "price": 19.0,
+      "image": "bowmore-15-sherry-cask-43.jpg",
+      "categories": ["whisky", "scotch", "single-malt", "islay"],
+      "subcategory": "whisky",
+      "available": true
+    },
+    {
+      "id": "whiskey-043",
+      "name": {
+        "en": "Caol ila 12 years",
+        "el": "Caol ila 12 years"
+      },
+      "description": {
+        "en": "Scotland, Islay, 43%ABV",
+        "el": "Σκωτία, Islay, 43%ABV"
+      },
+      "price": 14.0,
+      "image": "caol-ila-12-years.jpg",
+      "categories": ["whisky", "scotch", "single-malt", "islay"],
+      "subcategory": "whisky",
+      "available": true
+    },
+    {
+      "id": "whiskey-044",
+      "name": {
+        "en": "Smokehead Sherry Cask Blast",
+        "el": "Smokehead Sherry Cask Blast"
+      },
+      "description": {
+        "en": "Scotland, Islay, 48%ABV",
+        "el": "Σκωτία, Islay, 48%ABV"
+      },
+      "price": 18.0,
+      "image": "smokehead-sherry-cask-blast.jpg",
+      "categories": ["whisky", "scotch", "single-malt", "islay"],
+      "subcategory": "whisky",
+      "available": true
+    },
+    {
+      "id": "whiskey-045",
+      "name": {
+        "en": "Port Askaig 100% Proof",
+        "el": "Port Askaig 100% Proof"
+      },
+      "description": {
+        "en": "Scotland, Islay, 57,1%ABV",
+        "el": "Σκωτία, Islay, 57,1%ABV"
+      },
+      "price": 16.0,
+      "image": "port-askaig-100-proof.jpg",
+      "categories": ["whisky", "scotch", "single-malt", "islay"],
+      "subcategory": "whisky",
+      "available": true
+    },
+    {
+      "id": "whiskey-046",
+      "name": {
+        "en": "Kilchoman Machir Bay",
+        "el": "Kilchoman Machir Bay"
+      },
+      "description": {
+        "en": "Scotland, Islay, 46%ABV",
+        "el": "Σκωτία, Islay, 46%ABV"
+      },
+      "price": 14.0,
+      "image": "kilchoman-machir-bay.jpg",
+      "categories": ["whisky", "scotch", "single-malt", "islay"],
+      "subcategory": "whisky",
+      "available": true
+    },
+    {
+      "id": "whiskey-047",
+      "name": {
+        "en": "Mac-Talla Classic",
+        "el": "Mac-Talla Classic"
+      },
+      "description": {
+        "en": "Scotland, Islay, 46%ABV",
+        "el": "Σκωτία, Islay, 46%ABV"
+      },
+      "price": 15.0,
+      "image": "mac-talla-classic.jpg",
+      "categories": ["whisky", "scotch", "single-malt", "islay"],
+      "subcategory": "whisky",
+      "available": true
+    },
+    {
+      "id": "whiskey-048",
+      "name": {
+        "en": "Elements of Isla Peat Pure",
+        "el": "Elements of Isla Peat Pure"
+      },
+      "description": {
+        "en": "Scotland, Islay, 45%ABV",
+        "el": "Σκωτία, Islay, 45%ABV"
+      },
+      "price": 12.0,
+      "image": "elements-of-isla-peat-pure.jpg",
+      "categories": ["whisky", "scotch", "single-malt", "islay", "peated"],
+      "subcategory": "whisky",
+      "available": true
+    },
+    {
+      "id": "whiskey-049",
+      "name": {
+        "en": "Elements Peat Full Proof",
+        "el": "Elements Peat Full Proof"
+      },
+      "description": {
+        "en": "Scotland, Islay, 59,3%ABV",
+        "el": "Σκωτία, Islay, 59,3%ABV"
+      },
+      "price": 15.0,
+      "image": "elements-peat-full-proof.jpg",
+      "categories": ["whisky", "scotch", "single-malt", "islay", "peated"],
+      "subcategory": "whisky",
+      "available": true
+    },
+    {
+      "id": "whiskey-050",
+      "name": {
+        "en": "Elements CI 8",
+        "el": "Elements CI 8"
+      },
+      "description": {
+        "en": "Scotland, Islay, 55,2%ABV",
+        "el": "Σκωτία, Islay, 55,2%ABV"
+      },
+      "price": 22.0,
+      "image": "elements-ci-8.jpg",
+      "categories": ["whisky", "scotch", "single-malt", "islay"],
+      "subcategory": "whisky",
+      "available": true
+    },
+    {
+      "id": "whiskey-051",
+      "name": {
+        "en": "Talisker Single Malt 10 y.o.",
+        "el": "Talisker Single Malt 10 y.o."
+      },
+      "description": {
+        "en": "Scotland, Islands, 45,8%ABV",
+        "el": "Σκωτία, Islands, 45,8%ABV"
+      },
+      "price": 11.0,
+      "image": "talisker-single-malt-10-yo.jpg",
+      "categories": ["whisky", "scotch", "single-malt", "islands"],
+      "subcategory": "whisky",
+      "available": true
+    },
+    {
+      "id": "whiskey-052",
+      "name": {
+        "en": "Arran Barrel Reserve",
+        "el": "Arran Barrel Reserve"
+      },
+      "description": {
+        "en": "Scotland, Islands, 43%ABV",
+        "el": "Σκωτία, Islands, 43%ABV"
+      },
+      "price": 10.0,
+      "image": "arran-barrel-reserve.jpg",
+      "categories": ["whisky", "scotch", "single-malt", "islands"],
+      "subcategory": "whisky",
+      "available": true
+    },
+    {
+      "id": "whiskey-053",
+      "name": {
+        "en": "Arran Sherry Cask",
+        "el": "Arran Sherry Cask"
+      },
+      "description": {
+        "en": "Scotland, Islands, 55,8%ABV",
+        "el": "Σκωτία, Islands, 55,8%ABV"
+      },
+      "price": 16.0,
+      "image": "arran-sherry-cask.jpg",
+      "categories": ["whisky", "scotch", "single-malt", "islands"],
+      "subcategory": "whisky",
+      "available": true
+    },
+    {
+      "id": "whiskey-054",
+      "name": {
+        "en": "Arran Amarone Finish",
+        "el": "Arran Amarone Finish"
+      },
+      "description": {
+        "en": "Scotland, Islands, 50%ABV",
+        "el": "Σκωτία, Islands, 50%ABV"
+      },
+      "price": 15.0,
+      "image": "arran-amarone-finish.jpg",
+      "categories": ["whisky", "scotch", "single-malt", "islands"],
+      "subcategory": "whisky",
+      "available": true
+    },
+    {
+      "id": "whiskey-055",
+      "name": {
+        "en": "Arran Port Finish",
+        "el": "Arran Port Finish"
+      },
+      "description": {
+        "en": "Scotland, Islands, 50%ABV",
+        "el": "Σκωτία, Islands, 50%ABV"
+      },
+      "price": 15.0,
+      "image": "arran-port-finish.jpg",
+      "categories": ["whisky", "scotch", "single-malt", "islands"],
+      "subcategory": "whisky",
+      "available": true
+    },
+    {
+      "id": "whiskey-056",
+      "name": {
+        "en": "Torabhaig Legacy 2017",
+        "el": "Torabhaig Legacy 2017"
+      },
+      "description": {
+        "en": "Scotland, Islands, 46%ABV",
+        "el": "Σκωτία, Islands, 46%ABV"
+      },
+      "price": 15.0,
+      "image": "torabhaig-legacy-2017.jpg",
+      "categories": ["whisky", "scotch", "single-malt", "islands"],
+      "subcategory": "whisky",
+      "available": true
+    },
+    {
+      "id": "whiskey-057",
+      "name": {
+        "en": "Single Malts Of Scotland Orkney 13 years",
+        "el": "Single Malts Of Scotland Orkney 13 years"
+      },
+      "description": {
+        "en": "Scotland, Islands, 48%ABV",
+        "el": "Σκωτία, Islands, 48%ABV"
+      },
+      "price": 20.0,
+      "image": "single-malts-of-scotland-orkney-13-years.jpg",
+      "categories": ["whisky", "scotch", "single-malt", "islands"],
+      "subcategory": "whisky",
+      "available": true
+    },
+    {
+      "id": "whiskey-058",
+      "name": {
+        "en": "Jameson",
+        "el": "Jameson"
+      },
+      "description": {
+        "en": "Ireland, Irish Blend, 40%ABV",
+        "el": "Ιρλανδία, Irish Blend, 40%ABV"
       },
       "price": 8.0,
-      "image": "skinos-mastiha-spirit.jpg",
-      "categories": ["mastiha", "greek", "liqueur"],
-      "subcategory": "others",
+      "image": "jameson.jpg",
+      "categories": ["whisky", "irish", "blend"],
+      "subcategory": "whisky",
       "available": true
     },
     {
-      "id": "spirit100",
+      "id": "whiskey-059",
       "name": {
-        "en": "Ouzo",
-        "el": "Ούζο"
+        "en": "Jameson Black Barrel",
+        "el": "Jameson Black Barrel"
       },
       "description": {
-        "en": "Greece, 37.5% ABV",
-        "el": "Ελλάδα, 37.5% ABV"
+        "en": "Ireland, Irish Blend, 40%ABV",
+        "el": "Ιρλανδία, Irish Blend, 40%ABV"
       },
-      "price": 5.0,
-      "image": "ouzo.jpg",
-      "categories": ["ouzo", "greek"],
-      "subcategory": "others",
+      "price": 9.0,
+      "image": "jameson-black-barrel.jpg",
+      "categories": ["whisky", "irish", "blend"],
+      "subcategory": "whisky",
       "available": true
     },
     {
-      "id": "spirit101",
+      "id": "whiskey-060",
       "name": {
-        "en": "Rocks' n' Grapes Τsipouro",
-        "el": "Rocks' n' Grapes Τsipouro"
+        "en": "Bushmills Original",
+        "el": "Bushmills Original"
       },
       "description": {
-        "en": "Greece, 40% ABV",
-        "el": "Ελλάδα, 40% ABV"
+        "en": "Ireland, Irish Blend, 40%ABV",
+        "el": "Ιρλανδία, Irish Blend, 40%ABV"
       },
       "price": 8.0,
-      "image": "rocks-n-grapes-tsipouro.jpg",
-      "categories": ["tsipouro", "greek"],
-      "subcategory": "others",
+      "image": "bushmills-original.jpg",
+      "categories": ["whisky", "irish", "blend"],
+      "subcategory": "whisky",
       "available": true
     },
     {
-      "id": "spirit102",
+      "id": "whiskey-061",
+      "name": {
+        "en": "Tullamore Dew",
+        "el": "Tullamore Dew"
+      },
+      "description": {
+        "en": "Ireland, Irish Blend, 40%ABV",
+        "el": "Ιρλανδία, Irish Blend, 40%ABV"
+      },
+      "price": 8.0,
+      "image": "tullamore-dew.jpg",
+      "categories": ["whisky", "irish", "blend"],
+      "subcategory": "whisky",
+      "available": true
+    },
+    {
+      "id": "whiskey-062",
+      "name": {
+        "en": "Redbreast 12 years",
+        "el": "Redbreast 12 years"
+      },
+      "description": {
+        "en": "Ireland, Single Pot Still, 40%ABV",
+        "el": "Ιρλανδία, Single Pot Still, 40%ABV"
+      },
+      "price": 14.0,
+      "image": "redbreast-12-years.jpg",
+      "categories": ["whisky", "irish", "single-pot-still"],
+      "subcategory": "whisky",
+      "available": true
+    },
+    {
+      "id": "whiskey-063",
+      "name": {
+        "en": "Connemara Original Peated",
+        "el": "Connemara Original Peated"
+      },
+      "description": {
+        "en": "Ireland, Peated Malt, 40%ABV",
+        "el": "Ιρλανδία, Peated Malt, 40%ABV"
+      },
+      "price": 10.0,
+      "image": "connemara-original-peated.jpg",
+      "categories": ["whisky", "irish", "peated"],
+      "subcategory": "whisky",
+      "available": true
+    },
+    {
+      "id": "whiskey-064",
+      "name": {
+        "en": "Teeling Single Grain",
+        "el": "Teeling Single Grain"
+      },
+      "description": {
+        "en": "Ireland, Single Grain, 46%ABV",
+        "el": "Ιρλανδία, Single Grain, 46%ABV"
+      },
+      "price": 12.0,
+      "image": "teeling-single-grain.jpg",
+      "categories": ["whisky", "irish", "single-grain"],
+      "subcategory": "whisky",
+      "available": true
+    },
+    {
+      "id": "whiskey-065",
+      "name": {
+        "en": "Teeling Small Batch Whiskey",
+        "el": "Teeling Small Batch Whiskey"
+      },
+      "description": {
+        "en": "Ireland, Small Batch, 46%ABV",
+        "el": "Ιρλανδία, Small Batch, 46%ABV"
+      },
+      "price": 9.0,
+      "image": "teeling-small-batch-whiskey.jpg",
+      "categories": ["whisky", "irish", "small-batch"],
+      "subcategory": "whisky",
+      "available": true
+    },
+    {
+      "id": "whiskey-066",
+      "name": {
+        "en": "Green Spot Chateau Montelena ex-Zinfandel Casks",
+        "el": "Green Spot Chateau Montelena ex-Zinfandel Casks"
+      },
+      "description": {
+        "en": "Ireland, Single Pot Still, 46%ABV",
+        "el": "Ιρλανδία, Single Pot Still, 46%ABV"
+      },
+      "price": 16.0,
+      "image": "green-spot-chateau-montelena-ex-zinfandel-casks.jpg",
+      "categories": ["whisky", "irish", "single-pot-still"],
+      "subcategory": "whisky",
+      "available": true
+    },
+    {
+      "id": "whiskey-067",
+      "name": {
+        "en": "Green Spot Chateau Leoville Bartong",
+        "el": "Green Spot Chateau Leoville Bartong"
+      },
+      "description": {
+        "en": "Ireland, Single Pot Still, 46%ABV",
+        "el": "Ιρλανδία, Single Pot Still, 46%ABV"
+      },
+      "price": 16.0,
+      "image": "green-spot-chateau-leoville-bartong.jpg",
+      "categories": ["whisky", "irish", "single-pot-still"],
+      "subcategory": "whisky",
+      "available": true
+    },
+    {
+      "id": "whiskey-068",
+      "name": {
+        "en": "Yellow Spot 12 Year Single Pot Still",
+        "el": "Yellow Spot 12 Year Single Pot Still"
+      },
+      "description": {
+        "en": "Ireland, Single Pot Still, 46%ABV",
+        "el": "Ιρλανδία, Single Pot Still, 46%ABV"
+      },
+      "price": 19.0,
+      "image": "yellow-spot-12-year-single-pot-still.jpg",
+      "categories": ["whisky", "irish", "single-pot-still"],
+      "subcategory": "whisky",
+      "available": true
+    },
+    {
+      "id": "whiskey-069",
+      "name": {
+        "en": "Waterford Organic Gaia 1.1",
+        "el": "Waterford Organic Gaia 1.1"
+      },
+      "description": {
+        "en": "Ireland, Single Malt, 50%ABV",
+        "el": "Ιρλανδία, Single Malt, 50%ABV"
+      },
+      "price": 18.0,
+      "image": "waterford-organic-gaia-1-1.jpg",
+      "categories": ["whisky", "irish", "single-malt"],
+      "subcategory": "whisky",
+      "available": true
+    },
+    {
+      "id": "whiskey-070",
+      "name": {
+        "en": "Four Roses Bourbon",
+        "el": "Four Roses Bourbon"
+      },
+      "description": {
+        "en": "USA, Kentucky, 40%ABV",
+        "el": "ΗΠΑ, Kentucky, 40%ABV"
+      },
+      "price": 8.0,
+      "image": "four-roses-bourbon.jpg",
+      "categories": ["whisky", "american", "bourbon"],
+      "subcategory": "whisky",
+      "available": true
+    },
+    {
+      "id": "whiskey-071",
+      "name": {
+        "en": "Bulleit Bourbon",
+        "el": "Bulleit Bourbon"
+      },
+      "description": {
+        "en": "USA, Kentucky, 45%ABV",
+        "el": "ΗΠΑ, Kentucky, 45%ABV"
+      },
+      "price": 9.0,
+      "image": "bulleit-bourbon.jpg",
+      "categories": ["whisky", "american", "bourbon"],
+      "subcategory": "whisky",
+      "available": true
+    },
+    {
+      "id": "whiskey-072",
+      "name": {
+        "en": "Bulleit Rye",
+        "el": "Bulleit Rye"
+      },
+      "description": {
+        "en": "USA, Indiana, 45%ABV",
+        "el": "ΗΠΑ, Indiana, 45%ABV"
+      },
+      "price": 10.0,
+      "image": "bulleit-rye.jpg",
+      "categories": ["whisky", "american", "rye"],
+      "subcategory": "whisky",
+      "available": true
+    },
+    {
+      "id": "whiskey-073",
+      "name": {
+        "en": "Canadian Club",
+        "el": "Canadian Club"
+      },
+      "description": {
+        "en": "Canada, Blended, 40%ABV",
+        "el": "Καναδάς, Blended, 40%ABV"
+      },
+      "price": 9.0,
+      "image": "canadian-club.jpg",
+      "categories": ["whisky", "canadian", "blended"],
+      "subcategory": "whisky",
+      "available": true
+    },
+    {
+      "id": "whiskey-074",
+      "name": {
+        "en": "Jack Daniel`s",
+        "el": "Jack Daniel`s"
+      },
+      "description": {
+        "en": "USA, Tennessee, 40%ABV",
+        "el": "ΗΠΑ, Tennessee, 40%ABV"
+      },
+      "price": 9.0,
+      "image": "jack-daniels.jpg",
+      "categories": ["whisky", "american", "tennessee"],
+      "subcategory": "whisky",
+      "available": true
+    },
+    {
+      "id": "whiskey-075",
+      "name": {
+        "en": "Jack Daniel`s Single Barrel",
+        "el": "Jack Daniel`s Single Barrel"
+      },
+      "description": {
+        "en": "USA, Tennessee, 45%ABV",
+        "el": "ΗΠΑ, Tennessee, 45%ABV"
+      },
+      "price": 12.0,
+      "image": "jack-daniels-single-barrel.jpg",
+      "categories": ["whisky", "american", "tennessee"],
+      "subcategory": "whisky",
+      "available": true
+    },
+    {
+      "id": "whiskey-076",
+      "name": {
+        "en": "Eagle Rare Single Barrel Bourbon",
+        "el": "Eagle Rare Single Barrel Bourbon"
+      },
+      "description": {
+        "en": "USA, Kentucky, 45%ABV",
+        "el": "ΗΠΑ, Kentucky, 45%ABV"
+      },
+      "price": 14.0,
+      "image": "eagle-rare-single-barrel-bourbon.jpg",
+      "categories": ["whisky", "american", "bourbon"],
+      "subcategory": "whisky",
+      "available": true
+    },
+    {
+      "id": "whiskey-077",
+      "name": {
+        "en": "Few Bourbon Whisky",
+        "el": "Few Bourbon Whisky"
+      },
+      "description": {
+        "en": "USA, Illinois, 46,5%ABV",
+        "el": "ΗΠΑ, Illinois, 46,5%ABV"
+      },
+      "price": 16.0,
+      "image": "few-bourbon-whisky.jpg",
+      "categories": ["whisky", "american", "bourbon"],
+      "subcategory": "whisky",
+      "available": true
+    },
+    {
+      "id": "whiskey-078",
+      "name": {
+        "en": "Maker`s Mark Bourbon",
+        "el": "Maker`s Mark Bourbon"
+      },
+      "description": {
+        "en": "USA, Kentucky, 45%ABV",
+        "el": "ΗΠΑ, Kentucky, 45%ABV"
+      },
+      "price": 10.0,
+      "image": "makers-mark-bourbon.jpg",
+      "categories": ["whisky", "american", "bourbon"],
+      "subcategory": "whisky",
+      "available": true
+    },
+    {
+      "id": "whiskey-079",
+      "name": {
+        "en": "Michter`s Small Batch Bourbon",
+        "el": "Michter`s Small Batch Bourbon"
+      },
+      "description": {
+        "en": "USA, Kentucky, 45,7%ABV",
+        "el": "ΗΠΑ, Kentucky, 45,7%ABV"
+      },
+      "price": 18.0,
+      "image": "michters-small-batch-bourbon.jpg",
+      "categories": ["whisky", "american", "bourbon"],
+      "subcategory": "whisky",
+      "available": true
+    },
+    {
+      "id": "whiskey-080",
+      "name": {
+        "en": "Michter`s Small Batch Sour Mash",
+        "el": "Michter`s Small Batch Sour Mash"
+      },
+      "description": {
+        "en": "USA, Kentucky, 43%ABV",
+        "el": "ΗΠΑ, Kentucky, 43%ABV"
+      },
+      "price": 18.0,
+      "image": "michters-small-batch-sour-mash.jpg",
+      "categories": ["whisky", "american"],
+      "subcategory": "whisky",
+      "available": true
+    },
+    {
+      "id": "whiskey-081",
+      "name": {
+        "en": "Millstone 100 Rye",
+        "el": "Millstone 100 Rye"
+      },
+      "description": {
+        "en": "Netherlands, Rye, 50%ABV",
+        "el": "Ολλανδία, Rye, 50%ABV"
+      },
+      "price": 18.0,
+      "image": "millstone-100-rye.jpg",
+      "categories": ["whisky", "dutch", "rye"],
+      "subcategory": "whisky",
+      "available": true
+    },
+    {
+      "id": "whiskey-082",
+      "name": {
+        "en": "Sazerac Rye 6 year",
+        "el": "Sazerac Rye 6 year"
+      },
+      "description": {
+        "en": "USA, Kentucky, 45%ABV",
+        "el": "ΗΠΑ, Kentucky, 45%ABV"
+      },
+      "price": 14.0,
+      "image": "sazerac-rye-6-year.jpg",
+      "categories": ["whisky", "american", "rye"],
+      "subcategory": "whisky",
+      "available": true
+    },
+    {
+      "id": "whiskey-083",
+      "name": {
+        "en": "Koval Millet",
+        "el": "Koval Millet"
+      },
+      "description": {
+        "en": "USA, Illinois, 40%ABV",
+        "el": "ΗΠΑ, Illinois, 40%ABV"
+      },
+      "price": 16.0,
+      "image": "koval-millet.jpg",
+      "categories": ["whisky", "american"],
+      "subcategory": "whisky",
+      "available": true
+    },
+    {
+      "id": "whiskey-084",
+      "name": {
+        "en": "Nikka Coffey Malt",
+        "el": "Nikka Coffey Malt"
+      },
+      "description": {
+        "en": "Japan, Coffey Still, 45%ABV",
+        "el": "Ιαπωνία, Coffey Still, 45%ABV"
+      },
+      "price": 16.0,
+      "image": "nikka-coffey-malt.jpg",
+      "categories": ["whisky", "japanese"],
+      "subcategory": "whisky",
+      "available": true
+    },
+    {
+      "id": "whiskey-085",
+      "name": {
+        "en": "Nikka Coffey Grain",
+        "el": "Nikka Coffey Grain"
+      },
+      "description": {
+        "en": "Japan, Coffey Still, 45%ABV",
+        "el": "Ιαπωνία, Coffey Still, 45%ABV"
+      },
+      "price": 15.0,
+      "image": "nikka-coffey-grain.jpg",
+      "categories": ["whisky", "japanese"],
+      "subcategory": "whisky",
+      "available": true
+    },
+    {
+      "id": "whiskey-086",
+      "name": {
+        "en": "Nikka From The Barrel",
+        "el": "Nikka From The Barrel"
+      },
+      "description": {
+        "en": "Japan, Blended, 51,4%ABV",
+        "el": "Ιαπωνία, Blended, 51,4%ABV"
+      },
+      "price": 16.0,
+      "image": "nikka-from-the-barrel.jpg",
+      "categories": ["whisky", "japanese", "blended"],
+      "subcategory": "whisky",
+      "available": true
+    },
+    {
+      "id": "whiskey-087",
+      "name": {
+        "en": "Nikka Yoichi Single Malt",
+        "el": "Nikka Yoichi Single Malt"
+      },
+      "description": {
+        "en": "Japan, Yoichi, 45%ABV",
+        "el": "Ιαπωνία, Yoichi, 45%ABV"
+      },
+      "price": 20.0,
+      "image": "nikka-yoichi-single-malt.jpg",
+      "categories": ["whisky", "japanese", "single-malt"],
+      "subcategory": "whisky",
+      "available": true
+    },
+    {
+      "id": "whiskey-088",
+      "name": {
+        "en": "Kavalan Single Malt",
+        "el": "Kavalan Single Malt"
+      },
+      "description": {
+        "en": "Taiwan, Single Malt, 40%ABV",
+        "el": "Ταϊβάν, Single Malt, 40%ABV"
+      },
+      "price": 17.0,
+      "image": "kavalan-single-malt.jpg",
+      "categories": ["whisky", "taiwanese", "single-malt"],
+      "subcategory": "whisky",
+      "available": true
+    },
+    {
+      "id": "whiskey-089",
+      "name": {
+        "en": "Amrut Fusion",
+        "el": "Amrut Fusion"
+      },
+      "description": {
+        "en": "India, Single Malt, 50%ABV",
+        "el": "Ινδία, Single Malt, 50%ABV"
+      },
+      "price": 18.0,
+      "image": "amrut-fusion.jpg",
+      "categories": ["whisky", "indian", "single-malt"],
+      "subcategory": "whisky",
+      "available": true
+    },
+    {
+      "id": "rum-001",
       "name": {
         "en": "Havana Club 3 years",
         "el": "Havana Club 3 years"
       },
       "description": {
-        "en": "Cuba, 37.5% ABV",
-        "el": "Κούβα, 37.5% ABV"
+        "en": "Cuba, White, 37,5%ABV",
+        "el": "Κούβα, Λευκό, 37,5%ABV"
       },
       "price": 8.0,
       "image": "havana-club-3-years.jpg",
-      "categories": ["rum", "cuban"],
+      "categories": ["rum", "cuban", "white"],
       "subcategory": "rum",
       "available": true
     },
     {
-      "id": "spirit103",
+      "id": "rum-002",
       "name": {
         "en": "Havana Club 7 years",
         "el": "Havana Club 7 years"
       },
       "description": {
-        "en": "Cuba, 40% ABV",
-        "el": "Κούβα, 40% ABV"
+        "en": "Cuba, Aged, 40%ABV",
+        "el": "Κούβα, Παλαιωμένο, 40%ABV"
       },
       "price": 9.0,
       "image": "havana-club-7-years.jpg",
@@ -1649,46 +2881,46 @@
       "available": true
     },
     {
-      "id": "spirit104",
+      "id": "rum-003",
       "name": {
         "en": "Bacardi Carta Blanca",
         "el": "Bacardi Carta Blanca"
       },
       "description": {
-        "en": "Puerto Rico, 37.5% ABV",
-        "el": "Πουέρτο Ρίκο, 37.5% ABV"
+        "en": "Puerto Rico, White, 37,5%ABV",
+        "el": "Πουέρτο Ρίκο, Λευκό, 37,5%ABV"
       },
       "price": 8.0,
       "image": "bacardi-carta-blanca.jpg",
-      "categories": ["rum", "puerto-rican"],
+      "categories": ["rum", "puerto-rican", "white"],
       "subcategory": "rum",
       "available": true
     },
     {
-      "id": "spirit105",
+      "id": "rum-004",
       "name": {
         "en": "Appleton Estate Signature Blend",
         "el": "Appleton Estate Signature Blend"
       },
       "description": {
-        "en": "Jamaica, 40% ABV",
-        "el": "Τζαμάικα, 40% ABV"
+        "en": "Jamaica, Blend, 40%ABV",
+        "el": "Τζαμάικα, Blend, 40%ABV"
       },
       "price": 9.0,
       "image": "appleton-estate-signature-blend.jpg",
-      "categories": ["rum", "jamaican"],
+      "categories": ["rum", "jamaican", "blend"],
       "subcategory": "rum",
       "available": true
     },
     {
-      "id": "spirit106",
+      "id": "rum-005",
       "name": {
         "en": "Canerock Spiced",
         "el": "Canerock Spiced"
       },
       "description": {
-        "en": "Jamaica, 40% ABV",
-        "el": "Τζαμάικα, 40% ABV"
+        "en": "Jamaica, Spiced, 40%ABV",
+        "el": "Τζαμάικα, Spiced, 40%ABV"
       },
       "price": 10.0,
       "image": "canerock-spiced.jpg",
@@ -1697,30 +2929,30 @@
       "available": true
     },
     {
-      "id": "spirit107",
+      "id": "rum-006",
       "name": {
         "en": "Compagnie Des Indes Blend Jamaica",
         "el": "Compagnie Des Indes Blend Jamaica"
       },
       "description": {
-        "en": "Jamaica, 43% ABV",
-        "el": "Τζαμάικα, 43% ABV"
+        "en": "Jamaica, Blend, 43%ABV",
+        "el": "Τζαμάικα, Blend, 43%ABV"
       },
       "price": 11.0,
       "image": "compagnie-des-indes-blend-jamaica.jpg",
-      "categories": ["rum", "jamaican"],
+      "categories": ["rum", "jamaican", "blend"],
       "subcategory": "rum",
       "available": true
     },
     {
-      "id": "spirit108",
+      "id": "rum-007",
       "name": {
         "en": "Rum Bar Overproof",
         "el": "Rum Bar Overproof"
       },
       "description": {
-        "en": "Jamaica, 63% ABV",
-        "el": "Τζαμάικα, 63% ABV"
+        "en": "Jamaica, Overproof, 63%ABV",
+        "el": "Τζαμάικα, Overproof, 63%ABV"
       },
       "price": 8.0,
       "image": "rum-bar-overproof.jpg",
@@ -1729,30 +2961,30 @@
       "available": true
     },
     {
-      "id": "spirit109",
+      "id": "rum-008",
       "name": {
         "en": "Worthy Park Reserve",
         "el": "Worthy Park Reserve"
       },
       "description": {
-        "en": "Jamaica, 45% ABV",
-        "el": "Τζαμάικα, 45% ABV"
+        "en": "Jamaica, Aged, 45%ABV",
+        "el": "Τζαμάικα, Παλαιωμένο, 45%ABV"
       },
       "price": 14.0,
       "image": "worthy-park-reserve.jpg",
-      "categories": ["rum", "jamaican"],
+      "categories": ["rum", "jamaican", "aged"],
       "subcategory": "rum",
       "available": true
     },
     {
-      "id": "spirit110",
+      "id": "rum-009",
       "name": {
         "en": "Coruba Cigar 12 y.o.",
         "el": "Coruba Cigar 12 y.o."
       },
       "description": {
-        "en": "Jamaica, 40% ABV",
-        "el": "Τζαμάικα, 40% ABV"
+        "en": "Jamaica, 12 years, 40%ABV",
+        "el": "Τζαμάικα, 12 ετών, 40%ABV"
       },
       "price": 13.0,
       "image": "coruba-cigar-12-yo.jpg",
@@ -1761,14 +2993,14 @@
       "available": true
     },
     {
-      "id": "spirit111",
+      "id": "rum-010",
       "name": {
         "en": "Hampden Estate 8 Year",
         "el": "Hampden Estate 8 Year"
       },
       "description": {
-        "en": "Jamaica, 46% ABV",
-        "el": "Τζαμάικα, 46% ABV"
+        "en": "Jamaica, 8 years, 46%ABV",
+        "el": "Τζαμάικα, 8 ετών, 46%ABV"
       },
       "price": 19.0,
       "image": "hampden-estate-8-year.jpg",
@@ -1777,78 +3009,78 @@
       "available": true
     },
     {
-      "id": "spirit112",
+      "id": "rum-011",
       "name": {
         "en": "Habitation Velier Long Pond Stc@e White",
         "el": "Habitation Velier Long Pond Stc@e White"
       },
       "description": {
-        "en": "Jamaica, 62.5% ABV",
-        "el": "Τζαμάικα, 62.5% ABV"
+        "en": "Jamaica, White, 62,5%ABV",
+        "el": "Τζαμάικα, Λευκό, 62,5%ABV"
       },
       "price": 16.0,
       "image": "habitation-velier-long-pond-stce-white.jpg",
-      "categories": ["rum", "jamaican"],
+      "categories": ["rum", "jamaican", "white"],
       "subcategory": "rum",
       "available": true
     },
     {
-      "id": "spirit113",
+      "id": "rum-012",
       "name": {
         "en": "Habitation Velier LROK White",
         "el": "Habitation Velier LROK White"
       },
       "description": {
-        "en": "Jamaica, 62.5% ABV",
-        "el": "Τζαμάικα, 62.5% ABV"
+        "en": "Jamaica, White, 62,5%ABV",
+        "el": "Τζαμάικα, Λευκό, 62,5%ABV"
       },
       "price": 16.0,
       "image": "habitation-velier-lrok-white.jpg",
-      "categories": ["rum", "jamaican"],
+      "categories": ["rum", "jamaican", "white"],
       "subcategory": "rum",
       "available": true
     },
     {
-      "id": "spirit114",
+      "id": "rum-013",
       "name": {
         "en": "Habitation Velier 2011 LFCH",
         "el": "Habitation Velier 2011 LFCH"
       },
       "description": {
-        "en": "Jamaica, 60.5% ABV",
-        "el": "Τζαμάικα, 60.5% ABV"
+        "en": "Jamaica, 2011, 60,5%ABV",
+        "el": "Τζαμάικα, 2011, 60,5%ABV"
       },
       "price": 25.0,
       "image": "habitation-velier-2011-lfch.jpg",
-      "categories": ["rum", "jamaican"],
+      "categories": ["rum", "jamaican", "vintage"],
       "subcategory": "rum",
       "available": true
     },
     {
-      "id": "spirit115",
+      "id": "rum-014",
       "name": {
         "en": "Habitation Velier Worthy Park 2007",
         "el": "Habitation Velier Worthy Park 2007"
       },
       "description": {
-        "en": "Jamaica, 59% ABV",
-        "el": "Τζαμάικα, 59% ABV"
+        "en": "Jamaica, 2007, 59%ABV",
+        "el": "Τζαμάικα, 2007, 59%ABV"
       },
       "price": 32.0,
       "image": "habitation-velier-worthy-park-2007.jpg",
-      "categories": ["rum", "jamaican"],
+      "categories": ["rum", "jamaican", "vintage"],
       "subcategory": "rum",
       "available": true
     },
     {
-      "id": "spirit116",
+      "id": "rum-015",
       "name": {
         "en": "Doorly`s 5 years",
         "el": "Doorly`s 5 years"
       },
       "description": {
-        "en": "Barbados, 40% ABV",
-        "el": "Μπαρμπάντος, 40% ABV"
+        "en": "Barbados, 5 years, 40%ABV",
+        "el": "Μπαρμπέιντος, 5 ετών, 40%ABV"
       },
       "price": 9.0,
       "image": "doorlys-5-years.jpg",
@@ -1857,14 +3089,14 @@
       "available": true
     },
     {
-      "id": "spirit117",
+      "id": "rum-016",
       "name": {
         "en": "Doorly`s X.O.",
         "el": "Doorly`s X.O."
       },
       "description": {
-        "en": "Barbados, 40% ABV",
-        "el": "Μπαρμπάντος, 40% ABV"
+        "en": "Barbados, X.O., 40%ABV",
+        "el": "Μπαρμπέιντος, X.O., 40%ABV"
       },
       "price": 11.0,
       "image": "doorlys-xo.jpg",
@@ -1873,14 +3105,14 @@
       "available": true
     },
     {
-      "id": "spirit118",
+      "id": "rum-017",
       "name": {
         "en": "Mount Gay X.O.",
         "el": "Mount Gay X.O."
       },
       "description": {
-        "en": "Barbados, 43% ABV",
-        "el": "Μπαρμπάντος, 43% ABV"
+        "en": "Barbados, X.O., 43%ABV",
+        "el": "Μπαρμπέιντος, X.O., 43%ABV"
       },
       "price": 14.0,
       "image": "mount-gay-xo.jpg",
@@ -1889,30 +3121,30 @@
       "available": true
     },
     {
-      "id": "spirit119",
+      "id": "rum-018",
       "name": {
         "en": "R.L. Seale`s",
         "el": "R.L. Seale`s"
       },
       "description": {
-        "en": "Barbados, 46% ABV",
-        "el": "Μπαρμπάντος, 46% ABV"
+        "en": "Barbados, Blend, 46%ABV",
+        "el": "Μπαρμπέιντος, Blend, 46%ABV"
       },
       "price": 13.0,
       "image": "rl-seales.jpg",
-      "categories": ["rum", "barbados"],
+      "categories": ["rum", "barbados", "blend"],
       "subcategory": "rum",
       "available": true
     },
     {
-      "id": "spirit120",
+      "id": "rum-019",
       "name": {
         "en": "The Real McCoy Limited Edition 10 y.o.",
         "el": "The Real McCoy Limited Edition 10 y.o."
       },
       "description": {
-        "en": "Barbados, 46% ABV",
-        "el": "Μπαρμπάντος, 46% ABV"
+        "en": "Barbados, 10 years, 46%ABV",
+        "el": "Μπαρμπέιντος, 10 ετών, 46%ABV"
       },
       "price": 21.0,
       "image": "the-real-mccoy-limited-edition-10-yo.jpg",
@@ -1921,14 +3153,14 @@
       "available": true
     },
     {
-      "id": "spirit121",
+      "id": "rum-020",
       "name": {
         "en": "English Harbour 5 y.o.",
         "el": "English Harbour 5 y.o."
       },
       "description": {
-        "en": "Antigua & Barbuda, 40% ABV",
-        "el": "Αντίγκουα & Μπαρμπούντα, 40% ABV"
+        "en": "Antigua, 5 years, 40%ABV",
+        "el": "Αντίγκουα, 5 ετών, 40%ABV"
       },
       "price": 9.0,
       "image": "english-harbour-5-yo.jpg",
@@ -1937,14 +3169,14 @@
       "available": true
     },
     {
-      "id": "spirit122",
+      "id": "rum-021",
       "name": {
         "en": "Chairman`s Reserve Spiced",
         "el": "Chairman`s Reserve Spiced"
       },
       "description": {
-        "en": "St. Lucia, 40% ABV",
-        "el": "Αγία Λουκία, 40% ABV"
+        "en": "St. Lucia, Spiced, 40%ABV",
+        "el": "Αγία Λουκία, Spiced, 40%ABV"
       },
       "price": 9.0,
       "image": "chairmans-reserve-spiced.jpg",
@@ -1953,30 +3185,30 @@
       "available": true
     },
     {
-      "id": "spirit123",
+      "id": "rum-022",
       "name": {
         "en": "Admiral Rodney HMS Princessa",
         "el": "Admiral Rodney HMS Princessa"
       },
       "description": {
-        "en": "St. Lucia, 40% ABV",
-        "el": "Αγία Λουκία, 40% ABV"
+        "en": "St. Lucia, Premium, 40%ABV",
+        "el": "Αγία Λουκία, Premium, 40%ABV"
       },
       "price": 12.0,
       "image": "admiral-rodney-hms-princessa.jpg",
-      "categories": ["rum", "st-lucia"],
+      "categories": ["rum", "st-lucia", "premium"],
       "subcategory": "rum",
       "available": true
     },
     {
-      "id": "spirit124",
+      "id": "rum-023",
       "name": {
         "en": "Black Tot Rum Blend",
         "el": "Black Tot Rum Blend"
       },
       "description": {
-        "en": "Caribbean Blend, 46.2% ABV",
-        "el": "Καραϊβική Blend, 46.2% ABV"
+        "en": "Caribbean, Blend, 46,2%ABV",
+        "el": "Καραϊβική, Blend, 46,2%ABV"
       },
       "price": 12.0,
       "image": "black-tot-rum-blend.jpg",
@@ -1985,14 +3217,14 @@
       "available": true
     },
     {
-      "id": "spirit125",
+      "id": "rum-024",
       "name": {
         "en": "Sailor Jerry Spiced",
         "el": "Sailor Jerry Spiced"
       },
       "description": {
-        "en": "Virgin Islands, 40% ABV",
-        "el": "Παρθένοι Νήσοι, 40% ABV"
+        "en": "Virgin Islands, Spiced, 40%ABV",
+        "el": "Παρθένοι Νήσοι, Spiced, 40%ABV"
       },
       "price": 8.0,
       "image": "sailor-jerry-spiced.jpg",
@@ -2001,14 +3233,14 @@
       "available": true
     },
     {
-      "id": "spirit126",
+      "id": "rum-025",
       "name": {
         "en": "Pusser`s Gunpowder Proof",
         "el": "Pusser`s Gunpowder Proof"
       },
       "description": {
-        "en": "Virgin Islands, 54.5% ABV",
-        "el": "Παρθένοι Νήσοι, 54.5% ABV"
+        "en": "Virgin Islands, Overproof, 54,5%ABV",
+        "el": "Παρθένοι Νήσοι, Overproof, 54,5%ABV"
       },
       "price": 10.0,
       "image": "pussers-gunpowder-proof.jpg",
@@ -2017,14 +3249,14 @@
       "available": true
     },
     {
-      "id": "spirit127",
+      "id": "rum-026",
       "name": {
         "en": "El Dorado 12 years",
         "el": "El Dorado 12 years"
       },
       "description": {
-        "en": "Guyana, 40% ABV",
-        "el": "Γουιάνα, 40% ABV"
+        "en": "Guyana, 12 years, 40%ABV",
+        "el": "Γουιάνα, 12 ετών, 40%ABV"
       },
       "price": 12.0,
       "image": "el-dorado-12-years.jpg",
@@ -2033,62 +3265,62 @@
       "available": true
     },
     {
-      "id": "spirit128",
+      "id": "rum-027",
       "name": {
         "en": "Diplomatico Reserva Exclusiva",
         "el": "Diplomatico Reserva Exclusiva"
       },
       "description": {
-        "en": "Venezuela, 40% ABV",
-        "el": "Βενεζουέλα, 40% ABV"
+        "en": "Venezuela, Premium, 40%ABV",
+        "el": "Βενεζουέλα, Premium, 40%ABV"
       },
       "price": 11.0,
       "image": "diplomatico-reserva-exclusiva.jpg",
-      "categories": ["rum", "venezuela"],
+      "categories": ["rum", "venezuela", "premium"],
       "subcategory": "rum",
       "available": true
     },
     {
-      "id": "spirit129",
+      "id": "rum-028",
       "name": {
         "en": "Santa Teresa 1796 Antiguo de Solera",
         "el": "Santa Teresa 1796 Antiguo de Solera"
       },
       "description": {
-        "en": "Venezuela, 40% ABV",
-        "el": "Βενεζουέλα, 40% ABV"
+        "en": "Venezuela, Solera, 40%ABV",
+        "el": "Βενεζουέλα, Solera, 40%ABV"
       },
       "price": 14.0,
       "image": "santa-teresa-1796-antiguo-de-solera.jpg",
-      "categories": ["rum", "venezuela", "aged"],
+      "categories": ["rum", "venezuela", "solera"],
       "subcategory": "rum",
       "available": true
     },
     {
-      "id": "spirit130",
+      "id": "rum-029",
       "name": {
         "en": "La Maison Du Rhum Colombia",
         "el": "La Maison Du Rhum Colombia"
       },
       "description": {
-        "en": "Colombia, 46% ABV",
-        "el": "Κολομβία, 46% ABV"
+        "en": "Colombia, Premium, 46%ABV",
+        "el": "Κολομβία, Premium, 46%ABV"
       },
       "price": 16.0,
       "image": "la-maison-du-rhum-colombia.jpg",
-      "categories": ["rum", "colombia"],
+      "categories": ["rum", "colombia", "premium"],
       "subcategory": "rum",
       "available": true
     },
     {
-      "id": "spirit131",
+      "id": "rum-030",
       "name": {
         "en": "Zacapa 23 years",
         "el": "Zacapa 23 years"
       },
       "description": {
-        "en": "Guatemala, 40% ABV",
-        "el": "Γουατεμάλα, 40% ABV"
+        "en": "Guatemala, 23 years, 40%ABV",
+        "el": "Γουατεμάλα, 23 ετών, 40%ABV"
       },
       "price": 16.0,
       "image": "zacapa-23-years.jpg",
@@ -2097,14 +3329,14 @@
       "available": true
     },
     {
-      "id": "spirit132",
+      "id": "rum-031",
       "name": {
         "en": "Flor De Cana 12 years",
         "el": "Flor De Cana 12 years"
       },
       "description": {
-        "en": "Nicaragua, 40% ABV",
-        "el": "Νικαράγουα, 40% ABV"
+        "en": "Nicaragua, 12 years, 40%ABV",
+        "el": "Νικαράγουα, 12 ετών, 40%ABV"
       },
       "price": 11.0,
       "image": "flor-de-cana-12-years.jpg",
@@ -2113,14 +3345,14 @@
       "available": true
     },
     {
-      "id": "spirit133",
+      "id": "rum-032",
       "name": {
         "en": "Abuelo 12 years",
         "el": "Abuelo 12 years"
       },
       "description": {
-        "en": "Panama, 40% ABV",
-        "el": "Παναμάς, 40% ABV"
+        "en": "Panama, 12 years, 40%ABV",
+        "el": "Παναμάς, 12 ετών, 40%ABV"
       },
       "price": 10.0,
       "image": "abuelo-12-years.jpg",
@@ -2129,46 +3361,46 @@
       "available": true
     },
     {
-      "id": "spirit134",
+      "id": "rum-033",
       "name": {
         "en": "Transcontinental Panamas 2011",
         "el": "Transcontinental Panamas 2011"
       },
       "description": {
-        "en": "Panama, 43% ABV",
-        "el": "Παναμάς, 43% ABV"
+        "en": "Panama, 2011, 43%ABV",
+        "el": "Παναμάς, 2011, 43%ABV"
       },
       "price": 16.0,
       "image": "transcontinental-panamas-2011.jpg",
-      "categories": ["rum", "panama"],
+      "categories": ["rum", "panama", "vintage"],
       "subcategory": "rum",
       "available": true
     },
     {
-      "id": "spirit135",
+      "id": "rum-034",
       "name": {
         "en": "La Maison Du Rhum Panama",
         "el": "La Maison Du Rhum Panama"
       },
       "description": {
-        "en": "Panama, 48% ABV",
-        "el": "Παναμάς, 48% ABV"
+        "en": "Panama, Premium, 48%ABV",
+        "el": "Παναμάς, Premium, 48%ABV"
       },
       "price": 16.0,
       "image": "la-maison-du-rhum-panama.jpg",
-      "categories": ["rum", "panama"],
+      "categories": ["rum", "panama", "premium"],
       "subcategory": "rum",
       "available": true
     },
     {
-      "id": "spirit136",
+      "id": "rum-035",
       "name": {
         "en": "Angostura Tamboo Spiced",
         "el": "Angostura Tamboo Spiced"
       },
       "description": {
-        "en": "Trinidad and Tobago, 40% ABV",
-        "el": "Τρινιντάντ και Τομπάγκο, 40% ABV"
+        "en": "Trinidad & Tobago, Spiced, 40%ABV",
+        "el": "Τρινιδάδ & Τομπάγκο, Spiced, 40%ABV"
       },
       "price": 9.0,
       "image": "angostura-tamboo-spiced.jpg",
@@ -2177,94 +3409,94 @@
       "available": true
     },
     {
-      "id": "spirit137",
+      "id": "rum-036",
       "name": {
         "en": "Angostura 1919",
         "el": "Angostura 1919"
       },
       "description": {
-        "en": "Trinidad and Tobago, 40% ABV",
-        "el": "Τρινιντάντ και Τομπάγκο, 40% ABV"
+        "en": "Trinidad & Tobago, Premium, 40%ABV",
+        "el": "Τρινιδάδ & Τομπάγκο, Premium, 40%ABV"
       },
       "price": 13.0,
       "image": "angostura-1919.jpg",
-      "categories": ["rum", "trinidad"],
+      "categories": ["rum", "trinidad", "premium"],
       "subcategory": "rum",
       "available": true
     },
     {
-      "id": "spirit138",
+      "id": "rum-037",
       "name": {
         "en": "Ron Barcelo Imperial",
         "el": "Ron Barcelo Imperial"
       },
       "description": {
-        "en": "Dominican Republic, 38% ABV",
-        "el": "Δομινικανή Δημοκρατία, 38% ABV"
+        "en": "Dominican Republic, Premium, 38%ABV",
+        "el": "Δομινικανή Δημοκρατία, Premium, 38%ABV"
       },
       "price": 10.0,
       "image": "ron-barcelo-imperial.jpg",
-      "categories": ["rum", "dominican"],
+      "categories": ["rum", "dominican", "premium"],
       "subcategory": "rum",
       "available": true
     },
     {
-      "id": "spirit139",
+      "id": "rum-038",
       "name": {
         "en": "Clement Blanc",
         "el": "Clement Blanc"
       },
       "description": {
-        "en": "Martinique, 40% ABV",
-        "el": "Μαρτινίκα, 40% ABV"
+        "en": "Martinique, White, 40%ABV",
+        "el": "Μαρτινίκα, Λευκό, 40%ABV"
       },
       "price": 8.0,
       "image": "clement-blanc.jpg",
-      "categories": ["rum", "martinique", "agricole"],
+      "categories": ["rum", "martinique", "white", "agricole"],
       "subcategory": "rum",
       "available": true
     },
     {
-      "id": "spirit140",
+      "id": "rum-039",
       "name": {
         "en": "Clairin Vaval",
         "el": "Clairin Vaval"
       },
       "description": {
-        "en": "Haiti, 46% ABV",
-        "el": "Αϊτή, 46% ABV"
+        "en": "Haiti, Traditional, 46%ABV",
+        "el": "Αϊτή, Traditional, 46%ABV"
       },
       "price": 11.0,
       "image": "clairin-vaval.jpg",
-      "categories": ["rum", "haiti"],
+      "categories": ["rum", "haiti", "traditional"],
       "subcategory": "rum",
       "available": true
     },
     {
-      "id": "spirit141",
+      "id": "rum-040",
       "name": {
         "en": "Veritas",
         "el": "Veritas"
       },
       "description": {
-        "en": "Haiti, 47% ABV",
-        "el": "Αϊτή, 47% ABV"
+        "en": "Haiti, Blend, 47%ABV",
+        "el": "Αϊτή, Blend, 47%ABV"
       },
       "price": 9.0,
       "image": "veritas.jpg",
-      "categories": ["rum", "haiti"],
+      "categories": ["rum", "haiti", "blend"],
       "subcategory": "rum",
       "available": true
     },
     {
-      "id": "spirit142",
+      "id": "gin-001",
       "name": {
         "en": "Beefeater London Dry",
         "el": "Beefeater London Dry"
       },
       "description": {
-        "en": "England, 40% ABV",
-        "el": "Αγγλία, 40% ABV"
+        "en": "England, London Dry, 40%ABV",
+        "el": "Αγγλία, London Dry, 40%ABV"
       },
       "price": 8.0,
       "image": "beefeater-london-dry.jpg",
@@ -2273,30 +3505,30 @@
       "available": true
     },
     {
-      "id": "spirit143",
+      "id": "gin-002",
       "name": {
         "en": "Bombay Sapphire",
         "el": "Bombay Sapphire"
       },
       "description": {
-        "en": "England, 40% ABV",
-        "el": "Αγγλία, 40% ABV"
+        "en": "England, London Dry, 40%ABV",
+        "el": "Αγγλία, London Dry, 40%ABV"
       },
       "price": 9.0,
       "image": "bombay-sapphire.jpg",
-      "categories": ["gin", "english"],
+      "categories": ["gin", "english", "london-dry"],
       "subcategory": "gin",
       "available": true
     },
     {
-      "id": "spirit144",
+      "id": "gin-003",
       "name": {
         "en": "Oxley Cold Distilled Dry",
         "el": "Oxley Cold Distilled Dry"
       },
       "description": {
-        "en": "England, 47% ABV",
-        "el": "Αγγλία, 47% ABV"
+        "en": "England, Cold Distilled, 47%ABV",
+        "el": "Αγγλία, Cold Distilled, 47%ABV"
       },
       "price": 11.0,
       "image": "oxley-cold-distilled-dry.jpg",
@@ -2305,14 +3537,14 @@
       "available": true
     },
     {
-      "id": "spirit145",
+      "id": "gin-004",
       "name": {
         "en": "Hayman`s Old Tom",
         "el": "Hayman`s Old Tom"
       },
       "description": {
-        "en": "England, 41.4% ABV",
-        "el": "Αγγλία, 41.4% ABV"
+        "en": "England, Old Tom, 41,4%ABV",
+        "el": "Αγγλία, Old Tom, 41,4%ABV"
       },
       "price": 10.0,
       "image": "haymans-old-tom.jpg",
@@ -2321,14 +3553,14 @@
       "available": true
     },
     {
-      "id": "spirit146",
+      "id": "gin-005",
       "name": {
         "en": "Hayman`s Royal Dock",
         "el": "Hayman`s Royal Dock"
       },
       "description": {
-        "en": "England, 57% ABV",
-        "el": "Αγγλία, 57% ABV"
+        "en": "England, Navy Strength, 57%ABV",
+        "el": "Αγγλία, Navy Strength, 57%ABV"
       },
       "price": 10.0,
       "image": "haymans-royal-dock.jpg",
@@ -2337,14 +3569,14 @@
       "available": true
     },
     {
-      "id": "spirit147",
+      "id": "gin-006",
       "name": {
         "en": "Opihr Oriental Spiced",
         "el": "Opihr Oriental Spiced"
       },
       "description": {
-        "en": "England, 42.5% ABV",
-        "el": "Αγγλία, 42.5% ABV"
+        "en": "England, Spiced, 42,5%ABV",
+        "el": "Αγγλία, Spiced, 42,5%ABV"
       },
       "price": 9.0,
       "image": "opihr-oriental-spiced.jpg",
@@ -2353,46 +3585,46 @@
       "available": true
     },
     {
-      "id": "spirit148",
+      "id": "gin-007",
       "name": {
         "en": "Plymouth",
         "el": "Plymouth"
       },
       "description": {
-        "en": "England, 41.2% ABV",
-        "el": "Αγγλία, 41.2% ABV"
+        "en": "England, Plymouth, 41,2%ABV",
+        "el": "Αγγλία, Plymouth, 41,2%ABV"
       },
       "price": 10.0,
       "image": "plymouth.jpg",
-      "categories": ["gin", "english"],
+      "categories": ["gin", "english", "plymouth"],
       "subcategory": "gin",
       "available": true
     },
     {
-      "id": "spirit149",
+      "id": "gin-008",
       "name": {
         "en": "Silent Pool Gin",
         "el": "Silent Pool Gin"
       },
       "description": {
-        "en": "England, 43% ABV",
-        "el": "Αγγλία, 43% ABV"
+        "en": "England, Premium, 43%ABV",
+        "el": "Αγγλία, Premium, 43%ABV"
       },
       "price": 12.0,
       "image": "silent-pool-gin.jpg",
-      "categories": ["gin", "english"],
+      "categories": ["gin", "english", "premium"],
       "subcategory": "gin",
       "available": true
     },
     {
-      "id": "spirit150",
+      "id": "gin-009",
       "name": {
         "en": "Sipsmith London Dry Gin",
         "el": "Sipsmith London Dry Gin"
       },
       "description": {
-        "en": "England, 41.6% ABV",
-        "el": "Αγγλία, 41.6% ABV"
+        "en": "England, London Dry, 41,6%ABV",
+        "el": "Αγγλία, London Dry, 41,6%ABV"
       },
       "price": 11.0,
       "image": "sipsmith-london-dry-gin.jpg",
@@ -2401,14 +3633,14 @@
       "available": true
     },
     {
-      "id": "spirit151",
+      "id": "gin-010",
       "name": {
         "en": "Tanqueray London Dry",
         "el": "Tanqueray London Dry"
       },
       "description": {
-        "en": "Scotland, 43.1% ABV",
-        "el": "Σκωτία, 43.1% ABV"
+        "en": "Scotland, London Dry, 43,1%ABV",
+        "el": "Σκωτία, London Dry, 43,1%ABV"
       },
       "price": 9.0,
       "image": "tanqueray-london-dry.jpg",
@@ -2417,62 +3649,62 @@
       "available": true
     },
     {
-      "id": "spirit152",
+      "id": "gin-011",
       "name": {
         "en": "Hendrick`s",
         "el": "Hendrick`s"
       },
       "description": {
-        "en": "Scotland, 41.4% ABV",
-        "el": "Σκωτία, 41.4% ABV"
+        "en": "Scotland, Contemporary, 41,4%ABV",
+        "el": "Σκωτία, Contemporary, 41,4%ABV"
       },
       "price": 10.0,
       "image": "hendricks.jpg",
-      "categories": ["gin", "scottish"],
+      "categories": ["gin", "scottish", "contemporary"],
       "subcategory": "gin",
       "available": true
     },
     {
-      "id": "spirit153",
+      "id": "gin-012",
       "name": {
         "en": "The Botanist",
         "el": "The Botanist"
       },
       "description": {
-        "en": "Scotland, 46% ABV",
-        "el": "Σκωτία, 46% ABV"
+        "en": "Scotland, Islay Dry, 46%ABV",
+        "el": "Σκωτία, Islay Dry, 46%ABV"
       },
       "price": 11.0,
       "image": "the-botanist.jpg",
-      "categories": ["gin", "scottish"],
+      "categories": ["gin", "scottish", "islay"],
       "subcategory": "gin",
       "available": true
     },
     {
-      "id": "spirit154",
+      "id": "gin-013",
       "name": {
         "en": "Lind & Lime Gin",
         "el": "Lind & Lime Gin"
       },
       "description": {
-        "en": "Scotland, 44% ABV",
-        "el": "Σκωτία, 44% ABV"
+        "en": "Scotland, Dry, 44%ABV",
+        "el": "Σκωτία, Dry, 44%ABV"
       },
       "price": 13.0,
       "image": "lind-lime-gin.jpg",
-      "categories": ["gin", "scottish"],
+      "categories": ["gin", "scottish", "dry"],
       "subcategory": "gin",
       "available": true
     },
     {
-      "id": "spirit155",
+      "id": "gin-014",
       "name": {
         "en": "Jinzu Premium Gin",
         "el": "Jinzu Premium Gin"
       },
       "description": {
-        "en": "Scotland, 41.3% ABV",
-        "el": "Σκωτία, 41.3% ABV"
+        "en": "Scotland, Premium, 41,3%ABV",
+        "el": "Σκωτία, Premium, 41,3%ABV"
       },
       "price": 12.0,
       "image": "jinzu-premium-gin.jpg",
@@ -2481,62 +3713,62 @@
       "available": true
     },
     {
-      "id": "spirit156",
+      "id": "gin-015",
       "name": {
         "en": "Gunpowder Gin",
         "el": "Gunpowder Gin"
       },
       "description": {
-        "en": "Ireland, 43% ABV",
-        "el": "Ιρλανδία, 43% ABV"
+        "en": "Ireland, Contemporary, 43%ABV",
+        "el": "Ιρλανδία, Contemporary, 43%ABV"
       },
       "price": 14.0,
       "image": "gunpowder-gin.jpg",
-      "categories": ["gin", "irish"],
+      "categories": ["gin", "irish", "contemporary"],
       "subcategory": "gin",
       "available": true
     },
     {
-      "id": "spirit157",
+      "id": "gin-016",
       "name": {
         "en": "Dingle Pot Still",
         "el": "Dingle Pot Still"
       },
       "description": {
-        "en": "Ireland, 42% ABV",
-        "el": "Ιρλανδία, 42% ABV"
+        "en": "Ireland, Pot Still, 42%ABV",
+        "el": "Ιρλανδία, Pot Still, 42%ABV"
       },
       "price": 10.0,
       "image": "dingle-pot-still.jpg",
-      "categories": ["gin", "irish"],
+      "categories": ["gin", "irish", "pot-still"],
       "subcategory": "gin",
       "available": true
     },
     {
-      "id": "spirit158",
+      "id": "gin-017",
       "name": {
         "en": "Boatyard Double",
         "el": "Boatyard Double"
       },
       "description": {
-        "en": "Ireland, 46.0% ABV",
-        "el": "Ιρλανδία, 46.0% ABV"
+        "en": "Ireland, Double Infused, 46,0%ABV",
+        "el": "Ιρλανδία, Double Infused, 46,0%ABV"
       },
       "price": 10.0,
       "image": "boatyard-double.jpg",
-      "categories": ["gin", "irish"],
+      "categories": ["gin", "irish", "double-infused"],
       "subcategory": "gin",
       "available": true
     },
     {
-      "id": "spirit159",
+      "id": "gin-018",
       "name": {
         "en": "Citadelle Dry",
         "el": "Citadelle Dry"
       },
       "description": {
-        "en": "France, 44% ABV",
-        "el": "Γαλλία, 44% ABV"
+        "en": "France, Dry, 44%ABV",
+        "el": "Γαλλία, Dry, 44%ABV"
       },
       "price": 9.0,
       "image": "citadelle-dry.jpg",
@@ -2545,14 +3777,14 @@
       "available": true
     },
     {
-      "id": "spirit160",
+      "id": "gin-019",
       "name": {
         "en": "Citadelle No Mistake Old Tom",
         "el": "Citadelle No Mistake Old Tom"
       },
       "description": {
-        "en": "France, 46% ABV",
-        "el": "Γαλλία, 46% ABV"
+        "en": "France, Old Tom, 46%ABV",
+        "el": "Γαλλία, Old Tom, 46%ABV"
       },
       "price": 13.0,
       "image": "citadelle-no-mistake-old-tom.jpg",
@@ -2561,46 +3793,46 @@
       "available": true
     },
     {
-      "id": "spirit161",
+      "id": "gin-020",
       "name": {
         "en": "Citadelle Reserve",
         "el": "Citadelle Reserve"
       },
       "description": {
-        "en": "France, 45.2% ABV",
-        "el": "Γαλλία, 45.2% ABV"
+        "en": "France, Barrel Aged, 45,2%ABV",
+        "el": "Γαλλία, Barrel Aged, 45,2%ABV"
       },
       "price": 10.0,
       "image": "citadelle-reserve.jpg",
-      "categories": ["gin", "french", "aged"],
+      "categories": ["gin", "french", "barrel-aged"],
       "subcategory": "gin",
       "available": true
     },
     {
-      "id": "spirit162",
+      "id": "gin-021",
       "name": {
         "en": "G`Vine Floraison",
         "el": "G`Vine Floraison"
       },
       "description": {
-        "en": "France, 40% ABV",
-        "el": "Γαλλία, 40% ABV"
+        "en": "France, Grape Based, 40%ABV",
+        "el": "Γαλλία, Grape Based, 40%ABV"
       },
       "price": 11.0,
       "image": "gvine-floraison.jpg",
-      "categories": ["gin", "french"],
+      "categories": ["gin", "french", "grape-based"],
       "subcategory": "gin",
       "available": true
     },
     {
-      "id": "spirit163",
+      "id": "gin-022",
       "name": {
         "en": "Monkey 47 Dry",
         "el": "Monkey 47 Dry"
       },
       "description": {
-        "en": "Germany, 47% ABV",
-        "el": "Γερμανία, 47% ABV"
+        "en": "Germany, Dry, 47%ABV",
+        "el": "Γερμανία, Dry, 47%ABV"
       },
       "price": 16.0,
       "image": "monkey-47-dry.jpg",
@@ -2609,14 +3841,14 @@
       "available": true
     },
     {
-      "id": "spirit164",
+      "id": "gin-023",
       "name": {
         "en": "Elephant Dry",
         "el": "Elephant Dry"
       },
       "description": {
-        "en": "Germany, 45% ABV",
-        "el": "Γερμανία, 45% ABV"
+        "en": "Germany, Dry, 45%ABV",
+        "el": "Γερμανία, Dry, 45%ABV"
       },
       "price": 15.0,
       "image": "elephant-dry.jpg",
@@ -2625,30 +3857,30 @@
       "available": true
     },
     {
-      "id": "spirit165",
+      "id": "gin-024",
       "name": {
         "en": "Gin MG",
         "el": "Gin MG"
       },
       "description": {
-        "en": "Spain, 40% ABV",
-        "el": "Ισπανία, 40% ABV"
+        "en": "Spain, Classic, 40%ABV",
+        "el": "Ισπανία, Classic, 40%ABV"
       },
       "price": 9.0,
       "image": "gin-mg.jpg",
-      "categories": ["gin", "spanish"],
+      "categories": ["gin", "spanish", "classic"],
       "subcategory": "gin",
       "available": true
     },
     {
-      "id": "spirit166",
+      "id": "gin-025",
       "name": {
         "en": "Gin Mare Mediterranean",
         "el": "Gin Mare Mediterranean"
       },
       "description": {
-        "en": "Spain, 43% ABV",
-        "el": "Ισπανία, 43% ABV"
+        "en": "Spain, Mediterranean, 43%ABV",
+        "el": "Ισπανία, Mediterranean, 43%ABV"
       },
       "price": 13.0,
       "image": "gin-mare-mediterranean.jpg",
@@ -2657,30 +3889,30 @@
       "available": true
     },
     {
-      "id": "spirit167",
+      "id": "gin-026",
       "name": {
         "en": "Le Tribute",
         "el": "Le Tribute"
       },
       "description": {
-        "en": "Spain, 43.0% ABV",
-        "el": "Ισπανία, 43.0% ABV"
+        "en": "Spain, Contemporary, 43,0%ABV",
+        "el": "Ισπανία, Contemporary, 43,0%ABV"
       },
       "price": 10.0,
       "image": "le-tribute.jpg",
-      "categories": ["gin", "spanish"],
+      "categories": ["gin", "spanish", "contemporary"],
       "subcategory": "gin",
       "available": true
     },
     {
-      "id": "spirit168",
+      "id": "gin-027",
       "name": {
         "en": "GinRaw Barcelona Botanical",
         "el": "GinRaw Barcelona Botanical"
       },
       "description": {
-        "en": "Spain, 42% ABV",
-        "el": "Ισπανία, 42% ABV"
+        "en": "Spain, Botanical, 42%ABV",
+        "el": "Ισπανία, Botanical, 42%ABV"
       },
       "price": 13.0,
       "image": "ginraw-barcelona-botanical.jpg",
@@ -2689,158 +3921,158 @@
       "available": true
     },
     {
-      "id": "spirit169",
+      "id": "gin-028",
       "name": {
         "en": "Jerry Thomas Del Pofessore Monsieur",
         "el": "Jerry Thomas Del Pofessore Monsieur"
       },
       "description": {
-        "en": "Italy, 44% ABV",
-        "el": "Ιταλία, 44% ABV"
+        "en": "Italy, Classic, 44%ABV",
+        "el": "Ιταλία, Classic, 44%ABV"
       },
       "price": 11.0,
       "image": "jerry-thomas-del-pofessore-monsieur.jpg",
-      "categories": ["gin", "italian"],
+      "categories": ["gin", "italian", "classic"],
       "subcategory": "gin",
       "available": true
     },
     {
-      "id": "spirit170",
+      "id": "gin-029",
       "name": {
         "en": "Jerry Thomas Del Professore Madame Gin",
         "el": "Jerry Thomas Del Professore Madame Gin"
       },
       "description": {
-        "en": "Italy, 43% ABV",
-        "el": "Ιταλία, 43% ABV"
+        "en": "Italy, Floral, 43%ABV",
+        "el": "Ιταλία, Floral, 43%ABV"
       },
       "price": 11.0,
       "image": "jerry-thomas-del-professore-madame-gin.jpg",
-      "categories": ["gin", "italian"],
+      "categories": ["gin", "italian", "floral"],
       "subcategory": "gin",
       "available": true
     },
     {
-      "id": "spirit171",
+      "id": "gin-030",
       "name": {
         "en": "Jerry Thomas Del Professore Crocodile Gin",
         "el": "Jerry Thomas Del Professore Crocodile Gin"
       },
       "description": {
-        "en": "Italy, 45% ABV",
-        "el": "Ιταλία, 45% ABV"
+        "en": "Italy, Botanical, 45%ABV",
+        "el": "Ιταλία, Botanical, 45%ABV"
       },
       "price": 11.0,
       "image": "jerry-thomas-del-professore-crocodile-gin.jpg",
-      "categories": ["gin", "italian"],
+      "categories": ["gin", "italian", "botanical"],
       "subcategory": "gin",
       "available": true
     },
     {
-      "id": "spirit172",
+      "id": "gin-031",
       "name": {
         "en": "Jerry Thomas Del Professore The Fighting Bear Gin",
         "el": "Jerry Thomas Del Professore The Fighting Bear Gin"
       },
       "description": {
-        "en": "Italy, 43% ABV",
-        "el": "Ιταλία, 43% ABV"
+        "en": "Italy, Wild, 43%ABV",
+        "el": "Ιταλία, Wild, 43%ABV"
       },
       "price": 11.0,
       "image": "jerry-thomas-del-professore-the-fighting-bear-gin.jpg",
-      "categories": ["gin", "italian"],
+      "categories": ["gin", "italian", "wild"],
       "subcategory": "gin",
       "available": true
     },
     {
-      "id": "spirit173",
+      "id": "gin-032",
       "name": {
         "en": "Harahorn",
         "el": "Harahorn"
       },
       "description": {
-        "en": "Norway, 46% ABV",
-        "el": "Νορβηγία, 46% ABV"
+        "en": "Norway, Nordic, 46%ABV",
+        "el": "Νορβηγία, Nordic, 46%ABV"
       },
       "price": 11.0,
       "image": "harahorn.jpg",
-      "categories": ["gin", "norwegian"],
+      "categories": ["gin", "norwegian", "nordic"],
       "subcategory": "gin",
       "available": true
     },
     {
-      "id": "spirit174",
+      "id": "gin-033",
       "name": {
         "en": "Olafsson",
         "el": "Olafsson"
       },
       "description": {
-        "en": "Iceland, 45.2% ABV",
-        "el": "Ισλανδία, 45.2% ABV"
+        "en": "Iceland, Nordic, 45,2%ABV",
+        "el": "Ισλανδία, Nordic, 45,2%ABV"
       },
       "price": 10.0,
       "image": "olafsson.jpg",
-      "categories": ["gin", "icelandic"],
+      "categories": ["gin", "icelandic", "nordic"],
       "subcategory": "gin",
       "available": true
     },
     {
-      "id": "spirit175",
+      "id": "gin-034",
       "name": {
         "en": "Amazoni",
         "el": "Amazoni"
       },
       "description": {
-        "en": "Brazil, 42% ABV",
-        "el": "Βραζιλία, 42% ABV"
+        "en": "Brazil, Botanical, 42%ABV",
+        "el": "Βραζιλία, Botanical, 42%ABV"
       },
       "price": 12.0,
       "image": "amazoni.jpg",
-      "categories": ["gin", "brazilian"],
+      "categories": ["gin", "brazilian", "botanical"],
       "subcategory": "gin",
       "available": true
     },
     {
-      "id": "spirit176",
+      "id": "gin-035",
       "name": {
         "en": "Votanikon",
         "el": "Votanikon"
       },
       "description": {
-        "en": "Greece, 40% ABV",
-        "el": "Ελλάδα, 40% ABV"
+        "en": "Greece, Botanical, 40%ABV",
+        "el": "Ελλάδα, Botanical, 40%ABV"
       },
       "price": 9.0,
       "image": "votanikon.jpg",
-      "categories": ["gin", "greek"],
+      "categories": ["gin", "greek", "botanical"],
       "subcategory": "gin",
       "available": true
     },
     {
-      "id": "spirit177",
+      "id": "gin-036",
       "name": {
         "en": "Mataroa",
         "el": "Mataroa"
       },
       "description": {
-        "en": "Greece, 41.5% ABV",
-        "el": "Ελλάδα, 41.5% ABV"
+        "en": "Greece, Mediterranean, 41,5%ABV",
+        "el": "Ελλάδα, Mediterranean, 41,5%ABV"
       },
       "price": 10.0,
       "image": "mataroa.jpg",
-      "categories": ["gin", "greek"],
+      "categories": ["gin", "greek", "mediterranean"],
       "subcategory": "gin",
       "available": true
     },
     {
-      "id": "spirit178",
+      "id": "gin-037",
       "name": {
         "en": "Truce Gin Organic Botanicals",
         "el": "Truce Gin Organic Botanicals"
       },
       "description": {
-        "en": "Greece, 42% ABV",
-        "el": "Ελλάδα, 42% ABV"
+        "en": "Greece, Organic, 42%ABV",
+        "el": "Ελλάδα, Organic, 42%ABV"
       },
       "price": 11.0,
       "image": "truce-gin-organic-botanicals.jpg",
@@ -2849,46 +4081,46 @@
       "available": true
     },
     {
-      "id": "spirit179",
+      "id": "gin-038",
       "name": {
         "en": "Grace Gin",
         "el": "Grace Gin"
       },
       "description": {
-        "en": "Greece, 45.7% ABV",
-        "el": "Ελλάδα, 45.7% ABV"
+        "en": "Greece, Contemporary, 45,7%ABV",
+        "el": "Ελλάδα, Contemporary, 45,7%ABV"
       },
       "price": 10.0,
       "image": "grace-gin.jpg",
-      "categories": ["gin", "greek"],
+      "categories": ["gin", "greek", "contemporary"],
       "subcategory": "gin",
       "available": true
     },
     {
-      "id": "spirit180",
+      "id": "gin-039",
       "name": {
         "en": "Nikka Coffey Gin",
         "el": "Nikka Coffey Gin"
       },
       "description": {
-        "en": "Japan, 47% ABV",
-        "el": "Ιαπωνία, 47% ABV"
+        "en": "Japan, Coffey Still, 47%ABV",
+        "el": "Ιαπωνία, Coffey Still, 47%ABV"
       },
       "price": 12.0,
       "image": "nikka-coffey-gin.jpg",
-      "categories": ["gin", "japanese"],
+      "categories": ["gin", "japanese", "coffey-still"],
       "subcategory": "gin",
       "available": true
     },
     {
-      "id": "spirit181",
+      "id": "gin-040",
       "name": {
         "en": "Roku Craft Gin",
         "el": "Roku Craft Gin"
       },
       "description": {
-        "en": "Japan, 43% ABV",
-        "el": "Ιαπωνία, 43% ABV"
+        "en": "Japan, Craft, 43%ABV",
+        "el": "Ιαπωνία, Craft, 43%ABV"
       },
       "price": 9.0,
       "image": "roku-craft-gin.jpg",
@@ -2897,78 +4129,14 @@
       "available": true
     },
     {
-      "id": "spirit182",
-      "name": {
-        "en": "Absolut",
-        "el": "Absolut"
-      },
-      "description": {
-        "en": "Sweden, 40% ABV",
-        "el": "Σουηδία, 40% ABV"
-      },
-      "price": 8.0,
-      "image": "absolut.jpg",
-      "categories": ["vodka", "swedish"],
-      "subcategory": "vodka",
-      "available": true
-    },
-    {
-      "id": "spirit183",
-      "name": {
-        "en": "Finlandia",
-        "el": "Finlandia"
-      },
-      "description": {
-        "en": "Finland, 40% ABV",
-        "el": "Φινλανδία, 40% ABV"
-      },
-      "price": 8.0,
-      "image": "finlandia.jpg",
-      "categories": ["vodka", "finnish"],
-      "subcategory": "vodka",
-      "available": true
-    },
-    {
-      "id": "spirit184",
-      "name": {
-        "en": "Belvedere",
-        "el": "Belvedere"
-      },
-      "description": {
-        "en": "Poland, 40% ABV",
-        "el": "Πολωνία, 40% ABV"
-      },
-      "price": 11.0,
-      "image": "belvedere.jpg",
-      "categories": ["vodka", "polish", "premium"],
-      "subcategory": "vodka",
-      "available": true
-    },
-    {
-      "id": "spirit185",
-      "name": {
-        "en": "Grey Goose",
-        "el": "Grey Goose"
-      },
-      "description": {
-        "en": "France, 40% ABV",
-        "el": "Γαλλία, 40% ABV"
-      },
-      "price": 12.0,
-      "image": "grey-goose.jpg",
-      "categories": ["vodka", "french", "premium"],
-      "subcategory": "vodka",
-      "available": true
-    },
-    {
-      "id": "spirit186",
+      "id": "tequila-mezcal-001",
       "name": {
         "en": "Jose Cuervo blanco",
         "el": "Jose Cuervo blanco"
       },
       "description": {
-        "en": "Mexico, 38% ABV",
-        "el": "Μεξικό, 38% ABV"
+        "en": "Mexico, Tequila Blanco, 38%ABV",
+        "el": "Μεξικό, Tequila Blanco, 38%ABV"
       },
       "price": 8.0,
       "image": "jose-cuervo-blanco.jpg",
@@ -2977,14 +4145,14 @@
       "available": true
     },
     {
-      "id": "spirit187",
+      "id": "tequila-mezcal-002",
       "name": {
         "en": "Jose Cuervo reposado",
         "el": "Jose Cuervo reposado"
       },
       "description": {
-        "en": "Mexico, 38% ABV",
-        "el": "Μεξικό, 38% ABV"
+        "en": "Mexico, Tequila Reposado, 38%ABV",
+        "el": "Μεξικό, Tequila Reposado, 38%ABV"
       },
       "price": 8.0,
       "image": "jose-cuervo-reposado.jpg",
@@ -2993,14 +4161,14 @@
       "available": true
     },
     {
-      "id": "spirit188",
+      "id": "tequila-mezcal-003",
       "name": {
         "en": "Jose Cuervo traditional blanco",
         "el": "Jose Cuervo traditional blanco"
       },
       "description": {
-        "en": "Mexico, 38% ABV",
-        "el": "Μεξικό, 38% ABV"
+        "en": "Mexico, Tequila Blanco, 38%ABV",
+        "el": "Μεξικό, Tequila Blanco, 38%ABV"
       },
       "price": 9.0,
       "image": "jose-cuervo-traditional-blanco.jpg",
@@ -3009,14 +4177,14 @@
       "available": true
     },
     {
-      "id": "spirit189",
+      "id": "tequila-mezcal-004",
       "name": {
         "en": "Jose Cuervo traditional reposado",
         "el": "Jose Cuervo traditional reposado"
       },
       "description": {
-        "en": "Mexico, 38% ABV",
-        "el": "Μεξικό, 38% ABV"
+        "en": "Mexico, Tequila Reposado, 38%ABV",
+        "el": "Μεξικό, Tequila Reposado, 38%ABV"
       },
       "price": 9.0,
       "image": "jose-cuervo-traditional-reposado.jpg",
@@ -3025,14 +4193,14 @@
       "available": true
     },
     {
-      "id": "spirit190",
+      "id": "tequila-mezcal-005",
       "name": {
         "en": "Don Julio blanco",
         "el": "Don Julio blanco"
       },
       "description": {
-        "en": "Mexico, 38% ABV",
-        "el": "Μεξικό, 38% ABV"
+        "en": "Mexico, Tequila Blanco, 38%ABV",
+        "el": "Μεξικό, Tequila Blanco, 38%ABV"
       },
       "price": 12.0,
       "image": "don-julio-blanco.jpg",
@@ -3041,14 +4209,14 @@
       "available": true
     },
     {
-      "id": "spirit191",
+      "id": "tequila-mezcal-006",
       "name": {
         "en": "Don Julio reposado",
         "el": "Don Julio reposado"
       },
       "description": {
-        "en": "Mexico, 38% ABV",
-        "el": "Μεξικό, 38% ABV"
+        "en": "Mexico, Tequila Reposado, 38%ABV",
+        "el": "Μεξικό, Tequila Reposado, 38%ABV"
       },
       "price": 14.0,
       "image": "don-julio-reposado.jpg",
@@ -3057,14 +4225,14 @@
       "available": true
     },
     {
-      "id": "spirit192",
+      "id": "tequila-mezcal-007",
       "name": {
         "en": "Don Julio anejo",
         "el": "Don Julio anejo"
       },
       "description": {
-        "en": "Mexico, 38% ABV",
-        "el": "Μεξικό, 38% ABV"
+        "en": "Mexico, Tequila Añejo, 38%ABV",
+        "el": "Μεξικό, Tequila Añejo, 38%ABV"
       },
       "price": 15.0,
       "image": "don-julio-anejo.jpg",
@@ -3073,14 +4241,14 @@
       "available": true
     },
     {
-      "id": "spirit193",
+      "id": "tequila-mezcal-008",
       "name": {
         "en": "Calle 23 blanco",
         "el": "Calle 23 blanco"
       },
       "description": {
-        "en": "Mexico, 40% ABV",
-        "el": "Μεξικό, 40% ABV"
+        "en": "Mexico, Tequila Blanco, 40%ABV",
+        "el": "Μεξικό, Tequila Blanco, 40%ABV"
       },
       "price": 13.0,
       "image": "calle-23-blanco.jpg",
@@ -3089,14 +4257,14 @@
       "available": true
     },
     {
-      "id": "spirit194",
+      "id": "tequila-mezcal-009",
       "name": {
         "en": "Calle 23 reposado",
         "el": "Calle 23 reposado"
       },
       "description": {
-        "en": "Mexico, 40% ABV",
-        "el": "Μεξικό, 40% ABV"
+        "en": "Mexico, Tequila Reposado, 40%ABV",
+        "el": "Μεξικό, Tequila Reposado, 40%ABV"
       },
       "price": 16.0,
       "image": "calle-23-reposado.jpg",
@@ -3105,14 +4273,14 @@
       "available": true
     },
     {
-      "id": "spirit195",
+      "id": "tequila-mezcal-010",
       "name": {
         "en": "Fortaleza blanco",
         "el": "Fortaleza blanco"
       },
       "description": {
-        "en": "Mexico, 40% ABV",
-        "el": "Μεξικό, 40% ABV"
+        "en": "Mexico, Tequila Blanco Premium, 40%ABV",
+        "el": "Μεξικό, Tequila Blanco Premium, 40%ABV"
       },
       "price": 21.0,
       "image": "fortaleza-blanco.jpg",
@@ -3121,158 +4289,414 @@
       "available": true
     },
     {
-      "id": "spirit196",
+      "id": "tequila-mezcal-011",
       "name": {
         "en": "Bruxo X Espadin",
         "el": "Bruxo X Espadin"
       },
       "description": {
-        "en": "Mexico, 40% ABV",
-        "el": "Μεξικό, 40% ABV"
+        "en": "Mexico, Mezcal Espadin, 40%ABV",
+        "el": "Μεξικό, Mezcal Espadin, 40%ABV"
       },
       "price": 10.0,
       "image": "bruxo-x-espadin.jpg",
-      "categories": ["mezcal", "mexican"],
+      "categories": ["mezcal", "mexican", "espadin"],
       "subcategory": "mezcal",
       "available": true
     },
     {
-      "id": "spirit197",
+      "id": "tequila-mezcal-012",
       "name": {
         "en": "Montelobos Joven",
         "el": "Montelobos Joven"
       },
       "description": {
-        "en": "Mexico, 43.2% ABV",
-        "el": "Μεξικό, 43.2% ABV"
+        "en": "Mexico, Mezcal Joven, 43,2%ABV",
+        "el": "Μεξικό, Mezcal Joven, 43,2%ABV"
       },
       "price": 15.0,
       "image": "montelobos-joven.jpg",
-      "categories": ["mezcal", "mexican"],
+      "categories": ["mezcal", "mexican", "joven"],
       "subcategory": "mezcal",
       "available": true
     },
     {
-      "id": "spirit198",
+      "id": "tequila-mezcal-013",
       "name": {
         "en": "Amores Cupreata",
         "el": "Amores Cupreata"
       },
       "description": {
-        "en": "Mexico, 41% ABV",
-        "el": "Μεξικό, 41% ABV"
+        "en": "Mexico, Mezcal Cupreata, 41%ABV",
+        "el": "Μεξικό, Mezcal Cupreata, 41%ABV"
       },
       "price": 14.0,
       "image": "amores-cupreata.jpg",
-      "categories": ["mezcal", "mexican"],
+      "categories": ["mezcal", "mexican", "cupreata"],
       "subcategory": "mezcal",
       "available": true
     },
     {
-      "id": "spirit199",
+      "id": "tequila-mezcal-014",
       "name": {
         "en": "Ilegal Joven Espadin",
         "el": "Ilegal Joven Espadin"
       },
       "description": {
-        "en": "Mexico, 40% ABV",
-        "el": "Μεξικό, 40% ABV"
+        "en": "Mexico, Mezcal Espadin, 40%ABV",
+        "el": "Μεξικό, Mezcal Espadin, 40%ABV"
       },
       "price": 14.0,
       "image": "ilegal-joven-espadin.jpg",
-      "categories": ["mezcal", "mexican"],
+      "categories": ["mezcal", "mexican", "espadin"],
       "subcategory": "mezcal",
       "available": true
     },
     {
-      "id": "spirit200",
+      "id": "tequila-mezcal-015",
       "name": {
         "en": "Verde Momendo",
         "el": "Verde Momendo"
       },
       "description": {
-        "en": "Mexico, 42% ABV",
-        "el": "Μεξικό, 42% ABV"
+        "en": "Mexico, Mezcal Artisanal, 42%ABV",
+        "el": "Μεξικό, Mezcal Artisanal, 42%ABV"
       },
       "price": 10.0,
       "image": "verde-momendo.jpg",
-      "categories": ["mezcal", "mexican"],
+      "categories": ["mezcal", "mexican", "artisanal"],
       "subcategory": "mezcal",
       "available": true
     },
     {
-      "id": "spirit201",
+      "id": "tequila-mezcal-016",
       "name": {
         "en": "Derrumbes No. 1 Oaxaca",
         "el": "Derrumbes No. 1 Oaxaca"
       },
       "description": {
-        "en": "Mexico, 46.6% ABV",
-        "el": "Μεξικό, 46.6% ABV"
+        "en": "Mexico, Mezcal Oaxaca, 46,6%ABV",
+        "el": "Μεξικό, Mezcal Oaxaca, 46,6%ABV"
       },
       "price": 18.0,
       "image": "derrumbes-no-1-oaxaca.jpg",
-      "categories": ["mezcal", "mexican"],
+      "categories": ["mezcal", "mexican", "oaxaca"],
       "subcategory": "mezcal",
       "available": true
     },
     {
-      "id": "spirit202",
+      "id": "tequila-mezcal-017",
       "name": {
         "en": "Derrumbes No. 3 San Luis",
         "el": "Derrumbes No. 3 San Luis"
       },
       "description": {
-        "en": "Mexico, 44.4% ABV",
-        "el": "Μεξικό, 44.4% ABV"
+        "en": "Mexico, Mezcal San Luis, 44,4%ABV",
+        "el": "Μεξικό, Mezcal San Luis, 44,4%ABV"
       },
       "price": 12.0,
       "image": "derrumbes-no-3-san-luis.jpg",
-      "categories": ["mezcal", "mexican"],
+      "categories": ["mezcal", "mexican", "san-luis"],
       "subcategory": "mezcal",
       "available": true
     },
     {
-      "id": "spirit203",
+      "id": "tequila-mezcal-018",
       "name": {
         "en": "Nuestra Soledad Ejutla",
         "el": "Nuestra Soledad Ejutla"
       },
       "description": {
-        "en": "Mexico, 41% ABV",
-        "el": "Μεξικό, 41% ABV"
+        "en": "Mexico, Mezcal Ejutla, 41%ABV",
+        "el": "Μεξικό, Mezcal Ejutla, 41%ABV"
       },
       "price": 13.0,
       "image": "nuestra-soledad-ejutla.jpg",
-      "categories": ["mezcal", "mexican"],
+      "categories": ["mezcal", "mexican", "ejutla"],
       "subcategory": "mezcal",
       "available": true
     },
     {
-      "id": "spirit204",
+      "id": "tequila-mezcal-019",
       "name": {
         "en": "Los Siete Misterios Doba-Yej",
         "el": "Los Siete Misterios Doba-Yej"
       },
       "description": {
-        "en": "Mexico, 44% ABV",
-        "el": "Μεξικό, 44% ABV"
+        "en": "Mexico, Mezcal Doba-Yej, 44%ABV",
+        "el": "Μεξικό, Mezcal Doba-Yej, 44%ABV"
       },
       "price": 15.0,
       "image": "los-siete-misterios-doba-yej.jpg",
-      "categories": ["mezcal", "mexican"],
+      "categories": ["mezcal", "mexican", "doba-yej"],
       "subcategory": "mezcal",
       "available": true
     },
     {
-      "id": "spirit205",
+      "id": "vodka-001",
+      "name": {
+        "en": "Absolut",
+        "el": "Absolut"
+      },
+      "description": {
+        "en": "Sweden, 40%ABV",
+        "el": "Σουηδία, 40%ABV"
+      },
+      "price": 8.0,
+      "image": "absolut.jpg",
+      "categories": ["vodka", "swedish"],
+      "subcategory": "vodka",
+      "available": true
+    },
+    {
+      "id": "vodka-002",
+      "name": {
+        "en": "Finlandia",
+        "el": "Finlandia"
+      },
+      "description": {
+        "en": "Finland, 40%ABV",
+        "el": "Φινλανδία, 40%ABV"
+      },
+      "price": 8.0,
+      "image": "finlandia.jpg",
+      "categories": ["vodka", "finnish"],
+      "subcategory": "vodka",
+      "available": true
+    },
+    {
+      "id": "vodka-003",
+      "name": {
+        "en": "Belvedere",
+        "el": "Belvedere"
+      },
+      "description": {
+        "en": "Poland, 40%ABV",
+        "el": "Πολωνία, 40%ABV"
+      },
+      "price": 11.0,
+      "image": "belvedere.jpg",
+      "categories": ["vodka", "polish", "premium"],
+      "subcategory": "vodka",
+      "available": true
+    },
+    {
+      "id": "vodka-004",
+      "name": {
+        "en": "Grey Goose",
+        "el": "Grey Goose"
+      },
+      "description": {
+        "en": "France, 40%ABV",
+        "el": "Γαλλία, 40%ABV"
+      },
+      "price": 12.0,
+      "image": "grey-goose.jpg",
+      "categories": ["vodka", "french", "premium"],
+      "subcategory": "vodka",
+      "available": true
+    },
+    {
+      "id": "others-001",
+      "name": {
+        "en": "Martel V.S. Cognac",
+        "el": "Martel V.S. Cognac"
+      },
+      "description": {
+        "en": "France, V.S. Cognac, 40%ABV",
+        "el": "Γαλλία, V.S. Cognac, 40%ABV"
+      },
+      "price": 11.0,
+      "image": "martel-vs-cognac.jpg",
+      "categories": ["cognac", "french"],
+      "subcategory": "others",
+      "available": true
+    },
+    {
+      "id": "others-002",
+      "name": {
+        "en": "Hennessy V.S. Cognac",
+        "el": "Hennessy V.S. Cognac"
+      },
+      "description": {
+        "en": "France, V.S. Cognac, 40%ABV",
+        "el": "Γαλλία, V.S. Cognac, 40%ABV"
+      },
+      "price": 12.0,
+      "image": "hennessy-vs-cognac.jpg",
+      "categories": ["cognac", "french"],
+      "subcategory": "others",
+      "available": true
+    },
+    {
+      "id": "others-003",
+      "name": {
+        "en": "35 Tsikoudia Blended",
+        "el": "35 Τσικουδιά Blended"
+      },
+      "description": {
+        "en": "Greece, Tsikoudia, 38%ABV",
+        "el": "Ελλάδα, Τσικουδιά, 38%ABV"
+      },
+      "price": 7.0,
+      "image": "35-tsikoudia-blended.jpg",
+      "categories": ["tsikoudia", "greek"],
+      "subcategory": "others",
+      "available": true
+    },
+    {
+      "id": "others-004",
+      "name": {
+        "en": "35 Tsikoudia Moshato Single Variety",
+        "el": "35 Τσικουδιά Moshato Single Variety"
+      },
+      "description": {
+        "en": "Greece, Tsikoudia Moshato, 38%ABV",
+        "el": "Ελλάδα, Τσικουδιά Μοσχάτο, 38%ABV"
+      },
+      "price": 7.0,
+      "image": "35-tsikoudia-moshato-single-variety.jpg",
+      "categories": ["tsikoudia", "greek", "moshato"],
+      "subcategory": "others",
+      "available": true
+    },
+    {
+      "id": "others-005",
+      "name": {
+        "en": "35 Tsikoudia Syrah Single Variety",
+        "el": "35 Τσικουδιά Syrah Single Variety"
+      },
+      "description": {
+        "en": "Greece, Tsikoudia Syrah, 38%ABV",
+        "el": "Ελλάδα, Τσικουδιά Syrah, 38%ABV"
+      },
+      "price": 7.0,
+      "image": "35-tsikoudia-syrah-single-variety.jpg",
+      "categories": ["tsikoudia", "greek", "syrah"],
+      "subcategory": "others",
+      "available": true
+    },
+    {
+      "id": "others-006",
+      "name": {
+        "en": "Puro Aged Tsipouro",
+        "el": "Puro Aged Tsipouro"
+      },
+      "description": {
+        "en": "Greece, Aged Tsipouro, 40%ABV",
+        "el": "Ελλάδα, Παλαιωμένο Τσίπουρο, 40%ABV"
+      },
+      "price": 13.0,
+      "image": "puro-aged-tsipouro.jpg",
+      "categories": ["tsipouro", "greek", "aged"],
+      "subcategory": "others",
+      "available": true
+    },
+    {
+      "id": "others-007",
+      "name": {
+        "en": "Metaxa 5*",
+        "el": "Metaxa 5*"
+      },
+      "description": {
+        "en": "Greece, Brandy, 38%ABV",
+        "el": "Ελλάδα, Μπράντι, 38%ABV"
+      },
+      "price": 7.0,
+      "image": "metaxa-5.jpg",
+      "categories": ["metaxa", "greek", "brandy"],
+      "subcategory": "others",
+      "available": true
+    },
+    {
+      "id": "others-008",
+      "name": {
+        "en": "Metaxa 7*",
+        "el": "Metaxa 7*"
+      },
+      "description": {
+        "en": "Greece, Brandy, 40%ABV",
+        "el": "Ελλάδα, Μπράντι, 40%ABV"
+      },
+      "price": 8.0,
+      "image": "metaxa-7.jpg",
+      "categories": ["metaxa", "greek", "brandy"],
+      "subcategory": "others",
+      "available": true
+    },
+    {
+      "id": "others-009",
+      "name": {
+        "en": "Metaxa Private Reserve",
+        "el": "Metaxa Private Reserve"
+      },
+      "description": {
+        "en": "Greece, Premium Brandy, 40%ABV",
+        "el": "Ελλάδα, Μπράντι Premium, 40%ABV"
+      },
+      "price": 17.0,
+      "image": "metaxa-private-reserve.jpg",
+      "categories": ["metaxa", "greek", "brandy", "premium"],
+      "subcategory": "others",
+      "available": true
+    },
+    {
+      "id": "others-010",
+      "name": {
+        "en": "Skinos Mastiha Spirit",
+        "el": "Skinos Mastiha Spirit"
+      },
+      "description": {
+        "en": "Greece, Mastiha Liqueur, 30%ABV",
+        "el": "Ελλάδα, Λικέρ Μαστίχας, 30%ABV"
+      },
+      "price": 8.0,
+      "image": "skinos-mastiha-spirit.jpg",
+      "categories": ["mastiha", "greek", "liqueur"],
+      "subcategory": "others",
+      "available": true
+    },
+    {
+      "id": "others-011",
+      "name": {
+        "en": "Ouzo",
+        "el": "Ούζο"
+      },
+      "description": {
+        "en": "Greece, Ouzo, 37,5%ABV",
+        "el": "Ελλάδα, Ούζο, 37,5%ABV"
+      },
+      "price": 5.0,
+      "image": "ouzo.jpg",
+      "categories": ["ouzo", "greek"],
+      "subcategory": "others",
+      "available": true
+    },
+    {
+      "id": "others-012",
+      "name": {
+        "en": "Rocks' n' Grapes Τsipouro",
+        "el": "Rocks' n' Grapes Τsipouro"
+      },
+      "description": {
+        "en": "Greece, Tsipouro, 40%ABV",
+        "el": "Ελλάδα, Τσίπουρο, 40%ABV"
+      },
+      "price": 8.0,
+      "image": "rocks-n-grapes-tsipouro.jpg",
+      "categories": ["tsipouro", "greek"],
+      "subcategory": "others",
+      "available": true
+    },
+    {
+      "id": "others-013",
       "name": {
         "en": "Campari",
         "el": "Campari"
       },
       "description": {
-        "en": "Italy, 25% ABV",
-        "el": "Ιταλία, 25% ABV"
+        "en": "Italy, Aperitif, 25%ABV",
+        "el": "Ιταλία, Απεριτίφ, 25%ABV"
       },
       "price": 8.0,
       "image": "campari.jpg",
@@ -3281,14 +4705,14 @@
       "available": true
     },
     {
-      "id": "spirit206",
+      "id": "others-014",
       "name": {
         "en": "Aperol 1L",
         "el": "Aperol 1L"
       },
       "description": {
-        "en": "Italy, 11% ABV",
-        "el": "Ιταλία, 11% ABV"
+        "en": "Italy, Aperitif, 11%ABV",
+        "el": "Ιταλία, Απεριτίφ, 11%ABV"
       },
       "price": 7.0,
       "image": "aperol-1l.jpg",
@@ -3297,30 +4721,30 @@
       "available": true
     },
     {
-      "id": "spirit207",
+      "id": "others-015",
       "name": {
         "en": "Amaro Montenegro",
         "el": "Amaro Montenegro"
       },
       "description": {
-        "en": "Italy, 23% ABV",
-        "el": "Ιταλία, 23% ABV"
+        "en": "Italy, Amaro, 23%ABV",
+        "el": "Ιταλία, Αμάρο, 23%ABV"
       },
       "price": 8.0,
       "image": "amaro-montenegro.jpg",
       "categories": ["amaro", "italian"],
-      "subcategory": "amaro",
+      "subcategory": "aperitivo",
       "available": true
     },
     {
-      "id": "spirit208",
+      "id": "others-016",
       "name": {
         "en": "Suze",
         "el": "Suze"
       },
       "description": {
-        "en": "France, 15% ABV",
-        "el": "Γαλλία, 15% ABV"
+        "en": "France, Aperitif, 15%ABV",
+        "el": "Γαλλία, Απεριτίφ, 15%ABV"
       },
       "price": 8.0,
       "image": "suze.jpg",
@@ -3329,14 +4753,14 @@
       "available": true
     },
     {
-      "id": "spirit209",
+      "id": "others-017",
       "name": {
         "en": "Dolin dry",
         "el": "Dolin dry"
       },
       "description": {
-        "en": "France, 17.5% ABV",
-        "el": "Γαλλία, 17.5% ABV"
+        "en": "France, Dry Vermouth, 17,5%ABV",
+        "el": "Γαλλία, Βερμούτ Dry, 17,5%ABV"
       },
       "price": 7.0,
       "image": "dolin-dry.jpg",
@@ -3345,14 +4769,14 @@
       "available": true
     },
     {
-      "id": "spirit210",
+      "id": "others-018",
       "name": {
         "en": "Dolin blanc",
         "el": "Dolin blanc"
       },
       "description": {
-        "en": "France, 16% ABV",
-        "el": "Γαλλία, 16% ABV"
+        "en": "France, White Vermouth, 16%ABV",
+        "el": "Γαλλία, Βερμούτ Blanc, 16%ABV"
       },
       "price": 7.0,
       "image": "dolin-blanc.jpg",
@@ -3361,14 +4785,14 @@
       "available": true
     },
     {
-      "id": "spirit211",
+      "id": "others-019",
       "name": {
         "en": "Antica Formula",
         "el": "Antica Formula"
       },
       "description": {
-        "en": "Italy, 16.5% ABV",
-        "el": "Ιταλία, 16.5% ABV"
+        "en": "Italy, Vermouth, 16,5%ABV",
+        "el": "Ιταλία, Βερμούτ, 16,5%ABV"
       },
       "price": 9.0,
       "image": "antica-formula.jpg",
@@ -3377,14 +4801,14 @@
       "available": true
     },
     {
-      "id": "spirit212",
+      "id": "others-020",
       "name": {
         "en": "Disaronno",
         "el": "Disaronno"
       },
       "description": {
-        "en": "Italy, 28% ABV",
-        "el": "Ιταλία, 28% ABV"
+        "en": "Italy, Almond Liqueur, 28%ABV",
+        "el": "Ιταλία, Λικέρ Αμυγδάλου, 28%ABV"
       },
       "price": 7.0,
       "image": "disaronno.jpg",
@@ -3393,14 +4817,14 @@
       "available": true
     },
     {
-      "id": "spirit213",
+      "id": "others-021",
       "name": {
         "en": "Italicus Rosolio di Bergamotto",
         "el": "Italicus Rosolio di Bergamotto"
       },
       "description": {
-        "en": "Italy, 20% ABV",
-        "el": "Ιταλία, 20% ABV"
+        "en": "Italy, Bergamot Liqueur, 20%ABV",
+        "el": "Ιταλία, Λικέρ Περγαμόντο, 20%ABV"
       },
       "price": 9.0,
       "image": "italicus-rosolio-di-bergamotto.jpg",
@@ -3409,14 +4833,14 @@
       "available": true
     },
     {
-      "id": "spirit214",
+      "id": "others-022",
       "name": {
         "en": "Chartreause Green",
         "el": "Chartreause Green"
       },
       "description": {
-        "en": "France, 55% ABV",
-        "el": "Γαλλία, 55% ABV"
+        "en": "France, Herbal Liqueur, 55%ABV",
+        "el": "Γαλλία, Λικέρ Βοτάνων, 55%ABV"
       },
       "price": 11.0,
       "image": "chartreause-green.jpg",
@@ -3425,14 +4849,14 @@
       "available": true
     },
     {
-      "id": "spirit215",
+      "id": "others-023",
       "name": {
         "en": "St.Germainn elderflower",
         "el": "St.Germainn elderflower"
       },
       "description": {
-        "en": "France, 20% ABV",
-        "el": "Γαλλία, 20% ABV"
+        "en": "France, Elderflower Liqueur, 20%ABV",
+        "el": "Γαλλία, Λικέρ Κουφοξυλιάς, 20%ABV"
       },
       "price": 9.0,
       "image": "st-germainn-elderflower.jpg",
@@ -3441,14 +4865,14 @@
       "available": true
     },
     {
-      "id": "spirit216",
+      "id": "others-024",
       "name": {
         "en": "Cointreau",
         "el": "Cointreau"
       },
       "description": {
-        "en": "France, 40% ABV",
-        "el": "Γαλλία, 40% ABV"
+        "en": "France, Citrus Liqueur, 40%ABV",
+        "el": "Γαλλία, Λικέρ Εσπεριδοειδών, 40%ABV"
       },
       "price": 8.0,
       "image": "cointreau.jpg",
@@ -3457,14 +4881,14 @@
       "available": true
     },
     {
-      "id": "spirit217",
+      "id": "others-025",
       "name": {
         "en": "Jagermeister",
         "el": "Jagermeister"
       },
       "description": {
-        "en": "Germany, 35% ABV",
-        "el": "Γερμανία, 35% ABV"
+        "en": "Germany, Herbal Liqueur, 35%ABV",
+        "el": "Γερμανία, Λικέρ Βοτάνων, 35%ABV"
       },
       "price": 8.0,
       "image": "jagermeister.jpg",
