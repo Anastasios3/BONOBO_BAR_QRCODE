@@ -1,5 +1,5 @@
 /**
- * UI Controller - Updated for new pricing structure and category ordering
+ * UI Controller - Updated for new pricing structure, category ordering and time-based food filtering
  * Manages all DOM interactions and UI updates
  */
 
@@ -243,7 +243,7 @@ export const UIController = {
   },
 
   /**
-   * Generate filter options for a category
+   * Generate filter options for a category with time-based restrictions
    * @param {string} category - Category ID
    * @param {string|null} activeFilter - Currently active filter
    */
@@ -252,7 +252,8 @@ export const UIController = {
       return;
     }
 
-    const subcategories = AppState.subcategories[category];
+    // Get time-aware available subcategories
+    const availableSubcategories = AppState.getAvailableSubcategories(category);
 
     // Create document fragment for better performance
     const fragment = document.createDocumentFragment();
@@ -261,7 +262,7 @@ export const UIController = {
     this.elements.subcategoryFilters.innerHTML = "";
 
     // If no subcategories for this category, hide the filter panel
-    if (!subcategories || subcategories.length === 0) {
+    if (!availableSubcategories || availableSubcategories.length === 0) {
       if (this.elements.filterPanel) {
         this.elements.filterPanel.classList.remove("active");
       }
@@ -294,17 +295,8 @@ export const UIController = {
 
     fragment.appendChild(allFilter);
 
-    // Create filter for each subcategory
-    subcategories.forEach((subcategory) => {
-      // Skip if we don't have items in this subcategory
-      const hasItems = AppState.menuData[category].some(
-        (item) => item.subcategory === subcategory && item.available !== false
-      );
-
-      if (!hasItems) {
-        return;
-      }
-
+    // Create filter for each available subcategory (in time-aware order)
+    availableSubcategories.forEach((subcategory) => {
       const filter = document.createElement("button");
       filter.className = `filter-chip ${
         activeFilter === subcategory ? "active" : ""
@@ -375,7 +367,7 @@ export const UIController = {
   },
 
   /**
-   * Display menu items in the grid with new pricing structure
+   * Display menu items in the grid with new pricing structure and time-based ordering
    * @param {Array} items - Menu items to display
    * @param {string} category - Current category ID
    */
@@ -413,10 +405,10 @@ export const UIController = {
       const groupedItems = this.groupItemsBySubcategory(items, category);
       let itemIndex = 0;
 
-      // Get the correct order for this category
-      const subcategoryOrder = AppState.subcategories[category] || [];
+      // Get the correct time-aware order for this category
+      const subcategoryOrder = AppState.getTimeAwareSubcategories(category);
 
-      // Create items by subcategory with headers in the correct order
+      // Create items by subcategory with headers in the correct time-aware order
       subcategoryOrder.forEach((subcategory) => {
         if (groupedItems[subcategory] && groupedItems[subcategory].length > 0) {
           // Add subcategory header
@@ -446,7 +438,7 @@ export const UIController = {
   },
 
   /**
-   * Group menu items by subcategory preserving JSON file order
+   * Group menu items by subcategory preserving time-aware order
    * @param {Array} items - Menu items to group
    * @param {string} category - Current category ID
    * @returns {Object} Items grouped by subcategory

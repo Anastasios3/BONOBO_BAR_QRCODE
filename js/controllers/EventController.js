@@ -1,5 +1,5 @@
 /**
- * Event Controller - Enhanced with improved mobile interactions and Modal Support
+ * Event Controller - Enhanced with improved mobile interactions, Modal Support, and time-based food filtering
  * Manages all event handling for the application
  */
 
@@ -9,6 +9,10 @@ import { ModalController } from "./ModalController.js";
 import { debounce } from "../utils/helpers.js";
 
 export const EventController = {
+  // Time check interval
+  timeCheckInterval: null,
+  lastTimeRestriction: null,
+
   /**
    * Initialize all event listeners
    */
@@ -22,6 +26,74 @@ export const EventController = {
     this.setupGlobalEvents();
     this.setupScrollNavigation();
     this.setupBackToTop();
+    this.setupTimeBasedRefresh();
+  },
+
+  /**
+   * Set up time-based refresh for food category restrictions
+   */
+  setupTimeBasedRefresh() {
+    // Store the initial time restriction
+    this.lastTimeRestriction = AppState.getCurrentFoodTimeRestriction();
+
+    // Check for time changes every minute
+    this.timeCheckInterval = setInterval(() => {
+      this.checkTimeBasedUpdates();
+    }, 60000); // Check every minute
+
+    // Also check when the page becomes visible again
+    document.addEventListener("visibilitychange", () => {
+      if (!document.hidden) {
+        setTimeout(() => {
+          this.checkTimeBasedUpdates();
+        }, 1000); // Small delay to allow for any time adjustments
+      }
+    });
+  },
+
+  /**
+   * Check if time-based restrictions have changed and update UI accordingly
+   */
+  checkTimeBasedUpdates() {
+    const currentTimeRestriction = AppState.getCurrentFoodTimeRestriction();
+
+    // Compare the current restriction with the last known restriction
+    if (
+      this.lastTimeRestriction &&
+      currentTimeRestriction &&
+      (this.lastTimeRestriction.START !== currentTimeRestriction.START ||
+        this.lastTimeRestriction.END !== currentTimeRestriction.END)
+    ) {
+      console.log(
+        "Time-based food restriction changed, refreshing food category..."
+      );
+
+      // Update the stored restriction
+      this.lastTimeRestriction = currentTimeRestriction;
+
+      // If currently viewing food category, refresh the view
+      if (AppState.currentCategory === "food") {
+        this.refreshCurrentView();
+      }
+
+      // Update filter options if food category is selected
+      if (AppState.currentCategory === "food") {
+        UIController.generateFilterOptions(
+          AppState.currentCategory,
+          AppState.currentFilter
+        );
+      }
+    }
+  },
+
+  /**
+   * Clean up time-based refresh interval
+   */
+  cleanup() {
+    if (this.timeCheckInterval) {
+      clearInterval(this.timeCheckInterval);
+      this.timeCheckInterval = null;
+    }
   },
 
   /**
@@ -466,6 +538,11 @@ export const EventController = {
     if (navigator.onLine === false) {
       this.handleNetworkChange(false);
     }
+
+    // Clean up on page unload
+    window.addEventListener("beforeunload", () => {
+      this.cleanup();
+    });
   },
 
   /**
@@ -510,8 +587,9 @@ export const EventController = {
       // Scroll active category into view
       this.scrollActiveCategoryIntoView();
 
-      // Refresh current view if needed
+      // Refresh current view if needed (especially for food category)
       if (AppState.currentCategory) {
+        this.checkTimeBasedUpdates(); // Check for time changes after orientation change
         UIController.displayMenuItems(
           AppState.getFilteredItems(
             AppState.currentCategory,
@@ -563,7 +641,7 @@ export const EventController = {
   },
 
   /**
-   * Select a category and display its items
+   * Select a category and display its items with time-based filtering
    * @param {string} category - Category ID
    */
   selectCategory(category) {
@@ -575,7 +653,7 @@ export const EventController = {
     UIController.generateFilterOptions(category);
     UIController.toggleFilterPanel(false);
 
-    // Display items
+    // Display items (with time-based filtering applied)
     const items = AppState.getFilteredItems(category);
     UIController.displayMenuItems(items, category);
 
@@ -595,7 +673,7 @@ export const EventController = {
   },
 
   /**
-   * Select a filter and update displayed items
+   * Select a filter and update displayed items with time-based filtering
    * @param {string|null} filter - Filter ID
    */
   selectFilter(filter) {
@@ -608,7 +686,7 @@ export const EventController = {
     // Update UI
     UIController.updateActiveFilter(filter);
 
-    // Get and display filtered items
+    // Get and display filtered items (with time-based filtering applied)
     const items = AppState.getFilteredItems(AppState.currentCategory, filter);
     UIController.displayMenuItems(items, AppState.currentCategory);
 
@@ -627,7 +705,7 @@ export const EventController = {
   },
 
   /**
-   * Refresh the current view (after language change)
+   * Refresh the current view (after language change or time-based updates)
    */
   refreshCurrentView() {
     const category = AppState.currentCategory;
@@ -644,10 +722,10 @@ export const EventController = {
     // Update active category
     UIController.updateActiveCategory(category);
 
-    // Update filter options
+    // Update filter options (this will now use time-aware subcategories)
     UIController.generateFilterOptions(category, filter);
 
-    // Display items
+    // Display items (with time-based filtering applied)
     const items = AppState.getFilteredItems(category, filter);
     UIController.displayMenuItems(items, category);
 
