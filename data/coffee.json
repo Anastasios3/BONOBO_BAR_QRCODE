@@ -1,310 +1,743 @@
 {
   "items": [
     {
-      "id": "coffee001",
+      "id": "coffee-001",
       "name": {
         "en": "Espresso",
-        "el": "Εσπρέσσο"
+        "el": "Espresso"
       },
       "description": {
-        "en": "Concentrated coffee brewed by forcing hot water through finely-ground coffee beans",
-        "el": "Συμπυκνωμένος καφές παρασκευασμένος με διέλευση ζεστού νερού από λεπτοαλεσμένους κόκκους καφέ"
+        "en": "Exquisite concentrated brew extracted by pressing hot water through aromatic finely-ground coffee beans",
+        "el": "Εκλεκτός συμπυκνωμένος καφές που αποστάζεται με πίεση ζεστού νερού διαμέσου αρωματικών αλεσμένων κόκκων"
       },
-      "priceSingle": 2.5,
-      "priceDouble": 3.5,
-      "image": "espresso.jpg",
+      "priceSingle": 2.8,
+      "priceDouble": 3.8,
       "categories": ["hot", "coffee"],
       "subcategory": "coffee",
       "available": true
     },
     {
-      "id": "coffee002",
+      "id": "coffee-002",
+      "name": {
+        "en": "Americano",
+        "el": "Americano"
+      },
+      "description": {
+        "en": "Espresso elongated with pure hot water offering a balanced flavor profile and velvety texture",
+        "el": "Εσπρέσσο με προσθήκη ζεστού νερού που προσφέρει ισορροπημένη γεύση και βελούδινη υφή"
+      },
+      "priceSingle": 2.8,
+      "priceDouble": 3.8,
+      "categories": ["hot", "coffee"],
+      "subcategory": "coffee",
+      "available": true
+    },
+    {
+      "id": "coffee-003",
+      "name": {
+        "en": "Macciatto",
+        "el": "Macciatto"
+      },
+      "description": {
+        "en": "Espresso crowned with a delicate layer of silky foamed milk to accentuate the coffee's aromatic notes",
+        "el": "Εσπρέσσο με λεπτή στρώση αφρόγαλου που αναδεικνύει τις αρωματικές νότες του καφέ"
+      },
+      "priceSingle": 3.0,
+      "priceDouble": 4.0,
+      "categories": ["hot", "coffee"],
+      "subcategory": "coffee",
+      "available": true
+    },
+    {
+      "id": "coffee-004",
       "name": {
         "en": "Cappuccino",
-        "el": "Καπουτσίνο"
+        "el": "Cappuccino"
       },
       "description": {
-        "en": "Espresso with steamed milk and a thick layer of milk foam on top",
-        "el": "Εσπρέσσο με ζεστό γάλα και παχύ στρώμα αφρόγαλα"
+        "en": "Harmonious blend of espresso, silky steamed milk and luxurious creamy milk foam in perfect proportion",
+        "el": "Αρμονικός συνδυασμός εσπρέσσο, βελούδινου ζεστού γάλακτος και πλούσιου αφρογάλακτος"
       },
-      "price": 3.5,
-      "image": "cappuccino.jpg",
+      "priceSingle": 3.8,
+      "priceDouble": 4.8,
       "categories": ["hot", "coffee"],
       "subcategory": "coffee",
       "available": true
     },
     {
-      "id": "coffee003",
+      "id": "coffee-005",
       "name": {
         "en": "Flat White",
         "el": "Flat White"
       },
       "description": {
-        "en": "Double shot espresso with steamed milk and minimal foam, creating a smooth, velvety texture",
-        "el": "Διπλό εσπρέσσο με ζεστό γάλα και ελάχιστος αφρός, δημιουργώντας απαλή, βελούδινη υφή"
+        "en": "Double espresso with velvety microfoamed milk creating a silky texture with subtle sweetness",
+        "el": "Διπλός εσπρέσσο με μεταξένιο ζεστό γάλα και μικροσκοπικές φυσαλίδες για βελούδινη υφή"
       },
-      "price": 4.0,
-      "image": "flat-white.jpg",
+      "price": 4.5,
       "categories": ["hot", "coffee"],
       "subcategory": "coffee",
       "available": true
     },
     {
-      "id": "coffee004",
+      "id": "coffee-006",
+      "name": {
+        "en": "Latte",
+        "el": "Latte"
+      },
+      "description": {
+        "en": "Espresso embraced by generous portion of smooth steamed milk topped with a gossamer layer of foam",
+        "el": "Εσπρέσσο με γενναιόδωρη ποσότητα ατμισμένου γάλακτος και λεπτό στρώμα αφρού στην κορυφή"
+      },
+      "price": 4.5,
+      "categories": ["hot", "coffee"],
+      "subcategory": "coffee",
+      "available": true
+    },
+    {
+      "id": "coffee-007",
+      "name": {
+        "en": "Greek Coffee",
+        "el": "Ελληνικός"
+      },
+      "description": {
+        "en": "Traditional slow-brewed coffee carefully prepared in a copper briki with a velvety cream surface",
+        "el": "Παραδοσιακός καφές αργής παρασκευής σε χάλκινο μπρίκι με βελούδινη κρέμα στην επιφάνεια"
+      },
+      "priceSingle": 2.5,
+      "priceDouble": 3.5,
+      "categories": ["hot", "coffee"],
+      "subcategory": "coffee",
+      "available": true
+    },
+    {
+      "id": "coffee-008",
+      "name": {
+        "en": "Filter Coffee",
+        "el": "Φίλτρου"
+      },
+      "description": {
+        "en": "Infusion of premium coffee beans with optional aromatic flavor enhancements (additional 0,30 €)",
+        "el": "Εκχύλιση εκλεκτών κόκκων καφέ με προαιρετικές αρωματικές γεύσεις (επιπλέον 0,30 €)"
+      },
+      "price": 3.8,
+      "categories": ["hot", "coffee"],
+      "subcategory": "coffee",
+      "available": true
+    },
+    {
+      "id": "coffee-009",
+      "name": {
+        "en": "Irish",
+        "el": "Irish"
+      },
+      "description": {
+        "en": "Indulgent fusion of aromatic coffee, premium Irish whiskey and sumptuous cream crafted to perfection",
+        "el": "Απολαυστικός συνδυασμός αρωματικού καφέ, εκλεκτού ιρλανδικού ουίσκι και βελούδινης κρέμας"
+      },
+      "price": 6.0,
+      "categories": ["hot", "coffee", "alcohol"],
+      "subcategory": "coffee",
+      "available": true
+    },
+    {
+      "id": "coffee-010",
+      "name": {
+        "en": "Nescafe",
+        "el": "Nescafe"
+      },
+      "description": {
+        "en": "Classic instant coffee with rich flavor and aroma for immediate enjoyment and quick satisfaction",
+        "el": "Κλασικός στιγμιαίος καφές με πλούσια γεύση και άρωμα για γρήγορη απόλαυση"
+      },
+      "price": 3.5,
+      "categories": ["hot", "coffee"],
+      "subcategory": "coffee",
+      "available": true
+    },
+    {
+      "id": "coffee-011",
       "name": {
         "en": "Freddo Espresso",
-        "el": "Φρέντο Εσπρέσσο"
+        "el": "Freddo Espresso"
       },
       "description": {
-        "en": "Chilled espresso shaken with ice cubes, a Greek specialty",
-        "el": "Κρύος εσπρέσσο χτυπημένος με παγάκια, ελληνική σπεσιαλιτέ"
+        "en": "Aromatic espresso brewed hot, flash-chilled and served over crystal-clear ice for refreshing intensity",
+        "el": "Αρωματικός εσπρέσσο που παρασκευάζεται ζεστός, ψύχεται ακαριαία και σερβίρεται με πάγο"
       },
-      "priceSingle": 3.0,
-      "priceDouble": 4.0,
-      "image": "freddo-espresso.jpg",
+      "price": 3.8,
       "categories": ["cold", "coffee"],
       "subcategory": "coffee",
       "available": true
     },
     {
-      "id": "coffee005",
+      "id": "coffee-012",
       "name": {
         "en": "Freddo Cappuccino",
-        "el": "Φρέντο Καπουτσίνο"
+        "el": "Freddo Cappuccino"
       },
       "description": {
-        "en": "Cold espresso topped with creamy cold milk foam, popular in Greece",
-        "el": "Κρύος εσπρέσσο με κρεμώδες κρύο αφρόγαλα, δημοφιλής στην Ελλάδα"
+        "en": "Chilled espresso adorned with cold-crafted velvety milk foam, served over crystal ice for elegance",
+        "el": "Κρύος εσπρέσσο με κρεμώδη αφρόγαλα που δημιουργείται από ψυχρή μέθοδο, με παγάκια"
       },
       "price": 4.0,
-      "image": "freddo-cappuccino.jpg",
       "categories": ["cold", "coffee"],
       "subcategory": "coffee",
       "available": true
     },
     {
-      "id": "coffee006",
+      "id": "coffee-013",
       "name": {
-        "en": "Americano",
-        "el": "Αμερικάνο"
+        "en": "Freddo Latte",
+        "el": "Freddo Latte"
       },
       "description": {
-        "en": "Espresso diluted with hot water, creating a coffee similar to drip coffee",
-        "el": "Εσπρέσσο αραιωμένο με ζεστό νερό, δημιουργώντας καφέ παρόμοιο με φίλτρου"
+        "en": "Refreshing fusion of chilled espresso with silken cold milk cascaded over crystalline ice for bliss",
+        "el": "Δροσιστικός συνδυασμός κρύου εσπρέσσο με μεταξένιο παγωμένο γάλα σε κρυστάλλινο πάγο"
       },
-      "priceSingle": 3.0,
-      "priceDouble": 4.0,
-      "image": "americano.jpg",
-      "categories": ["hot", "coffee"],
+      "price": 4.0,
+      "categories": ["cold", "coffee"],
       "subcategory": "coffee",
       "available": true
     },
     {
-      "id": "coffee007",
+      "id": "coffee-014",
+      "name": {
+        "en": "Frappe",
+        "el": "Φραπέ"
+      },
+      "description": {
+        "en": "Iconic Greek iced coffee with luxurious foam crown, crafted from instant coffee with refined method",
+        "el": "Κλασικός ελληνικός κρύος καφές με πλούσιο αφρό, παρασκευασμένος με στιγμιαίο καφέ"
+      },
+      "price": 3.5,
+      "categories": ["cold", "coffee"],
+      "subcategory": "coffee",
+      "available": true
+    },
+    {
+      "id": "tea-001",
+      "name": {
+        "en": "English Breakfast",
+        "el": "English Breakfast"
+      },
+      "description": {
+        "en": "A robust start to the day with a full-bodied taste and strong aroma. Black tea with characteristic flavor strength and longevity.",
+        "el": "Ένα σώμα ξεκίνημα για την ημέρα με γεμάτη γεύση και έντονο άρωμα. Μαύρο τσάι με χαρακτηριστική γευστική δύναμη και διάρκεια."
+      },
+      "price": 3.8,
+      "categories": ["hot", "tea"],
+      "subcategory": "tea",
+      "available": true
+    },
+    {
+      "id": "tea-002",
+      "name": {
+        "en": "Black Almond",
+        "el": "Μαύρο πικραμύγδαλο"
+      },
+      "description": {
+        "en": "Chinese black tea blended with almond pieces. Rich flavor with caramel notes and a subtle almond finish.",
+        "el": "Μαύρο τσάι Κίνας συνδυασμένο με κομμάτια αμυγδάλου. Πλούσια γεύση με νότες καραμέλας και διακριτικό αμυγδαλένιο επίλογο."
+      },
+      "price": 3.8,
+      "categories": ["hot", "tea"],
+      "subcategory": "tea",
+      "available": true
+    },
+    {
+      "id": "tea-003",
+      "name": {
+        "en": "Black Rose",
+        "el": "Μαύρο τριαντάφυλλο"
+      },
+      "description": {
+        "en": "Ceylon black tea with rose aroma. Elegant, aromatic tea with a floral character and velvety aftertaste.",
+        "el": "Μαύρο τσάι Κεϋλάνης με άρωμα τριαντάφυλλου. Κομψό, αρωματικό τσάι με λουλουδάτο χαρακτήρα και βελούδινη επίγευση."
+      },
+      "price": 3.8,
+      "categories": ["hot", "tea"],
+      "subcategory": "tea",
+      "available": true
+    },
+    {
+      "id": "tea-004",
+      "name": {
+        "en": "Black Cinnamon",
+        "el": "Μαύρο κανέλα"
+      },
+      "description": {
+        "en": "Ceylon black tea with cinnamon aroma. Warm, spicy profile with sweet notes and a comforting finish.",
+        "el": "Μαύρο τσάι Κεϋλάνης με άρωμα κανέλας. Ζεστό, πικάντικο προφίλ με γλυκές νότες και παρηγορητική επίγευση."
+      },
+      "price": 3.8,
+      "categories": ["hot", "tea"],
+      "subcategory": "tea",
+      "available": true
+    },
+    {
+      "id": "tea-005",
       "name": {
         "en": "Green Tea",
-        "el": "Πράσινο Τσάι"
+        "el": "Πράσινο"
       },
       "description": {
-        "en": "Premium Japanese green tea leaves with subtle earthy notes",
-        "el": "Εκλεκτά φύλλα πράσινου τσαγιού Ιαπωνίας με διακριτικές γήινες νότες"
+        "en": "Classic green tea with fine leaves and beneficial properties. Fresh, light with a subtle bitterness.",
+        "el": "Κλασικό πράσινο τσάι με λεπτά φύλλα και ευεργετικές ιδιότητες. Φρέσκο, ανάλαφρο με διακριτική πικράδα."
       },
-      "price": 3.5,
-      "image": "green-tea.jpg",
+      "price": 3.8,
       "categories": ["hot", "tea"],
       "subcategory": "tea",
       "available": true
     },
     {
-      "id": "coffee008",
+      "id": "tea-006",
       "name": {
-        "en": "Earl Grey",
-        "el": "Earl Grey"
+        "en": "Green Orange",
+        "el": "Πράσινο πορτοκάλι"
       },
       "description": {
-        "en": "Classic black tea blend flavored with bergamot oil for a distinctive citrus taste",
-        "el": "Κλασικό μείγμα μαύρου τσαγιού με άρωμα περγαμόντο για μια χαρακτηριστική εσπεριδοειδή γεύση"
+        "en": "Green FBOP tea (Flowery Broken Orange Pekoe) with orange aroma. Refreshing with a citrusy character.",
+        "el": "Πράσινο τσάι FBOP (Flowery Broken Orange Pekoe) με άρωμα πορτοκαλιού. Αναζωογονητικό με εσπεριδοειδή χαρακτήρα."
       },
-      "price": 3.5,
-      "image": "earl-grey.jpg",
+      "price": 3.8,
       "categories": ["hot", "tea"],
       "subcategory": "tea",
       "available": true
     },
     {
-      "id": "coffee009",
+      "id": "tea-007",
       "name": {
-        "en": "Mountain Tea",
-        "el": "Τσάι του Βουνού"
+        "en": "Green Forest Fruits",
+        "el": "Πράσινο φρούτα του δάσους"
       },
       "description": {
-        "en": "Traditional Greek herbal tea made from sideritis plants harvested in the mountains",
-        "el": "Παραδοσιακό ελληνικό βότανο από φυτά σιδερίτη που συλλέγονται στα βουνά"
+        "en": "Chinese green tea with dried strawberries & redcurrants. Sweet-tart flavor with fruity aromas and vibrant finish.",
+        "el": "Πράσινο τσάι Κίνας με αποξηραμένες φράουλες & redcurrants. Γλυκόξινη γεύση με φρουτώδη αρώματα και ζωηρή επίγευση."
       },
-      "price": 3.0,
-      "image": "mountain-tea.jpg",
+      "price": 3.8,
+      "categories": ["hot", "tea"],
+      "subcategory": "tea",
+      "available": true
+    },
+    {
+      "id": "tea-008",
+      "name": {
+        "en": "Green Vanilla",
+        "el": "Πράσινο βανίλια"
+      },
+      "description": {
+        "en": "Young Hyson green tea with vanilla aroma. Gentle, sweet profile with velvety texture and creamy finish.",
+        "el": "Πράσινο τσάι Young Hyson με άρωμα βανίλιας. Απαλό, γλυκό προφίλ με βελούδινη υφή και κρεμώδη επίγευση."
+      },
+      "price": 3.8,
+      "categories": ["hot", "tea"],
+      "subcategory": "tea",
+      "available": true
+    },
+    {
+      "id": "tea-009",
+      "name": {
+        "en": "Green Mint",
+        "el": "Πράσινο μέντα"
+      },
+      "description": {
+        "en": "Young Hyson green tea with mint aroma. Cooling, invigorating with a clean menthol finish.",
+        "el": "Πράσινο τσάι Young Hyson με άρωμα μέντας. Δροσιστικό, αναζωογονητικό με διαυγή επίγευση μεντόλης."
+      },
+      "price": 3.8,
+      "categories": ["hot", "tea"],
+      "subcategory": "tea",
+      "available": true
+    },
+    {
+      "id": "tea-010",
+      "name": {
+        "en": "Green Lemon",
+        "el": "Πράσινο λεμόνι"
+      },
+      "description": {
+        "en": "Young Hyson green tea with lemon aroma. Vibrant, bright profile with citrus freshness and invigorating finish.",
+        "el": "Πράσινο τσάι Young Hyson με άρωμα λεμονιού. Ζωηρό, φωτεινό προφίλ με εσπεριδοειδή φρεσκάδα και τονωτική επίγευση."
+      },
+      "price": 3.8,
+      "categories": ["hot", "tea"],
+      "subcategory": "tea",
+      "available": true
+    },
+    {
+      "id": "tea-011",
+      "name": {
+        "en": "Little Prince",
+        "el": "Μικρός πρίγκιπας"
+      },
+      "description": {
+        "en": "Red tea with apple, grape and strawberry pieces, hibiscus and chamomile flowers, and rose calyxes. Caffeine-free.",
+        "el": "Κόκκινο τσάι με κομμάτια μήλου, σταφυλιού και φράουλας, άνθη ιβίσκου και χαμομηλιού και κάλυκες τριαντάφυλλιάς. Χωρίς καφεΐνη."
+      },
+      "price": 3.8,
       "categories": ["hot", "tea", "herbal"],
       "subcategory": "tea",
       "available": true
     },
     {
-      "id": "coffee010",
+      "id": "tea-012",
       "name": {
-        "en": "Chamomile Tea",
+        "en": "Mountain Variety",
+        "el": "Βουνού ποικιλιακό"
+      },
+      "description": {
+        "en": "Sage, chamomile, dittany, mallow. Traditional Greek herbal blend with therapeutic properties and earthy flavor.",
+        "el": "Φασκόμηλο, χαμομήλι, δίκταμο, μολόχα. Παραδοσιακό μείγμα ελληνικών βοτάνων με θεραπευτικές ιδιότητες και γήινη γεύση."
+      },
+      "price": 3.8,
+      "categories": ["hot", "tea", "herbal"],
+      "subcategory": "tea",
+      "available": true
+    },
+    {
+      "id": "tea-013",
+      "name": {
+        "en": "Chamomile",
         "el": "Χαμομήλι"
       },
       "description": {
-        "en": "Soothing herbal tea with gentle floral notes and calming properties",
-        "el": "Καταπραϋντικό βοτανικό τσάι με απαλές ανθικές νότες και χαλαρωτικές ιδιότητες"
+        "en": "Dried chamomile flowers. Mild, soothing flavor with floral aromas and relaxing properties.",
+        "el": "Αποξηραμένα άνθη χαμομηλιού. Απαλή, καταπραϋντική γεύση με ανθώδη αρώματα και χαλαρωτικές ιδιότητες."
       },
-      "price": 3.5,
-      "image": "chamomile-tea.jpg",
+      "price": 3.8,
       "categories": ["hot", "tea", "herbal"],
       "subcategory": "tea",
       "available": true
     },
     {
-      "id": "coffee011",
-      "name": {
-        "en": "Hot Chocolate",
-        "el": "Ζεστή Σοκολάτα"
-      },
-      "description": {
-        "en": "Rich, creamy hot chocolate made with premium cocoa and topped with whipped cream",
-        "el": "Πλούσια, κρεμώδης ζεστή σοκολάτα φτιαγμένη με εκλεκτό κακάο και γαρνιρισμένη με σαντιγί"
-      },
-      "price": 4.0,
-      "image": "hot-chocolate.jpg",
-      "categories": ["hot", "chocolate"],
-      "subcategory": "chocolate",
-      "available": true
-    },
-    {
-      "id": "coffee012",
-      "name": {
-        "en": "Iced Chocolate",
-        "el": "Κρύα Σοκολάτα"
-      },
-      "description": {
-        "en": "Refreshing cold chocolate drink blended with ice and topped with chocolate sauce",
-        "el": "Δροσιστικό κρύο ρόφημα σοκολάτας αναμειγμένο με πάγο και γαρνιρισμένο με σως σοκολάτας"
-      },
-      "price": 4.5,
-      "image": "iced-chocolate.jpg",
-      "categories": ["cold", "chocolate"],
-      "subcategory": "chocolate",
-      "available": true
-    },
-    {
-      "id": "coffee013",
-      "name": {
-        "en": "Mocha",
-        "el": "Μόκα"
-      },
-      "description": {
-        "en": "Perfect blend of espresso, steamed milk, and chocolate syrup topped with whipped cream",
-        "el": "Τέλειο μείγμα εσπρέσσο, ζεστού γάλατος και σιροπιού σοκολάτας με σαντιγί"
-      },
-      "price": 4.5,
-      "image": "mocha.jpg",
-      "categories": ["hot", "chocolate"],
-      "subcategory": "chocolate",
-      "available": true
-    },
-    {
-      "id": "coffee014",
-      "name": {
-        "en": "Fresh Orange Juice",
-        "el": "Φρέσκος Χυμός Πορτοκάλι"
-      },
-      "description": {
-        "en": "Freshly squeezed orange juice from local Cretan oranges",
-        "el": "Φρεσκοστυμμένος χυμός από τοπικά κρητικά πορτοκάλια"
-      },
-      "price": 4.0,
-      "image": "orange-juice.jpg",
-      "categories": ["cold", "fresh", "juice"],
-      "subcategory": "soft",
-      "available": true
-    },
-    {
-      "id": "coffee015",
-      "name": {
-        "en": "Fresh Apple Juice",
-        "el": "Φρέσκος Χυμός Μήλο"
-      },
-      "description": {
-        "en": "Freshly squeezed apple juice with a crisp, sweet taste",
-        "el": "Φρεσκοστυμμένος χυμός μήλου με τραγανή, γλυκιά γεύση"
-      },
-      "price": 4.0,
-      "image": "apple-juice.jpg",
-      "categories": ["cold", "fresh", "juice"],
-      "subcategory": "soft",
-      "available": true
-    },
-    {
-      "id": "coffee016",
-      "name": {
-        "en": "Sparkling Water",
-        "el": "Ανθρακούχο Νερό"
-      },
-      "description": {
-        "en": "Premium sparkling mineral water, perfect for refreshment",
-        "el": "Εκλεκτό ανθρακούχο μεταλλικό νερό, ιδανικό για αναζωογόνηση"
-      },
-      "price": 2.5,
-      "image": "sparkling-water.jpg",
-      "categories": ["cold", "water"],
-      "subcategory": "soft",
-      "available": true
-    },
-    {
-      "id": "coffee017",
-      "name": {
-        "en": "Still Water",
-        "el": "Φυσικό Νερό"
-      },
-      "description": {
-        "en": "Pure mineral water sourced from natural springs",
-        "el": "Καθαρό μεταλλικό νερό από φυσικές πηγές"
-      },
-      "price": 2.0,
-      "image": "still-water.jpg",
-      "categories": ["cold", "water"],
-      "subcategory": "soft",
-      "available": true
-    },
-    {
-      "id": "coffee018",
+      "id": "sd-001",
       "name": {
         "en": "Coca Cola",
         "el": "Coca Cola"
       },
       "description": {
-        "en": "Classic Coca-Cola with its signature refreshing taste",
-        "el": "Κλασική Coca-Cola με τη χαρακτηριστική δροσιστική γεύση της"
+        "en": "Classic caffeinated soft drink, 250ml.",
+        "el": "Κλασικό αναψυκτικό με καφεΐνη, 250ml."
       },
-      "price": 3.0,
-      "image": "coca-cola.jpg",
+      "price": 3.3,
       "categories": ["cold", "soda"],
       "subcategory": "soft",
       "available": true
     },
     {
-      "id": "coffee019",
+      "id": "sd-002",
+      "name": {
+        "en": "Coca Cola Zero",
+        "el": "Coca Cola Zero"
+      },
+      "description": {
+        "en": "Sugar-free soft drink, 250ml.",
+        "el": "Αναψυκτικό χωρίς ζάχαρη, 250ml."
+      },
+      "price": 3.3,
+      "categories": ["cold", "soda"],
+      "subcategory": "soft",
+      "available": true
+    },
+    {
+      "id": "sd-003",
+      "name": {
+        "en": "Fanta Orange",
+        "el": "Fanta Πορτοκάλι"
+      },
+      "description": {
+        "en": "Orange-flavored soft drink, 250ml.",
+        "el": "Αναψυκτικό με γεύση πορτοκάλι, 250ml."
+      },
+      "price": 3.3,
+      "categories": ["cold", "soda"],
+      "subcategory": "soft",
+      "available": true
+    },
+    {
+      "id": "sd-004",
+      "name": {
+        "en": "Fanta Lemon",
+        "el": "Fanta Λεμόνι"
+      },
+      "description": {
+        "en": "Lemon-flavored soft drink, 250ml.",
+        "el": "Αναψυκτικό με γεύση λεμόνι, 250ml."
+      },
+      "price": 3.3,
+      "categories": ["cold", "soda"],
+      "subcategory": "soft",
+      "available": true
+    },
+    {
+      "id": "sd-005",
       "name": {
         "en": "Sprite",
         "el": "Sprite"
       },
       "description": {
-        "en": "Lemon-lime flavored carbonated soft drink with a crisp, clean taste",
-        "el": "Ανθρακούχο αναψυκτικό με γεύση λεμόνι-λάιμ και τραγανή, καθαρή γεύση"
+        "en": "Lemon-lime flavored soft drink, 250ml.",
+        "el": "Αναψυκτικό με γεύση λεμονιού-lime, 250ml."
       },
-      "price": 3.0,
-      "image": "sprite.jpg",
+      "price": 3.3,
       "categories": ["cold", "soda"],
       "subcategory": "soft",
+      "available": true
+    },
+    {
+      "id": "sd-006",
+      "name": {
+        "en": "Schweppes Soda",
+        "el": "Schweppes Σόδα"
+      },
+      "description": {
+        "en": "Carbonated water with minerals, 250ml.",
+        "el": "Ανθρακούχο νερό με μεταλλικά στοιχεία, 250ml."
+      },
+      "price": 3.3,
+      "categories": ["cold", "soda"],
+      "subcategory": "soft",
+      "available": true
+    },
+    {
+      "id": "sd-007",
+      "name": {
+        "en": "Schweppes Tonic",
+        "el": "Schweppes Tonic"
+      },
+      "description": {
+        "en": "Carbonated water with quinine and sweeteners, 250ml.",
+        "el": "Ανθρακούχο νερό με κινίνη και γλυκαντικά, 250ml."
+      },
+      "price": 3.3,
+      "categories": ["cold", "soda"],
+      "subcategory": "soft",
+      "available": true
+    },
+    {
+      "id": "sd-008",
+      "name": {
+        "en": "Sparkling Water 330ml",
+        "el": "Ανθρακούχο νερό 330ml"
+      },
+      "description": {
+        "en": "Natural sparkling mineral water, 330ml.",
+        "el": "Φυσικό ανθρακούχο μεταλλικό νερό, 330ml."
+      },
+      "price": 3.5,
+      "categories": ["cold", "water"],
+      "subcategory": "soft",
+      "available": true
+    },
+    {
+      "id": "sd-009",
+      "name": {
+        "en": "Sparkling Water 1L",
+        "el": "Ανθρακούχο νερό 1lt"
+      },
+      "description": {
+        "en": "Natural sparkling mineral water, 1 liter.",
+        "el": "Φυσικό ανθρακούχο μεταλλικό νερό, 1 λίτρο."
+      },
+      "price": 5.0,
+      "categories": ["cold", "water"],
+      "subcategory": "soft",
+      "available": true
+    },
+    {
+      "id": "sd-010",
+      "name": {
+        "en": "Red Bull",
+        "el": "Red Bull"
+      },
+      "description": {
+        "en": "Energy drink with caffeine and taurine.",
+        "el": "Ενεργειακό ποτό με καφεΐνη και ταυρίνη."
+      },
+      "price": 5.0,
+      "categories": ["cold", "energy"],
+      "subcategory": "soft",
+      "available": true
+    },
+    {
+      "id": "sd-011",
+      "name": {
+        "en": "Three Cents Tonic Water",
+        "el": "Three Cents Tonic Water"
+      },
+      "description": {
+        "en": "Premium tonic with delicate citrus notes and balanced bitterness, 200ml.",
+        "el": "Premium τόνικ με απαλή γεύση εσπεριδοειδών και ισορροπημένη πικράδα, 200ml."
+      },
+      "price": 5.0,
+      "categories": ["cold", "premium"],
+      "subcategory": "soft",
+      "available": true
+    },
+    {
+      "id": "sd-012",
+      "name": {
+        "en": "Three Cents Pink Grapefruit Soda",
+        "el": "Three Cents Pink Grapefruit Soda"
+      },
+      "description": {
+        "en": "Premium soda with fresh pink grapefruit juice and citrus undertones, 200ml.",
+        "el": "Premium σόδα με φρέσκο χυμό ροζ γκρέιπφρουτ και νότες εσπεριδοειδών, 200ml."
+      },
+      "price": 5.0,
+      "categories": ["cold", "premium"],
+      "subcategory": "soft",
+      "available": true
+    },
+    {
+      "id": "sd-013",
+      "name": {
+        "en": "Three Cents Aegean Tonic",
+        "el": "Three Cents Aegean Tonic"
+      },
+      "description": {
+        "en": "Premium tonic with Mediterranean aromas, sea salt and samphire, 200ml.",
+        "el": "Premium τόνικ με αρώματα Μεσογείου, θαλασσινό αλάτι και κρίταμο, 200ml."
+      },
+      "price": 5.0,
+      "categories": ["cold", "premium"],
+      "subcategory": "soft",
+      "available": true
+    },
+    {
+      "id": "sd-014",
+      "name": {
+        "en": "Three Cents Ginger Beer",
+        "el": "Three Cents Ginger Beer"
+      },
+      "description": {
+        "en": "Premium ginger beer with intense spicy flavor and fresh ginger, 200ml.",
+        "el": "Premium μπύρα τζίντζερ με έντονη πικάντικη γεύση και φρέσκο τζίντζερ, 200ml."
+      },
+      "price": 5.0,
+      "categories": ["cold", "premium"],
+      "subcategory": "soft",
+      "available": true
+    },
+    {
+      "id": "sd-015",
+      "name": {
+        "en": "Traditional Refreshments",
+        "el": "Παραδοσιακά Αναψυκτικά"
+      },
+      "description": {
+        "en": "Handcrafted refreshments in traditional flavors: Lemonade, Rosehip, Fruit Punch, Apple-Pomegranate, Strawberry-Lemon.",
+        "el": "Χειροποίητα αναψυκτικά σε παραδοσιακές γεύσεις: Λεμονάδα, Ροδακινάδα, Πανδαισία φρούτων, Μήλο-Ρόδι, Φράουλα-Λεμόνι."
+      },
+      "price": 4.5,
+      "categories": ["cold", "traditional"],
+      "subcategory": "soft",
+      "available": true
+    },
+    {
+      "id": "sd-016",
+      "name": {
+        "en": "Milkshakes",
+        "el": "Milkshakes"
+      },
+      "description": {
+        "en": "Thick beverage with ice cream and milk in various flavors: Vanilla, Chocolate, Stracciatella, Banana, Strawberry, Biscuit, Bueno.",
+        "el": "Ρόφημα με παγωτό και γάλα σε διάφορες γεύσεις: Βανίλια, Σοκολάτα, Στρατσιατέλα, Μπανάνα, Φράουλα, Μπισκότο, Μπουένο."
+      },
+      "price": 5.0,
+      "categories": ["cold", "milkshakes"],
+      "subcategory": "soft",
+      "available": true
+    },
+    {
+      "id": "nj-001",
+      "name": {
+        "en": "Fresh Orange Juice",
+        "el": "Φρέσκος Χυμός Πορτοκάλι"
+      },
+      "description": {
+        "en": "Freshly squeezed juice from juicy oranges, rich in vitamin C.",
+        "el": "Φρεσκοστυμμένος χυμός από ζουμερά πορτοκάλια, πλούσιος σε βιταμίνη C."
+      },
+      "price": 4.0,
+      "categories": ["cold", "fresh", "juice"],
+      "subcategory": "juice",
+      "available": true
+    },
+    {
+      "id": "nj-002",
+      "name": {
+        "en": "Fresh Pomegranate Juice",
+        "el": "Φρέσκος Χυμός Ρόδι"
+      },
+      "description": {
+        "en": "Freshly squeezed juice from select pomegranates, rich in antioxidants.",
+        "el": "Φρεσκοστυμμένος χυμός από εκλεκτά ρόδια, πλούσιος σε αντιοξειδωτικά."
+      },
+      "price": 5.0,
+      "categories": ["cold", "fresh", "juice"],
+      "subcategory": "juice",
+      "available": true
+    },
+    {
+      "id": "nj-003",
+      "name": {
+        "en": "Fresh Banana & Orange Juice",
+        "el": "Φρέσκος Χυμός Μπανάνα & Πορτοκάλι"
+      },
+      "description": {
+        "en": "Freshly squeezed orange juice with banana for an energetic start.",
+        "el": "Φρεσκοστυμμένος χυμός πορτοκάλι με μπανάνα για ενεργητικό ξεκίνημα."
+      },
+      "price": 4.5,
+      "categories": ["cold", "fresh", "juice"],
+      "subcategory": "juice",
+      "available": true
+    },
+    {
+      "id": "nj-004",
+      "name": {
+        "en": "Fresh Pomegranate & Orange Juice",
+        "el": "Φρέσκος Χυμός Ρόδι & Πορτοκάλι"
+      },
+      "description": {
+        "en": "Freshly squeezed combination of orange and pomegranate juice, rich in vitamins.",
+        "el": "Φρεσκοστυμμένος συνδυασμός χυμού πορτοκαλιού και ροδιού, πλούσιος σε βιταμίνες."
+      },
+      "price": 5.0,
+      "categories": ["cold", "fresh", "juice"],
+      "subcategory": "juice",
+      "available": true
+    },
+    {
+      "id": "nj-005",
+      "name": {
+        "en": "Fresh Mixed Fruit Juice",
+        "el": "Φρέσκος Χυμός Ανάμεικτος"
+      },
+      "description": {
+        "en": "Freshly squeezed juice from seasonal fruits, depending on availability.",
+        "el": "Φρεσκοστυμμένος χυμός από εποχιακά φρούτα, ανάλογα με τη διαθεσιμότητα."
+      },
+      "price": 5.0,
+      "categories": ["cold", "fresh", "juice"],
+      "subcategory": "juice",
+      "available": true
+    },
+    {
+      "id": "nj-006",
+      "name": {
+        "en": "Amita Fruit Juices",
+        "el": "Χυμοί Amita"
+      },
+      "description": {
+        "en": "Packaged Amita juices in various flavors: Orange, Lemon, Peach, Pineapple, Banana, Sour Cherry, and Cranberry.",
+        "el": "Συσκευασμένοι χυμοί Amita σε διάφορες γεύσεις: Πορτοκάλι, Λεμόνι, Ροδάκινο, Ανανάς, Μπανάνα, Βύσσινο και Cranberry."
+      },
+      "price": 3.3,
+      "categories": ["cold", "packaged", "juice"],
+      "subcategory": "juice",
       "available": true
     }
   ]

@@ -2,66 +2,14 @@
   "items": [
     {
       "name": {
-        "en": "Mythos",
-        "el": "Μύθος"
+        "en": "Alfa 400ml",
+        "el": "Alfa"
       },
       "description": {
-        "en": "Classic Greek lager with a smooth, refreshing taste and light malty notes",
-        "el": "Κλασική ελληνική λάγκερ με απαλή, δροσιστική γεύση και ελαφριές νότες βύνης"
+        "en": "Lager 5% / GREECE, 400ml",
+        "el": "Λάγκερ 5% / ΕΛΛΑΔΑ, 400ml"
       },
-      "price": 3.5,
-      "subcategory": "draft",
-      "available": true
-    },
-    {
-      "name": {
-        "en": "Alpha",
-        "el": "Άλφα"
-      },
-      "description": {
-        "en": "Balanced Greek lager with a bright golden color and delicate hop aroma",
-        "el": "Ισορροπημένη ελληνική λάγκερ με λαμπερό χρυσό χρώμα και λεπτό άρωμα λυκίσκου"
-      },
-      "price": 3.5,
-      "subcategory": "draft",
-      "available": true
-    },
-    {
-      "name": {
-        "en": "Fix Hellas",
-        "el": "Φιξ Ελλάς"
-      },
-      "description": {
-        "en": "Historic Greek beer with a crisp taste, medium body and pleasant finish",
-        "el": "Ιστορική ελληνική μπύρα με τραγανή γεύση, μέτριο σώμα και ευχάριστο τελείωμα"
-      },
-      "price": 3.5,
-      "subcategory": "draft",
-      "available": true
-    },
-    {
-      "name": {
-        "en": "Heineken",
-        "el": "Heineken"
-      },
-      "description": {
-        "en": "International premium lager with a distinctive balanced taste and subtle bitter notes",
-        "el": "Διεθνής premium λάγκερ με χαρακτηριστική ισορροπημένη γεύση και διακριτικές πικρές νότες"
-      },
-      "price": 4.0,
-      "subcategory": "draft",
-      "available": true
-    },
-    {
-      "name": {
-        "en": "Guinness",
-        "el": "Guinness"
-      },
-      "description": {
-        "en": "Iconic Irish dry stout with creamy texture and rich flavors of coffee and chocolate",
-        "el": "Εμβληματική ιρλανδική μαύρη μπύρα με κρεμώδη υφή και πλούσιες γεύσεις καφέ και σοκολάτας"
-      },
-      "price": 5.5,
+      "price": 5.0,
       "subcategory": "draft",
       "available": true
     },
@@ -71,21 +19,8 @@
         "el": "Stella Artois"
       },
       "description": {
-        "en": "Belgian premium lager with a distinctive taste and elegant hoppy bitterness",
-        "el": "Βελγική premium λάγκερ με χαρακτηριστική γεύση και κομψή πικράδα λυκίσκου"
-      },
-      "price": 4.5,
-      "subcategory": "bottles",
-      "available": true
-    },
-    {
-      "name": {
-        "en": "Corona Extra",
-        "el": "Corona Extra"
-      },
-      "description": {
-        "en": "Light and refreshing Mexican beer, traditionally served with a lime wedge",
-        "el": "Ελαφριά και δροσιστική μεξικάνικη μπύρα, παραδοσιακά σερβίρεται με μια φέτα λάιμ"
+        "en": "Lager 5% / BELGIUM",
+        "el": "Λάγκερ 5% / ΒΕΛΓΙΟ"
       },
       "price": 5.0,
       "subcategory": "bottles",
@@ -93,12 +28,12 @@
     },
     {
       "name": {
-        "en": "Budweiser",
-        "el": "Budweiser"
+        "en": "Mamos",
+        "el": "Mamos"
       },
       "description": {
-        "en": "American-style lager known for its crisp flavor and smooth finish",
-        "el": "Λάγκερ αμερικανικού τύπου γνωστή για την τραγανή γεύση και το απαλό τελείωμά της"
+        "en": "Pils 5% / GREECE",
+        "el": "Πιλς 5% / ΕΛΛΑΔΑ"
       },
       "price": 4.5,
       "subcategory": "bottles",
@@ -106,51 +41,77 @@
     },
     {
       "name": {
-        "en": "Amstel",
-        "el": "Άμστελ"
+        "en": "Kaiser",
+        "el": "Kaiser"
       },
       "description": {
-        "en": "Light-bodied lager with a distinctive malty character and clean, crisp finish",
-        "el": "Λάγκερ με ελαφρύ σώμα, χαρακτηριστικό χαρακτήρα βύνης και καθαρό, τραγανό τελείωμα"
+        "en": "Pils 5% / GERMANY",
+        "el": "Πιλς 5% / ΓΕΡΜΑΝΙΑ"
       },
-      "price": 4.0,
+      "price": 4.5,
       "subcategory": "bottles",
       "available": true
     },
     {
       "name": {
-        "en": "Hoegaarden",
-        "el": "Hoegaarden"
+        "en": "Corona",
+        "el": "Corona"
       },
       "description": {
-        "en": "Belgian white beer with notes of coriander and orange peel, smooth and slightly sweet",
-        "el": "Βελγική λευκή μπύρα με νότες κόλιανδρου και φλούδας πορτοκαλιού, απαλή και ελαφρώς γλυκιά"
+        "en": "Lager Cerveza 4,5% / MEXICO",
+        "el": "Λάγκερ Cerveza 4,5% / ΜΕΞΙΚΟ"
       },
-      "price": 5.5,
+      "price": 5.0,
       "subcategory": "bottles",
       "available": true
     },
     {
       "name": {
-        "en": "Charma Cretan Ale",
-        "el": "Charma Κρητική Ale"
+        "en": "Paulaner 500ml",
+        "el": "Paulaner"
       },
       "description": {
-        "en": "Local Cretan ale with rich malty flavor balanced with aromatic hops",
-        "el": "Τοπική κρητική ale με πλούσια γεύση βύνης εξισορροπημένη με αρωματικούς λυκίσκους"
+        "en": "Hefe Weisse 5,5% / GERMANY, 500ml",
+        "el": "Χέφε Βάισε 5,5% / ΓΕΡΜΑΝΙΑ, 500ml"
       },
       "price": 6.0,
-      "subcategory": "craft",
+      "subcategory": "bottles",
       "available": true
     },
     {
       "name": {
-        "en": "Septem Monday's Pilsner",
-        "el": "Septem Monday's Pilsner"
+        "en": "Guinness 440ml",
+        "el": "Guinness"
       },
       "description": {
-        "en": "Greek craft pilsner with crisp malt character and delicate hoppy aroma",
-        "el": "Ελληνική χειροποίητη pilsner με τραγανό χαρακτήρα βύνης και λεπτό άρωμα λυκίσκου"
+        "en": "Stout 4,2% / IRELAND, 440ml",
+        "el": "Στάουτ 4,2% / ΙΡΛΑΝΔΙΑ, 440ml"
+      },
+      "price": 8.0,
+      "subcategory": "bottles",
+      "available": true
+    },
+    {
+      "name": {
+        "en": "McFarland",
+        "el": "McFarland"
+      },
+      "description": {
+        "en": "Irish Red Ale 5,4% / IRELAND",
+        "el": "Ιρλανδική Κόκκινη Έιλ 5,4% / ΙΡΛΑΝΔΙΑ"
+      },
+      "price": 5.0,
+      "subcategory": "bottles",
+      "available": true
+    },
+    {
+      "name": {
+        "en": "Retimi",
+        "el": "Retimi"
+      },
+      "description": {
+        "en": "Blonde Ale 5,3% / RETHYMNO GREECE",
+        "el": "Ξανθιά Έιλ 5,3% / ΡΕΘΥΜΝΟ ΕΛΛΑΔΑ"
       },
       "price": 6.5,
       "subcategory": "craft",
@@ -158,25 +119,25 @@
     },
     {
       "name": {
-        "en": "Volkan Black",
-        "el": "Volkan Black"
+        "en": "Brewtiful Go Get'em Tiger 440ml",
+        "el": "Brewtiful Go Get'em Tiger"
       },
       "description": {
-        "en": "Dark Greek craft beer brewed with rare honey from Santorini and volcanic rock filtered water",
-        "el": "Σκούρα ελληνική χειροποίητη μπύρα με σπάνιο μέλι από τη Σαντορίνη και νερό φιλτραρισμένο σε ηφαιστειακό πέτρωμα"
+        "en": "American IPA 6,8% / GREECE, 440ml",
+        "el": "Αμερικάνικη IPA 6,8% / ΕΛΛΑΔΑ, 440ml"
       },
-      "price": 7.0,
+      "price": 9.0,
       "subcategory": "craft",
       "available": true
     },
     {
       "name": {
-        "en": "BrewDog Punk IPA",
-        "el": "BrewDog Punk IPA"
+        "en": "Strange Brew Jasmine",
+        "el": "Strange Brew Jasmine"
       },
       "description": {
-        "en": "Light golden IPA with tropical fruits and bursts of caramel and citrus",
-        "el": "Ανοιχτόχρωμη χρυσή IPA με τροπικά φρούτα και εκρήξεις καραμέλας και εσπεριδοειδών"
+        "en": "India Pale Ale 6,2% / GREECE",
+        "el": "Ινδική Pale Ale 6,2% / ΕΛΛΑΔΑ"
       },
       "price": 7.5,
       "subcategory": "craft",
@@ -184,12 +145,25 @@
     },
     {
       "name": {
-        "en": "Mikkeller Passion Pool",
-        "el": "Mikkeller Passion Pool"
+        "en": "Strange Brew Mandy Black",
+        "el": "Strange Brew Mandy Black"
       },
       "description": {
-        "en": "Fruity sour ale with passion fruit, balanced acidity and a refreshing finish",
-        "el": "Φρουτώδης ξινή ale με φρούτα του πάθους, ισορροπημένη οξύτητα και δροσιστικό τελείωμα"
+        "en": "Stout 7% / GREECE",
+        "el": "Στάουτ 7% / ΕΛΛΑΔΑ"
+      },
+      "price": 7.5,
+      "subcategory": "craft",
+      "available": true
+    },
+    {
+      "name": {
+        "en": "Strange Brew Dr. Haze",
+        "el": "Strange Brew Dr. Haze"
+      },
+      "description": {
+        "en": "Double IPA 8% / GREECE",
+        "el": "Διπλή IPA 8% / ΕΛΛΑΔΑ"
       },
       "price": 8.0,
       "subcategory": "craft",
@@ -197,16 +171,81 @@
     },
     {
       "name": {
-        "en": "Delphi Valley Pilsner",
-        "el": "Delphi Valley Pilsner"
+        "en": "Thira the Sun Bum Beach",
+        "el": "Thira the Sun Bum Beach"
       },
       "description": {
-        "en": "Small-batch pilsner with floral notes and clean, crisp finish",
-        "el": "Pilsner μικρής παραγωγής με ανθώδεις νότες και καθαρό, τραγανό τελείωμα"
+        "en": "Tropic Ale 5% / GREECE",
+        "el": "Τροπική Έιλ 5% / ΕΛΛΑΔΑ"
       },
-      "price": 7.0,
+      "price": 6.5,
       "subcategory": "craft",
-      "available": false
+      "available": true
+    },
+    {
+      "name": {
+        "en": "Amstel Radler",
+        "el": "Amstel Radler"
+      },
+      "description": {
+        "en": "Radler 2% / NETHERLANDS",
+        "el": "Ράντλερ 2% / ΟΛΛΑΝΔΙΑ"
+      },
+      "price": 4.5,
+      "subcategory": "bottles",
+      "available": true
+    },
+    {
+      "name": {
+        "en": "Stella Artois Alcohol Free",
+        "el": "Stella Artois Alcohol Free"
+      },
+      "description": {
+        "en": "Lager non-Alcohol 0,0% / BELGIUM",
+        "el": "Λάγκερ χωρίς αλκοόλ 0,0% / ΒΕΛΓΙΟ"
+      },
+      "price": 5.0,
+      "subcategory": "bottles",
+      "available": true
+    },
+    {
+      "name": {
+        "en": "Heineken Free",
+        "el": "Heineken Free"
+      },
+      "description": {
+        "en": "Lager non-Alcohol 0,0% / NETHERLANDS",
+        "el": "Λάγκερ χωρίς αλκοόλ 0,0% / ΟΛΛΑΝΔΙΑ"
+      },
+      "price": 5.0,
+      "subcategory": "bottles",
+      "available": true
+    },
+    {
+      "name": {
+        "en": "Milokleftis Apple",
+        "el": "Milokleftis Apple"
+      },
+      "description": {
+        "en": "Cider 4,5% / GREECE",
+        "el": "Μηλίτης 4,5% / ΕΛΛΑΔΑ"
+      },
+      "price": 4.5,
+      "subcategory": "bottles",
+      "available": true
+    },
+    {
+      "name": {
+        "en": "Strongbow Gold Red Berries",
+        "el": "Strongbow Gold Red Berries"
+      },
+      "description": {
+        "en": "Cider 4,5% / ENGLAND",
+        "el": "Μηλίτης 4,5% / ΑΓΓΛΙΑ"
+      },
+      "price": 4.5,
+      "subcategory": "bottles",
+      "available": true
     }
   ]
 }

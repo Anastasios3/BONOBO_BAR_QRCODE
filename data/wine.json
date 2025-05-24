@@ -1,201 +1,194 @@
 {
   "items": [
     {
-      "id": "wine001",
+      "id": "sparkling-001",
       "name": {
-        "en": "Prosecco",
-        "el": "Prosecco"
+        "en": "Moscato D'asti Muray",
+        "el": "Moscato D'asti Muray"
       },
       "description": {
-        "en": "Fresh, light Italian sparkling wine with notes of green apple, pear, and white flowers",
-        "el": "Φρέσκο, ελαφρύ ιταλικό αφρώδες κρασί με νότες πράσινου μήλου, αχλαδιού και λευκών λουλουδιών"
+        "en": "Beppe Marino / Moscato",
+        "el": "Beppe Marino / Moscato"
       },
-      "priceGlass": 7.5,
-      "priceBottle": 35.0,
-      "image": "prosecco.jpg",
-      "categories": ["sparkling", "imported", "dry"],
+      "priceGlass": 6.0,
+      "priceBottle": 26.0,
       "subcategory": "sparkling",
       "available": true
     },
     {
-      "id": "wine002",
+      "id": "sparkling-002",
       "name": {
-        "en": "Cava Brut",
-        "el": "Cava Brut"
+        "en": "Prosecco Amore Di Amanti",
+        "el": "Prosecco Amore Di Amanti"
       },
       "description": {
-        "en": "Spanish sparkling wine with crisp acidity, notes of citrus, green apple, and toasted bread",
-        "el": "Ισπανικό αφρώδες κρασί με τραγανή οξύτητα, νότες εσπεριδοειδών, πράσινου μήλου και φρυγανισμένου ψωμιού"
+        "en": "Vino Spumante / Prosecco",
+        "el": "Vino Spumante / Prosecco"
       },
-      "priceBottle": 38.0,
-      "image": "cava.jpg",
-      "categories": ["sparkling", "imported", "dry"],
+      "priceGlass": 6.0,
+      "priceBottle": 26.0,
       "subcategory": "sparkling",
       "available": true
     },
     {
-      "id": "wine003",
+      "id": "white-wine-001",
       "name": {
-        "en": "Moscato d'Asti",
-        "el": "Moscato d'Asti"
+        "en": "Voltes",
+        "el": "Βόλτες"
       },
       "description": {
-        "en": "Sweet, lightly sparkling Italian wine with intense aromas of peach, apricot, and orange blossom",
-        "el": "Γλυκό, ελαφρά αφρώδες ιταλικό κρασί με έντονα αρώματα ροδάκινου, βερίκοκου και άνθους πορτοκαλιάς"
+        "en": "Tsimpidis Winery Monemvasia / Roditis, Moschofilero",
+        "el": "Οινοποιητική Τσιμπίδη Μονεμβασιά / Ροδίτης, Μοσχοφίλερο"
       },
-      "priceGlass": 8.5,
-      "priceBottle": 42.0,
-      "image": "moscato.jpg",
-      "categories": ["sparkling", "imported", "sweet"],
-      "subcategory": "sparkling",
-      "available": true
-    },
-    {
-      "id": "wine004",
-      "name": {
-        "en": "Assyrtiko - Santorini",
-        "el": "Ασύρτικο - Σαντορίνη"
-      },
-      "description": {
-        "en": "Crisp, elegant white wine from Santorini with vibrant acidity and mineral notes",
-        "el": "Τραγανό, κομψό λευκό κρασί από τη Σαντορίνη με ζωηρή οξύτητα και ορυκτές νότες"
-      },
-      "priceGlass": 8.5,
-      "priceBottle": 45.0,
-      "image": "assyrtiko.jpg",
-      "categories": ["white", "greek", "dry"],
+      "priceGlass": 5.0,
+      "priceBottle": 22.0,
       "subcategory": "white",
       "available": true
     },
     {
-      "id": "wine005",
+      "id": "white-wine-002",
       "name": {
-        "en": "Chardonnay - Crete",
-        "el": "Σαρντονέ - Κρήτη"
+        "en": "Charlampakis Muscat Spinas",
+        "el": "Χαρλαμπάκης Muscat Spinas"
       },
       "description": {
-        "en": "Medium-bodied white wine with notes of tropical fruits, vanilla, and a buttery finish",
-        "el": "Λευκό κρασί μέτριου σώματος με νότες τροπικών φρούτων, βανίλιας και βουτυρώδες τελείωμα"
+        "en": "Charlampakis Winery / Muscat Spinas",
+        "el": "Οινοποιητική Χαραλαμπάκης / Μουσάτο Σπίνας"
       },
-      "priceBottle": 35.0,
-      "image": "chardonnay.jpg",
-      "categories": ["white", "greek", "medium"],
+      "priceGlass": 5.5,
+      "priceBottle": 24.0,
       "subcategory": "white",
       "available": true
     },
     {
-      "id": "wine006",
+      "id": "white-wine-003",
       "name": {
-        "en": "Sauvignon Blanc - New Zealand",
-        "el": "Sauvignon Blanc - Νέα Ζηλανδία"
+        "en": "Techni Alipias",
+        "el": "Τέχνη Αλυπίας"
       },
       "description": {
-        "en": "Aromatic white wine with intense citrus and tropical fruit flavors and grassy notes",
-        "el": "Αρωματικό λευκό κρασί με έντονες γεύσεις εσπεριδοειδών και τροπικών φρούτων και χορτώδεις νότες"
+        "en": "Techni Oinou Winery, Drama / Sauvignon Blanc, Assyrtiko",
+        "el": "Οινοποιείο Τέχνη Οίνου, Δράμα / Sauvignon Blanc, Ασύρτικο"
       },
-      "priceGlass": 9.0,
-      "priceBottle": 42.0,
-      "image": "sauvignon-blanc.jpg",
-      "categories": ["white", "imported", "aromatic"],
-      "subcategory": "white",
-      "available": true
-    },
-    {
-      "id": "wine007",
-      "name": {
-        "en": "Moschofilero Rosé",
-        "el": "Μοσχοφίλερο Ροζέ"
-      },
-      "description": {
-        "en": "Delicate rosé wine with floral aromas and refreshing berry flavors",
-        "el": "Λεπτό ροζέ κρασί με ανθικά αρώματα και δροσιστικές γεύσεις από μούρα"
-      },
-      "priceGlass": 7.5,
       "priceBottle": 32.0,
-      "image": "moschofilero-rose.jpg",
-      "categories": ["rose", "greek", "dry"],
+      "subcategory": "white",
+      "available": true
+    },
+    {
+      "id": "white-wine-004",
+      "name": {
+        "en": "Plano",
+        "el": "Plano"
+      },
+      "description": {
+        "en": "Techni Oinou Winery, Drama / Malagouzia",
+        "el": "Οινοποιείο Τέχνη Οίνου, Δράμα / Μαλαγουζιά"
+      },
+      "priceBottle": 32.0,
+      "subcategory": "white",
+      "available": true
+    },
+    {
+      "id": "white-wine-005",
+      "name": {
+        "en": "Piccolo Mondo",
+        "el": "Piccolo Mondo"
+      },
+      "description": {
+        "en": "Semeli Estate / Moschofilero (Semi-Sweet)",
+        "el": "Κτήμα Σέμελη / Μοσχοφίλερο (Ημίγλυκο)"
+      },
+      "priceGlass": 5.0,
+      "priceBottle": 22.0,
+      "subcategory": "white",
+      "available": true
+    },
+    {
+      "id": "rose-wine-001",
+      "name": {
+        "en": "2 Faraggia",
+        "el": "2 Φαράγγια"
+      },
+      "description": {
+        "en": "Malagaki Winery, Heraklion / Mourvedre, Malvasia",
+        "el": "Οινοποιείο Μαλαγάκη, Ηράκλειο / Mourvedre, Μαλβαζία"
+      },
+      "priceGlass": 5.0,
+      "priceBottle": 22.0,
       "subcategory": "rose",
       "available": true
     },
     {
-      "id": "wine008",
+      "id": "rose-wine-002",
       "name": {
-        "en": "Provence Rosé",
-        "el": "Ροζέ Προβηγκίας"
+        "en": "Mythikos Potamos",
+        "el": "Μυθικός Ποταμός"
       },
       "description": {
-        "en": "Classic French rosé with elegant aromas of red berries, citrus, and subtle herbaceous notes",
-        "el": "Κλασικό γαλλικό ροζέ με κομψά αρώματα κόκκινων μούρων, εσπεριδοειδών και διακριτικές βοτανικές νότες"
+        "en": "Gofas Estate / Agiorgitiko, Syrah (Semi-Dry)",
+        "el": "Κτήμα Γκόφας / Αγιωργίτικο, Syrah (Ημίξηρο)"
       },
-      "priceBottle": 45.0,
-      "image": "provence-rose.jpg",
-      "categories": ["rose", "imported", "dry"],
+      "priceGlass": 5.5,
+      "priceBottle": 24.0,
       "subcategory": "rose",
       "available": true
     },
     {
-      "id": "wine009",
+      "id": "rose-wine-003",
       "name": {
-        "en": "Agiorgitiko - Nemea",
-        "el": "Αγιωργίτικο - Νεμέα"
+        "en": "Rose de Xinomavro",
+        "el": "Rose de xinamavro"
       },
       "description": {
-        "en": "Medium to full-bodied red wine with ripe red fruit flavors, spices, and smooth tannins",
-        "el": "Κόκκινο κρασί μέτριου έως γεμάτου σώματος με γεύσεις ώριμων κόκκινων φρούτων, μπαχαρικά και απαλές ταννίνες"
+        "en": "Thymiopoulos Vineyards / Xinomavro",
+        "el": "Αμπελώνες Θυμιόπουλος / Ξινόμαυρο"
       },
-      "priceGlass": 8.0,
-      "priceBottle": 38.0,
-      "image": "agiorgitiko.jpg",
-      "categories": ["red", "greek", "medium"],
+      "priceBottle": 32.0,
+      "subcategory": "rose",
+      "available": true
+    },
+    {
+      "id": "red-wine-001",
+      "name": {
+        "en": "Voltes",
+        "el": "Βόλτες"
+      },
+      "description": {
+        "en": "Tsimpidis Winery Monemvasia / Agiorgitiko, Mavroudi",
+        "el": "Οινοποιητική Τσιμπίδη Μονεμβασιά / Αγιωργίτικο, Μαυρούδι"
+      },
+      "priceGlass": 5.0,
+      "priceBottle": 22.0,
       "subcategory": "red",
       "available": true
     },
     {
-      "id": "wine010",
+      "id": "red-wine-002",
       "name": {
-        "en": "Cabernet Sauvignon - Greece",
-        "el": "Cabernet Sauvignon - Ελλάδα"
+        "en": "Piccolo Mondo",
+        "el": "Piccolo Mondo"
       },
       "description": {
-        "en": "Full-bodied red wine with intense black fruit flavors, subtle oak notes, and firm tannins",
-        "el": "Κόκκινο κρασί γεμάτου σώματος με έντονες γεύσεις μαύρων φρούτων, διακριτικές νότες βαρελιού και σταθερές ταννίνες"
+        "en": "Semeli Estate / Agiorgitiko (Semi-Sweet)",
+        "el": "Κτήμα Σεμέλη / Αγιωργίτικο (Ημίγλυκο)"
       },
-      "priceBottle": 40.0,
-      "image": "cabernet.jpg",
-      "categories": ["red", "greek", "full"],
+      "priceGlass": 5.0,
+      "priceBottle": 22.0,
       "subcategory": "red",
       "available": true
     },
     {
-      "id": "wine011",
+      "id": "red-wine-003",
       "name": {
-        "en": "Merlot - Italy",
-        "el": "Merlot - Ιταλία"
+        "en": "Mavrodafne",
+        "el": "Μαυροδάφνη"
       },
       "description": {
-        "en": "Smooth red wine with ripe plum and cherry flavors, hints of chocolate, and soft tannins",
-        "el": "Απαλό κόκκινο κρασί με γεύσεις ώριμου δαμάσκηνου και κερασιού, υπονοούμενα σοκολάτας και μαλακές ταννίνες"
+        "en": "Patras Winery / Mavrodafne (Semi-Sweet)",
+        "el": "Οινοποιείο Πατρών / Μαυροδάφνη (Ημίγλυκο)"
       },
-      "priceGlass": 9.0,
-      "priceBottle": 43.0,
-      "image": "merlot.jpg",
-      "categories": ["red", "imported", "medium"],
-      "subcategory": "red",
-      "available": true
-    },
-    {
-      "id": "wine012",
-      "name": {
-        "en": "Syrah - Crete",
-        "el": "Syrah - Κρήτη"
-      },
-      "description": {
-        "en": "Bold red wine with dark fruit flavors, spicy notes, and a long, smooth finish",
-        "el": "Τολμηρό κόκκινο κρασί με γεύσεις σκούρων φρούτων, πικάντικες νότες και μακρύ, απαλό τελείωμα"
-      },
-      "priceBottle": 41.0,
-      "image": "syrah.jpg",
-      "categories": ["red", "greek", "full"],
+      "priceGlass": 5.0,
+      "priceBottle": 22.0,
       "subcategory": "red",
       "available": true
     }
