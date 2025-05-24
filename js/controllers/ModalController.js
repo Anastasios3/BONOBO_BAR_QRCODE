@@ -313,13 +313,21 @@ export const ModalController = {
         dualPricing.appendChild(bottlePrice);
         this.elements.priceContainer.appendChild(dualPricing);
       } else {
-        // Single pricing (bottle only)
-        const singlePrice = document.createElement("div");
-        singlePrice.className = "modal-price-single";
-        singlePrice.textContent = this.formatPrice(
-          item.priceBottle || item.price
-        );
-        this.elements.priceContainer.appendChild(singlePrice);
+        // Single pricing (bottle only) - SHOW BOTTLE LABEL for wine in compact layout
+        const singlePricing = document.createElement("div");
+        singlePricing.className = "modal-price-single-labeled";
+        singlePricing.style.textAlign = "center";
+
+        singlePricing.innerHTML = `
+          <div class="price-option-label" style="font-size: var(--font-size-xs); opacity: 0.9; margin-bottom: var(--space-xs); text-transform: uppercase; letter-spacing: 0.5px;">${AppState.getText(
+            "bottleLabel"
+          )}</div>
+          <div class="price-option-amount" style="font-size: var(--font-size-xl); font-weight: var(--font-weight-bold);">${this.formatPrice(
+            item.priceBottle || item.price
+          )}</div>
+        `;
+
+        this.elements.priceContainer.appendChild(singlePricing);
       }
     } else if (category === "coffee") {
       // Coffee pricing - check for single and double shot options
@@ -356,14 +364,14 @@ export const ModalController = {
         dualPricing.appendChild(doublePrice);
         this.elements.priceContainer.appendChild(dualPricing);
       } else {
-        // Single pricing
+        // Single pricing for coffee - NO LABEL
         const singlePrice = document.createElement("div");
         singlePrice.className = "modal-price-single";
         singlePrice.textContent = this.formatPrice(item.price);
         this.elements.priceContainer.appendChild(singlePrice);
       }
     } else {
-      // All other categories - single pricing only
+      // All other categories - single pricing only, NO LABEL
       const singlePrice = document.createElement("div");
       singlePrice.className = "modal-price-single";
       singlePrice.textContent = this.formatPrice(item.price);

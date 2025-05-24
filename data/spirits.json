@@ -4701,14 +4701,14 @@
       "price": 8.0,
       "image": "campari.jpg",
       "categories": ["aperitivo", "italian"],
-      "subcategory": "aperitivo",
+      "subcategory": "liqueur",
       "available": true
     },
     {
       "id": "others-014",
       "name": {
-        "en": "Aperol 1L",
-        "el": "Aperol 1L"
+        "en": "Aperol",
+        "el": "Aperol"
       },
       "description": {
         "en": "Italy, Aperitif, 11%ABV",
@@ -4717,7 +4717,7 @@
       "price": 7.0,
       "image": "aperol-1l.jpg",
       "categories": ["aperitivo", "italian"],
-      "subcategory": "aperitivo",
+      "subcategory": "liqueur",
       "available": true
     },
     {
@@ -4733,7 +4733,7 @@
       "price": 8.0,
       "image": "amaro-montenegro.jpg",
       "categories": ["amaro", "italian"],
-      "subcategory": "aperitivo",
+      "subcategory": "liqueur",
       "available": true
     },
     {
@@ -4749,7 +4749,7 @@
       "price": 8.0,
       "image": "suze.jpg",
       "categories": ["aperitivo", "french"],
-      "subcategory": "aperitivo",
+      "subcategory": "liquer",
       "available": true
     },
     {

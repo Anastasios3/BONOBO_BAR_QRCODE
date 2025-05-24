@@ -446,7 +446,7 @@ export const UIController = {
   },
 
   /**
-   * Group menu items by subcategory
+   * Group menu items by subcategory preserving JSON file order
    * @param {Array} items - Menu items to group
    * @param {string} category - Current category ID
    * @returns {Object} Items grouped by subcategory
@@ -454,7 +454,7 @@ export const UIController = {
   groupItemsBySubcategory(items, category) {
     const grouped = {};
 
-    // Group items by subcategory
+    // Group items by subcategory while preserving order
     items.forEach((item) => {
       const subcategory = item.subcategory;
       if (!grouped[subcategory]) {
@@ -463,12 +463,8 @@ export const UIController = {
       grouped[subcategory].push(item);
     });
 
-    // Sort items within each subcategory
-    Object.keys(grouped).forEach((subcategory) => {
-      grouped[subcategory].sort((a, b) => {
-        return a.name.en.localeCompare(b.name.en);
-      });
-    });
+    // DO NOT sort items - preserve JSON file order
+    // Items will maintain their original order from the JSON file
 
     return grouped;
   },
@@ -644,17 +640,27 @@ export const UIController = {
         dualPricing.appendChild(bottlePrice);
         pricing.appendChild(dualPricing);
       } else {
-        // Single price (bottle only)
+        // Single price (bottle only) - SHOW BOTTLE LABEL
         const singlePrice = document.createElement("div");
-        singlePrice.className = "price-single";
+        singlePrice.className = "price-dual"; // Use dual styling for consistent layout
 
-        const priceAmount = document.createElement("span");
-        priceAmount.className = "price-amount";
-        priceAmount.textContent = this.formatPrice(
+        const bottlePrice = document.createElement("div");
+        bottlePrice.className = "price-bottle";
+
+        const bottleLabel = document.createElement("span");
+        bottleLabel.className = "price-label";
+        bottleLabel.textContent = AppState.getText("bottleLabel");
+
+        const bottleAmount = document.createElement("span");
+        bottleAmount.className = "price-amount";
+        bottleAmount.textContent = this.formatPrice(
           item.priceBottle || item.price
         );
 
-        singlePrice.appendChild(priceAmount);
+        bottlePrice.appendChild(bottleLabel);
+        bottlePrice.appendChild(bottleAmount);
+
+        singlePrice.appendChild(bottlePrice);
         pricing.appendChild(singlePrice);
       }
     }
@@ -699,7 +705,7 @@ export const UIController = {
         dualPricing.appendChild(doublePrice);
         pricing.appendChild(dualPricing);
       } else {
-        // Single price
+        // Single price for coffee - NO LABEL
         const singlePrice = document.createElement("div");
         singlePrice.className = "price-single";
 
@@ -711,7 +717,7 @@ export const UIController = {
         pricing.appendChild(singlePrice);
       }
     }
-    // All other categories - single price only
+    // All other categories - single price only, NO LABEL
     else {
       const singlePrice = document.createElement("div");
       singlePrice.className = "price-single";
