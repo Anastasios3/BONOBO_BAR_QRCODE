@@ -1,6 +1,6 @@
 /**
- * Event Controller - Enhanced with improved mobile interactions, Modal Support, and time-based food filtering
- * Manages all event handling for the application
+ * Event Controller - Complete Rewrite for Top-Tier UX
+ * Enhanced with global swipe detection, smooth transitions, and excellent mobile experience
  */
 
 import { AppState } from "../models/AppState.js";
@@ -9,12 +9,38 @@ import { ModalController } from "./ModalController.js";
 import { debounce } from "../utils/helpers.js";
 
 export const EventController = {
-  // Time check interval
+  // Enhanced swipe system
+  swipeState: {
+    isActive: false,
+    startX: 0,
+    startY: 0,
+    currentX: 0,
+    currentY: 0,
+    startTime: 0,
+    threshold: 50, // Minimum distance for swipe
+    velocityThreshold: 0.3, // Minimum velocity for swipe
+    maxVerticalDeviation: 80, // Max vertical movement to still count as horizontal swipe
+    preventScroll: false,
+    direction: null, // 'left' or 'right'
+  },
+
+  // Time check management
   timeCheckInterval: null,
   lastTimeRestriction: null,
 
+  // Visual feedback elements
+  visualFeedback: {
+    leftIndicator: null,
+    rightIndicator: null,
+    container: null,
+  },
+
+  // Performance optimization
+  rafId: null,
+  isUpdating: false,
+
   /**
-   * Initialize all event listeners
+   * Initialize all event listeners with enhanced swipe support
    */
   initializeEventListeners() {
     this.setupModalController();
@@ -27,57 +53,491 @@ export const EventController = {
     this.setupScrollNavigation();
     this.setupBackToTop();
     this.setupTimeBasedRefresh();
+    this.setupEnhancedSwipeSystem();
+    this.createVisualFeedback();
   },
 
   /**
-   * Set up time-based refresh for food category restrictions
+   * Create visual feedback elements for swipe gestures
    */
-  setupTimeBasedRefresh() {
-    // Store the initial time restriction
-    this.lastTimeRestriction = AppState.getCurrentFoodTimeRestriction();
+  createVisualFeedback() {
+    // Create swipe feedback container
+    const container = document.createElement("div");
+    container.className = "swipe-feedback-container";
+    container.style.cssText = `
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      pointer-events: none;
+      z-index: 999;
+      overflow: hidden;
+    `;
 
-    // Check for time changes every minute
-    this.timeCheckInterval = setInterval(() => {
-      this.checkTimeBasedUpdates();
-    }, 60000); // Check every minute
+    // Left swipe indicator
+    const leftIndicator = document.createElement("div");
+    leftIndicator.className = "swipe-indicator left";
+    leftIndicator.innerHTML = '<i class="fas fa-chevron-right"></i>';
+    leftIndicator.style.cssText = `
+      position: absolute;
+      left: 20px;
+      top: 50%;
+      transform: translateY(-50%) translateX(-100px);
+      width: 60px;
+      height: 60px;
+      background: var(--accent-color);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      opacity: 0;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    `;
 
-    // Also check when the page becomes visible again
-    document.addEventListener("visibilitychange", () => {
-      if (!document.hidden) {
-        setTimeout(() => {
-          this.checkTimeBasedUpdates();
-        }, 1000); // Small delay to allow for any time adjustments
+    // Right swipe indicator
+    const rightIndicator = document.createElement("div");
+    rightIndicator.className = "swipe-indicator right";
+    rightIndicator.innerHTML = '<i class="fas fa-chevron-left"></i>';
+    rightIndicator.style.cssText = `
+      position: absolute;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%) translateX(100px);
+      width: 60px;
+      height: 60px;
+      background: var(--accent-color);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      opacity: 0;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    `;
+
+    container.appendChild(leftIndicator);
+    container.appendChild(rightIndicator);
+    document.body.appendChild(container);
+
+    this.visualFeedback = {
+      leftIndicator,
+      rightIndicator,
+      container,
+    };
+  },
+
+  /**
+   * Setup enhanced global swipe system
+   */
+  setupEnhancedSwipeSystem() {
+    const appContainer = document.querySelector(".app-container");
+    if (!appContainer) return;
+
+    // Passive touch start for better performance
+    appContainer.addEventListener(
+      "touchstart",
+      (e) => {
+        this.handleTouchStart(e);
+      },
+      { passive: false }
+    );
+
+    // Active touch move for swipe detection
+    appContainer.addEventListener(
+      "touchmove",
+      (e) => {
+        this.handleTouchMove(e);
+      },
+      { passive: false }
+    );
+
+    // Touch end for swipe completion
+    appContainer.addEventListener(
+      "touchend",
+      (e) => {
+        this.handleTouchEnd(e);
+      },
+      { passive: true }
+    );
+
+    // Touch cancel for cleanup
+    appContainer.addEventListener(
+      "touchcancel",
+      (e) => {
+        this.handleTouchCancel(e);
+      },
+      { passive: true }
+    );
+
+    // Mouse events for desktop testing
+    if (window.PointerEvent) {
+      this.setupPointerEvents(appContainer);
+    }
+  },
+
+  /**
+   * Setup pointer events for desktop testing
+   */
+  setupPointerEvents(container) {
+    container.addEventListener("pointerdown", (e) => {
+      if (e.pointerType === "mouse") {
+        this.handleTouchStart(e);
+      }
+    });
+
+    container.addEventListener("pointermove", (e) => {
+      if (e.pointerType === "mouse" && this.swipeState.isActive) {
+        this.handleTouchMove(e);
+      }
+    });
+
+    container.addEventListener("pointerup", (e) => {
+      if (e.pointerType === "mouse") {
+        this.handleTouchEnd(e);
       }
     });
   },
 
   /**
-   * Check if time-based restrictions have changed and update UI accordingly
+   * Handle touch/pointer start
+   */
+  handleTouchStart(e) {
+    // Don't handle if modal is open
+    if (ModalController.isModalOpen()) return;
+
+    // Don't handle if touching a scrollable element
+    if (this.isScrollableElement(e.target)) return;
+
+    // Don't handle if touching interactive elements
+    if (this.isInteractiveElement(e.target)) return;
+
+    const touch = e.touches ? e.touches[0] : e;
+
+    this.swipeState = {
+      ...this.swipeState,
+      isActive: true,
+      startX: touch.clientX,
+      startY: touch.clientY,
+      currentX: touch.clientX,
+      currentY: touch.clientY,
+      startTime: Date.now(),
+      direction: null,
+      preventScroll: false,
+    };
+
+    // Add subtle visual feedback
+    document.body.style.userSelect = "none";
+  },
+
+  /**
+   * Handle touch/pointer move with real-time feedback
+   */
+  handleTouchMove(e) {
+    if (!this.swipeState.isActive) return;
+
+    const touch = e.touches ? e.touches[0] : e;
+    this.swipeState.currentX = touch.clientX;
+    this.swipeState.currentY = touch.clientY;
+
+    const deltaX = this.swipeState.currentX - this.swipeState.startX;
+    const deltaY = this.swipeState.currentY - this.swipeState.startY;
+    const absDeltaX = Math.abs(deltaX);
+    const absDeltaY = Math.abs(deltaY);
+
+    // Determine if this is a horizontal swipe
+    if (absDeltaX > 10 && absDeltaX > absDeltaY * 1.5) {
+      // This is a horizontal swipe, prevent vertical scrolling
+      e.preventDefault();
+      this.swipeState.preventScroll = true;
+      this.swipeState.direction = deltaX > 0 ? "right" : "left";
+
+      // Update visual feedback in real-time
+      this.updateSwipeVisualFeedback(deltaX, absDeltaX);
+    } else if (absDeltaY > absDeltaX * 1.5) {
+      // This is clearly a vertical scroll, abort swipe
+      this.resetSwipeState();
+      return;
+    }
+
+    // Prevent scroll if we've determined this is a swipe
+    if (this.swipeState.preventScroll) {
+      e.preventDefault();
+    }
+  },
+
+  /**
+   * Update visual feedback during swipe
+   */
+  updateSwipeVisualFeedback(deltaX, progress) {
+    const { leftIndicator, rightIndicator } = this.visualFeedback;
+    if (!leftIndicator || !rightIndicator) return;
+
+    const maxProgress = this.swipeState.threshold * 2;
+    const normalizedProgress = Math.min(progress / maxProgress, 1);
+    const opacity = normalizedProgress * 0.8;
+
+    if (deltaX > 0) {
+      // Swiping right (previous category)
+      leftIndicator.style.opacity = opacity;
+      leftIndicator.style.transform = `translateY(-50%) translateX(${
+        -100 + normalizedProgress * 50
+      }px) scale(${0.8 + normalizedProgress * 0.4})`;
+      rightIndicator.style.opacity = "0";
+      rightIndicator.style.transform =
+        "translateY(-50%) translateX(100px) scale(0.8)";
+    } else {
+      // Swiping left (next category)
+      rightIndicator.style.opacity = opacity;
+      rightIndicator.style.transform = `translateY(-50%) translateX(${
+        100 - normalizedProgress * 50
+      }px) scale(${0.8 + normalizedProgress * 0.4})`;
+      leftIndicator.style.opacity = "0";
+      leftIndicator.style.transform =
+        "translateY(-50%) translateX(-100px) scale(0.8)";
+    }
+  },
+
+  /**
+   * Handle touch/pointer end with smooth category transition
+   */
+  handleTouchEnd(e) {
+    if (!this.swipeState.isActive) return;
+
+    const deltaX = this.swipeState.currentX - this.swipeState.startX;
+    const deltaY = this.swipeState.currentY - this.swipeState.startY;
+    const distance = Math.abs(deltaX);
+    const duration = Date.now() - this.swipeState.startTime;
+    const velocity = distance / duration; // pixels per millisecond
+
+    // Check if this qualifies as a swipe
+    const isValidSwipe =
+      distance >= this.swipeState.threshold &&
+      velocity >= this.swipeState.velocityThreshold &&
+      Math.abs(deltaY) <= this.swipeState.maxVerticalDeviation;
+
+    if (isValidSwipe && this.swipeState.direction) {
+      this.executeSwipeNavigation(this.swipeState.direction, velocity);
+    }
+
+    this.resetSwipeState();
+  },
+
+  /**
+   * Handle touch cancel
+   */
+  handleTouchCancel(e) {
+    this.resetSwipeState();
+  },
+
+  /**
+   * Execute category navigation based on swipe
+   */
+  executeSwipeNavigation(direction, velocity) {
+    const availableCategories = AppState.getAvailableCategories();
+    const currentIndex = availableCategories.indexOf(AppState.currentCategory);
+
+    if (currentIndex === -1) return;
+
+    let nextCategory = null;
+
+    if (direction === "right" && currentIndex > 0) {
+      // Swipe right = previous category
+      nextCategory = availableCategories[currentIndex - 1];
+    } else if (
+      direction === "left" &&
+      currentIndex < availableCategories.length - 1
+    ) {
+      // Swipe left = next category
+      nextCategory = availableCategories[currentIndex + 1];
+    }
+
+    if (nextCategory) {
+      // Enhanced haptic feedback based on velocity
+      this.provideHapticFeedback(velocity);
+
+      // Smooth visual transition
+      this.animateSwipeTransition(direction, () => {
+        this.selectCategory(nextCategory);
+      });
+    } else {
+      // Provide feedback for edge cases (no more categories)
+      this.showEdgeFeedback(direction);
+    }
+  },
+
+  /**
+   * Animate swipe transition
+   */
+  animateSwipeTransition(direction, callback) {
+    const menuContainer = document.querySelector(".menu-container");
+    if (!menuContainer) {
+      callback();
+      return;
+    }
+
+    // Quick slide animation
+    const translateX = direction === "left" ? "-20px" : "20px";
+
+    menuContainer.style.transition =
+      "transform 0.15s cubic-bezier(0.4, 0, 0.2, 1)";
+    menuContainer.style.transform = `translateX(${translateX})`;
+
+    setTimeout(() => {
+      callback();
+
+      // Reset position
+      menuContainer.style.transform = "translateX(0)";
+      setTimeout(() => {
+        menuContainer.style.transition = "";
+      }, 150);
+    }, 75);
+  },
+
+  /**
+   * Show feedback when user swipes at edge (no more categories)
+   */
+  showEdgeFeedback(direction) {
+    const indicator =
+      direction === "left"
+        ? this.visualFeedback.rightIndicator
+        : this.visualFeedback.leftIndicator;
+
+    if (!indicator) return;
+
+    // Change color to indicate edge
+    indicator.style.background = "var(--warning)";
+    indicator.style.opacity = "0.6";
+    indicator.style.transform = indicator.style.transform.replace(
+      /scale\([^)]*\)/,
+      "scale(0.9)"
+    );
+
+    // Gentle shake animation
+    indicator.style.animation = "shake 0.4s cubic-bezier(0.4, 0, 0.2, 1)";
+
+    setTimeout(() => {
+      indicator.style.opacity = "0";
+      indicator.style.background = "var(--accent-color)";
+      indicator.style.animation = "";
+    }, 400);
+
+    // Gentle haptic feedback
+    if (navigator.vibrate) {
+      navigator.vibrate([30, 50, 30]);
+    }
+  },
+
+  /**
+   * Enhanced haptic feedback based on swipe velocity
+   */
+  provideHapticFeedback(velocity) {
+    if (!navigator.vibrate) return;
+
+    // Scale haptic feedback with velocity
+    const intensity = Math.min(Math.max(velocity * 100, 40), 80);
+    navigator.vibrate(intensity);
+  },
+
+  /**
+   * Reset swipe state and visual feedback
+   */
+  resetSwipeState() {
+    this.swipeState.isActive = false;
+    this.swipeState.preventScroll = false;
+    document.body.style.userSelect = "";
+
+    // Reset visual feedback
+    const { leftIndicator, rightIndicator } = this.visualFeedback;
+    if (leftIndicator && rightIndicator) {
+      leftIndicator.style.opacity = "0";
+      leftIndicator.style.transform =
+        "translateY(-50%) translateX(-100px) scale(0.8)";
+      rightIndicator.style.opacity = "0";
+      rightIndicator.style.transform =
+        "translateY(-50%) translateX(100px) scale(0.8)";
+    }
+  },
+
+  /**
+   * Check if element is scrollable and should not trigger swipes
+   */
+  isScrollableElement(element) {
+    const scrollableSelectors = [
+      ".category-tabs-container",
+      ".filter-panel",
+      ".modal-container",
+      ".modal-body",
+      "textarea",
+      'input[type="text"]',
+    ];
+
+    return scrollableSelectors.some((selector) => element.closest(selector));
+  },
+
+  /**
+   * Check if element is interactive and should not trigger swipes
+   */
+  isInteractiveElement(element) {
+    const interactiveSelectors = [
+      "button",
+      "a",
+      "input",
+      "select",
+      "textarea",
+      ".filter-chip",
+      ".category-tab",
+      ".menu-item",
+      ".modal-close",
+    ];
+
+    return interactiveSelectors.some(
+      (selector) => element.matches(selector) || element.closest(selector)
+    );
+  },
+
+  /**
+   * Setup time-based refresh with optimizations
+   */
+  setupTimeBasedRefresh() {
+    this.lastTimeRestriction = AppState.getCurrentFoodTimeRestriction();
+
+    // Check every minute
+    this.timeCheckInterval = setInterval(() => {
+      this.checkTimeBasedUpdates();
+    }, 60000);
+
+    // Check on visibility change
+    document.addEventListener("visibilitychange", () => {
+      if (!document.hidden) {
+        // Small delay to allow time adjustments
+        setTimeout(() => this.checkTimeBasedUpdates(), 1000);
+      }
+    });
+  },
+
+  /**
+   * Optimized time-based updates check
    */
   checkTimeBasedUpdates() {
     const currentTimeRestriction = AppState.getCurrentFoodTimeRestriction();
 
-    // Compare the current restriction with the last known restriction
     if (
       this.lastTimeRestriction &&
       currentTimeRestriction &&
       (this.lastTimeRestriction.START !== currentTimeRestriction.START ||
         this.lastTimeRestriction.END !== currentTimeRestriction.END)
     ) {
-      console.log(
-        "Time-based food restriction changed, refreshing food category..."
-      );
-
-      // Update the stored restriction
       this.lastTimeRestriction = currentTimeRestriction;
 
-      // If currently viewing food category, refresh the view
+      // Only refresh if viewing food category
       if (AppState.currentCategory === "food") {
         this.refreshCurrentView();
-      }
-
-      // Update filter options if food category is selected
-      if (AppState.currentCategory === "food") {
         UIController.generateFilterOptions(
           AppState.currentCategory,
           AppState.currentFilter
@@ -87,357 +547,227 @@ export const EventController = {
   },
 
   /**
-   * Clean up time-based refresh interval
-   */
-  cleanup() {
-    if (this.timeCheckInterval) {
-      clearInterval(this.timeCheckInterval);
-      this.timeCheckInterval = null;
-    }
-  },
-
-  /**
    * Initialize modal controller
    */
   setupModalController() {
-    // Initialize the modal system
     ModalController.init();
   },
 
   /**
-   * Set up theme toggle functionality
+   * Enhanced theme toggle with smooth transitions
    */
   setupThemeToggle() {
     const themeToggle = UIController.elements.themeToggle;
+    if (!themeToggle) return;
 
-    if (themeToggle) {
-      themeToggle.addEventListener("click", () => {
-        const newTheme = AppState.theme === "dark" ? "light" : "dark";
-        AppState.setTheme(newTheme);
+    themeToggle.addEventListener("click", () => {
+      const newTheme = AppState.theme === "dark" ? "light" : "dark";
 
-        // Provide haptic feedback on mobile devices if supported
-        if (window.navigator && window.navigator.vibrate) {
-          window.navigator.vibrate(50);
-        }
-      });
+      // Add transition class for smooth theme switching
+      document.body.style.transition = "all 0.3s ease";
 
-      // Add keyboard support
-      themeToggle.addEventListener("keydown", (e) => {
-        if (e.key === "Enter" || e.key === " ") {
-          e.preventDefault();
-          themeToggle.click();
-        }
-      });
-    }
+      AppState.setTheme(newTheme);
+      this.provideHapticFeedback(0.5);
+
+      // Remove transition after animation
+      setTimeout(() => {
+        document.body.style.transition = "";
+      }, 300);
+    });
+
+    this.addKeyboardSupport(themeToggle);
   },
 
   /**
-   * Set up language selection with modal sync
+   * Enhanced language toggle with smooth transitions
    */
   setupLanguageToggle() {
     const languageOptions = UIController.elements.languageOptions;
+    if (!languageOptions) return;
 
-    if (languageOptions) {
-      languageOptions.forEach((option) => {
-        option.addEventListener("click", () => {
-          const lang = option.dataset.lang;
+    languageOptions.forEach((option) => {
+      option.addEventListener("click", () => {
+        const lang = option.dataset.lang;
 
-          if (lang && lang !== AppState.language) {
-            AppState.setLanguage(lang);
-            UIController.updateUITexts();
+        if (lang && lang !== AppState.language) {
+          AppState.setLanguage(lang);
+          UIController.updateUITexts();
 
-            // Refresh current view if needed
-            if (AppState.currentCategory) {
-              this.refreshCurrentView();
-            }
-
-            // Notify modal of language change
-            ModalController.onAppLanguageChange();
-
-            // Provide haptic feedback on mobile devices if supported
-            if (window.navigator && window.navigator.vibrate) {
-              window.navigator.vibrate(50);
-            }
+          if (AppState.currentCategory) {
+            this.refreshCurrentView();
           }
-        });
 
-        // Add keyboard support
-        option.addEventListener("keydown", (e) => {
-          if (e.key === "Enter" || e.key === " ") {
-            e.preventDefault();
-            option.click();
-          }
-        });
+          ModalController.onAppLanguageChange();
+          this.provideHapticFeedback(0.5);
+        }
       });
-    }
+
+      this.addKeyboardSupport(option);
+    });
   },
 
   /**
-   * Set up category selection events with improved touch handling
+   * Enhanced category selection with smooth animations
    */
   setupCategorySelection() {
     const menuCategories = UIController.elements.menuCategories;
+    if (!menuCategories) return;
 
-    if (menuCategories) {
-      // Desktop click handling
-      menuCategories.addEventListener("click", (e) => {
-        const categoryTab = e.target.closest(".category-tab");
+    menuCategories.addEventListener("click", (e) => {
+      const categoryTab = e.target.closest(".category-tab");
 
-        if (categoryTab) {
-          const category = categoryTab.dataset.category;
+      if (categoryTab) {
+        const category = categoryTab.dataset.category;
 
-          if (category && category !== AppState.currentCategory) {
-            this.selectCategory(category);
-
-            // Provide haptic feedback on mobile devices if supported
-            if (window.navigator && window.navigator.vibrate) {
-              window.navigator.vibrate(50);
-            }
-          }
+        if (category && category !== AppState.currentCategory) {
+          this.selectCategory(category);
+          this.provideHapticFeedback(0.5);
         }
-      });
-
-      // Mobile swipe gesture support for category navigation
-      this.setupCategorySwipeNavigation();
-
-      // Add keyboard navigation support
-      menuCategories.addEventListener("keydown", (e) => {
-        if (e.key === "ArrowRight" || e.key === "ArrowLeft") {
-          e.preventDefault();
-
-          const tabs = Array.from(document.querySelectorAll(".category-tab"));
-          const activeTabIndex = tabs.findIndex((tab) =>
-            tab.classList.contains("active")
-          );
-
-          if (activeTabIndex === -1) return;
-
-          let nextIndex;
-          if (e.key === "ArrowRight") {
-            nextIndex = (activeTabIndex + 1) % tabs.length;
-          } else {
-            nextIndex = (activeTabIndex - 1 + tabs.length) % tabs.length;
-          }
-
-          const nextCategory = tabs[nextIndex].dataset.category;
-          this.selectCategory(nextCategory);
-        }
-      });
-    }
-  },
-
-  /**
-   * Set up swipe navigation between categories
-   */
-  setupCategorySwipeNavigation() {
-    const menuContainer = document.querySelector(".menu-container");
-    if (!menuContainer) return;
-
-    // Variables to track touch events
-    let touchStartX = 0;
-    let touchEndX = 0;
-    const minSwipeDistance = 80; // Minimum swipe distance to trigger navigation
-
-    // Add touch event listeners
-    menuContainer.addEventListener(
-      "touchstart",
-      (e) => {
-        // Don't handle swipes if modal is open
-        if (ModalController.isModalOpen()) return;
-
-        touchStartX = e.changedTouches[0].screenX;
-      },
-      { passive: true }
-    );
-
-    menuContainer.addEventListener(
-      "touchend",
-      (e) => {
-        // Don't handle swipes if modal is open
-        if (ModalController.isModalOpen()) return;
-
-        touchEndX = e.changedTouches[0].screenX;
-        this.handleCategorySwipe(touchStartX, touchEndX, minSwipeDistance);
-      },
-      { passive: true }
-    );
-  },
-
-  /**
-   * Handle category swipe gesture
-   * @param {number} startX - Touch start X position
-   * @param {number} endX - Touch end X position
-   * @param {number} minDistance - Minimum swipe distance
-   */
-  handleCategorySwipe(startX, endX, minDistance) {
-    const swipeDistance = endX - startX;
-
-    // Only process substantial swipes
-    if (Math.abs(swipeDistance) < minDistance) return;
-
-    // Get all available categories
-    const availableCategories = AppState.getAvailableCategories();
-    const currentIndex = availableCategories.indexOf(AppState.currentCategory);
-
-    if (currentIndex === -1) return;
-
-    let nextCategory;
-
-    // Swipe right to go to previous category
-    if (swipeDistance > 0 && currentIndex > 0) {
-      nextCategory = availableCategories[currentIndex - 1];
-    }
-    // Swipe left to go to next category
-    else if (
-      swipeDistance < 0 &&
-      currentIndex < availableCategories.length - 1
-    ) {
-      nextCategory = availableCategories[currentIndex + 1];
-    }
-
-    if (nextCategory) {
-      this.selectCategory(nextCategory);
-
-      // Provide haptic feedback if supported
-      if (window.navigator && window.navigator.vibrate) {
-        window.navigator.vibrate(70);
       }
-    }
+    });
+
+    // Enhanced keyboard navigation
+    this.setupCategoryKeyboardNavigation(menuCategories);
   },
 
   /**
-   * Set up filter toggle functionality
+   * Enhanced keyboard navigation for categories
+   */
+  setupCategoryKeyboardNavigation(menuCategories) {
+    menuCategories.addEventListener("keydown", (e) => {
+      if (!["ArrowRight", "ArrowLeft", "Home", "End"].includes(e.key)) return;
+
+      e.preventDefault();
+
+      const tabs = Array.from(document.querySelectorAll(".category-tab"));
+      const activeTabIndex = tabs.findIndex((tab) =>
+        tab.classList.contains("active")
+      );
+
+      if (activeTabIndex === -1) return;
+
+      let nextIndex = activeTabIndex;
+
+      switch (e.key) {
+        case "ArrowRight":
+          nextIndex = (activeTabIndex + 1) % tabs.length;
+          break;
+        case "ArrowLeft":
+          nextIndex = (activeTabIndex - 1 + tabs.length) % tabs.length;
+          break;
+        case "Home":
+          nextIndex = 0;
+          break;
+        case "End":
+          nextIndex = tabs.length - 1;
+          break;
+      }
+
+      const nextCategory = tabs[nextIndex].dataset.category;
+      this.selectCategory(nextCategory);
+    });
+  },
+
+  /**
+   * Enhanced filter toggle with animations
    */
   setupFilterToggle() {
     const filterToggle = UIController.elements.filterToggle;
+    if (!filterToggle) return;
 
-    if (filterToggle) {
-      filterToggle.addEventListener("click", () => {
-        UIController.toggleFilterPanel();
+    filterToggle.addEventListener("click", () => {
+      UIController.toggleFilterPanel();
+      this.provideHapticFeedback(0.3);
+    });
 
-        // Provide haptic feedback on mobile devices if supported
-        if (window.navigator && window.navigator.vibrate) {
-          window.navigator.vibrate(30);
-        }
-      });
-
-      // Add keyboard support
-      filterToggle.addEventListener("keydown", (e) => {
-        if (e.key === "Enter" || e.key === " ") {
-          e.preventDefault();
-          filterToggle.click();
-        }
-      });
-    }
+    this.addKeyboardSupport(filterToggle);
   },
 
   /**
-   * Set up filter selection events
+   * Enhanced filter selection
    */
   setupFilterSelection() {
     const subcategoryFilters = UIController.elements.subcategoryFilters;
+    if (!subcategoryFilters) return;
 
-    if (subcategoryFilters) {
-      subcategoryFilters.addEventListener("click", (e) => {
+    subcategoryFilters.addEventListener("click", (e) => {
+      const filterChip = e.target.closest(".filter-chip");
+
+      if (filterChip) {
+        const filter = filterChip.dataset.filter;
+        const newFilter = filter === "all" ? null : filter;
+
+        if (newFilter !== AppState.currentFilter) {
+          this.selectFilter(newFilter);
+          this.provideHapticFeedback(0.3);
+        }
+      }
+    });
+
+    // Keyboard support for filter chips
+    subcategoryFilters.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
         const filterChip = e.target.closest(".filter-chip");
-
         if (filterChip) {
-          const filter = filterChip.dataset.filter;
-          const newFilter = filter === "all" ? null : filter;
-
-          if (newFilter !== AppState.currentFilter) {
-            this.selectFilter(newFilter);
-
-            // Provide haptic feedback on mobile devices if supported
-            if (window.navigator && window.navigator.vibrate) {
-              window.navigator.vibrate(30);
-            }
-          }
+          e.preventDefault();
+          filterChip.click();
         }
-      });
-
-      // Add keyboard support for filter chips
-      subcategoryFilters.addEventListener("keydown", (e) => {
-        if (e.key === "Enter" || e.key === " ") {
-          const filterChip = e.target.closest(".filter-chip");
-          if (filterChip) {
-            e.preventDefault();
-            filterChip.click();
-          }
-        }
-      });
-    }
-  },
-
-  /**
-   * Set up back to top button
-   */
-  setupBackToTop() {
-    const backToTopBtn = document.querySelector(".back-to-top");
-
-    if (!backToTopBtn) {
-      // Create back to top button if it doesn't exist
-      this.createBackToTopButton();
-      return;
-    }
-
-    // Show/hide button based on scroll position
-    window.addEventListener(
-      "scroll",
-      debounce(() => {
-        const scrollPosition =
-          window.scrollY || document.documentElement.scrollTop;
-
-        if (scrollPosition > 300) {
-          backToTopBtn.classList.add("visible");
-        } else {
-          backToTopBtn.classList.remove("visible");
-        }
-      }, 100)
-    );
-
-    // Scroll to top when clicked
-    backToTopBtn.addEventListener("click", () => {
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth",
-      });
-
-      // Provide haptic feedback on mobile devices if supported
-      if (window.navigator && window.navigator.vibrate) {
-        window.navigator.vibrate(30);
       }
     });
   },
 
   /**
-   * Create back to top button if it doesn't exist
+   * Enhanced back to top with smooth scrolling
+   */
+  setupBackToTop() {
+    let backToTopBtn = document.querySelector(".back-to-top");
+
+    if (!backToTopBtn) {
+      backToTopBtn = this.createBackToTopButton();
+    }
+
+    // Optimized scroll listener
+    window.addEventListener(
+      "scroll",
+      debounce(() => {
+        const scrollPosition =
+          window.scrollY || document.documentElement.scrollTop;
+        backToTopBtn.classList.toggle("visible", scrollPosition > 300);
+      }, 100)
+    );
+
+    backToTopBtn.addEventListener("click", () => {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+      this.provideHapticFeedback(0.3);
+    });
+  },
+
+  /**
+   * Create back to top button
    */
   createBackToTopButton() {
     const backToTopBtn = document.createElement("button");
     backToTopBtn.className = "back-to-top";
     backToTopBtn.setAttribute("aria-label", "Scroll to top");
     backToTopBtn.innerHTML = '<i class="fas fa-arrow-up"></i>';
-
     document.body.appendChild(backToTopBtn);
-
-    // Call setup once created
-    this.setupBackToTop();
+    return backToTopBtn;
   },
 
   /**
-   * Set up horizontal scrolling navigation controls
+   * Enhanced scroll navigation
    */
   setupScrollNavigation() {
     const categoryNavigation = UIController.elements.categoryNavigation;
-
     if (!categoryNavigation) return;
 
-    // Add keyboard navigation for the category tabs
     categoryNavigation.setAttribute("role", "tablist");
     categoryNavigation.setAttribute("aria-label", "Menu Categories");
 
-    // Add wheel event listener for horizontal scrolling with mouse wheel
+    // Enhanced wheel scrolling
     categoryNavigation.addEventListener(
       "wheel",
       (e) => {
@@ -450,222 +780,102 @@ export const EventController = {
       { passive: false }
     );
 
-    // Update scroll indicators while scrolling
+    // Optimized scroll listener
     categoryNavigation.addEventListener(
       "scroll",
-      debounce(() => {
-        this.updateScrollIndicators();
-      }, 50)
+      debounce(() => this.updateScrollIndicators(), 50)
     );
   },
 
   /**
-   * Set up global document events with modal awareness
+   * Enhanced global events setup
    */
   setupGlobalEvents() {
-    // Close filter panel when clicking outside
+    // Optimized click outside handler
     document.addEventListener("click", (e) => {
-      // Don't handle if modal is open
       if (ModalController.isModalOpen()) return;
 
       const filterPanel = UIController.elements.filterPanel;
       const filterToggle = UIController.elements.filterToggle;
 
       if (
-        filterPanel &&
-        filterPanel.classList.contains("active") &&
-        filterToggle &&
-        !filterToggle.contains(e.target) &&
+        filterPanel?.classList.contains("active") &&
+        !filterToggle?.contains(e.target) &&
         !filterPanel.contains(e.target)
       ) {
         UIController.toggleFilterPanel(false);
       }
     });
 
-    // Handle keyboard events with modal awareness
+    // Enhanced keyboard events
     document.addEventListener("keydown", (e) => {
-      // Don't handle app keyboard events if modal is open
-      if (ModalController.isModalOpen()) {
-        return; // Let modal handle its own keyboard events
-      }
+      if (ModalController.isModalOpen()) return;
 
-      // Close filter panel on Escape key
       if (e.key === "Escape") {
         UIController.toggleFilterPanel(false);
       }
-
-      // Focus trap for filter panel
-      this.handleFocusTrap(e);
     });
 
-    // Handle scroll events for navigation
-    const categoryNavigation = UIController.elements.categoryNavigation;
-    if (categoryNavigation) {
-      categoryNavigation.addEventListener(
-        "scroll",
-        debounce(() => {
-          this.updateScrollIndicators();
-        }, 100)
-      );
-    }
-
-    // Handle responsive adjustments
+    // Optimized resize handler
     window.addEventListener(
       "resize",
-      debounce(() => {
-        this.handleResponsiveLayout();
-      }, 200)
+      debounce(() => this.handleResponsiveLayout(), 200)
     );
 
-    // Handle orientation change on mobile
+    // Enhanced orientation change
     window.addEventListener(
       "orientationchange",
-      debounce(() => {
-        this.handleOrientationChange();
-      }, 200)
+      debounce(() => this.handleOrientationChange(), 200)
     );
 
-    // Handle network status for offline mode
-    window.addEventListener("online", () => {
-      this.handleNetworkChange(true);
-    });
+    // Network status handling
+    window.addEventListener("online", () => this.handleNetworkChange(true));
+    window.addEventListener("offline", () => this.handleNetworkChange(false));
 
-    window.addEventListener("offline", () => {
-      this.handleNetworkChange(false);
-    });
+    // Cleanup on unload
+    window.addEventListener("beforeunload", () => this.cleanup());
 
-    // Initial check for network status
-    if (navigator.onLine === false) {
+    // Initial network check
+    if (!navigator.onLine) {
       this.handleNetworkChange(false);
     }
+  },
 
-    // Clean up on page unload
-    window.addEventListener("beforeunload", () => {
-      this.cleanup();
+  /**
+   * Add keyboard support to an element
+   */
+  addKeyboardSupport(element) {
+    element.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        element.click();
+      }
     });
   },
 
   /**
-   * Handle focus trap for modal elements
-   * @param {Event} e - Keyboard event
-   */
-  handleFocusTrap(e) {
-    if (e.key !== "Tab") return;
-
-    const filterPanel = UIController.elements.filterPanel;
-
-    if (filterPanel && filterPanel.classList.contains("active")) {
-      const focusableElements = filterPanel.querySelectorAll(
-        'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
-      );
-
-      if (focusableElements.length === 0) return;
-
-      const firstElement = focusableElements[0];
-      const lastElement = focusableElements[focusableElements.length - 1];
-
-      // Trap focus within the panel
-      if (e.shiftKey && document.activeElement === firstElement) {
-        e.preventDefault();
-        lastElement.focus();
-      } else if (!e.shiftKey && document.activeElement === lastElement) {
-        e.preventDefault();
-        firstElement.focus();
-      }
-    }
-  },
-
-  /**
-   * Handle orientation change on mobile devices
-   */
-  handleOrientationChange() {
-    // Wait for the orientation change to complete
-    setTimeout(() => {
-      // Update scroll indicators
-      this.updateScrollIndicators();
-
-      // Scroll active category into view
-      this.scrollActiveCategoryIntoView();
-
-      // Refresh current view if needed (especially for food category)
-      if (AppState.currentCategory) {
-        this.checkTimeBasedUpdates(); // Check for time changes after orientation change
-        UIController.displayMenuItems(
-          AppState.getFilteredItems(
-            AppState.currentCategory,
-            AppState.currentFilter
-          ),
-          AppState.currentCategory
-        );
-      }
-    }, 300);
-  },
-
-  /**
-   * Handle network status change
-   * @param {boolean} isOnline - Whether the device is online
-   */
-  handleNetworkChange(isOnline) {
-    const appContainer = document.querySelector(".app-container");
-
-    if (!appContainer) return;
-
-    if (!isOnline) {
-      // Create offline notification if it doesn't exist
-      if (!document.querySelector(".offline-notification")) {
-        const notification = document.createElement("div");
-        notification.className = "offline-notification";
-        notification.textContent =
-          "You are currently offline. Some features may be limited.";
-
-        appContainer.insertBefore(notification, appContainer.firstChild);
-
-        // Animate in
-        setTimeout(() => {
-          notification.classList.add("active");
-        }, 10);
-      }
-    } else {
-      // Remove offline notification if it exists
-      const notification = document.querySelector(".offline-notification");
-
-      if (notification) {
-        notification.classList.remove("active");
-
-        // Remove from DOM after animation
-        setTimeout(() => {
-          notification.remove();
-        }, 300);
-      }
-    }
-  },
-
-  /**
-   * Select a category and display its items with time-based filtering
-   * @param {string} category - Category ID
+   * Enhanced category selection with smooth transitions
    */
   selectCategory(category) {
     AppState.currentCategory = category;
     AppState.currentFilter = null;
 
-    // Update UI
+    // Update UI with animations
     UIController.updateActiveCategory(category);
     UIController.generateFilterOptions(category);
     UIController.toggleFilterPanel(false);
 
-    // Display items (with time-based filtering applied)
+    // Get and display items
     const items = AppState.getFilteredItems(category);
     UIController.displayMenuItems(items, category);
 
-    // Scroll to top if needed
+    // Smooth scroll to top
     window.scrollTo({ top: 0, behavior: "smooth" });
 
-    // Scroll active category into view
-    setTimeout(() => {
-      this.scrollActiveCategoryIntoView();
-    }, 100);
+    // Update navigation
+    setTimeout(() => this.scrollActiveCategoryIntoView(), 100);
 
-    // Update page title for better accessibility
+    // Update page title
     document.title = `${AppState.getText(
       "categories",
       category
@@ -673,24 +883,18 @@ export const EventController = {
   },
 
   /**
-   * Select a filter and update displayed items with time-based filtering
-   * @param {string|null} filter - Filter ID
+   * Enhanced filter selection
    */
   selectFilter(filter) {
-    if (!AppState.currentCategory) {
-      return;
-    }
+    if (!AppState.currentCategory) return;
 
     AppState.currentFilter = filter;
-
-    // Update UI
     UIController.updateActiveFilter(filter);
 
-    // Get and display filtered items (with time-based filtering applied)
     const items = AppState.getFilteredItems(AppState.currentCategory, filter);
     UIController.displayMenuItems(items, AppState.currentCategory);
 
-    // Update page title for better accessibility
+    // Update page title
     const categoryText = AppState.getText(
       "categories",
       AppState.currentCategory
@@ -705,36 +909,51 @@ export const EventController = {
   },
 
   /**
-   * Refresh the current view (after language change or time-based updates)
+   * Refresh current view with optimizations
    */
   refreshCurrentView() {
     const category = AppState.currentCategory;
     const filter = AppState.currentFilter;
 
-    if (!category) {
-      return;
+    if (!category) return;
+
+    // Batch UI updates for better performance
+    this.batchUIUpdates(() => {
+      UIController.generateCategoryTabs();
+      UIController.generateCategoryList();
+      UIController.updateActiveCategory(category);
+      UIController.generateFilterOptions(category, filter);
+
+      const items = AppState.getFilteredItems(category, filter);
+      UIController.displayMenuItems(items, category);
+    });
+
+    setTimeout(() => this.scrollActiveCategoryIntoView(), 100);
+    this.updatePageTitle(category, filter);
+  },
+
+  /**
+   * Batch UI updates for better performance
+   */
+  batchUIUpdates(callback) {
+    if (this.isUpdating) return;
+
+    this.isUpdating = true;
+
+    if (this.rafId) {
+      cancelAnimationFrame(this.rafId);
     }
 
-    // Regenerate category navigation
-    UIController.generateCategoryTabs();
-    UIController.generateCategoryList();
+    this.rafId = requestAnimationFrame(() => {
+      callback();
+      this.isUpdating = false;
+    });
+  },
 
-    // Update active category
-    UIController.updateActiveCategory(category);
-
-    // Update filter options (this will now use time-aware subcategories)
-    UIController.generateFilterOptions(category, filter);
-
-    // Display items (with time-based filtering applied)
-    const items = AppState.getFilteredItems(category, filter);
-    UIController.displayMenuItems(items, category);
-
-    // Scroll active category into view after refresh
-    setTimeout(() => {
-      this.scrollActiveCategoryIntoView();
-    }, 100);
-
-    // Update page title
+  /**
+   * Update page title
+   */
+  updatePageTitle(category, filter) {
     const categoryText = AppState.getText("categories", category);
     const filterText = filter
       ? AppState.getText("subcategories", category, filter)
@@ -746,21 +965,64 @@ export const EventController = {
   },
 
   /**
-   * Handle responsive layout adjustments
+   * Handle responsive layout changes
    */
   handleResponsiveLayout() {
-    // Update scroll indicators when window resizes
     this.updateScrollIndicators();
-
-    // Scroll active tab into view if needed
     this.scrollActiveCategoryIntoView();
 
-    // Check if we need to switch between mobile and desktop view
     const isMobileWidth = window.innerWidth <= 575;
     const appContainer = document.querySelector(".app-container");
 
     if (appContainer) {
       appContainer.classList.toggle("mobile-view", isMobileWidth);
+    }
+  },
+
+  /**
+   * Enhanced orientation change handling
+   */
+  handleOrientationChange() {
+    setTimeout(() => {
+      this.updateScrollIndicators();
+      this.scrollActiveCategoryIntoView();
+
+      if (AppState.currentCategory) {
+        this.checkTimeBasedUpdates();
+        const items = AppState.getFilteredItems(
+          AppState.currentCategory,
+          AppState.currentFilter
+        );
+        UIController.displayMenuItems(items, AppState.currentCategory);
+      }
+    }, 300);
+  },
+
+  /**
+   * Handle network status changes
+   */
+  handleNetworkChange(isOnline) {
+    const appContainer = document.querySelector(".app-container");
+    if (!appContainer) return;
+
+    if (!isOnline) {
+      let notification = document.querySelector(".offline-notification");
+
+      if (!notification) {
+        notification = document.createElement("div");
+        notification.className = "offline-notification";
+        notification.textContent =
+          "You are currently offline. Some features may be limited.";
+        appContainer.insertBefore(notification, appContainer.firstChild);
+      }
+
+      setTimeout(() => notification.classList.add("active"), 10);
+    } else {
+      const notification = document.querySelector(".offline-notification");
+      if (notification) {
+        notification.classList.remove("active");
+        setTimeout(() => notification.remove(), 300);
+      }
     }
   },
 
@@ -772,22 +1034,33 @@ export const EventController = {
   },
 
   /**
-   * Scroll active category tab into view if it's not visible
+   * Scroll active category into view
    */
   scrollActiveCategoryIntoView() {
     const activeTab = document.querySelector(".category-tab.active");
-    const nav = UIController.elements.categoryNavigation;
 
-    if (activeTab && nav) {
-      // Use the global scroll API to center the active tab
-      setTimeout(() => {
-        if (
-          window.menuScrolling &&
-          window.menuScrolling.snapToNearestCategory
-        ) {
-          window.menuScrolling.snapToNearestCategory();
-        }
-      }, 50);
+    if (activeTab && window.menuScrolling?.centerActiveTab) {
+      window.menuScrolling.centerActiveTab();
+    }
+  },
+
+  /**
+   * Cleanup resources
+   */
+  cleanup() {
+    if (this.timeCheckInterval) {
+      clearInterval(this.timeCheckInterval);
+      this.timeCheckInterval = null;
+    }
+
+    if (this.rafId) {
+      cancelAnimationFrame(this.rafId);
+      this.rafId = null;
+    }
+
+    // Remove visual feedback elements
+    if (this.visualFeedback.container) {
+      this.visualFeedback.container.remove();
     }
   },
 };
