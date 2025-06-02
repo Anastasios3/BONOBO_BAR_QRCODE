@@ -1,23 +1,22 @@
 /**
- * Ultra-Smooth Mobile Navigation Scrolling
- * Optimized for touch devices with perfect physics
+ * Ultra-Smooth Mobile Navigation Scrolling with Fixed Tap Detection
+ * Optimized for immediate button response
  */
 
 (function () {
   "use strict";
 
-  // Enhanced physics constants for mobile
-  const DECELERATION = 0.95; // Higher = longer momentum
-  const MIN_VELOCITY = 0.2; // Minimum velocity before stopping
-  const VELOCITY_MULTIPLIER = 2.5; // Amplify swipe velocity
-  const SNAP_DURATION = 250; // Duration for snap animations
-  const EDGE_RESISTANCE = 0.15; // Rubber band effect at edges
-  const TOUCH_SLOP = 3; // Minimum movement to start scrolling
+  // Physics constants
+  const DECELERATION = 0.95;
+  const MIN_VELOCITY = 0.2;
+  const VELOCITY_MULTIPLIER = 2.5;
+  const SNAP_DURATION = 250;
+  const EDGE_RESISTANCE = 0.15;
 
-  // Performance settings
-  const FPS = 60;
-  const FRAME_TIME = 1000 / FPS;
-  const MAX_VELOCITY = 4000; // Cap maximum velocity
+  // Touch detection thresholds
+  const TAP_THRESHOLD = 10; // Maximum movement for a tap (increased from 3)
+  const TAP_TIME_THRESHOLD = 200; // Maximum time for a tap in ms
+  const SCROLL_THRESHOLD = 5; // Minimum movement to start scrolling
 
   // DOM elements
   let container = null;
@@ -30,11 +29,13 @@
   let state = {
     isScrolling: false,
     isTouching: false,
+    isPotentialTap: true,
+    touchStartTime: 0,
     startX: 0,
     startY: 0,
     startScrollLeft: 0,
     currentX: 0,
-    lastX: 0,
+    currentY: 0,
     velocity: 0,
     amplitude: 0,
     timestamp: 0,
@@ -42,9 +43,7 @@
     ticker: null,
     positions: [],
     times: [],
-    lastScrollLeft: 0,
-    targetScroll: null,
-    snapTimeout: null,
+    targetElement: null,
   };
 
   // Initialize the scroll handler
@@ -68,6 +67,7 @@
       setupWheelHandler();
       setupResizeHandler();
       setupTabActivation();
+      setupClickHandlers();
 
       updateScrollState();
       ensureActiveTabVisible(false);
@@ -79,38 +79,95 @@
     });
   }
 
-  // Setup touch event handlers for mobile
+  // Setup click handlers for immediate response
+  function setupClickHandlers() {
+    // Add click listeners to all tabs
+    tabs.forEach((tab) => {
+      // Remove any existing listeners
+      tab.removeEventListener("click", handleTabClick);
+      // Add new listener with capture phase for priority
+      tab.addEventListener("click", handleTabClick, { capture: true });
+
+      // Also add touch feedback
+      tab.addEventListener(
+        "touchstart",
+        function () {
+          this.classList.add("tapped");
+        },
+        { passive: true }
+      );
+
+      tab.addEventListener(
+        "touchend",
+        function () {
+          setTimeout(() => {
+            this.classList.remove("tapped");
+          }, 200);
+        },
+        { passive: true }
+      );
+    });
+  }
+
+  // Handle tab click
+  function handleTabClick(e) {
+    const tab = e.currentTarget;
+    const category = tab.dataset.category;
+
+    // Only process if not scrolling
+    if (!state.isScrolling && category) {
+      // Trigger the category selection immediately
+      if (window.EventController && window.EventController.selectCategory) {
+        window.EventController.selectCategory(category);
+      }
+
+      // Visual feedback
+      tab.classList.add("tapped");
+      setTimeout(() => {
+        tab.classList.remove("tapped");
+      }, 200);
+    }
+  }
+
+  // Setup touch event handlers with better tap detection
   function setupTouchHandlers() {
-    let touchStartTime = 0;
+    let touchMoved = false;
+    let scrollStarted = false;
 
     container.addEventListener(
       "touchstart",
       (e) => {
+        const touch = e.touches[0];
+        state.touchStartTime = Date.now();
+        touchMoved = false;
+        scrollStarted = false;
+
+        state.isTouching = true;
+        state.isPotentialTap = true;
+        state.startX = touch.clientX;
+        state.startY = touch.clientY;
+        state.currentX = state.startX;
+        state.currentY = state.startY;
+        state.startScrollLeft = container.scrollLeft;
+        state.velocity = 0;
+        state.amplitude = 0;
+        state.timestamp = state.touchStartTime;
+
+        // Store the target element
+        state.targetElement = document.elementFromPoint(
+          touch.clientX,
+          touch.clientY
+        );
+
+        // Reset tracking
+        state.positions = [container.scrollLeft];
+        state.times = [state.touchStartTime];
+
+        // Cancel any ongoing momentum
         if (state.ticker) {
           cancelAnimationFrame(state.ticker);
           state.ticker = null;
         }
-
-        const touch = e.touches[0];
-        touchStartTime = Date.now();
-
-        state.isTouching = true;
-        state.startX = touch.clientX;
-        state.startY = touch.clientY;
-        state.startScrollLeft = container.scrollLeft;
-        state.currentX = state.startX;
-        state.lastX = state.startX;
-        state.velocity = 0;
-        state.amplitude = 0;
-        state.timestamp = touchStartTime;
-        state.lastScrollLeft = container.scrollLeft;
-
-        // Reset tracking arrays
-        state.positions = [container.scrollLeft];
-        state.times = [touchStartTime];
-
-        // Add scrolling class
-        container.classList.add("scrolling");
       },
       { passive: true }
     );
@@ -121,25 +178,34 @@
         if (!state.isTouching) return;
 
         const touch = e.touches[0];
-        const deltaX = state.startX - touch.clientX;
-        const deltaY = Math.abs(state.startY - touch.clientY);
+        const deltaX = Math.abs(touch.clientX - state.startX);
+        const deltaY = Math.abs(touch.clientY - state.startY);
+        const totalDelta = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
 
-        // Check if horizontal scroll intent
-        if (!state.isScrolling && Math.abs(deltaX) > TOUCH_SLOP) {
-          // Prevent vertical scrolling if horizontal intent detected
-          if (Math.abs(deltaX) > deltaY) {
-            state.isScrolling = true;
-          } else {
-            state.isTouching = false;
-            return;
+        touchMoved = true;
+        state.currentX = touch.clientX;
+        state.currentY = touch.clientY;
+
+        // Check if this is still a potential tap
+        if (totalDelta > TAP_THRESHOLD) {
+          state.isPotentialTap = false;
+        }
+
+        // Start scrolling if movement exceeds threshold and is horizontal
+        if (!scrollStarted && deltaX > SCROLL_THRESHOLD && deltaX > deltaY) {
+          scrollStarted = true;
+          state.isScrolling = true;
+          container.classList.add("scrolling");
+
+          // Prevent default only when actually scrolling
+          if (e.cancelable) {
+            e.preventDefault();
           }
         }
 
         if (state.isScrolling) {
-          e.preventDefault(); // Prevent vertical scroll
-
-          const now = Date.now();
-          const targetScroll = state.startScrollLeft + deltaX;
+          const scrollDelta = state.startX - touch.clientX;
+          const targetScroll = state.startScrollLeft + scrollDelta;
 
           // Apply edge resistance
           const maxScroll = container.scrollWidth - container.clientWidth;
@@ -154,12 +220,12 @@
 
           container.scrollLeft = finalScroll;
 
-          // Track velocity
-          state.currentX = touch.clientX;
+          // Track for momentum
+          const now = Date.now();
           state.positions.push(finalScroll);
           state.times.push(now);
 
-          // Keep only last 100ms of tracking data
+          // Keep only recent tracking data
           while (state.times.length > 0 && state.times[0] <= now - 100) {
             state.times.shift();
             state.positions.shift();
@@ -176,16 +242,26 @@
       (e) => {
         if (!state.isTouching) return;
 
+        const touchDuration = Date.now() - state.touchStartTime;
+        const wasScrolling = state.isScrolling;
+
         state.isTouching = false;
         state.isScrolling = false;
         container.classList.remove("scrolling");
 
-        const touchEndTime = Date.now();
-        const touchDuration = touchEndTime - touchStartTime;
+        // Check if this was a tap
+        if (
+          state.isPotentialTap &&
+          touchDuration < TAP_TIME_THRESHOLD &&
+          !touchMoved
+        ) {
+          // This was a tap - let the click event handle it
+          return;
+        }
 
-        // Calculate velocity from tracking data
-        if (state.positions.length > 1) {
-          const recentPositions = state.positions.slice(-5); // Last 5 positions
+        // If we were scrolling, handle momentum
+        if (wasScrolling && state.positions.length > 1) {
+          const recentPositions = state.positions.slice(-5);
           const recentTimes = state.times.slice(-5);
 
           if (recentPositions.length > 1) {
@@ -196,22 +272,15 @@
             if (time > 0) {
               state.velocity = (distance / time) * 1000 * VELOCITY_MULTIPLIER;
 
-              // Cap velocity
-              state.velocity = Math.max(
-                -MAX_VELOCITY,
-                Math.min(MAX_VELOCITY, state.velocity)
-              );
-
-              // Apply momentum scrolling if velocity is significant
+              // Apply momentum if significant
               if (Math.abs(state.velocity) > MIN_VELOCITY * 100) {
                 startMomentum();
               } else {
-                // Snap to nearest comfortable position
                 snapToNearestComfortablePosition();
               }
             }
           }
-        } else {
+        } else if (wasScrolling) {
           snapToNearestComfortablePosition();
         }
       },
@@ -223,21 +292,30 @@
       () => {
         state.isTouching = false;
         state.isScrolling = false;
+        state.isPotentialTap = false;
         container.classList.remove("scrolling");
-        snapToNearestComfortablePosition();
       },
       { passive: true }
     );
   }
 
-  // Setup mouse handlers for desktop testing
+  // Setup mouse handlers for desktop
   function setupMouseHandlers() {
     let isMouseDown = false;
+    let hasMoved = false;
 
     container.addEventListener("mousedown", (e) => {
       if (e.button !== 0) return;
 
+      // Check if clicking on a tab
+      const tab = e.target.closest(".category-tab");
+      if (tab) {
+        // Let the click event handle it
+        return;
+      }
+
       isMouseDown = true;
+      hasMoved = false;
       e.preventDefault();
 
       if (state.ticker) {
@@ -253,51 +331,52 @@
       state.timestamp = Date.now();
 
       container.style.cursor = "grabbing";
-      container.classList.add("scrolling");
     });
 
     window.addEventListener("mousemove", (e) => {
       if (!isMouseDown || !state.isTouching) return;
 
       e.preventDefault();
-      const deltaX = state.startX - e.clientX;
-      container.scrollLeft = state.startScrollLeft + deltaX;
+      hasMoved = true;
 
-      updateScrollState();
+      const deltaX = state.startX - e.clientX;
+      if (Math.abs(deltaX) > 2) {
+        container.scrollLeft = state.startScrollLeft + deltaX;
+        updateScrollState();
+      }
     });
 
-    window.addEventListener("mouseup", () => {
+    window.addEventListener("mouseup", (e) => {
       if (!isMouseDown) return;
 
       isMouseDown = false;
       state.isTouching = false;
       container.style.cursor = "grab";
-      container.classList.remove("scrolling");
 
-      snapToNearestComfortablePosition();
+      if (hasMoved) {
+        snapToNearestComfortablePosition();
+      }
     });
   }
 
-  // Setup wheel handler for smooth horizontal scrolling
+  // Setup wheel handler
   function setupWheelHandler() {
     container.addEventListener(
       "wheel",
       (e) => {
         e.preventDefault();
 
-        // Convert vertical wheel to horizontal scroll
         const delta = e.deltaY || e.deltaX;
-        const scrollAmount = delta * 0.5; // Reduce sensitivity
+        const scrollAmount = delta * 0.5;
 
         container.scrollLeft += scrollAmount;
         updateScrollState();
 
-        // Clear any existing snap timeout
+        // Debounced snap
         if (state.snapTimeout) {
           clearTimeout(state.snapTimeout);
         }
 
-        // Snap after wheel stops
         state.snapTimeout = setTimeout(() => {
           snapToNearestComfortablePosition();
         }, 150);
@@ -306,7 +385,7 @@
     );
   }
 
-  // Momentum scrolling with improved physics
+  // Momentum scrolling
   function startMomentum() {
     state.amplitude = state.velocity;
     state.timestamp = Date.now();
@@ -314,7 +393,6 @@
       container.scrollLeft + state.amplitude * 0.3
     );
 
-    // Clamp to bounds
     const maxScroll = container.scrollWidth - container.clientWidth;
     state.targetScroll = Math.max(0, Math.min(state.targetScroll, maxScroll));
 
@@ -325,7 +403,6 @@
     state.ticker = requestAnimationFrame(momentumStep);
   }
 
-  // Single frame of momentum animation
   function momentumStep() {
     const now = Date.now();
     const elapsed = now - state.timestamp;
@@ -345,25 +422,21 @@
     }
   }
 
-  // Snap to nearest comfortable position
+  // Snap to comfortable position
   function snapToNearestComfortablePosition() {
     const scrollLeft = container.scrollLeft;
     const containerWidth = container.clientWidth;
     const scrollWidth = container.scrollWidth;
 
-    // Don't snap if content fits in viewport
     if (scrollWidth <= containerWidth) return;
 
-    // Find the best position to snap to
     let targetScroll = scrollLeft;
 
-    // Check if we're near the edges
     if (scrollLeft < 50) {
       targetScroll = 0;
     } else if (scrollLeft > scrollWidth - containerWidth - 50) {
       targetScroll = scrollWidth - containerWidth;
     } else {
-      // Find nearest tab edge for comfortable viewing
       let nearestDistance = Infinity;
 
       tabs.forEach((tab) => {
@@ -371,11 +444,10 @@
         const tabRight = tabLeft + tab.offsetWidth;
         const tabCenter = tabLeft + tab.offsetWidth / 2;
 
-        // Check various snap points
         const snapPoints = [
-          tabLeft - 20, // Before tab with padding
-          tabCenter - containerWidth / 2, // Center tab
-          tabRight - containerWidth + 20, // After tab with padding
+          tabLeft - 20,
+          tabCenter - containerWidth / 2,
+          tabRight - containerWidth + 20,
         ];
 
         snapPoints.forEach((point) => {
@@ -392,13 +464,12 @@
       });
     }
 
-    // Only snap if we're not already there
     if (Math.abs(targetScroll - scrollLeft) > 1) {
       smoothScrollTo(targetScroll, SNAP_DURATION);
     }
   }
 
-  // Smooth scroll to target position
+  // Smooth scroll animation
   function smoothScrollTo(target, duration = SNAP_DURATION) {
     const start = container.scrollLeft;
     const distance = target - start;
@@ -410,8 +481,6 @@
     function animate(currentTime) {
       const elapsed = currentTime - startTime;
       const progress = Math.min(elapsed / duration, 1);
-
-      // Smooth easing function
       const easeProgress = 1 - Math.pow(1 - progress, 3);
 
       container.scrollLeft = start + distance * easeProgress;
@@ -443,19 +512,15 @@
 
     let targetScroll = null;
 
-    // Check if tab is fully visible
     if (tabLeft < scrollLeft + 20) {
-      // Tab is too far left
       targetScroll = Math.max(0, tabLeft - 20);
     } else if (tabRight > scrollLeft + containerWidth - 20) {
-      // Tab is too far right
       targetScroll = Math.min(
         container.scrollWidth - containerWidth,
         tabRight - containerWidth + 20
       );
     }
 
-    // If we need to scroll, do it
     if (targetScroll !== null) {
       if (animate) {
         smoothScrollTo(targetScroll, SNAP_DURATION);
@@ -479,7 +544,6 @@
         return;
       }
 
-      // Show/hide edge fades with small buffer
       container.classList.toggle("show-start-fade", scrollLeft > 2);
       container.classList.toggle(
         "show-end-fade",
@@ -495,6 +559,9 @@
     const handleResize = () => {
       clearTimeout(resizeTimer);
       resizeTimer = setTimeout(() => {
+        // Re-cache tabs in case they changed
+        tabs = Array.from(container.querySelectorAll(".category-tab"));
+        setupClickHandlers();
         updateScrollState();
         ensureActiveTabVisible(false);
       }, 100);
@@ -508,19 +575,22 @@
 
   // Setup tab activation listener
   function setupTabActivation() {
-    // Listen for custom event
     navigation.addEventListener("tabActivated", () => {
       ensureActiveTabVisible(true);
     });
 
-    // Also observe class changes on tabs
+    // Observe class changes
     const observer = new MutationObserver((mutations) => {
       mutations.forEach((mutation) => {
-        if (
-          mutation.attributeName === "class" &&
-          mutation.target.classList.contains("active")
-        ) {
-          ensureActiveTabVisible(true);
+        if (mutation.attributeName === "class") {
+          const tab = mutation.target;
+          if (tab.classList.contains("active")) {
+            ensureActiveTabVisible(true);
+          }
+          // Re-setup click handlers if tabs change
+          if (tab.classList.contains("category-tab")) {
+            setupClickHandlers();
+          }
         }
       });
     });
@@ -530,7 +600,7 @@
     });
   }
 
-  // Show swipe hint for mobile users
+  // Show swipe hint
   function showMobileHint() {
     const hint = document.createElement("div");
     hint.className = "swipe-hint-container";
@@ -554,7 +624,7 @@
     }, 2500);
   }
 
-  // Check if device supports touch
+  // Check if touch device
   function isTouchDevice() {
     return (
       "ontouchstart" in window ||
@@ -573,6 +643,10 @@
         const targetScroll = tab.offsetLeft - 20;
         smoothScrollTo(targetScroll);
       }
+    },
+    refreshTabs: () => {
+      tabs = Array.from(container.querySelectorAll(".category-tab"));
+      setupClickHandlers();
     },
     init: init,
   };

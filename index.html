@@ -268,5 +268,63 @@
 
     <script src="js/main.js" type="module"></script>
     <script src="js/scroll-handler.js"></script>
+
+    <script>
+      // Ensure proper tap handling on mobile devices
+      document.addEventListener("DOMContentLoaded", function () {
+        // Disable touch delays
+        if ("ontouchstart" in window) {
+          document.documentElement.style.touchAction = "manipulation";
+
+          // Add fastclick behavior to all interactive elements
+          document.addEventListener("touchstart", function () {}, {
+            passive: true,
+          });
+
+          // Ensure category tabs are immediately responsive
+          setTimeout(() => {
+            const tabs = document.querySelectorAll(".category-tab");
+            tabs.forEach((tab) => {
+              // Remove any iOS tap delays
+              tab.style.webkitTapHighlightColor = "transparent";
+              tab.style.touchAction = "manipulation";
+              tab.style.userSelect = "none";
+              tab.style.webkitUserSelect = "none";
+
+              // Add immediate feedback
+              let touching = false;
+              tab.addEventListener(
+                "touchstart",
+                function (e) {
+                  touching = true;
+                  this.style.transform = "scale(0.95)";
+                },
+                { passive: true }
+              );
+
+              tab.addEventListener(
+                "touchend",
+                function (e) {
+                  if (touching) {
+                    this.style.transform = "";
+                    touching = false;
+                  }
+                },
+                { passive: true }
+              );
+
+              tab.addEventListener(
+                "touchcancel",
+                function (e) {
+                  this.style.transform = "";
+                  touching = false;
+                },
+                { passive: true }
+              );
+            });
+          }, 100);
+        }
+      });
+    </script>
   </body>
 </html>

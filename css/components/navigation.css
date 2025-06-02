@@ -13,6 +13,13 @@
   justify-content: center;
   /* Remove any potential shadows */
   box-shadow: none !important;
+  /* Ensure navigation doesn't block taps */
+  pointer-events: none;
+}
+
+/* Re-enable pointer events on container */
+.category-navigation > * {
+  pointer-events: auto;
 }
 
 .category-tabs-container {
@@ -35,6 +42,11 @@
   -webkit-transform: translate3d(0, 0, 0);
   /* Ensure no shadows */
   box-shadow: none !important;
+  /* Prevent touch delay on container */
+  touch-action: pan-x;
+  -webkit-touch-callout: none;
+  /* Only allow scrolling, not tapping on container itself */
+  pointer-events: auto;
 }
 
 .category-tabs-container::-webkit-scrollbar {
@@ -52,11 +64,20 @@
   align-items: center;
   justify-content: flex-start; /* Changed from center for better mobile */
   gap: var(--space-xs); /* Reduced gap for mobile */
+  /* Ensure taps pass through to buttons */
+  pointer-events: none;
+}
+
+/* Re-enable pointer events on tabs */
+.category-tabs > * {
+  pointer-events: auto;
+  position: relative;
+  z-index: var(--z-navigation-tabs, 910);
 }
 
 .category-tab {
-  height: 36px; /* Optimized for mobile */
-  padding: 0 var(--space-md);
+  height: 44px; /* Increased for better touch targets */
+  padding: 0 var(--space-lg); /* More padding for easier tapping */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -70,7 +91,7 @@
   border-radius: var(--radius-round);
   background-color: transparent;
   border: 2px solid transparent;
-  margin: 0 2px;
+  margin: 0 4px; /* More space between buttons */
   /* Remove all shadows */
   box-shadow: none !important;
   /* Optimize touch target for mobile */
@@ -78,6 +99,10 @@
   touch-action: manipulation;
   user-select: none;
   -webkit-user-select: none;
+  cursor: pointer;
+  /* Ensure button is above scroll layer */
+  position: relative;
+  z-index: var(--z-navigation-tabs, 910);
 }
 
 .category-tab:hover {
@@ -104,6 +129,9 @@
   /* No shadow - use subtle opacity change instead */
   box-shadow: none !important;
   position: relative;
+  z-index: calc(
+    var(--z-navigation-tabs, 910) + 1
+  ); /* Ensure active tab is on top */
 }
 
 /* Add subtle glow effect without shadow */
@@ -127,6 +155,20 @@
   border-color: var(--accent-light);
   transform: translateY(-1px) scale(1.05);
   box-shadow: none !important;
+}
+
+/* Immediate tap feedback */
+.category-tab:active,
+.category-tab.tapped {
+  background-color: var(--bg-tertiary);
+  transform: scale(0.95);
+  transition: transform 0.1s ease;
+}
+
+.category-tab.active:active,
+.category-tab.active.tapped {
+  background-color: var(--accent-light);
+  transform: scale(1);
 }
 
 /* Edge fade indicators - improved for mobile */
@@ -248,19 +290,22 @@
 /* Mobile-first responsive adjustments */
 @media (max-width: 767px) {
   .category-navigation {
-    height: var(--category-nav-height-mobile);
+    height: calc(
+      var(--category-nav-height-mobile) + 8px
+    ); /* Slightly taller for bigger buttons */
   }
 
   .category-tabs {
     padding: 0 var(--space-sm);
-    gap: 4px; /* Even smaller gap */
+    gap: 6px; /* Maintain good spacing */
   }
 
   .category-tab {
-    padding: 0 var(--space-sm);
+    padding: 0 var(--space-md); /* Keep good padding */
     font-size: var(--font-size-sm);
-    height: 34px;
-    margin: 0 1px;
+    height: 40px; /* Maintain larger touch target */
+    margin: 0 2px;
+    min-width: 80px; /* Minimum width for easy tapping */
   }
 
   /* Smaller glow effect on mobile */
@@ -275,15 +320,16 @@
 
 @media (max-width: 575px) {
   .category-tabs {
-    gap: 2px;
+    gap: 4px;
     padding: 0 var(--space-xs);
   }
 
   .category-tab {
-    padding: 0 10px; /* Fixed padding for consistency */
-    margin: 0;
-    height: 32px;
+    padding: 0 14px; /* Good padding for touch */
+    margin: 0 1px;
+    height: 38px; /* Still large enough for easy tapping */
     font-size: 0.8125rem; /* 13px */
+    min-width: 70px; /* Minimum touch target */
   }
 
   /* Narrower edge fades on small screens */
@@ -295,9 +341,10 @@
 
 @media (max-width: 380px) {
   .category-tab {
-    padding: 0 8px;
-    height: 30px;
+    padding: 0 12px;
+    height: 36px; /* Keep reasonable height even on tiny screens */
     font-size: 0.75rem; /* 12px */
+    min-width: 60px;
   }
 }
 

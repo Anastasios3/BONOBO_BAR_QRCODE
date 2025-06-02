@@ -166,24 +166,67 @@ export const EventController = {
   },
 
   /**
-   * Setup category selection
+   * Setup category selection with improved tap detection
    */
   setupCategorySelection() {
     const menuCategories = UIController.elements.menuCategories;
     if (!menuCategories) return;
 
-    menuCategories.addEventListener("click", (e) => {
-      const categoryTab = e.target.closest(".category-tab");
-      if (categoryTab) {
-        const category = categoryTab.dataset.category;
-        if (category && category !== AppState.currentCategory) {
-          this.selectCategory(category);
-          this.hapticFeedback(20);
-        }
-      }
-    });
+    // Use event delegation with capture phase for immediate response
+    menuCategories.addEventListener(
+      "click",
+      (e) => {
+        // Find the closest category tab
+        const categoryTab = e.target.closest(".category-tab");
+        if (!categoryTab) return;
 
-    // Keyboard navigation
+        // Get category
+        const category = categoryTab.dataset.category;
+        if (!category || category === AppState.currentCategory) return;
+
+        // Immediate visual feedback
+        categoryTab.classList.add("tapped");
+
+        // Select category immediately
+        this.selectCategory(category);
+
+        // Haptic feedback
+        this.hapticFeedback(20);
+
+        // Remove visual feedback after animation
+        setTimeout(() => {
+          categoryTab.classList.remove("tapped");
+        }, 200);
+      },
+      { capture: true }
+    ); // Use capture phase for priority
+
+    // Touch-specific handling for immediate feedback
+    menuCategories.addEventListener(
+      "touchstart",
+      (e) => {
+        const categoryTab = e.target.closest(".category-tab");
+        if (categoryTab) {
+          categoryTab.classList.add("tapped");
+        }
+      },
+      { passive: true }
+    );
+
+    menuCategories.addEventListener(
+      "touchend",
+      (e) => {
+        const categoryTab = e.target.closest(".category-tab");
+        if (categoryTab) {
+          setTimeout(() => {
+            categoryTab.classList.remove("tapped");
+          }, 200);
+        }
+      },
+      { passive: true }
+    );
+
+    // Keyboard navigation (unchanged)
     menuCategories.addEventListener("keydown", (e) => {
       if (!["ArrowRight", "ArrowLeft", "Home", "End"].includes(e.key)) return;
 
@@ -216,6 +259,46 @@ export const EventController = {
         this.selectCategory(tabs[newIndex].dataset.category);
       }
     });
+  },
+
+  /**
+   * Select category with smooth transition and immediate response
+   */
+  selectCategory(category) {
+    // Prevent duplicate calls
+    if (AppState.currentCategory === category) return;
+
+    // Update state immediately
+    AppState.currentCategory = category;
+    AppState.currentFilter = null;
+
+    // Update UI immediately
+    requestAnimationFrame(() => {
+      UIController.updateActiveCategory(category);
+      UIController.generateFilterOptions(category);
+      UIController.toggleFilterPanel(false);
+
+      const items = AppState.getFilteredItems(category);
+      UIController.displayMenuItems(items, category);
+    });
+
+    // Smooth scroll to top after a brief delay
+    setTimeout(() => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }, 50);
+
+    // Center active tab after UI update
+    setTimeout(() => {
+      if (window.menuScrolling) {
+        window.menuScrolling.centerActiveTab();
+      }
+    }, 100);
+
+    // Update page title
+    document.title = `${AppState.getText(
+      "categories",
+      category
+    )} - Bonobo Bar & More`;
   },
 
   /**

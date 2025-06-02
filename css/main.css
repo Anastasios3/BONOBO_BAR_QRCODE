@@ -15,3 +15,77 @@
 
 /* Utilities */
 @import "utils.css";
+
+/*--------------------------------------------------------------
+# Global Touch/Tap Optimizations
+--------------------------------------------------------------*/
+
+/* Disable tap delays globally */
+html {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Ensure all interactive elements respond immediately */
+button,
+a,
+input,
+select,
+textarea,
+[role="button"],
+[role="tab"],
+.clickable,
+.category-tab {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  user-select: none;
+  -webkit-user-select: none;
+  cursor: pointer;
+}
+
+/* Prevent iOS zoom on double tap */
+button,
+.category-tab {
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+}
+
+/* Ensure proper z-index stacking for touch targets */
+.category-tab {
+  position: relative;
+  z-index: 10;
+}
+
+/* Active states for all interactive elements */
+button:active,
+a:active,
+.category-tab:active {
+  transition: transform 0.1s ease;
+}
+
+/* Prevent text selection on double tap */
+.category-navigation,
+.category-tabs-container,
+.category-tabs {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* iOS-specific fixes */
+@supports (-webkit-touch-callout: none) {
+  /* iOS only */
+  .category-tab {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+/* Ensure smooth animations don't interfere with taps */
+.category-tab {
+  will-change: transform, background-color;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
