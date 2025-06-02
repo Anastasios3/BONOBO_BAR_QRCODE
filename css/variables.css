@@ -9,6 +9,10 @@
   --brand-light: #be95c4;
   --brand-accent: #e0b1cb;
 
+  /* RGB values for rgba() usage */
+  --accent-color-rgb: 94, 84, 142; /* RGB values of --brand-secondary */
+  --accent-light-rgb: 159, 134, 192; /* RGB values of --brand-tertiary */
+
   /* Neutral colors */
   --neutral-50: #fafafa;
   --neutral-100: #f5f5f5;
@@ -117,6 +121,9 @@
   --card-bg: var(--neutral-800);
   --accent-color: var(--brand-light);
   --accent-light: var(--brand-accent);
+  /* RGB values for dark theme */
+  --accent-color-rgb: 190, 149, 196; /* RGB values of --brand-light */
+  --accent-light-rgb: 224, 177, 203; /* RGB values of --brand-accent */
 }
 
 /* Large desktop screens */
