@@ -1,5 +1,5 @@
 /*--------------------------------------------------------------
-# Category Navigation - Enhanced Design with Better Performance
+# Category Navigation - Enhanced Mobile Performance, No Shadows
 --------------------------------------------------------------*/
 .category-navigation {
   height: var(--category-nav-height);
@@ -11,6 +11,8 @@
   overflow: visible;
   display: flex;
   justify-content: center;
+  /* Remove any potential shadows */
+  box-shadow: none !important;
 }
 
 .category-tabs-container {
@@ -20,19 +22,23 @@
   height: 100%;
   overflow-x: auto;
   overflow-y: hidden;
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* IE and Edge */
-  scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch; /* Enable momentum scrolling on iOS */
-  overscroll-behavior-x: contain; /* Prevent page overscroll */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  scroll-behavior: auto; /* Disabled for custom implementation */
+  -webkit-overflow-scrolling: auto; /* Disabled for custom implementation */
+  overscroll-behavior-x: contain;
   /* Performance optimizations */
   will-change: scroll-position;
-  transform: translateZ(0); /* Force GPU acceleration */
+  transform: translateZ(0);
   backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  -webkit-transform: translate3d(0, 0, 0);
+  /* Ensure no shadows */
+  box-shadow: none !important;
 }
 
 .category-tabs-container::-webkit-scrollbar {
-  display: none; /* Chrome, Safari, Opera */
+  display: none;
 }
 
 .category-tabs {
@@ -41,16 +47,16 @@
   padding: 0 var(--space-md);
   margin: 0 auto;
   position: relative;
-  width: max-content; /* Allow content to determine width */
-  min-width: 100%; /* Ensure it fills the container */
+  width: max-content;
+  min-width: 100%;
   align-items: center;
-  justify-content: center;
-  gap: var(--space-sm);
+  justify-content: flex-start; /* Changed from center for better mobile */
+  gap: var(--space-xs); /* Reduced gap for mobile */
 }
 
 .category-tab {
-  height: 38px; /* Fixed height for consistency */
-  padding: 0 var(--space-lg);
+  height: 36px; /* Optimized for mobile */
+  padding: 0 var(--space-md);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -58,34 +64,61 @@
   position: relative;
   white-space: nowrap;
   font-weight: var(--font-weight-medium);
-  flex-shrink: 0; /* Prevent tabs from shrinking */
-  min-width: max-content; /* Ensure tab width is based on content */
+  flex-shrink: 0;
+  min-width: max-content;
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  border-radius: var(--radius-round); /* Pill shape */
+  border-radius: var(--radius-round);
   background-color: transparent;
   border: 2px solid transparent;
-  margin: 0 var(--space-2xs);
+  margin: 0 2px;
+  /* Remove all shadows */
+  box-shadow: none !important;
+  /* Optimize touch target for mobile */
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  user-select: none;
+  -webkit-user-select: none;
 }
 
 .category-tab:hover {
   color: var(--text-primary);
   background-color: var(--bg-tertiary);
   transform: translateY(-1px);
+  /* No shadow on hover */
+  box-shadow: none !important;
 }
 
 .category-tab:focus-visible {
   outline: none;
-  box-shadow: 0 0 0 3px rgba(var(--accent-color-rgb), 0.3);
+  /* Use border instead of shadow for focus */
+  border-color: var(--accent-color);
 }
 
-/* Enhanced active state with boxed/pill design */
+/* Enhanced active state without shadows */
 .category-tab.active {
   color: white;
   font-weight: var(--font-weight-semibold);
   background-color: var(--accent-color);
   border-color: var(--accent-color);
   transform: scale(1.05);
-  box-shadow: 0 4px 12px rgba(var(--accent-color-rgb), 0.3);
+  /* No shadow - use subtle opacity change instead */
+  box-shadow: none !important;
+  position: relative;
+}
+
+/* Add subtle glow effect without shadow */
+.category-tab.active::before {
+  content: "";
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  right: -4px;
+  bottom: -4px;
+  background: var(--accent-color);
+  opacity: 0.2;
+  border-radius: var(--radius-round);
+  z-index: -1;
+  transition: opacity 0.2s ease;
 }
 
 .category-tab.active:hover {
@@ -93,106 +126,58 @@
   background-color: var(--accent-light);
   border-color: var(--accent-light);
   transform: translateY(-1px) scale(1.05);
+  box-shadow: none !important;
 }
 
-/* Remove the old underline animation */
-.category-tab.active::after {
-  display: none;
-}
-
-/* Smooth transition for tab changes */
-.category-tab {
-  transition: color 0.2s ease, background-color 0.2s ease,
-    border-color 0.2s ease, transform 0.2s cubic-bezier(0.4, 0, 0.2, 1),
-    box-shadow 0.2s ease;
-}
-
-/* Edge fade indicators - optimized */
+/* Edge fade indicators - improved for mobile */
 .category-tabs-container::before,
 .category-tabs-container::after {
   content: "";
   position: absolute;
   top: 0;
   height: 100%;
-  width: 40px;
+  width: 20px; /* Reduced width for mobile */
   z-index: 2;
   pointer-events: none;
   opacity: 0;
-  transition: opacity 0.2s ease;
+  transition: opacity 0.15s ease; /* Faster transition */
   will-change: opacity;
 }
 
 .category-tabs-container::before {
   left: 0;
-  background: linear-gradient(to right, var(--bg-secondary) 20%, transparent);
+  background: linear-gradient(
+    to right,
+    var(--bg-secondary) 0%,
+    var(--bg-secondary) 30%,
+    transparent 100%
+  );
 }
 
 .category-tabs-container::after {
   right: 0;
-  background: linear-gradient(to left, var(--bg-secondary) 20%, transparent);
+  background: linear-gradient(
+    to left,
+    var(--bg-secondary) 0%,
+    var(--bg-secondary) 30%,
+    transparent 100%
+  );
 }
 
 .category-tabs-container.show-start-fade::before {
-  opacity: 0.9;
+  opacity: 1;
 }
 
 .category-tabs-container.show-end-fade::after {
-  opacity: 0.9;
-}
-
-/* Navigation buttons for larger screens - updated design */
-.category-nav-button {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  background-color: var(--bg-primary);
-  color: var(--text-secondary);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 3;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  border: 2px solid var(--border-color);
-  opacity: 0;
-  visibility: hidden;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-.category-nav-button i {
-  font-size: 0.875rem;
-}
-
-.category-nav-button.prev {
-  left: var(--space-sm);
-}
-
-.category-nav-button.next {
-  right: var(--space-sm);
-}
-
-.category-nav-button:hover:not(.disabled) {
-  background-color: var(--accent-color);
-  color: white;
-  border-color: var(--accent-color);
-  transform: translateY(-50%) scale(1.1);
-  box-shadow: 0 4px 12px rgba(var(--accent-color-rgb), 0.3);
-}
-
-.category-nav-button.disabled {
-  opacity: 0.3;
-  cursor: not-allowed;
-}
-
-.category-navigation:hover .category-nav-button:not(.disabled) {
   opacity: 1;
-  visibility: visible;
 }
 
-/* First-time swipe hint overlay - simplified */
+/* Remove navigation buttons on mobile */
+.category-nav-button {
+  display: none !important;
+}
+
+/* Swipe hint - no shadows */
 .swipe-hint-container {
   position: fixed;
   top: 0;
@@ -207,11 +192,12 @@
 }
 
 .swipe-hint {
-  background-color: rgba(0, 0, 0, 0.85);
+  background-color: rgba(0, 0, 0, 0.9);
   color: white;
-  padding: 16px 24px;
+  padding: 12px 20px;
   border-radius: var(--radius-round);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  /* No shadow */
+  box-shadow: none !important;
   opacity: 0;
   transform: translateY(10px);
   transition: all 0.3s ease;
@@ -220,6 +206,8 @@
   pointer-events: none;
   position: relative;
   margin-top: -50px;
+  /* Add subtle border instead of shadow */
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .swipe-hint.visible {
@@ -231,62 +219,33 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: var(--space-sm);
+  gap: var(--space-xs);
 }
 
 .swipe-hint-icon {
-  font-size: 1.5rem;
-  margin-bottom: 8px;
+  font-size: 1.25rem;
+  margin-bottom: 4px;
   animation: swipeAnimation 1.5s ease-in-out infinite;
 }
 
 .swipe-hint-text {
-  font-size: var(--font-size-md);
+  font-size: var(--font-size-sm);
   font-weight: var(--font-weight-medium);
 }
 
 @keyframes swipeAnimation {
   0%,
   100% {
-    transform: translateX(-10px);
+    transform: translateX(-8px);
     opacity: 0.7;
   }
   50% {
-    transform: translateX(10px);
+    transform: translateX(8px);
     opacity: 1;
   }
 }
 
-/* Responsive adjustments */
-@media (min-width: 1200px) {
-  .category-tabs {
-    justify-content: center;
-    gap: var(--space-md);
-  }
-
-  .category-tab {
-    padding: 0 var(--space-xl);
-    font-size: var(--font-size-md);
-    height: 42px;
-  }
-}
-
-@media (max-width: 991px) {
-  .category-tabs {
-    justify-content: flex-start;
-    padding: 0 var(--space-md);
-    gap: var(--space-sm);
-  }
-
-  .category-tab {
-    padding: 0 var(--space-md);
-  }
-
-  .category-nav-button {
-    display: none;
-  }
-}
-
+/* Mobile-first responsive adjustments */
 @media (max-width: 767px) {
   .category-navigation {
     height: var(--category-nav-height-mobile);
@@ -294,52 +253,119 @@
 
   .category-tabs {
     padding: 0 var(--space-sm);
-    gap: var(--space-xs);
-    justify-content: flex-start;
+    gap: 4px; /* Even smaller gap */
   }
 
   .category-tab {
-    padding: 0 var(--space-md);
+    padding: 0 var(--space-sm);
     font-size: var(--font-size-sm);
-    height: 36px;
+    height: 34px;
+    margin: 0 1px;
+  }
+
+  /* Smaller glow effect on mobile */
+  .category-tab.active::before {
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    opacity: 0.15;
   }
 }
 
 @media (max-width: 575px) {
   .category-tabs {
-    gap: var(--space-2xs);
-    justify-content: flex-start;
+    gap: 2px;
     padding: 0 var(--space-xs);
   }
 
   .category-tab {
-    padding: 0 var(--space-sm);
-    margin: 0 2px;
-    height: 34px;
+    padding: 0 10px; /* Fixed padding for consistency */
+    margin: 0;
+    height: 32px;
+    font-size: 0.8125rem; /* 13px */
+  }
+
+  /* Narrower edge fades on small screens */
+  .category-tabs-container::before,
+  .category-tabs-container::after {
+    width: 15px;
   }
 }
 
-/* Dark theme adjustments */
+@media (max-width: 380px) {
+  .category-tab {
+    padding: 0 8px;
+    height: 30px;
+    font-size: 0.75rem; /* 12px */
+  }
+}
+
+/* Dark theme adjustments - ensure proper colors */
+.dark-theme .category-navigation {
+  background-color: var(--bg-secondary);
+  border-bottom-color: var(--border-color);
+}
+
 .dark-theme .category-tab {
+  color: var(--text-secondary);
   border-color: transparent;
 }
 
 .dark-theme .category-tab:hover {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.08);
+  color: var(--text-primary);
 }
 
 .dark-theme .category-tab.active {
   background-color: var(--accent-color);
   color: white;
-  box-shadow: 0 4px 16px rgba(var(--accent-color-rgb), 0.4);
-}
-
-.dark-theme .category-nav-button {
-  background-color: var(--bg-secondary);
-  border-color: var(--border-color);
-}
-
-.dark-theme .category-nav-button:hover:not(.disabled) {
-  background-color: var(--accent-color);
   border-color: var(--accent-color);
+}
+
+.dark-theme .category-tab.active::before {
+  background: var(--accent-color);
+  opacity: 0.15;
+}
+
+.dark-theme .category-tabs-container::before {
+  background: linear-gradient(
+    to right,
+    var(--bg-secondary) 0%,
+    var(--bg-secondary) 30%,
+    transparent 100%
+  );
+}
+
+.dark-theme .category-tabs-container::after {
+  background: linear-gradient(
+    to left,
+    var(--bg-secondary) 0%,
+    var(--bg-secondary) 30%,
+    transparent 100%
+  );
+}
+
+/* Performance optimizations for mobile */
+@media (max-width: 767px) {
+  .category-tab {
+    /* Reduce paint areas */
+    contain: layout style paint;
+  }
+
+  .category-tabs-container {
+    /* Enable GPU acceleration */
+    transform: translate3d(0, 0, 0);
+    -webkit-transform: translate3d(0, 0, 0);
+  }
+}
+
+/* Ensure smooth scrolling physics */
+.category-tabs-container.scrolling {
+  scroll-behavior: auto !important;
+}
+
+/* Active tab visibility insurance */
+.category-tab.ensure-visible {
+  scroll-margin-inline: 40px;
 }

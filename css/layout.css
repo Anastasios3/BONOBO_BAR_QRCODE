@@ -1,5 +1,5 @@
 /*--------------------------------------------------------------
-# Layout Styles - Complete Redesign for All Screen Sizes
+# Layout Styles - Complete Redesign for All Screen Sizes (No Shadows)
 --------------------------------------------------------------*/
 .app-container {
   display: flex;
@@ -36,9 +36,7 @@
   margin-bottom: var(--space-xl);
   position: relative;
   width: 100%;
-  z-index: var(
-    --z-dropdown
-  ); /* Higher than navigation but lower than fixed elements */
+  z-index: var(--z-dropdown);
 }
 
 .menu-title {
@@ -61,14 +59,15 @@
   z-index: var(--z-dropdown);
 }
 
-/* Fixed positioning structure - Ensures proper element layering */
+/* Fixed positioning structure - NO SHADOWS */
 .fixed-layout {
   position: sticky;
   top: var(--header-height);
   z-index: var(--z-navigation);
   width: 100%;
   background-color: var(--bg-primary);
-  box-shadow: var(--shadow-sm);
+  /* No shadow! */
+  box-shadow: none !important;
 }
 
 /* Offline notification */
@@ -86,13 +85,15 @@
   transition: transform var(--transition-normal);
   font-weight: var(--font-weight-medium);
   font-size: var(--font-size-sm);
+  /* No shadow */
+  box-shadow: none !important;
 }
 
 .offline-notification.active {
   transform: translateY(0);
 }
 
-/* Back to top button */
+/* Back to top button - minimal shadow for functionality */
 .back-to-top {
   position: fixed;
   bottom: var(--space-lg);
@@ -105,7 +106,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: var(--shadow-md);
+  /* Very subtle shadow for depth perception */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   opacity: 0;
   visibility: hidden;
   transition: all var(--transition-normal);
@@ -113,6 +115,7 @@
   z-index: var(--z-backtop);
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
+  border: 2px solid transparent;
 }
 
 .back-to-top.visible {
@@ -124,6 +127,8 @@
 .back-to-top:hover {
   background-color: var(--accent-light);
   transform: translateY(-5px) scale(1.05);
+  /* Slightly stronger shadow on hover for feedback */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
 .back-to-top:active {
@@ -157,7 +162,9 @@
   border-radius: var(--radius-md);
   padding: var(--space-xl);
   text-align: center;
-  box-shadow: var(--shadow-lg);
+  /* Use border instead of shadow */
+  border: 1px solid var(--border-color);
+  box-shadow: none !important;
   max-width: 300px;
   width: 90%;
   transform: translateY(20px) scale(0.95);
@@ -277,6 +284,8 @@
     right: var(--space-md);
     width: 40px;
     height: 40px;
+    /* Even lighter shadow on mobile */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   }
 
   .offline-notification {
@@ -330,4 +339,19 @@
     bottom: var(--space-md);
     right: var(--space-xs);
   }
+}
+
+/* Dark theme adjustments */
+.dark-theme .loading-card {
+  background-color: var(--card-bg);
+  border-color: var(--border-color);
+}
+
+.dark-theme .back-to-top {
+  /* Slightly adjust shadow for dark theme */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.dark-theme .back-to-top:hover {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
 }

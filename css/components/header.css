@@ -1,5 +1,5 @@
 /*--------------------------------------------------------------
-# Header Styles - Mobile-optimized
+# Header Styles - Mobile-optimized (No Shadows)
 --------------------------------------------------------------*/
 .main-header {
   height: var(--header-height);
@@ -8,7 +8,9 @@
   justify-content: space-between;
   padding: 0 var(--space-lg);
   background-color: var(--bg-primary);
-  box-shadow: var(--shadow-sm);
+  /* Remove shadow - use border instead */
+  box-shadow: none !important;
+  border-bottom: 1px solid var(--border-color);
   position: sticky;
   top: 0;
   z-index: var(--z-header);
@@ -71,11 +73,15 @@
   border-radius: var(--radius-round);
   transition: all var(--transition-fast);
   position: relative;
+  /* Remove any potential shadows */
+  box-shadow: none !important;
 }
 
 .icon-btn:hover {
   background-color: var(--bg-tertiary);
   color: var(--text-primary);
+  /* No shadow on hover */
+  box-shadow: none !important;
 }
 
 .icon-btn i {
@@ -104,10 +110,15 @@
   border-radius: var(--radius-round);
   padding: var(--space-2xs) var(--space-xs);
   transition: all var(--transition-fast);
+  /* No shadow */
+  box-shadow: none !important;
+  border: 1px solid var(--border-color);
 }
 
 .language-toggle:hover {
-  box-shadow: var(--shadow-sm);
+  /* No shadow on hover */
+  box-shadow: none !important;
+  background-color: var(--bg-tertiary);
 }
 
 .lang-option {
@@ -131,7 +142,9 @@
 /* Compact header on scroll */
 .main-header.compact {
   height: calc(var(--header-height) * 0.85);
-  box-shadow: var(--shadow-md);
+  /* No shadow - use stronger border instead */
+  box-shadow: none !important;
+  border-bottom-width: 2px;
 }
 
 .main-header.compact .logo-container {
@@ -148,6 +161,8 @@
   color: var(--text-secondary);
   align-items: center;
   justify-content: center;
+  /* No shadow */
+  box-shadow: none !important;
 }
 
 .mobile-menu-btn i {
@@ -175,7 +190,9 @@
   right: 0;
   width: 280px;
   background-color: var(--card-bg);
-  box-shadow: var(--shadow-lg);
+  /* Use border instead of shadow */
+  box-shadow: none !important;
+  border-left: 1px solid var(--border-color);
   z-index: var(--z-drawer);
   transform: translateX(100%);
   transition: transform var(--transition-normal);
@@ -285,6 +302,30 @@
 .mobile-overlay.active {
   opacity: 1;
   visibility: visible;
+}
+
+/* Dark theme adjustments */
+.dark-theme .main-header {
+  background-color: var(--bg-primary);
+  border-bottom-color: var(--border-color);
+}
+
+.dark-theme .main-header.compact {
+  border-bottom-color: var(--border-color);
+}
+
+.dark-theme .language-toggle {
+  background-color: var(--bg-secondary);
+  border-color: var(--border-color);
+}
+
+.dark-theme .language-toggle:hover {
+  background-color: var(--bg-tertiary);
+}
+
+.dark-theme .mobile-drawer {
+  background-color: var(--card-bg);
+  border-left-color: var(--border-color);
 }
 
 /* Responsive adjustments */

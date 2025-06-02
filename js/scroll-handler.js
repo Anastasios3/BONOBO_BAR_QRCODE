@@ -1,40 +1,53 @@
 /**
- * Ultra-Smooth Horizontal Navigation for Bonobo Bar & More
- * High-performance implementation with optimal scrolling
+ * Ultra-Smooth Mobile Navigation Scrolling
+ * Optimized for touch devices with perfect physics
  */
 
 (function () {
   "use strict";
 
-  // Performance settings
-  const SCROLL_MOMENTUM = 0.92;
-  const SCROLL_THRESHOLD = 0.5;
-  const DEBOUNCE_DELAY = 10;
-  const SMOOTH_SCROLL_DURATION = 300;
+  // Enhanced physics constants for mobile
+  const DECELERATION = 0.95; // Higher = longer momentum
+  const MIN_VELOCITY = 0.2; // Minimum velocity before stopping
+  const VELOCITY_MULTIPLIER = 2.5; // Amplify swipe velocity
+  const SNAP_DURATION = 250; // Duration for snap animations
+  const EDGE_RESISTANCE = 0.15; // Rubber band effect at edges
+  const TOUCH_SLOP = 3; // Minimum movement to start scrolling
 
-  // Cache DOM elements
+  // Performance settings
+  const FPS = 60;
+  const FRAME_TIME = 1000 / FPS;
+  const MAX_VELOCITY = 4000; // Cap maximum velocity
+
+  // DOM elements
   let container = null;
   let navigation = null;
+  let tabs = [];
   let activeTab = null;
   let isInitialized = false;
 
-  // Scroll state
-  let velocity = 0;
-  let amplitude = 0;
-  let frame = 0;
-  let timestamp = 0;
-  let ticker = null;
-  let pressed = false;
-  let startX = 0;
-  let scrollLeft = 0;
+  // State management
+  let state = {
+    isScrolling: false,
+    isTouching: false,
+    startX: 0,
+    startY: 0,
+    startScrollLeft: 0,
+    currentX: 0,
+    lastX: 0,
+    velocity: 0,
+    amplitude: 0,
+    timestamp: 0,
+    frame: null,
+    ticker: null,
+    positions: [],
+    times: [],
+    lastScrollLeft: 0,
+    targetScroll: null,
+    snapTimeout: null,
+  };
 
-  // Touch/Mouse tracking
-  let positions = [];
-  let times = [];
-
-  /**
-   * Initialize with requestAnimationFrame optimization
-   */
+  // Initialize the scroll handler
   function init() {
     if (isInitialized) return;
 
@@ -47,186 +60,57 @@
         return;
       }
 
+      tabs = Array.from(container.querySelectorAll(".category-tab"));
       isInitialized = true;
-      setupSmoothScroll();
-      setupEventListeners();
-      updateIndicators();
-      centerActiveTab(false);
 
-      // Show hint for mobile users
-      if (isMobile() && !localStorage.getItem("nav_hint_shown")) {
-        showSwipeHint();
+      setupTouchHandlers();
+      setupMouseHandlers();
+      setupWheelHandler();
+      setupResizeHandler();
+      setupTabActivation();
+
+      updateScrollState();
+      ensureActiveTabVisible(false);
+
+      // Show hint for first-time mobile users
+      if (isTouchDevice() && !sessionStorage.getItem("swipe_hint_shown")) {
+        showMobileHint();
       }
     });
   }
 
-  /**
-   * Set up smooth momentum scrolling
-   */
-  function setupSmoothScroll() {
-    // Disable native scroll behavior for custom implementation
-    container.style.scrollBehavior = "auto";
-    container.style.webkitOverflowScrolling = "auto";
-  }
+  // Setup touch event handlers for mobile
+  function setupTouchHandlers() {
+    let touchStartTime = 0;
 
-  /**
-   * Track movement for velocity calculation
-   */
-  function track(x) {
-    const now = Date.now();
-    const elapsed = now - timestamp;
-    timestamp = now;
-
-    const delta = x - frame;
-    frame = x;
-
-    const v = (1000 * delta) / (1 + elapsed);
-    velocity = 0.8 * v + 0.2 * velocity;
-
-    positions.push(x);
-    times.push(now);
-
-    // Keep only last 100ms of data
-    while (times.length > 0 && times[0] <= now - 100) {
-      times.shift();
-      positions.shift();
-    }
-  }
-
-  /**
-   * Auto-scroll with momentum
-   */
-  function autoScroll() {
-    if (amplitude) {
-      const elapsed = Date.now() - timestamp;
-      const delta = -amplitude * Math.exp(-elapsed / 325);
-
-      if (delta > 0.5 || delta < -0.5) {
-        scroll(scrollLeft + delta);
-        requestAnimationFrame(autoScroll);
-      } else {
-        scroll(scrollLeft + delta);
-        updateIndicators();
-      }
-    }
-  }
-
-  /**
-   * Smooth scroll to position
-   */
-  function scroll(x) {
-    const max = container.scrollWidth - container.clientWidth;
-    scrollLeft = Math.max(0, Math.min(x, max));
-    container.scrollLeft = scrollLeft;
-  }
-
-  /**
-   * Calculate velocity from tracked positions
-   */
-  function getVelocity() {
-    if (positions.length < 2) return 0;
-
-    const now = Date.now();
-    let i = positions.length - 1;
-
-    while (i > 0 && times[i] > now - 100) {
-      i--;
-    }
-
-    if (i < 0) i = 0;
-
-    const distance = positions[positions.length - 1] - positions[i];
-    const time = Math.max(1, times[times.length - 1] - times[i]);
-
-    return (1000 * distance) / time;
-  }
-
-  /**
-   * Handle press start (mouse/touch)
-   */
-  function handlePressStart(clientX) {
-    pressed = true;
-    startX = clientX;
-    velocity = 0;
-    amplitude = 0;
-    frame = scrollLeft = container.scrollLeft;
-    timestamp = Date.now();
-
-    clearInterval(ticker);
-    ticker = setInterval(track.bind(null, scrollLeft), 10);
-
-    positions = [scrollLeft];
-    times = [timestamp];
-
-    // Add active state
-    container.style.cursor = "grabbing";
-  }
-
-  /**
-   * Handle press move (mouse/touch)
-   */
-  function handlePressMove(clientX) {
-    if (!pressed) return;
-
-    const delta = startX - clientX;
-    if (Math.abs(delta) > 2) {
-      scroll(scrollLeft + delta);
-      startX = clientX;
-      track(container.scrollLeft);
-    }
-  }
-
-  /**
-   * Handle press end (mouse/touch)
-   */
-  function handlePressEnd() {
-    if (!pressed) return;
-
-    pressed = false;
-    clearInterval(ticker);
-    container.style.cursor = "grab";
-
-    // Calculate final velocity
-    velocity = getVelocity();
-
-    if (Math.abs(velocity) > 10) {
-      amplitude = 0.8 * velocity;
-      scrollLeft = container.scrollLeft;
-      timestamp = Date.now();
-      requestAnimationFrame(autoScroll);
-    } else {
-      updateIndicators();
-    }
-  }
-
-  /**
-   * Set up all event listeners
-   */
-  function setupEventListeners() {
-    // Mouse events for desktop
-    container.addEventListener("mousedown", (e) => {
-      if (e.button === 0) {
-        e.preventDefault();
-        handlePressStart(e.clientX);
-      }
-    });
-
-    window.addEventListener("mousemove", (e) => {
-      if (pressed) {
-        e.preventDefault();
-        handlePressMove(e.clientX);
-      }
-    });
-
-    window.addEventListener("mouseup", () => {
-      handlePressEnd();
-    });
-
-    // Touch events for mobile
     container.addEventListener(
       "touchstart",
       (e) => {
-        handlePressStart(e.touches[0].clientX);
+        if (state.ticker) {
+          cancelAnimationFrame(state.ticker);
+          state.ticker = null;
+        }
+
+        const touch = e.touches[0];
+        touchStartTime = Date.now();
+
+        state.isTouching = true;
+        state.startX = touch.clientX;
+        state.startY = touch.clientY;
+        state.startScrollLeft = container.scrollLeft;
+        state.currentX = state.startX;
+        state.lastX = state.startX;
+        state.velocity = 0;
+        state.amplitude = 0;
+        state.timestamp = touchStartTime;
+        state.lastScrollLeft = container.scrollLeft;
+
+        // Reset tracking arrays
+        state.positions = [container.scrollLeft];
+        state.times = [touchStartTime];
+
+        // Add scrolling class
+        container.classList.add("scrolling");
       },
       { passive: true }
     );
@@ -234,219 +118,466 @@
     container.addEventListener(
       "touchmove",
       (e) => {
-        handlePressMove(e.touches[0].clientX);
-      },
-      { passive: true }
-    );
+        if (!state.isTouching) return;
 
-    container.addEventListener("touchend", handlePressEnd, { passive: true });
-    container.addEventListener("touchcancel", handlePressEnd, {
-      passive: true,
-    });
+        const touch = e.touches[0];
+        const deltaX = state.startX - touch.clientX;
+        const deltaY = Math.abs(state.startY - touch.clientY);
 
-    // Wheel event for smooth horizontal scrolling
-    container.addEventListener(
-      "wheel",
-      (e) => {
-        e.preventDefault();
-        const delta = e.deltaY || e.deltaX;
+        // Check if horizontal scroll intent
+        if (!state.isScrolling && Math.abs(deltaX) > TOUCH_SLOP) {
+          // Prevent vertical scrolling if horizontal intent detected
+          if (Math.abs(deltaX) > deltaY) {
+            state.isScrolling = true;
+          } else {
+            state.isTouching = false;
+            return;
+          }
+        }
 
-        // Smooth out the wheel delta
-        const smoothDelta = Math.sign(delta) * Math.min(Math.abs(delta), 50);
+        if (state.isScrolling) {
+          e.preventDefault(); // Prevent vertical scroll
 
-        scroll(container.scrollLeft + smoothDelta);
-        updateIndicators();
+          const now = Date.now();
+          const targetScroll = state.startScrollLeft + deltaX;
+
+          // Apply edge resistance
+          const maxScroll = container.scrollWidth - container.clientWidth;
+          let finalScroll = targetScroll;
+
+          if (targetScroll < 0) {
+            finalScroll = targetScroll * EDGE_RESISTANCE;
+          } else if (targetScroll > maxScroll) {
+            const overflow = targetScroll - maxScroll;
+            finalScroll = maxScroll + overflow * EDGE_RESISTANCE;
+          }
+
+          container.scrollLeft = finalScroll;
+
+          // Track velocity
+          state.currentX = touch.clientX;
+          state.positions.push(finalScroll);
+          state.times.push(now);
+
+          // Keep only last 100ms of tracking data
+          while (state.times.length > 0 && state.times[0] <= now - 100) {
+            state.times.shift();
+            state.positions.shift();
+          }
+
+          updateScrollState();
+        }
       },
       { passive: false }
     );
 
-    // Optimize resize handling
-    let resizeTimer;
-    window.addEventListener(
-      "resize",
-      () => {
-        clearTimeout(resizeTimer);
-        resizeTimer = setTimeout(() => {
-          updateIndicators();
-          centerActiveTab(true);
-        }, 100);
+    container.addEventListener(
+      "touchend",
+      (e) => {
+        if (!state.isTouching) return;
+
+        state.isTouching = false;
+        state.isScrolling = false;
+        container.classList.remove("scrolling");
+
+        const touchEndTime = Date.now();
+        const touchDuration = touchEndTime - touchStartTime;
+
+        // Calculate velocity from tracking data
+        if (state.positions.length > 1) {
+          const recentPositions = state.positions.slice(-5); // Last 5 positions
+          const recentTimes = state.times.slice(-5);
+
+          if (recentPositions.length > 1) {
+            const distance =
+              recentPositions[recentPositions.length - 1] - recentPositions[0];
+            const time = recentTimes[recentTimes.length - 1] - recentTimes[0];
+
+            if (time > 0) {
+              state.velocity = (distance / time) * 1000 * VELOCITY_MULTIPLIER;
+
+              // Cap velocity
+              state.velocity = Math.max(
+                -MAX_VELOCITY,
+                Math.min(MAX_VELOCITY, state.velocity)
+              );
+
+              // Apply momentum scrolling if velocity is significant
+              if (Math.abs(state.velocity) > MIN_VELOCITY * 100) {
+                startMomentum();
+              } else {
+                // Snap to nearest comfortable position
+                snapToNearestComfortablePosition();
+              }
+            }
+          }
+        } else {
+          snapToNearestComfortablePosition();
+        }
       },
       { passive: true }
     );
 
-    // Tab activation listener
-    navigation.addEventListener("tabActivated", () => {
-      centerActiveTab(true);
+    container.addEventListener(
+      "touchcancel",
+      () => {
+        state.isTouching = false;
+        state.isScrolling = false;
+        container.classList.remove("scrolling");
+        snapToNearestComfortablePosition();
+      },
+      { passive: true }
+    );
+  }
+
+  // Setup mouse handlers for desktop testing
+  function setupMouseHandlers() {
+    let isMouseDown = false;
+
+    container.addEventListener("mousedown", (e) => {
+      if (e.button !== 0) return;
+
+      isMouseDown = true;
+      e.preventDefault();
+
+      if (state.ticker) {
+        cancelAnimationFrame(state.ticker);
+        state.ticker = null;
+      }
+
+      state.isTouching = true;
+      state.startX = e.clientX;
+      state.startScrollLeft = container.scrollLeft;
+      state.velocity = 0;
+      state.amplitude = 0;
+      state.timestamp = Date.now();
+
+      container.style.cursor = "grabbing";
+      container.classList.add("scrolling");
     });
 
-    // Add hover effect
-    container.style.cursor = "grab";
+    window.addEventListener("mousemove", (e) => {
+      if (!isMouseDown || !state.isTouching) return;
+
+      e.preventDefault();
+      const deltaX = state.startX - e.clientX;
+      container.scrollLeft = state.startScrollLeft + deltaX;
+
+      updateScrollState();
+    });
+
+    window.addEventListener("mouseup", () => {
+      if (!isMouseDown) return;
+
+      isMouseDown = false;
+      state.isTouching = false;
+      container.style.cursor = "grab";
+      container.classList.remove("scrolling");
+
+      snapToNearestComfortablePosition();
+    });
   }
 
-  /**
-   * Update scroll indicators efficiently
-   */
-  const updateIndicators = (() => {
-    let rafId = null;
+  // Setup wheel handler for smooth horizontal scrolling
+  function setupWheelHandler() {
+    container.addEventListener(
+      "wheel",
+      (e) => {
+        e.preventDefault();
 
-    return () => {
-      if (rafId) return;
+        // Convert vertical wheel to horizontal scroll
+        const delta = e.deltaY || e.deltaX;
+        const scrollAmount = delta * 0.5; // Reduce sensitivity
 
-      rafId = requestAnimationFrame(() => {
-        rafId = null;
+        container.scrollLeft += scrollAmount;
+        updateScrollState();
 
-        const scrollLeft = container.scrollLeft;
-        const scrollWidth = container.scrollWidth;
-        const clientWidth = container.clientWidth;
-        const isScrollable = scrollWidth > clientWidth;
-
-        if (!isScrollable) {
-          container.classList.remove("show-start-fade", "show-end-fade");
-          return;
+        // Clear any existing snap timeout
+        if (state.snapTimeout) {
+          clearTimeout(state.snapTimeout);
         }
 
-        container.classList.toggle("show-start-fade", scrollLeft > 5);
-        container.classList.toggle(
-          "show-end-fade",
-          scrollLeft < scrollWidth - clientWidth - 5
-        );
-      });
-    };
-  })();
+        // Snap after wheel stops
+        state.snapTimeout = setTimeout(() => {
+          snapToNearestComfortablePosition();
+        }, 150);
+      },
+      { passive: false }
+    );
+  }
 
-  /**
-   * Smoothly center the active tab
-   */
-  function centerActiveTab(animate = true) {
-    activeTab = container.querySelector(".category-tab.active");
-    if (!activeTab) return;
+  // Momentum scrolling with improved physics
+  function startMomentum() {
+    state.amplitude = state.velocity;
+    state.timestamp = Date.now();
+    state.targetScroll = Math.round(
+      container.scrollLeft + state.amplitude * 0.3
+    );
 
-    const containerRect = container.getBoundingClientRect();
-    const tabRect = activeTab.getBoundingClientRect();
-    const tabCenter = activeTab.offsetLeft + tabRect.width / 2;
-    const containerCenter = containerRect.width / 2;
-    const targetScroll = tabCenter - containerCenter;
+    // Clamp to bounds
+    const maxScroll = container.scrollWidth - container.clientWidth;
+    state.targetScroll = Math.max(0, Math.min(state.targetScroll, maxScroll));
 
-    if (animate) {
-      smoothScrollTo(targetScroll, SMOOTH_SCROLL_DURATION);
+    if (state.ticker) {
+      cancelAnimationFrame(state.ticker);
+    }
+
+    state.ticker = requestAnimationFrame(momentumStep);
+  }
+
+  // Single frame of momentum animation
+  function momentumStep() {
+    const now = Date.now();
+    const elapsed = now - state.timestamp;
+    const delta = -state.amplitude * Math.exp(-elapsed / 325);
+
+    if (
+      Math.abs(delta) > MIN_VELOCITY &&
+      Math.abs(state.targetScroll - container.scrollLeft) > MIN_VELOCITY
+    ) {
+      container.scrollLeft = state.targetScroll + delta;
+      updateScrollState();
+      state.ticker = requestAnimationFrame(momentumStep);
     } else {
-      scroll(targetScroll);
-      updateIndicators();
+      container.scrollLeft = state.targetScroll;
+      updateScrollState();
+      snapToNearestComfortablePosition();
     }
   }
 
-  /**
-   * Smooth scroll to target with easing
-   */
-  function smoothScrollTo(target, duration) {
+  // Snap to nearest comfortable position
+  function snapToNearestComfortablePosition() {
+    const scrollLeft = container.scrollLeft;
+    const containerWidth = container.clientWidth;
+    const scrollWidth = container.scrollWidth;
+
+    // Don't snap if content fits in viewport
+    if (scrollWidth <= containerWidth) return;
+
+    // Find the best position to snap to
+    let targetScroll = scrollLeft;
+
+    // Check if we're near the edges
+    if (scrollLeft < 50) {
+      targetScroll = 0;
+    } else if (scrollLeft > scrollWidth - containerWidth - 50) {
+      targetScroll = scrollWidth - containerWidth;
+    } else {
+      // Find nearest tab edge for comfortable viewing
+      let nearestDistance = Infinity;
+
+      tabs.forEach((tab) => {
+        const tabLeft = tab.offsetLeft;
+        const tabRight = tabLeft + tab.offsetWidth;
+        const tabCenter = tabLeft + tab.offsetWidth / 2;
+
+        // Check various snap points
+        const snapPoints = [
+          tabLeft - 20, // Before tab with padding
+          tabCenter - containerWidth / 2, // Center tab
+          tabRight - containerWidth + 20, // After tab with padding
+        ];
+
+        snapPoints.forEach((point) => {
+          const distance = Math.abs(point - scrollLeft);
+          if (
+            distance < nearestDistance &&
+            point >= 0 &&
+            point <= scrollWidth - containerWidth
+          ) {
+            nearestDistance = distance;
+            targetScroll = point;
+          }
+        });
+      });
+    }
+
+    // Only snap if we're not already there
+    if (Math.abs(targetScroll - scrollLeft) > 1) {
+      smoothScrollTo(targetScroll, SNAP_DURATION);
+    }
+  }
+
+  // Smooth scroll to target position
+  function smoothScrollTo(target, duration = SNAP_DURATION) {
     const start = container.scrollLeft;
     const distance = target - start;
-    const startTime = performance.now();
 
-    function ease(t) {
-      return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
-    }
+    if (Math.abs(distance) < 1) return;
+
+    const startTime = performance.now();
 
     function animate(currentTime) {
       const elapsed = currentTime - startTime;
       const progress = Math.min(elapsed / duration, 1);
-      const easeProgress = ease(progress);
 
-      scroll(start + distance * easeProgress);
+      // Smooth easing function
+      const easeProgress = 1 - Math.pow(1 - progress, 3);
+
+      container.scrollLeft = start + distance * easeProgress;
 
       if (progress < 1) {
         requestAnimationFrame(animate);
       } else {
-        updateIndicators();
+        updateScrollState();
       }
+    }
+
+    if (state.ticker) {
+      cancelAnimationFrame(state.ticker);
     }
 
     requestAnimationFrame(animate);
   }
 
-  /**
-   * Show swipe hint for first-time users
-   */
-  function showSwipeHint() {
+  // Ensure active tab is visible
+  function ensureActiveTabVisible(animate = true) {
+    activeTab = container.querySelector(".category-tab.active");
+    if (!activeTab) return;
+
+    const containerWidth = container.clientWidth;
+    const scrollLeft = container.scrollLeft;
+    const tabLeft = activeTab.offsetLeft;
+    const tabWidth = activeTab.offsetWidth;
+    const tabRight = tabLeft + tabWidth;
+
+    let targetScroll = null;
+
+    // Check if tab is fully visible
+    if (tabLeft < scrollLeft + 20) {
+      // Tab is too far left
+      targetScroll = Math.max(0, tabLeft - 20);
+    } else if (tabRight > scrollLeft + containerWidth - 20) {
+      // Tab is too far right
+      targetScroll = Math.min(
+        container.scrollWidth - containerWidth,
+        tabRight - containerWidth + 20
+      );
+    }
+
+    // If we need to scroll, do it
+    if (targetScroll !== null) {
+      if (animate) {
+        smoothScrollTo(targetScroll, SNAP_DURATION);
+      } else {
+        container.scrollLeft = targetScroll;
+        updateScrollState();
+      }
+    }
+  }
+
+  // Update scroll indicators
+  function updateScrollState() {
+    requestAnimationFrame(() => {
+      const scrollLeft = container.scrollLeft;
+      const scrollWidth = container.scrollWidth;
+      const clientWidth = container.clientWidth;
+      const isScrollable = scrollWidth > clientWidth;
+
+      if (!isScrollable) {
+        container.classList.remove("show-start-fade", "show-end-fade");
+        return;
+      }
+
+      // Show/hide edge fades with small buffer
+      container.classList.toggle("show-start-fade", scrollLeft > 2);
+      container.classList.toggle(
+        "show-end-fade",
+        scrollLeft < scrollWidth - clientWidth - 2
+      );
+    });
+  }
+
+  // Setup resize handler
+  function setupResizeHandler() {
+    let resizeTimer;
+
+    const handleResize = () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => {
+        updateScrollState();
+        ensureActiveTabVisible(false);
+      }, 100);
+    };
+
+    window.addEventListener("resize", handleResize, { passive: true });
+    window.addEventListener("orientationchange", handleResize, {
+      passive: true,
+    });
+  }
+
+  // Setup tab activation listener
+  function setupTabActivation() {
+    // Listen for custom event
+    navigation.addEventListener("tabActivated", () => {
+      ensureActiveTabVisible(true);
+    });
+
+    // Also observe class changes on tabs
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (
+          mutation.attributeName === "class" &&
+          mutation.target.classList.contains("active")
+        ) {
+          ensureActiveTabVisible(true);
+        }
+      });
+    });
+
+    tabs.forEach((tab) => {
+      observer.observe(tab, { attributes: true, attributeFilter: ["class"] });
+    });
+  }
+
+  // Show swipe hint for mobile users
+  function showMobileHint() {
     const hint = document.createElement("div");
-    hint.className = "nav-swipe-hint";
+    hint.className = "swipe-hint-container";
     hint.innerHTML = `
-      <div class="nav-swipe-hint-content">
-        <i class="fas fa-hand-point-up"></i>
-        <span>Swipe to see more categories</span>
+      <div class="swipe-hint visible">
+        <div class="swipe-hint-content">
+          <i class="fas fa-hand-pointer swipe-hint-icon"></i>
+          <span class="swipe-hint-text">Swipe to see more</span>
+        </div>
       </div>
     `;
 
-    // Add CSS
-    const style = document.createElement("style");
-    style.textContent = `
-      .nav-swipe-hint {
-        position: absolute;
-        top: 100%;
-        left: 50%;
-        transform: translateX(-50%);
-        margin-top: 8px;
-        background: rgba(0, 0, 0, 0.9);
-        color: white;
-        padding: 8px 16px;
-        border-radius: 20px;
-        font-size: 13px;
-        white-space: nowrap;
-        z-index: 1000;
-        opacity: 0;
-        animation: hintFadeIn 0.3s ease-out 0.5s forwards,
-                   hintFadeOut 0.3s ease-out 3s forwards;
-      }
-      
-      .nav-swipe-hint-content {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-      }
-      
-      .nav-swipe-hint i {
-        animation: hintBounce 1s ease-in-out infinite;
-      }
-      
-      @keyframes hintFadeIn {
-        to { opacity: 1; }
-      }
-      
-      @keyframes hintFadeOut {
-        to { opacity: 0; }
-      }
-      
-      @keyframes hintBounce {
-        0%, 100% { transform: translateY(0); }
-        50% { transform: translateY(-3px); }
-      }
-    `;
-
-    document.head.appendChild(style);
-    navigation.appendChild(hint);
+    document.body.appendChild(hint);
 
     setTimeout(() => {
-      hint.remove();
-      style.remove();
-      localStorage.setItem("nav_hint_shown", "true");
-    }, 3500);
+      hint.querySelector(".swipe-hint").classList.remove("visible");
+      setTimeout(() => {
+        hint.remove();
+        sessionStorage.setItem("swipe_hint_shown", "true");
+      }, 300);
+    }, 2500);
   }
 
-  /**
-   * Check if device is mobile
-   */
-  function isMobile() {
-    return window.innerWidth <= 768 || "ontouchstart" in window;
+  // Check if device supports touch
+  function isTouchDevice() {
+    return (
+      "ontouchstart" in window ||
+      navigator.maxTouchPoints > 0 ||
+      window.innerWidth <= 768
+    );
   }
 
   // Public API
   window.menuScrolling = {
-    centerActiveTab: () => centerActiveTab(true),
-    updateIndicators: updateIndicators,
+    centerActiveTab: () => ensureActiveTabVisible(true),
+    updateIndicators: updateScrollState,
+    scrollToTab: (index) => {
+      if (tabs[index]) {
+        const tab = tabs[index];
+        const targetScroll = tab.offsetLeft - 20;
+        smoothScrollTo(targetScroll);
+      }
+    },
     init: init,
   };
 
-  // Initialize on DOM ready
+  // Initialize when DOM is ready
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", init);
   } else {

@@ -1,5 +1,5 @@
 /*--------------------------------------------------------------
-# Filter Styles - Completely Redesigned
+# Filter Styles - Completely Redesigned (No Shadows)
 --------------------------------------------------------------*/
 .filter-btn {
   display: flex;
@@ -13,14 +13,17 @@
   transition: all var(--transition-fast);
   font-weight: var(--font-weight-medium);
   position: relative;
-  z-index: 95; /* Ensure button is always visible */
-  box-shadow: var(--shadow-sm);
+  z-index: 95;
+  /* No shadow */
+  box-shadow: none !important;
 }
 
 .filter-btn:hover {
   background-color: var(--bg-tertiary);
   color: var(--text-primary);
-  box-shadow: var(--shadow-md);
+  /* No shadow on hover */
+  box-shadow: none !important;
+  border-color: var(--accent-color);
 }
 
 .filter-btn i {
@@ -52,11 +55,12 @@
   border-radius: var(--radius-md);
   padding: var(--space-lg);
   margin-bottom: var(--space-xl);
-  display: none; /* Hidden by default, shown via JS */
-  box-shadow: var(--shadow-md);
+  display: none;
+  /* No shadow - use border */
+  box-shadow: none !important;
+  border: 1px solid var(--border-color);
   transition: all var(--transition-normal);
   animation: slideDown var(--transition-normal);
-  border: 1px solid var(--border-color);
   z-index: 90;
   transform-origin: top right;
   width: 100%;
@@ -75,6 +79,8 @@
 
 .filter-panel.active {
   display: block;
+  /* Slightly stronger border when active */
+  border-width: 2px;
 }
 
 .filter-panel-header {
@@ -119,6 +125,8 @@
   transition: all var(--transition-fast);
   font-size: var(--font-size-sm);
   border: 1px solid transparent;
+  /* No shadow */
+  box-shadow: none !important;
 }
 
 .filter-chip:hover {
@@ -126,13 +134,15 @@
   color: var(--text-primary);
   transform: translateY(-2px);
   border-color: var(--border-color);
-  box-shadow: var(--shadow-sm);
+  /* No shadow on hover */
+  box-shadow: none !important;
 }
 
 .filter-chip.active {
   background-color: var(--accent-color);
   color: white;
   font-weight: var(--font-weight-medium);
+  border-color: var(--accent-color);
 }
 
 .filter-actions {
@@ -183,7 +193,10 @@
   border-top-left-radius: var(--radius-lg);
   border-top-right-radius: var(--radius-lg);
   z-index: var(--z-drawer);
-  box-shadow: var(--shadow-lg);
+  /* No shadow - use border */
+  box-shadow: none !important;
+  border: 1px solid var(--border-color);
+  border-bottom: none;
   transform: translateY(100%);
   transition: transform var(--transition-normal);
   display: none;
@@ -226,10 +239,50 @@
   border-radius: var(--radius-md);
   font-weight: var(--font-weight-medium);
   transition: all var(--transition-fast);
+  border: 2px solid var(--accent-color);
 }
 
 .filter-apply:hover {
   background-color: var(--accent-light);
+  border-color: var(--accent-light);
+}
+
+/* Dark theme adjustments */
+.dark-theme .filter-btn {
+  background-color: var(--bg-secondary);
+  border-color: var(--border-color);
+}
+
+.dark-theme .filter-btn:hover {
+  background-color: var(--bg-tertiary);
+  border-color: var(--accent-color);
+}
+
+.dark-theme .filter-panel {
+  background-color: var(--bg-secondary);
+  border-color: var(--border-color);
+}
+
+.dark-theme .filter-panel.active {
+  border-color: var(--border-color);
+}
+
+.dark-theme .filter-chip {
+  background-color: var(--bg-tertiary);
+}
+
+.dark-theme .filter-chip:hover {
+  border-color: var(--border-color);
+}
+
+.dark-theme .filter-chip.active {
+  background-color: var(--accent-color);
+  border-color: var(--accent-color);
+}
+
+.dark-theme .filter-drawer {
+  background-color: var(--card-bg);
+  border-color: var(--border-color);
 }
 
 /* Responsive adjustments */
