@@ -170,7 +170,7 @@
         "en": "White rum, lime juice, sugar, mint leaves, soda water",
         "el": "Λευκό ρούμι, χυμός λάιμ, ζάχαρη, φύλλα μέντας, σόδα"
       },
-      "price": 8.0,
+      "price": 9.0,
       "image": "mojito.jpg",
       "categories": ["classic"],
       "subcategory": "classic",
@@ -186,7 +186,7 @@
         "en": "White rum, lime juice, simple syrup",
         "el": "Λευκό ρούμι, χυμός λάιμ, σιρόπι ζάχαρης"
       },
-      "price": 8.0,
+      "price": 9.0,
       "image": "daiquiri.jpg",
       "categories": ["classic"],
       "subcategory": "classic",
@@ -202,7 +202,7 @@
         "en": "Tequila, lime juice, grapefruit soda",
         "el": "Τεκίλα, χυμός λάιμ, αναψυκτικό γκρέιπφρουτ"
       },
-      "price": 8.0,
+      "price": 9.0,
       "image": "paloma.jpg",
       "categories": ["classic"],
       "subcategory": "classic",
@@ -218,7 +218,7 @@
         "en": "Tequila, Triple Sec, lime juice, salt rim",
         "el": "Τεκίλα, Triple Sec, χυμός λάιμ, αλάτι στο χείλος"
       },
-      "price": 8.0,
+      "price": 9.0,
       "image": "margarita.jpg",
       "categories": ["classic"],
       "subcategory": "classic",
@@ -234,7 +234,7 @@
         "en": "Aperol, Prosecco, soda water, orange slice",
         "el": "Aperol, Prosecco, σόδα, φέτα πορτοκαλιού"
       },
-      "price": 7.0,
+      "price": 9.0,
       "image": "aperol-spritz.jpg",
       "categories": ["classic"],
       "subcategory": "classic",
@@ -247,10 +247,10 @@
         "el": "Mai Tai"
       },
       "description": {
-        "en": "White rum, dark rum, Orange Curaçao, lime juice, orgeat syrup",
-        "el": "Λευκό ρούμι, σκούρο ρούμι, Orange Curaçao, χυμός λάιμ, σιρόπι αμυγδάλου"
+        "en": "Jamaican rum, Cuban rum, Orange Curaçao, lime juice, orgeat syrup",
+        "el": "Τζαμαικανό ρούμι, Κουβανέζικο ρούμι, Orange Curaçao, χυμός λάιμ, σιρόπι αμυγδάλου"
       },
-      "price": 9.0,
+      "price": 10.0,
       "image": "mai-tai.jpg",
       "categories": ["classic"],
       "subcategory": "classic",
@@ -266,7 +266,7 @@
         "en": "Cachaça, lime, sugar",
         "el": "Κασάσα, λάιμ, ζάχαρη"
       },
-      "price": 8.0,
+      "price": 9.0,
       "image": "caipirinha.jpg",
       "categories": ["classic"],
       "subcategory": "classic",
@@ -282,7 +282,7 @@
         "en": "Vodka, lime, sugar",
         "el": "Βότκα, λάιμ, ζάχαρη"
       },
-      "price": 8.0,
+      "price": 9.0,
       "image": "caipiroska.jpg",
       "categories": ["classic"],
       "subcategory": "classic",
@@ -330,7 +330,7 @@
         "en": "Campari, sweet vermouth, soda water",
         "el": "Campari, γλυκό βερμούτ, σόδα"
       },
-      "price": 7.0,
+      "price": 9.0,
       "image": "americano.jpg",
       "categories": ["classic"],
       "subcategory": "classic",
@@ -346,7 +346,7 @@
         "en": "Vodka, lime juice, ginger beer",
         "el": "Βότκα, χυμός λάιμ, μπύρα τζίντζερ"
       },
-      "price": 8.0,
+      "price": 9.0,
       "image": "moscow-mule.jpg",
       "categories": ["classic"],
       "subcategory": "classic",
@@ -362,7 +362,7 @@
         "en": "Vodka, coffee liqueur, espresso, simple syrup",
         "el": "Βότκα, λικέρ καφέ, εσπρέσο, σιρόπι ζάχαρης"
       },
-      "price": 8.0,
+      "price": 9.0,
       "image": "espresso-martini.jpg",
       "categories": ["classic"],
       "subcategory": "classic",
@@ -410,7 +410,7 @@
         "en": "White rum, coconut cream, pineapple juice",
         "el": "Λευκό ρούμι, κρέμα καρύδας, χυμός ανανά"
       },
-      "price": 8.0,
+      "price": 9.0,
       "image": "pina-colada.jpg",
       "categories": ["classic"],
       "subcategory": "classic",
@@ -442,7 +442,7 @@
         "en": "Vodka, Triple Sec, cranberry juice, lime juice",
         "el": "Βότκα, Triple Sec, χυμός κράνμπερι, χυμός λάιμ"
       },
-      "price": 8.0,
+      "price": 9.0,
       "image": "cosmopolitan.jpg",
       "categories": ["classic"],
       "subcategory": "classic",
@@ -474,7 +474,7 @@
         "en": "Golden rum, dark rum, 151 rum, lime juice, pineapple juice, passion fruit syrup, grenadine",
         "el": "Xρυσό ρούμι, σκούρο ρούμι, ρούμι 151, χυμός λάιμ, χυμός ανανά, σιρόπι φρούτου του πάθους, γρεναδίνη"
       },
-      "price": 12.0,
+      "price": 13.0,
       "image": "zombie.jpg",
       "categories": ["classic"],
       "subcategory": "classic",

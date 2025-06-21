@@ -119,19 +119,6 @@
     },
     {
       "name": {
-        "en": "Brewtiful Go Get'em Tiger 440ml",
-        "el": "Brewtiful Go Get'em Tiger"
-      },
-      "description": {
-        "en": "American IPA 6,8% / GREECE, 440ml",
-        "el": "Αμερικάνικη IPA 6,8% / ΕΛΛΑΔΑ, 440ml"
-      },
-      "price": 9.0,
-      "subcategory": "craft",
-      "available": true
-    },
-    {
-      "name": {
         "en": "Strange Brew Jasmine",
         "el": "Strange Brew Jasmine"
       },
@@ -143,19 +130,7 @@
       "subcategory": "craft",
       "available": true
     },
-    {
-      "name": {
-        "en": "Strange Brew Mandy Black",
-        "el": "Strange Brew Mandy Black"
-      },
-      "description": {
-        "en": "Stout 7% / GREECE",
-        "el": "Στάουτ 7% / ΕΛΛΑΔΑ"
-      },
-      "price": 7.5,
-      "subcategory": "craft",
-      "available": true
-    },
+
     {
       "name": {
         "en": "Strange Brew Dr. Haze",

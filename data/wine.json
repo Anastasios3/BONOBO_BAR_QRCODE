@@ -191,6 +191,21 @@
       "priceBottle": 22.0,
       "subcategory": "red",
       "available": true
+    },
+    {
+      "id": "red-wine-004",
+      "name": {
+        "en": "Sangria",
+        "el": "Σαγκριά"
+      },
+      "description": {
+        "en": "Sweet red wine and chopped fruits",
+        "el": "Γλυκό κόκκινο κρασί και ψιλοκομμένα φρούτα"
+      },
+      "priceGlass": 5.0,
+      "priceBottle": 22.0,
+      "subcategory": "red",
+      "available": true
     }
   ]
 }
