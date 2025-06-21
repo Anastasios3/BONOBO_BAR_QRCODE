@@ -1,5 +1,5 @@
 /*--------------------------------------------------------------
-# Category Navigation - Enhanced Mobile Performance, No Shadows
+# Category Navigation - Simplified Version
 --------------------------------------------------------------*/
 .category-navigation {
   height: var(--category-nav-height);
@@ -8,18 +8,8 @@
   position: relative;
   z-index: var(--z-navigation);
   width: 100%;
-  overflow: visible;
   display: flex;
   justify-content: center;
-  /* Remove any potential shadows */
-  box-shadow: none !important;
-  /* Ensure navigation doesn't block taps */
-  pointer-events: none;
-}
-
-/* Re-enable pointer events on container */
-.category-navigation > * {
-  pointer-events: auto;
 }
 
 .category-tabs-container {
@@ -31,22 +21,7 @@
   overflow-y: hidden;
   scrollbar-width: none;
   -ms-overflow-style: none;
-  scroll-behavior: auto; /* Disabled for custom implementation */
-  -webkit-overflow-scrolling: auto; /* Disabled for custom implementation */
-  overscroll-behavior-x: contain;
-  /* Performance optimizations */
-  will-change: scroll-position;
-  transform: translateZ(0);
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-  -webkit-transform: translate3d(0, 0, 0);
-  /* Ensure no shadows */
-  box-shadow: none !important;
-  /* Prevent touch delay on container */
-  touch-action: pan-x;
-  -webkit-touch-callout: none;
-  /* Only allow scrolling, not tapping on container itself */
-  pointer-events: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .category-tabs-container::-webkit-scrollbar {
@@ -62,22 +37,12 @@
   width: max-content;
   min-width: 100%;
   align-items: center;
-  justify-content: flex-start; /* Changed from center for better mobile */
-  gap: var(--space-xs); /* Reduced gap for mobile */
-  /* Ensure taps pass through to buttons */
-  pointer-events: none;
-}
-
-/* Re-enable pointer events on tabs */
-.category-tabs > * {
-  pointer-events: auto;
-  position: relative;
-  z-index: var(--z-navigation-tabs, 910);
+  gap: var(--space-xs);
 }
 
 .category-tab {
-  height: 44px; /* Increased for better touch targets */
-  padding: 0 var(--space-lg); /* More padding for easier tapping */
+  height: 44px;
+  padding: 0 var(--space-lg);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -87,54 +52,35 @@
   font-weight: var(--font-weight-medium);
   flex-shrink: 0;
   min-width: max-content;
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.2s ease;
   border-radius: var(--radius-round);
   background-color: transparent;
   border: 2px solid transparent;
-  margin: 0 4px; /* More space between buttons */
-  /* Remove all shadows */
-  box-shadow: none !important;
-  /* Optimize touch target for mobile */
+  margin: 0 4px;
+  cursor: pointer;
   -webkit-tap-highlight-color: transparent;
   touch-action: manipulation;
   user-select: none;
-  -webkit-user-select: none;
-  cursor: pointer;
-  /* Ensure button is above scroll layer */
-  position: relative;
-  z-index: var(--z-navigation-tabs, 910);
 }
 
 .category-tab:hover {
   color: var(--text-primary);
   background-color: var(--bg-tertiary);
   transform: translateY(-1px);
-  /* No shadow on hover */
-  box-shadow: none !important;
 }
 
-.category-tab:focus-visible {
-  outline: none;
-  /* Use border instead of shadow for focus */
-  border-color: var(--accent-color);
+.category-tab:active {
+  transform: scale(0.95);
 }
 
-/* Enhanced active state without shadows */
 .category-tab.active {
   color: white;
   font-weight: var(--font-weight-semibold);
   background-color: var(--accent-color);
   border-color: var(--accent-color);
   transform: scale(1.05);
-  /* No shadow - use subtle opacity change instead */
-  box-shadow: none !important;
-  position: relative;
-  z-index: calc(
-    var(--z-navigation-tabs, 910) + 1
-  ); /* Ensure active tab is on top */
 }
 
-/* Add subtle glow effect without shadow */
 .category-tab.active::before {
   content: "";
   position: absolute;
@@ -146,7 +92,6 @@
   opacity: 0.2;
   border-radius: var(--radius-round);
   z-index: -1;
-  transition: opacity 0.2s ease;
 }
 
 .category-tab.active:hover {
@@ -154,201 +99,9 @@
   background-color: var(--accent-light);
   border-color: var(--accent-light);
   transform: translateY(-1px) scale(1.05);
-  box-shadow: none !important;
 }
 
-/* Immediate tap feedback */
-.category-tab:active,
-.category-tab.tapped {
-  background-color: var(--bg-tertiary);
-  transform: scale(0.95);
-  transition: transform 0.1s ease;
-}
-
-.category-tab.active:active,
-.category-tab.active.tapped {
-  background-color: var(--accent-light);
-  transform: scale(1);
-}
-
-/* Edge fade indicators - improved for mobile */
-.category-tabs-container::before,
-.category-tabs-container::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  height: 100%;
-  width: 20px; /* Reduced width for mobile */
-  z-index: 2;
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity 0.15s ease; /* Faster transition */
-  will-change: opacity;
-}
-
-.category-tabs-container::before {
-  left: 0;
-  background: linear-gradient(
-    to right,
-    var(--bg-secondary) 0%,
-    var(--bg-secondary) 30%,
-    transparent 100%
-  );
-}
-
-.category-tabs-container::after {
-  right: 0;
-  background: linear-gradient(
-    to left,
-    var(--bg-secondary) 0%,
-    var(--bg-secondary) 30%,
-    transparent 100%
-  );
-}
-
-.category-tabs-container.show-start-fade::before {
-  opacity: 1;
-}
-
-.category-tabs-container.show-end-fade::after {
-  opacity: 1;
-}
-
-/* Remove navigation buttons on mobile */
-.category-nav-button {
-  display: none !important;
-}
-
-/* Swipe hint - no shadows */
-.swipe-hint-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  pointer-events: none;
-  z-index: 9999;
-}
-
-.swipe-hint {
-  background-color: rgba(0, 0, 0, 0.9);
-  color: white;
-  padding: 12px 20px;
-  border-radius: var(--radius-round);
-  /* No shadow */
-  box-shadow: none !important;
-  opacity: 0;
-  transform: translateY(10px);
-  transition: all 0.3s ease;
-  text-align: center;
-  max-width: 90%;
-  pointer-events: none;
-  position: relative;
-  margin-top: -50px;
-  /* Add subtle border instead of shadow */
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.swipe-hint.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.swipe-hint-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: var(--space-xs);
-}
-
-.swipe-hint-icon {
-  font-size: 1.25rem;
-  margin-bottom: 4px;
-  animation: swipeAnimation 1.5s ease-in-out infinite;
-}
-
-.swipe-hint-text {
-  font-size: var(--font-size-sm);
-  font-weight: var(--font-weight-medium);
-}
-
-@keyframes swipeAnimation {
-  0%,
-  100% {
-    transform: translateX(-8px);
-    opacity: 0.7;
-  }
-  50% {
-    transform: translateX(8px);
-    opacity: 1;
-  }
-}
-
-/* Mobile-first responsive adjustments */
-@media (max-width: 767px) {
-  .category-navigation {
-    height: calc(
-      var(--category-nav-height-mobile) + 8px
-    ); /* Slightly taller for bigger buttons */
-  }
-
-  .category-tabs {
-    padding: 0 var(--space-sm);
-    gap: 6px; /* Maintain good spacing */
-  }
-
-  .category-tab {
-    padding: 0 var(--space-md); /* Keep good padding */
-    font-size: var(--font-size-sm);
-    height: 40px; /* Maintain larger touch target */
-    margin: 0 2px;
-    min-width: 80px; /* Minimum width for easy tapping */
-  }
-
-  /* Smaller glow effect on mobile */
-  .category-tab.active::before {
-    top: -2px;
-    left: -2px;
-    right: -2px;
-    bottom: -2px;
-    opacity: 0.15;
-  }
-}
-
-@media (max-width: 575px) {
-  .category-tabs {
-    gap: 4px;
-    padding: 0 var(--space-xs);
-  }
-
-  .category-tab {
-    padding: 0 14px; /* Good padding for touch */
-    margin: 0 1px;
-    height: 38px; /* Still large enough for easy tapping */
-    font-size: 0.8125rem; /* 13px */
-    min-width: 70px; /* Minimum touch target */
-  }
-
-  /* Narrower edge fades on small screens */
-  .category-tabs-container::before,
-  .category-tabs-container::after {
-    width: 15px;
-  }
-}
-
-@media (max-width: 380px) {
-  .category-tab {
-    padding: 0 12px;
-    height: 36px; /* Keep reasonable height even on tiny screens */
-    font-size: 0.75rem; /* 12px */
-    min-width: 60px;
-  }
-}
-
-/* Dark theme adjustments - ensure proper colors */
+/* Dark theme adjustments */
 .dark-theme .category-navigation {
   background-color: var(--bg-secondary);
   border-bottom-color: var(--border-color);
@@ -356,7 +109,6 @@
 
 .dark-theme .category-tab {
   color: var(--text-secondary);
-  border-color: transparent;
 }
 
 .dark-theme .category-tab:hover {
@@ -367,52 +119,48 @@
 .dark-theme .category-tab.active {
   background-color: var(--accent-color);
   color: white;
-  border-color: var(--accent-color);
 }
 
-.dark-theme .category-tab.active::before {
-  background: var(--accent-color);
-  opacity: 0.15;
-}
-
-.dark-theme .category-tabs-container::before {
-  background: linear-gradient(
-    to right,
-    var(--bg-secondary) 0%,
-    var(--bg-secondary) 30%,
-    transparent 100%
-  );
-}
-
-.dark-theme .category-tabs-container::after {
-  background: linear-gradient(
-    to left,
-    var(--bg-secondary) 0%,
-    var(--bg-secondary) 30%,
-    transparent 100%
-  );
-}
-
-/* Performance optimizations for mobile */
+/* Responsive adjustments */
 @media (max-width: 767px) {
+  .category-navigation {
+    height: calc(var(--category-nav-height-mobile) + 8px);
+  }
+
+  .category-tabs {
+    padding: 0 var(--space-sm);
+    gap: 6px;
+  }
+
   .category-tab {
-    /* Reduce paint areas */
-    contain: layout style paint;
-  }
-
-  .category-tabs-container {
-    /* Enable GPU acceleration */
-    transform: translate3d(0, 0, 0);
-    -webkit-transform: translate3d(0, 0, 0);
+    padding: 0 var(--space-md);
+    font-size: var(--font-size-sm);
+    height: 40px;
+    margin: 0 2px;
+    min-width: 80px;
   }
 }
 
-/* Ensure smooth scrolling physics */
-.category-tabs-container.scrolling {
-  scroll-behavior: auto !important;
+@media (max-width: 575px) {
+  .category-tabs {
+    gap: 4px;
+    padding: 0 var(--space-xs);
+  }
+
+  .category-tab {
+    padding: 0 14px;
+    margin: 0 1px;
+    height: 38px;
+    font-size: 0.8125rem;
+    min-width: 70px;
+  }
 }
 
-/* Active tab visibility insurance */
-.category-tab.ensure-visible {
-  scroll-margin-inline: 40px;
+@media (max-width: 380px) {
+  .category-tab {
+    padding: 0 12px;
+    height: 36px;
+    font-size: 0.75rem;
+    min-width: 60px;
+  }
 }

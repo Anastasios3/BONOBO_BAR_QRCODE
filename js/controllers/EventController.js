@@ -172,61 +172,24 @@ export const EventController = {
     const menuCategories = UIController.elements.menuCategories;
     if (!menuCategories) return;
 
-    // Use event delegation with capture phase for immediate response
-    menuCategories.addEventListener(
-      "click",
-      (e) => {
-        // Find the closest category tab
-        const categoryTab = e.target.closest(".category-tab");
-        if (!categoryTab) return;
+    // Simple click handler using event delegation
+    menuCategories.addEventListener("click", (e) => {
+      const categoryTab = e.target.closest(".category-tab");
+      if (!categoryTab) return;
 
-        // Get category
-        const category = categoryTab.dataset.category;
-        if (!category || category === AppState.currentCategory) return;
+      const category = categoryTab.dataset.category;
+      if (!category || category === AppState.currentCategory) return;
 
-        // Immediate visual feedback
-        categoryTab.classList.add("tapped");
+      // Select category
+      this.selectCategory(category);
 
-        // Select category immediately
-        this.selectCategory(category);
+      // Simple haptic feedback
+      if (navigator.vibrate) {
+        navigator.vibrate(20);
+      }
+    });
 
-        // Haptic feedback
-        this.hapticFeedback(20);
-
-        // Remove visual feedback after animation
-        setTimeout(() => {
-          categoryTab.classList.remove("tapped");
-        }, 200);
-      },
-      { capture: true }
-    ); // Use capture phase for priority
-
-    // Touch-specific handling for immediate feedback
-    menuCategories.addEventListener(
-      "touchstart",
-      (e) => {
-        const categoryTab = e.target.closest(".category-tab");
-        if (categoryTab) {
-          categoryTab.classList.add("tapped");
-        }
-      },
-      { passive: true }
-    );
-
-    menuCategories.addEventListener(
-      "touchend",
-      (e) => {
-        const categoryTab = e.target.closest(".category-tab");
-        if (categoryTab) {
-          setTimeout(() => {
-            categoryTab.classList.remove("tapped");
-          }, 200);
-        }
-      },
-      { passive: true }
-    );
-
-    // Keyboard navigation (unchanged)
+    // Keyboard navigation (keep as is)
     menuCategories.addEventListener("keydown", (e) => {
       if (!["ArrowRight", "ArrowLeft", "Home", "End"].includes(e.key)) return;
 
