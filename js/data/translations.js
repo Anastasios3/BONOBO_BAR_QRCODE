@@ -111,7 +111,7 @@ export const TRANSLATIONS = {
         pancakes: "Παν-κεικ",
         waffles: "Βαφλες",
         fruitsalads: "Φρουτοσαλατες",
-        "finger-food": "Finger Food & Πλατό",
+        "finger-food": "Finger Food & Πλατο",
       },
       spirits: {
         gin: "Τζιν",
