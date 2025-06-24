@@ -7,8 +7,8 @@
         "el": "Αβοκάντο τοστ"
       },
       "description": {
-        "en": "Toasted wild grain bread, smashed avocado, poached egg, cream cheese, yogurt & arugula.",
-        "el": "Φρυγανισμένο ψωμί αγριού καμπύρνεος, smashed αβοκάντο, αυγό ποσαρά, τυρί κρέμα, γιαούρτι & ρόκα."
+        "en": "Sourdough toast with smashed avocado, scrambled eggs, cream cheese, cherry tomatoes & arugula.",
+        "el": "Φρυγανισμένο ψωμί αργής ωρίμανσης, smashed αβοκάντο, αυγά scrambled, τυρί κρέμα, ντοματίνια και ρόκα"
       },
       "price": 7.0,
       "categories": ["breakfast", "healthy"],
@@ -22,8 +22,8 @@
         "el": "Αγγλικό πρωινό"
       },
       "description": {
-        "en": "Toasted wild grain bread with tomato, eggs, cream cheese & bacon.",
-        "el": "Φρυγανισμένο ψωμί αγριού καμπύρνεος με ντομάτα, αυγά, κρέμα τυρί & μπέικον."
+        "en": "Sourdough toast with tomato, eggs, cream cheese & bacon.",
+        "el": "Φρυγανισμένο ψωμί αργής ωρίμανσης με ντομάτα, αυγά, κρέμα τυρί & μπέικον."
       },
       "price": 6.0,
       "categories": ["breakfast", "traditional"],
@@ -37,8 +37,8 @@
         "el": "Ομελέτα με Γαλοπούλα"
       },
       "description": {
-        "en": "Haloumi, cheese, tomatoes & peppers.",
-        "el": "Χαλούμια, τυρί, ντομάτινα & πιπεριά."
+        "en": "With cheese, tomatoes & peppers.",
+        "el": "Μαζί με τυρί, ντομάτινα & πιπεριά."
       },
       "price": 5.5,
       "categories": ["breakfast", "cheese"],
@@ -52,8 +52,8 @@
         "el": "Ομελέτα με ζαμπόν"
       },
       "description": {
-        "en": "Ham, cheese, tomatoes & peppers.",
-        "el": "Ζαμπόν, τυρί, ντομάτινα & πιπεριά."
+        "en": "With cheese, tomatoes & peppers.",
+        "el": "Μαζί με τυρί, ντομάτινα & πιπεριά."
       },
       "price": 5.5,
       "categories": ["breakfast", "vegetarian"],
@@ -67,8 +67,8 @@
         "el": "Muesli δημητριακών"
       },
       "description": {
-        "en": "Oat flakes, yogurt, dried fruits & nuts.",
-        "el": "Νιφάδες βρώμης, γιαούρτι, αποξηραμένα φρούτα & ξηροί."
+        "en": "Oat flakes, yogurt, local honey, nuts, fresh & dried fruits.",
+        "el": "Νιφάδες βρώμης, γιαούρτι, τοπικό μέλι, ξηροί καρποί, φρέσκα & αποξηραμένα φρούτα."
       },
       "price": 5.0,
       "categories": ["breakfast", "healthy"],
@@ -79,11 +79,11 @@
       "id": "salads-001",
       "name": {
         "en": "Caesar's Salad",
-        "el": "Caesar's"
+        "el": "Σαλάτα Caesar's"
       },
       "description": {
-        "en": "Green salad with chicken, caesar's sauce, crispy bacon, corn, fresh parmesan.",
-        "el": "Πράσινη σαλάτα με κοτόπουλο, caesar's sauce, τραγανό μπέικον, καλαμπόκι, παρμεζάνα δροσερή."
+        "en": "Green salad with chicken, caesar's sauce, crispy bacon, corn, freshly grated parmesan & croutons.",
+        "el": "Πράσινη σαλάτα με κοτόπουλο, caesar's sauce, τραγανό μπέικον, καλαμπόκι, φρεσκοτριμμένη παρμεζάνα και κρουτόν ."
       },
       "price": 7.5,
       "categories": ["salad", "chicken"],
@@ -128,7 +128,7 @@
       },
       "description": {
         "en": "Pasta salad with tuna, corn, fresh onion, cucumber, dill, tomatoes, green & red pepper & cocktail sauce.",
-        "el": "Σαλάτα ζυμαρικών με τόνο, καλαμπόκι, φρέσκο κρεμμύδι, αγγουράι, ανιθό, ντομάτινα, πράσινη & κόκκινη πιπεριά & cocktail sauce."
+        "el": "Σαλάτα ζυμαρικών με τόνο, καλαμπόκι, φρέσκο κρεμμύδι, αγγούρι, άνιθο, ντομάτινα, πράσινη & κόκκινη πιπεριά & cocktail sauce."
       },
       "price": 7.5,
       "categories": ["salad", "tuna"],
@@ -217,8 +217,8 @@
         "el": "Κοτομπουκιές"
       },
       "description": {
-        "en": "Breaded chicken fillet with perfect crispy fried potatoes & salad.",
-        "el": "Παναρισμένο φιλέτο κοτόπουλο με τέλεια τραγανές τηγανιτές πατάτες & σαλάτα."
+        "en": "Crispy chicken nuggets with skin-on fries & salad.",
+        "el": "Παναρισμενο φιλέτο κοτόπουλο με panko, τραγανές τηγανητές πατάτες και σαλάτα"
       },
       "price": 7.0,
       "categories": ["snack", "fried"],
@@ -262,8 +262,8 @@
         "el": "Chicken Sando"
       },
       "description": {
-        "en": "Fluffy bread with breaded chicken, iceberg & homemade coleslaw sauce.",
-        "el": "Αφράτο ψωμί με κοτόπουλο πανέ, iceberg & σπιτική coleslaw sauce."
+        "en": "Fluffy bread with breaded chicken, iceberg & homemade tonkatsu sauce.",
+        "el": "Αφράτο ψωμί με κοτόπουλο πανέ, iceberg & σπιτική tonkatsu sauce."
       },
       "price": 7.0,
       "categories": ["sandwich", "gourmet"],
@@ -277,8 +277,8 @@
         "el": "Green Sando"
       },
       "description": {
-        "en": "Fluffy bread with avocado cream, green apple, iceberg, truffle mayo & edible flower.",
-        "el": "Αφράτο ψωμί με κρέμα αβοκάντο, πράσινο μήλο, iceberg, truffle mayo & βρώσιμο άνθο."
+        "en": "Fluffy bread with avocado cream, green apple, iceberg, truffle mayo & egg.",
+        "el": "Αφράτο ψωμί με κρέμα αβοκάντο, πράσινο μήλο, iceberg, truffle mayo & αυγό."
       },
       "price": 7.0,
       "categories": ["sandwich", "vegetarian"],
@@ -292,8 +292,8 @@
         "el": "Classic Burger"
       },
       "description": {
-        "en": "100% beef patty, cheddar cheese, tomato, iceberg, pickle, ketchup & mayonnaise.",
-        "el": "100% μοσχαρίσιο μπιφτέκι, τυρί cheddar, ντομάτα, iceberg, πίκλα, ketchup & μαγιονέζα."
+        "en": "100% beef patty, cheddar cheese, tomato, iceberg, pickled cucumber, ketchup & mayonnaise.",
+        "el": "100% μοσχαρίσιο μπιφτέκι, τυρί cheddar, ντομάτα, iceberg, πίκλα αγγουριού, ketchup & μαγιονέζα."
       },
       "price": 8.0,
       "categories": ["burger", "beef"],
@@ -322,8 +322,8 @@
         "el": "Crispy Chicken Burger"
       },
       "description": {
-        "en": "Crispy breaded chicken with pickle, cheddar cheese, tomato, iceberg & remoulade sauce.",
-        "el": "Τραγανό παναρισμένο κοτόπουλο με πίκλα, τυρί chedar, ντομάτα, iceberg & remoulade sauce."
+        "en": "Crispy breaded chicken with panko, pickled cucumber, cheddar cheese, tomato, iceberg & remoulade sauce.",
+        "el": "Τραγανό πανέ κοτόπουλο με panko, πίκλα αγγουριού, τυρί cheddar, ντομάτα, iceberg & σάλτσα remoulade."
       },
       "price": 8.0,
       "categories": ["burger", "chicken"],
@@ -363,8 +363,8 @@
     {
       "id": "pancakes-001",
       "name": {
-        "en": "Bonabo Pancakes (Savory)",
-        "el": "Bonabo Pancakes (Αλμυρά)"
+        "en": "Bonobo Pancakes (Savory)",
+        "el": "Bonobo Pancakes (Αλμυρά)"
       },
       "description": {
         "en": "Fluffy pancakes with fried egg, bacon, cheddar & mayo sauce. (Served with salad)",
@@ -397,8 +397,8 @@
         "el": "Chocolate Pancakes"
       },
       "description": {
-        "en": "Fluffy pancakes with hazelnut cream, peanut butter & chocolate syrup.",
-        "el": "Αφράτα pancakes με κρέμα φουντουκιού, φυστικοβ & σιρόπι σοκολάτας."
+        "en": "With hazelnut cream, cookie crumble & chocolate syrup.",
+        "el": "Με πραλίνα φουντουκιού, crumble μπισκότου  & σιρόπι σοκολάτας"
       },
       "price": 6.0,
       "categories": ["pancakes", "chocolate"],
@@ -487,8 +487,8 @@
         "el": "Special"
       },
       "description": {
-        "en": "Fluffy waffle with hazelnut cream, cookie crumble, peanuts, chocolate syrup & vanilla ice cream or chocolate sauce.",
-        "el": "Αφράτη βάφλα με κρέμα φουντουκιού, crumble μπισκότου, φιστίκι, σιρόπι σοκολάτας & παγωτό βανίλια ή σοκολάτα σως."
+        "en": "Hazelnut cream, cookie crumble, whipped cream, chocolate syrup & your choice of ice cream.",
+        "el": "Πραλίνα φουντουκιού, crumble μπισκότου, σαντιγί, σιρόπι σοκολάτας, παγωτό της αρέσκεια σας"
       },
       "price": 7.0,
       "categories": ["waffles", "special"],

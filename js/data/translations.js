@@ -104,7 +104,7 @@ export const TRANSLATIONS = {
         salads: "Σαλάτες",
         snacks: "Σνακ",
         "club-sandwich": "Κλαμπ Σάντουιτς",
-        sandos: "Σάντουιτς",
+        sandos: "Sandos",
         burgers: "Μπέργκερ",
         pancakes: "Παν-κέικ",
         waffles: "Βάφλες",
