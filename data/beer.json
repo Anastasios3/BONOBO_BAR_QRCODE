@@ -324,6 +324,19 @@
       "price": 9.0,
       "subcategory": "craft",
       "available": true
+    },
+    {
+      "name": {
+        "en": "Brewtiful Brewery X Sourmena Brew Good-Better-Bitter",
+        "el": "Brewtiful Brewery X Sourmena Brew Good-Better-Bitter"
+      },
+      "description": {
+        "en": "West Coast IPA 6.3% / GREECE",
+        "el": "West Coast IPA 6,3% / ΕΛΛΑΔΑ"
+      },
+      "price": 9.0,
+      "subcategory": "craft",
+      "available": true
     }
   ]
 }
