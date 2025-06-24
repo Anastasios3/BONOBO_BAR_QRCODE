@@ -10,7 +10,7 @@ export const CONFIG = {
   LANGUAGES: ["en", "el"],
   THEMES: ["light", "dark"],
   SUBCATEGORIES: {
-    coffee: ["coffee", "tea", "chocolate", "soft"],
+    coffee: ["coffee", "tea", "chocolate", "juice", "soft"],
     food: [
       "breakfast",
       "salads",
