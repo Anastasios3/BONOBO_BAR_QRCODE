@@ -752,7 +752,7 @@
       },
       "price": 4.8,
       "categories": ["hot", "chocolate"],
-      "subcategory": "chocolates",
+      "subcategory": "chocolate",
       "available": true
     },
     {
@@ -767,7 +767,7 @@
       },
       "price": 4.8,
       "categories": ["hot", "chocolate"],
-      "subcategory": "chocolates",
+      "subcategory": "chocolate",
       "available": true
     },
     {
@@ -782,7 +782,7 @@
       },
       "price": 4.8,
       "categories": ["hot", "chocolate"],
-      "subcategory": "chocolates",
+      "subcategory": "chocolate",
       "available": true
     },
     {
@@ -797,7 +797,7 @@
       },
       "price": 4.8,
       "categories": ["hot", "chocolate"],
-      "subcategory": "chocolates",
+      "subcategory": "chocolate",
       "available": true
     },
     {
@@ -812,7 +812,7 @@
       },
       "price": 4.8,
       "categories": ["hot", "chocolate", "alcohol"],
-      "subcategory": "chocolates",
+      "subcategory": "chocolate",
       "available": true
     },
     {
@@ -827,7 +827,7 @@
       },
       "price": 4.8,
       "categories": ["hot", "chocolate"],
-      "subcategory": "chocolates",
+      "subcategory": "chocolate",
       "available": true
     },
     {
@@ -842,7 +842,7 @@
       },
       "price": 4.8,
       "categories": ["hot", "chocolate"],
-      "subcategory": "chocolates",
+      "subcategory": "chocolate",
       "available": true
     },
     {
@@ -857,7 +857,7 @@
       },
       "price": 4.8,
       "categories": ["hot", "chocolate", "sugar-free"],
-      "subcategory": "chocolates",
+      "subcategory": "chocolate",
       "available": true
     },
     {
@@ -872,7 +872,7 @@
       },
       "price": 4.8,
       "categories": ["hot", "chocolate"],
-      "subcategory": "chocolates",
+      "subcategory": "chocolate",
       "available": true
     },
     {
@@ -887,7 +887,7 @@
       },
       "price": 4.8,
       "categories": ["hot", "chocolate"],
-      "subcategory": "chocolates",
+      "subcategory": "chocolate",
       "available": true
     },
     {
@@ -902,7 +902,7 @@
       },
       "price": 4.8,
       "categories": ["hot", "chocolate"],
-      "subcategory": "chocolates",
+      "subcategory": "chocolate",
       "available": true
     },
     {
@@ -917,7 +917,7 @@
       },
       "price": 4.8,
       "categories": ["hot", "chocolate"],
-      "subcategory": "chocolates",
+      "subcategory": "chocolate",
       "available": true
     }
   ]
