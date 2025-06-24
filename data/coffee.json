@@ -739,6 +739,186 @@
       "categories": ["cold", "packaged", "juice"],
       "subcategory": "juice",
       "available": true
+    },
+    {
+      "id": "choc-001",
+      "name": {
+        "en": "Classic or White Chocolate",
+        "el": "Κλασική ή λευκή σοκολάτα"
+      },
+      "description": {
+        "en": "Rich and creamy classic dark chocolate or smooth white chocolate, crafted to warm perfection",
+        "el": "Πλούσια και κρεμώδης κλασική σκούρα σοκολάτα ή απαλή λευκή σοκολάτα, παρασκευασμένη με ζεστή τελειότητα"
+      },
+      "price": 4.8,
+      "categories": ["hot", "chocolate"],
+      "subcategory": "chocolates",
+      "available": true
+    },
+    {
+      "id": "choc-002",
+      "name": {
+        "en": "White Raspberry & Pomegranate",
+        "el": "Λευκή, Raspberry & Ρόδι"
+      },
+      "description": {
+        "en": "Velvety white chocolate enhanced with the tartness of raspberry and antioxidant-rich pomegranate",
+        "el": "Βελούδινη λευκή σοκολάτα εμπλουτισμένη με την οξύτητα του raspberry και το πλούσιο σε αντιοξειδωτικά ρόδι"
+      },
+      "price": 4.8,
+      "categories": ["hot", "chocolate"],
+      "subcategory": "chocolates",
+      "available": true
+    },
+    {
+      "id": "choc-003",
+      "name": {
+        "en": "White Lemon & Nutmeg",
+        "el": "Λευκή, Λεμόνι & Μοσχοκάρυδο"
+      },
+      "description": {
+        "en": "Silky white chocolate infused with zesty lemon brightness and warm nutmeg spice",
+        "el": "Μεταξένια λευκή σοκολάτα με ζεστή λαμπρότητα λεμονιού και ζεστό άρωμα μοσχοκαρύδου"
+      },
+      "price": 4.8,
+      "categories": ["hot", "chocolate"],
+      "subcategory": "chocolates",
+      "available": true
+    },
+    {
+      "id": "choc-004",
+      "name": {
+        "en": "Dark Coconut",
+        "el": "Σκούρα, Καρύδα"
+      },
+      "description": {
+        "en": "Intense dark chocolate paired with tropical coconut for a rich and exotic experience",
+        "el": "Έντονη σκούρα σοκολάτα συνδυασμένη με τροπική καρύδα για πλούσια και εξωτική εμπειρία"
+      },
+      "price": 4.8,
+      "categories": ["hot", "chocolate"],
+      "subcategory": "chocolates",
+      "available": true
+    },
+    {
+      "id": "choc-005",
+      "name": {
+        "en": "Dark Rum",
+        "el": "Σκούρα, Ρούμι"
+      },
+      "description": {
+        "en": "Bold dark chocolate elevated with the sophisticated warmth of premium rum essence",
+        "el": "Τολμηρή σκούρα σοκολάτα εμπλουτισμένη με την εκλεπτυσμένη ζεστασιά premium ρούμι"
+      },
+      "price": 4.8,
+      "categories": ["hot", "chocolate", "alcohol"],
+      "subcategory": "chocolates",
+      "available": true
+    },
+    {
+      "id": "choc-006",
+      "name": {
+        "en": "Dark Spiced",
+        "el": "Σκούρα, Μπαχαρικά"
+      },
+      "description": {
+        "en": "Deep dark chocolate aromatic with traditional spices creating a warming and complex flavor profile",
+        "el": "Βαθιά σκούρα σοκολάτα αρωματισμένη με παραδοσιακά μπαχαρικά που δημιουργούν ζεστό και πολύπλοκο γευστικό προφίλ"
+      },
+      "price": 4.8,
+      "categories": ["hot", "chocolate"],
+      "subcategory": "chocolates",
+      "available": true
+    },
+    {
+      "id": "choc-007",
+      "name": {
+        "en": "Milk Hazelnut Praline",
+        "el": "Γάλακτος, Πραλίνα Φουντουκιού"
+      },
+      "description": {
+        "en": "Smooth milk chocolate enriched with luxurious hazelnut praline for an indulgent nutty sweetness",
+        "el": "Απαλή σοκολάτα γάλακτος εμπλουτισμένη με πολυτελή πραλίνα φουντουκιού για απολαυστική καρυδάτη γλυκύτητα"
+      },
+      "price": 4.8,
+      "categories": ["hot", "chocolate"],
+      "subcategory": "chocolates",
+      "available": true
+    },
+    {
+      "id": "choc-008",
+      "name": {
+        "en": "Milk Sugar-Free",
+        "el": "Γάλακτος, 0% Ζάχαρη"
+      },
+      "description": {
+        "en": "Creamy milk chocolate without added sugar, maintaining all the rich flavor and satisfaction",
+        "el": "Κρεμώδης σοκολάτα γάλακτος χωρίς προσθήκη ζάχαρης, διατηρώντας όλη την πλούσια γεύση και ικανοποίηση"
+      },
+      "price": 4.8,
+      "categories": ["hot", "chocolate", "sugar-free"],
+      "subcategory": "chocolates",
+      "available": true
+    },
+    {
+      "id": "choc-009",
+      "name": {
+        "en": "Milk Salted Caramel",
+        "el": "Γάλακτος, Καραμέλα με θαλασσινό Αλάτι"
+      },
+      "description": {
+        "en": "Luscious milk chocolate swirled with golden salted caramel for the perfect sweet and salty balance",
+        "el": "Πολυτελής σοκολάτα γάλακτος με χρυσή καραμέλα και θαλασσινό αλάτι για την τέλεια ισορροπία γλυκού και αλμυρού"
+      },
+      "price": 4.8,
+      "categories": ["hot", "chocolate"],
+      "subcategory": "chocolates",
+      "available": true
+    },
+    {
+      "id": "choc-010",
+      "name": {
+        "en": "Milk Peanut Butter",
+        "el": "Γάλακτος, Φυστικοβούτυρο"
+      },
+      "description": {
+        "en": "Creamy milk chocolate blended with rich peanut butter for an irresistibly smooth and nutty delight",
+        "el": "Κρεμώδης σοκολάτα γάλακτος αναμεμειγμένη με πλούσιο φυστικοβούτυρο για απολαυστικά απαλή και καρυδάτη απόλαυση"
+      },
+      "price": 4.8,
+      "categories": ["hot", "chocolate"],
+      "subcategory": "chocolates",
+      "available": true
+    },
+    {
+      "id": "choc-011",
+      "name": {
+        "en": "Milk Orange & Cinnamon",
+        "el": "Γάλακτος, Πορτοκάλι & Κανέλα"
+      },
+      "description": {
+        "en": "Smooth milk chocolate infused with bright orange zest and warming cinnamon spice",
+        "el": "Απαλή σοκολάτα γάλακτος εμποτισμένη με φωτεινό άρωμα πορτοκαλιού και ζεστό μπαχαρικό κανέλας"
+      },
+      "price": 4.8,
+      "categories": ["hot", "chocolate"],
+      "subcategory": "chocolates",
+      "available": true
+    },
+    {
+      "id": "choc-012",
+      "name": {
+        "en": "Milk Strawberry",
+        "el": "Γάλακτος, Φράουλα"
+      },
+      "description": {
+        "en": "Velvety milk chocolate enhanced with the sweet and fruity essence of fresh strawberries",
+        "el": "Βελούδινη σοκολάτα γάλακτος εμπλουτισμένη με την γλυκιά και φρουτώδη ουσία φρέσκων φραουλών"
+      },
+      "price": 4.8,
+      "categories": ["hot", "chocolate"],
+      "subcategory": "chocolates",
+      "available": true
     }
   ]
 }

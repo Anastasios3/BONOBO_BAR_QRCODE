@@ -3,7 +3,7 @@
     {
       "name": {
         "en": "Alfa 400ml",
-        "el": "Alfa"
+        "el": "Alfa 400ml"
       },
       "description": {
         "en": "Lager 5% / GREECE, 400ml",
@@ -71,8 +71,8 @@
         "el": "Paulaner"
       },
       "description": {
-        "en": "Hefe Weisse 5,5% / GERMANY, 500ml",
-        "el": "Χέφε Βάισε 5,5% / ΓΕΡΜΑΝΙΑ, 500ml"
+        "en": "Hefe Weisse 5,5% / GERMANY",
+        "el": "Χέφε Βάισε 5,5% / ΓΕΡΜΑΝΙΑ"
       },
       "price": 6.0,
       "subcategory": "bottles",
@@ -110,8 +110,8 @@
         "el": "Retimi"
       },
       "description": {
-        "en": "Blonde Ale 5,3% / RETHYMNO GREECE",
-        "el": "Ξανθιά Έιλ 5,3% / ΡΕΘΥΜΝΟ ΕΛΛΑΔΑ"
+        "en": "Blonde Ale 5,3% / GREECE",
+        "el": "Ξανθιά Έιλ 5,3% / ΕΛΛΑΔΑ"
       },
       "price": 6.5,
       "subcategory": "craft",
@@ -130,7 +130,6 @@
       "subcategory": "craft",
       "available": true
     },
-
     {
       "name": {
         "en": "Strange Brew Dr. Haze",
@@ -146,12 +145,38 @@
     },
     {
       "name": {
-        "en": "Thira the Sun Bum Beach",
-        "el": "Thira the Sun Bum Beach"
+        "en": "Blame the Sun",
+        "el": "Blame the Sun"
       },
       "description": {
         "en": "Tropic Ale 5% / GREECE",
         "el": "Τροπική Έιλ 5% / ΕΛΛΑΔΑ"
+      },
+      "price": 6.5,
+      "subcategory": "craft",
+      "available": true
+    },
+    {
+      "name": {
+        "en": "Reach 4 The Stars",
+        "el": "Reach 4 The Stars"
+      },
+      "description": {
+        "en": "Triple Galaxy NEIPA 9% / GREECE",
+        "el": "Τριπλή Γκάλαξι NEIPA 9% / ΕΛΛΑΔΑ"
+      },
+      "price": 6.5,
+      "subcategory": "craft",
+      "available": true
+    },
+    {
+      "name": {
+        "en": "Superdelic Trip ",
+        "el": "Superdelic Trip "
+      },
+      "description": {
+        "en": "West Coast DIPA 7.5% / GREECE",
+        "el": "Γουέστ Κόστ DIPA 7,5% / ΕΛΛΑΔΑ"
       },
       "price": 6.5,
       "subcategory": "craft",
@@ -220,6 +245,110 @@
       },
       "price": 4.5,
       "subcategory": "bottles",
+      "available": true
+    },
+    {
+      "name": {
+        "en": "Brewtiful Reach 4 The Stars ",
+        "el": "Brewtiful Reach 4 The Stars"
+      },
+      "description": {
+        "en": "Triple Galaxy Neipa 9% / GREECE",
+        "el": "Τριπλή Γκάλαξι Neipa 9% / ΕΛΛΑΔΑ"
+      },
+      "price": 9.0,
+      "subcategory": "craft",
+      "available": true
+    },
+    {
+      "name": {
+        "en": "Strange Brew Superdelic Trip ",
+        "el": "Strange Brew Superdelic Trip"
+      },
+      "description": {
+        "en": "West Coast Dipa 7,5% / GREECE",
+        "el": "Γουέστ Κόστ Dipa 7,5% / ΕΛΛΑΔΑ"
+      },
+      "price": 9.0,
+      "subcategory": "craft",
+      "available": true
+    },
+    {
+      "name": {
+        "en": "Strange Brew Hay Joe",
+        "el": "Strange Brew Hay Joe"
+      },
+      "description": {
+        "en": "Dry Hopped Farmhouse Ale 5,2% / GREECE",
+        "el": "Ντράι Χοπ Farmhouse Ale 5,2% / ΕΛΛΑΔΑ"
+      },
+      "price": 6.5,
+      "subcategory": "craft",
+      "available": true
+    },
+    {
+      "name": {
+        "en": "Sourmena Brew Kyria Toula",
+        "el": "Sourmena Brew Κυρία Τούλα"
+      },
+      "description": {
+        "en": "New England IPA 6% / GREECE",
+        "el": "New England IPA 6% / ΕΛΛΑΔΑ"
+      },
+      "price": 6.5,
+      "subcategory": "craft",
+      "available": true
+    },
+    {
+      "name": {
+        "en": "Strange Brew & Alea Chloe ",
+        "el": "Strange Brew & Alea Chloe"
+      },
+      "description": {
+        "en": "Unity Lager 5% / GREECE",
+        "el": "Unity Λάγκερ 5% / ΕΛΛΑΔΑ"
+      },
+      "price": 7.5,
+      "subcategory": "craft",
+      "available": true
+    },
+    {
+      "name": {
+        "en": "Alea Brewing Co. Pale Ale ",
+        "el": "Alea Brewing Co. Pale Ale"
+      },
+      "description": {
+        "en": "Pale Ale 5% / GREECE",
+        "el": "Pale Ale 5% / ΕΛΛΑΔΑ"
+      },
+      "price": 9.0,
+      "subcategory": "craft",
+      "available": true
+    },
+    {
+      "name": {
+        "en": "Alea Brewing Co. Barley ",
+        "el": "Alea Brewing Co. Barley"
+      },
+      "description": {
+        "en": "Easy IPA 4,5% / GREECE",
+        "el": "Easy IPA 4,5% / ΕΛΛΑΔΑ"
+      },
+      "price": 8.0,
+      "subcategory": "craft",
+      "available": true
+    },
+    {
+      "name": {
+        "en": "Alea Brewing Co. Time Paradox ",
+        "el": "Alea Brewing Co. Time Paradox"
+      },
+      "description": {
+        "en": "Hazy IPA 7% / GREECE",
+        "el": "Hazy IPA 7% / ΕΛΛΑΔΑ"
+      },
+      "price": 9.0,
+      "subcategory": "craft",
       "available": true
     }
   ]
