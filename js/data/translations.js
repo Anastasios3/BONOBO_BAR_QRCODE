@@ -123,7 +123,7 @@ export const TRANSLATIONS = {
       beer: {
         draft: "Βαρελισια",
         bottles: "Φιαλες",
-        craft: "Χειροποιητες",
+        craft: "Μικροζυθοποιιες",
       },
       wine: {
         sparkling: "Αφρωδες",

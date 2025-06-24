@@ -158,32 +158,6 @@
     },
     {
       "name": {
-        "en": "Reach 4 The Stars",
-        "el": "Reach 4 The Stars"
-      },
-      "description": {
-        "en": "Triple Galaxy NEIPA 9% / GREECE",
-        "el": "Τριπλή Γκάλαξι NEIPA 9% / ΕΛΛΑΔΑ"
-      },
-      "price": 6.5,
-      "subcategory": "craft",
-      "available": true
-    },
-    {
-      "name": {
-        "en": "Superdelic Trip ",
-        "el": "Superdelic Trip "
-      },
-      "description": {
-        "en": "West Coast DIPA 7.5% / GREECE",
-        "el": "Γουέστ Κόστ DIPA 7,5% / ΕΛΛΑΔΑ"
-      },
-      "price": 6.5,
-      "subcategory": "craft",
-      "available": true
-    },
-    {
-      "name": {
         "en": "Amstel Radler",
         "el": "Amstel Radler"
       },
