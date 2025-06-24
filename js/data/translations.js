@@ -24,6 +24,7 @@ export const TRANSLATIONS = {
       coffee: {
         coffee: "Coffee",
         tea: "Tea",
+        juice: "Juices",
         chocolate: "Chocolate",
         soft: "Soft Drinks",
       },
@@ -96,6 +97,7 @@ export const TRANSLATIONS = {
       coffee: {
         coffee: "Καφες",
         tea: "Τσαι",
+        juice: "Χυμοι",
         chocolate: "Σοκολατα",
         soft: "Αναψυκτικα",
       },
