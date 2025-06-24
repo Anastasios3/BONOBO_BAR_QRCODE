@@ -524,6 +524,21 @@
       "categories": ["fruit", "premium"],
       "subcategory": "fruitsalads",
       "available": true
+    },
+    {
+      "id": "ice-cream-001",
+      "name": {
+        "en": "Ice Creams",
+        "el": "Παγωτά"
+      },
+      "description": {
+        "en": " Choose from our flavors: vanilla, chocolate, strawberry, banana, bueno, straciatella, biscuite.",
+        "el": "Επίλεξτε από τις γεύσεις μας: βανίλια, σοκολάτα, φράουλα, μπανάνα, bueno, straciatella, μπισκότο."
+      },
+      "price": 2.5,
+      "categories": ["fruit", "premium"],
+      "subcategory": "ice-cream",
+      "available": true
     }
   ]
 }

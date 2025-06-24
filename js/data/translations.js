@@ -39,6 +39,7 @@ export const TRANSLATIONS = {
         waffles: "Waffles",
         fruitsalads: "Fruit Salads",
         "finger-food": "Finger Food & Platters",
+        "ice-cream": "Ice Cream",
       },
       spirits: {
         gin: "Gin",
@@ -112,6 +113,7 @@ export const TRANSLATIONS = {
         waffles: "Βαφλες",
         fruitsalads: "Φρουτοσαλατες",
         "finger-food": "Finger Food & Πλατο",
+        "ice-cream": "Παγωτο",
       },
       spirits: {
         gin: "Τζιν",

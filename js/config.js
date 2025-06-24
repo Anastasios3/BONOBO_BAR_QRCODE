@@ -22,6 +22,7 @@ export const CONFIG = {
       "waffles",
       "fruitsalads",
       "finger-food",
+      "ice-cream",
     ],
     spirits: ["gin", "vodka", "rum", "tequila", "whisky", "liqueur", "others"],
     beer: ["draft", "bottles", "craft"],
@@ -68,6 +69,7 @@ export const CONFIG = {
         "waffles",
         "fruitsalads",
         "finger-food",
+        "ice-cream",
       ],
       ORDER: [
         "breakfast",
@@ -80,6 +82,7 @@ export const CONFIG = {
         "waffles",
         "fruitsalads",
         "finger-food",
+        "ice-cream",
       ],
     },
     // 17:01 to 21:00 - All except breakfast
@@ -96,6 +99,7 @@ export const CONFIG = {
         "waffles",
         "fruitsalads",
         "finger-food",
+        "ice-cream",
       ],
       ORDER: [
         "salads",
@@ -107,6 +111,7 @@ export const CONFIG = {
         "waffles",
         "fruitsalads",
         "finger-food",
+        "ice-cream",
       ],
     },
     // 21:01 to 02:59 - Limited night menu with specific order
@@ -123,6 +128,7 @@ export const CONFIG = {
         "waffles",
         "pancakes",
         "fruitsalads",
+        "ice-cream",
       ],
       ORDER: [
         "finger-food",
@@ -134,6 +140,7 @@ export const CONFIG = {
         "waffles",
         "pancakes",
         "fruitsalads",
+        "ice-cream",
       ],
     },
   },

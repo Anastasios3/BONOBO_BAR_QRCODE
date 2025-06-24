@@ -4538,7 +4538,7 @@
         "en": "Greece, Tsikoudia, 38%ABV",
         "el": "Ελλάδα, Τσικουδιά, 38%ABV"
       },
-      "price": 7.0,
+      "price": 8.0,
       "image": "35-tsikoudia-blended.jpg",
       "categories": ["tsikoudia", "greek"],
       "subcategory": "others",
@@ -4554,7 +4554,7 @@
         "en": "Greece, Tsikoudia Moshato, 38%ABV",
         "el": "Ελλάδα, Τσικουδιά Μοσχάτο, 38%ABV"
       },
-      "price": 7.0,
+      "price": 8.0,
       "image": "35-tsikoudia-moshato-single-variety.jpg",
       "categories": ["tsikoudia", "greek", "moshato"],
       "subcategory": "others",
@@ -4570,7 +4570,7 @@
         "en": "Greece, Tsikoudia Syrah, 38%ABV",
         "el": "Ελλάδα, Τσικουδιά Syrah, 38%ABV"
       },
-      "price": 7.0,
+      "price": 8.0,
       "image": "35-tsikoudia-syrah-single-variety.jpg",
       "categories": ["tsikoudia", "greek", "syrah"],
       "subcategory": "others",
