@@ -17,6 +17,8 @@ export const TRANSLATIONS = {
     doubleShotLabel: "Double",
     priceLabel: "Price",
     hoursContent: "Monday - Sunday: 09:00 - 02:00",
+    foodDisclaimer:
+      "The smoked salmon and our potatoes are frozen. Our potatoes are fried in sunflower oil. We use olive oil in all salads. For any allergies, please inform our staff.",
     location: "22 Arkadiou Street, Old Town, Rethymno 74100, Crete, Greece",
     subcategories: {
       coffee: {
@@ -87,6 +89,8 @@ export const TRANSLATIONS = {
     doubleShotLabel: "Διπλό",
     priceLabel: "Τιμή",
     hoursContent: "Δευτέρα - Κυριακή: 09:00 - 02:00",
+    foodDisclaimer:
+      "Ο καπνιστός σολομός & οι πατάτες μας ειναι κατεψυγμένες. Οι πατάτες μας τηγανίζονται σε ηλιέλαιο. Σε όλες τις σαλάτες χρησιμοποιούμε ελαιόλαδο. Για τυχόν αλλεργίες παρακαλώ ενημερώστε το προσωπικό μας.",
     location: "Αρκαδίου 22, Παλιά Πόλη, Ρέθυμνο 74100, Κρήτη, Ελλάδα",
     subcategories: {
       coffee: {

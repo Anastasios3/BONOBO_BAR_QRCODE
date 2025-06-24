@@ -427,6 +427,12 @@ export const UIController = {
         }
       });
 
+      // Add food disclaimer for food category
+      if (category === "food") {
+        const disclaimer = this.createFoodDisclaimer();
+        fragment.appendChild(disclaimer);
+      }
+
       // Append all items at once for better performance
       this.elements.menuItemsGrid.appendChild(fragment);
 
@@ -436,7 +442,21 @@ export const UIController = {
       }, 30);
     }, 150);
   },
+  /**
+   * Create food disclaimer element
+   * @returns {HTMLElement} Food disclaimer element
+   */
+  createFoodDisclaimer() {
+    const disclaimer = document.createElement("div");
+    disclaimer.className = "food-disclaimer";
 
+    disclaimer.innerHTML = `
+    <i class="fas fa-info-circle"></i>
+    ${AppState.getText("foodDisclaimer")}
+  `;
+
+    return disclaimer;
+  },
   /**
    * Group menu items by subcategory preserving time-aware order
    * @param {Array} items - Menu items to group

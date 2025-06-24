@@ -125,6 +125,33 @@
   color: var(--accent-color);
 }
 
+/* Food disclaimer styling */
+.food-disclaimer {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+  margin-top: var(--space-xl);
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  line-height: 1.5;
+  text-align: center;
+  grid-column: 1 / -1; /* Span all columns */
+}
+
+.food-disclaimer i {
+  color: var(--accent-color);
+  margin-right: var(--space-xs);
+}
+
+@media (max-width: 767px) {
+  .food-disclaimer {
+    margin-top: var(--space-lg);
+    padding: var(--space-sm);
+    font-size: var(--font-size-xs);
+  }
+}
+
 /* Badge for special items */
 .menu-item-badge {
   position: absolute;
