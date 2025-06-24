@@ -645,7 +645,7 @@
         "en": "Thick beverage with ice cream and milk in various flavors: Vanilla, Chocolate, Stracciatella, Banana, Strawberry, Biscuit, Bueno.",
         "el": "Ρόφημα με παγωτό και γάλα σε διάφορες γεύσεις: Βανίλια, Σοκολάτα, Στρατσιατέλα, Μπανάνα, Φράουλα, Μπισκότο, Μπουένο."
       },
-      "price": 5.0,
+      "price": 5.5,
       "categories": ["cold", "milkshakes"],
       "subcategory": "soft",
       "available": true

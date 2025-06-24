@@ -3,12 +3,12 @@
     {
       "id": "sparkling-001",
       "name": {
-        "en": "Moscato D'asti Muray",
-        "el": "Moscato D'asti Muray"
+        "en": "Beppe Marino / Moscato D'asti Muray",
+        "el": "Beppe Marino / Moscato D'asti Muray"
       },
       "description": {
-        "en": "Beppe Marino / Moscato",
-        "el": "Beppe Marino / Moscato"
+        "en": "A delicate sparkling Moscato from Piedmont with vibrant notes of peach, apricot, and orange blossom. Light and refreshing with a gentle effervescence and natural sweetness.",
+        "el": "Ένα ντελικάτο αφρώδες Moscato από το Πιεμόντε με ζωντανές νότες ροδάκινου, βερίκοκου και ανθών πορτοκαλιάς. Ελαφρύ και δροσιστικό με απαλή αφρώδη υφή και φυσική γλυκύτητα."
       },
       "priceGlass": 6.0,
       "priceBottle": 26.0,
@@ -18,12 +18,12 @@
     {
       "id": "sparkling-002",
       "name": {
-        "en": "Prosecco Amore Di Amanti",
-        "el": "Prosecco Amore Di Amanti"
+        "en": "Vino Spumante / Prosecco Amore Di Amanti",
+        "el": "Vino Spumante / Prosecco Amore Di Amanti"
       },
       "description": {
-        "en": "Vino Spumante / Prosecco",
-        "el": "Vino Spumante / Prosecco"
+        "en": "Classic Italian Prosecco with crisp green apple and pear flavors, complemented by delicate floral notes. Fine persistent bubbles create a celebratory experience in every glass.",
+        "el": "Κλασικό ιταλικό Prosecco με δροσερές γεύσεις πράσινου μήλου και αχλαδιού, συμπληρωμένες από ντελικάτες ανθικές νότες. Λεπτές επίμονες φυσαλίδες δημιουργούν μια γιορτινή εμπειρία σε κάθε ποτήρι."
       },
       "priceGlass": 6.0,
       "priceBottle": 26.0,
@@ -33,12 +33,12 @@
     {
       "id": "white-wine-001",
       "name": {
-        "en": "Voltes",
-        "el": "Βόλτες"
+        "en": "Tsimpidis Winery / Voltes",
+        "el": "Οινοποιητική Τσιμπίδη / Βόλτες"
       },
       "description": {
-        "en": "Tsimpidis Winery Monemvasia / Roditis, Moschofilero",
-        "el": "Οινοποιητική Τσιμπίδη Μονεμβασιά / Ροδίτης, Μοσχοφίλερο"
+        "en": "A harmonious blend of Roditis and Moschofilero from Monemvasia, offering citrus and white flower aromas with hints of rose petals. Crisp acidity balanced with subtle mineral notes from the coastal terroir.",
+        "el": "Αρμονικό blend Ροδίτη και Μοσχοφίλερου από τη Μονεμβασιά, προσφέροντας αρώματα εσπεριδοειδών και λευκών λουλουδιών με νύξεις ροδοπέταλων. Τραγανή οξύτητα ισορροπημένη με διακριτικές μεταλλικές νότες από το παραθαλάσσιο terroir."
       },
       "priceGlass": 5.0,
       "priceBottle": 22.0,
@@ -48,12 +48,12 @@
     {
       "id": "white-wine-002",
       "name": {
-        "en": "Charlampakis Muscat Spinas",
-        "el": "Χαρλαμπάκης Muscat Spinas"
+        "en": "Patrianakis winery / Moschato Spinas",
+        "el": "Κτήμα Πατεριανάκη / Μοσχάτο Σπίνας"
       },
       "description": {
-        "en": "Charlampakis Winery / Muscat Spinas",
-        "el": "Οινοποιητική Χαραλαμπάκης / Μουσάτο Σπίνας"
+        "en": "Moschato Spinas white wine from the Patrianakis Estate with intense aromas of white flowers, fresh rose petals, and jasmine. Leaves sweet notes of Moschato on the palate.",
+        "el": "Μοσχάτο Σπίνας λευκός οίνος από το Κτήμα Πατεριανάκη με έντονα αρώματα λευκών λουλουδιών, φρέσκων ροδοπέταλων και γιασεμιού. Αφήνει γλυκές νότες Μοσχάτου στον ουρανίσκο."
       },
       "priceGlass": 5.5,
       "priceBottle": 24.0,
@@ -63,12 +63,12 @@
     {
       "id": "white-wine-003",
       "name": {
-        "en": "Techni Alipias",
-        "el": "Τέχνη Αλυπίας"
+        "en": "Techni Oinou Winery / Techni Alipias",
+        "el": "Οινοποιείο Τέχνη Οίνου / Τέχνη Αλυπίας"
       },
       "description": {
-        "en": "Techni Oinou Winery, Drama / Sauvignon Blanc, Assyrtiko",
-        "el": "Οινοποιείο Τέχνη Οίνου, Δράμα / Sauvignon Blanc, Ασύρτικο"
+        "en": "An elegant blend of Sauvignon Blanc and Assyrtiko from Drama, showcasing tropical fruit aromas with citrus zest and herbal notes. The volcanic minerality of Assyrtiko adds complexity and depth.",
+        "el": "Κομψό blend Sauvignon Blanc και Ασύρτικου από τη Δράμα, αναδεικνύοντας αρώματα τροπικών φρούτων με φλούδα εσπεριδοειδών και βοτανικές νότες. Η ηφαιστειακή μεταλλικότητα του Ασύρτικου προσθέτει πολυπλοκότητα και βάθος."
       },
       "priceBottle": 32.0,
       "subcategory": "white",
@@ -77,12 +77,12 @@
     {
       "id": "white-wine-004",
       "name": {
-        "en": "Plano",
-        "el": "Plano"
+        "en": "Techni Oinou Winery / Plano",
+        "el": "Οινοποιείο Τέχνη Οίνου / Plano"
       },
       "description": {
-        "en": "Techni Oinou Winery, Drama / Malagouzia",
-        "el": "Οινοποιείο Τέχνη Οίνου, Δράμα / Μαλαγουζιά"
+        "en": "Pure Malagouzia from Drama expressing exotic aromas of peach, mango, and fresh herbs. Medium-bodied with a silky texture and refreshing acidity that highlights the grape's aromatic character.",
+        "el": "Αμιγής Μαλαγουζιά από τη Δράμα που εκφράζει εξωτικά αρώματα ροδάκινου, μάνγκο και φρέσκων βοτάνων. Μεσαίου σώματος με μεταξένια υφή και δροσιστική οξύτητα που αναδεικνύει τον αρωματικό χαρακτήρα της ποικιλίας."
       },
       "priceBottle": 32.0,
       "subcategory": "white",
@@ -91,12 +91,12 @@
     {
       "id": "white-wine-005",
       "name": {
-        "en": "Piccolo Mondo",
-        "el": "Piccolo Mondo"
+        "en": "Semeli Estate / Piccolo Mondo",
+        "el": "Κτήμα Σεμέλη / Piccolo Mondo"
       },
       "description": {
-        "en": "Semeli Estate / Moschofilero (Semi-Sweet)",
-        "el": "Κτήμα Σέμελη / Μοσχοφίλερο (Ημίγλυκο)"
+        "en": "Semi-sweet Moschofilero displaying delicate rose petal aromas with hints of lemon blossom and Turkish delight. The subtle sweetness perfectly balances the wine's natural acidity, creating a refreshing finish.",
+        "el": "Ημίγλυκο Μοσχοφίλερο που αναδεικνύει ντελικάτα αρώματα ροδοπέταλων με νύξεις ανθών λεμονιάς και λουκουμιού. Η διακριτική γλυκύτητα ισορροπεί τέλεια με τη φυσική οξύτητα του κρασιού, δημιουργώντας ένα δροσιστικό τελείωμα."
       },
       "priceGlass": 5.0,
       "priceBottle": 22.0,
@@ -106,12 +106,12 @@
     {
       "id": "rose-wine-001",
       "name": {
-        "en": "2 Faraggia",
-        "el": "2 Φαράγγια"
+        "en": "Malagaki Winery / 2 Faraggia",
+        "el": "Οινοποιείο Μαλαγάκη / 2 Φαράγγια"
       },
       "description": {
-        "en": "Malagaki Winery, Heraklion / Mourvedre, Malvasia",
-        "el": "Οινοποιείο Μαλαγάκη, Ηράκλειο / Mourvedre, Μαλβαζία"
+        "en": "Unique rosé blend of Mourvedre and Malvasia from Heraklion, offering wild strawberry and pomegranate aromas with Mediterranean herbs. Dry and refreshing with a savory finish reminiscent of sea breeze.",
+        "el": "Μοναδικό ροζέ blend Mourvedre και Μαλβαζίας από το Ηράκλειο, προσφέροντας αρώματα άγριας φράουλας και ροδιού με μεσογειακά βότανα. Ξηρό και δροσιστικό με αλμυρό τελείωμα που θυμίζει θαλασσινή αύρα."
       },
       "priceGlass": 5.0,
       "priceBottle": 22.0,
@@ -121,12 +121,12 @@
     {
       "id": "rose-wine-002",
       "name": {
-        "en": "Mythikos Potamos",
-        "el": "Μυθικός Ποταμός"
+        "en": "Gofas Estate / Mythikos Potamos",
+        "el": "Κτήμα Γκόφα / Μυθικός Ποταμός"
       },
       "description": {
-        "en": "Gofas Estate / Agiorgitiko, Syrah (Semi-Dry)",
-        "el": "Κτήμα Γκόφας / Αγιωργίτικο, Syrah (Ημίξηρο)"
+        "en": "Semi-dry rosé combining Agiorgitiko and Syrah, revealing red berry compote aromas with hints of rose and spice. The touch of residual sugar enhances the fruit expression while maintaining elegance.",
+        "el": "Ημίξηρο ροζέ που συνδυάζει Αγιωργίτικο και Syrah, αποκαλύπτοντας αρώματα κομπόστας κόκκινων μούρων με νύξεις τριαντάφυλλου και μπαχαρικών. Η πινελιά υπολειμματικής ζάχαρης ενισχύει τη φρουτώδη έκφραση διατηρώντας την κομψότητα."
       },
       "priceGlass": 5.5,
       "priceBottle": 24.0,
@@ -136,12 +136,12 @@
     {
       "id": "rose-wine-003",
       "name": {
-        "en": "Rose de Xinomavro",
-        "el": "Rose de xinamavro"
+        "en": "Thymiopoulos Vineyards / Rosé de Xinomavro",
+        "el": "Αμπελώνες Θυμιόπουλος / Rosé de Xinomavro"
       },
       "description": {
-        "en": "Thymiopoulos Vineyards / Xinomavro",
-        "el": "Αμπελώνες Θυμιόπουλος / Ξινόμαυρο"
+        "en": "Elegant rosé from Naoussa's noble Xinomavro grape, displaying cherry blossom and red currant aromas with tomato leaf complexity. Bone-dry with vibrant acidity and a long, sophisticated finish.",
+        "el": "Κομψό ροζέ από το ευγενές Ξινόμαυρο της Νάουσας, αναδεικνύοντας αρώματα ανθών κερασιάς και κόκκινου φραγκοστάφυλου με πολυπλοκότητα φύλλων τομάτας. Εντελώς ξηρό με ζωντανή οξύτητα και μακρύ, εκλεπτυσμένο τελείωμα."
       },
       "priceBottle": 32.0,
       "subcategory": "rose",
@@ -150,12 +150,12 @@
     {
       "id": "red-wine-001",
       "name": {
-        "en": "Voltes",
-        "el": "Βόλτες"
+        "en": "Tsimpidis Winery / Voltes",
+        "el": "Οινοποιητική Τσιμπίδη / Βόλτες"
       },
       "description": {
-        "en": "Tsimpidis Winery Monemvasia / Agiorgitiko, Mavroudi",
-        "el": "Οινοποιητική Τσιμπίδη Μονεμβασιά / Αγιωργίτικο, Μαυρούδι"
+        "en": "Harmonious blend of Agiorgitiko and Mavroudi from Monemvasia, offering ripe cherry and plum flavors with hints of vanilla and spice. Medium-bodied with soft tannins and a warm, lingering finish.",
+        "el": "Αρμονικό blend Αγιωργίτικου και Μαυρουδιού από τη Μονεμβασιά, προσφέροντας γεύσεις ώριμου κερασιού και δαμάσκηνου με νύξεις βανίλιας και μπαχαρικών. Μεσαίου σώματος με απαλές τανίνες και ζεστό, παρατεταμένο τελείωμα."
       },
       "priceGlass": 5.0,
       "priceBottle": 22.0,
@@ -165,12 +165,12 @@
     {
       "id": "red-wine-002",
       "name": {
-        "en": "Piccolo Mondo",
-        "el": "Piccolo Mondo"
+        "en": "Semeli Estate / Piccolo Mondo",
+        "el": "Κτήμα Σεμέλη / Piccolo Mondo"
       },
       "description": {
-        "en": "Semeli Estate / Agiorgitiko (Semi-Sweet)",
-        "el": "Κτήμα Σεμέλη / Αγιωργίτικο (Ημίγλυκο)"
+        "en": "Semi-sweet Agiorgitiko expressing jammy red fruit flavors with notes of sweet spice and chocolate. The residual sugar beautifully complements the grape's natural fruitiness, creating an approachable and comforting wine.",
+        "el": "Ημίγλυκο Αγιωργίτικο που εκφράζει γεύσεις μαρμελάδας κόκκινων φρούτων με νότες γλυκών μπαχαρικών και σοκολάτας. Η υπολειμματική ζάχαρη συμπληρώνει όμορφα τη φυσική φρουτένια γεύση της ποικιλίας, δημιουργώντας ένα προσιτό και παρηγορητικό κρασί."
       },
       "priceGlass": 5.0,
       "priceBottle": 22.0,
@@ -180,12 +180,12 @@
     {
       "id": "red-wine-003",
       "name": {
-        "en": "Mavrodafne",
-        "el": "Μαυροδάφνη"
+        "en": "Patras Winery / Mavrodafne",
+        "el": "Οινοποιείο Πατρών / Μαυροδάφνη"
       },
       "description": {
-        "en": "Patras Winery / Mavrodafne (Semi-Sweet)",
-        "el": "Οινοποιείο Πατρών / Μαυροδάφνη (Ημίγλυκο)"
+        "en": "Traditional semi-sweet Mavrodafne from Patras with rich flavors of dried figs, raisins, and caramel. Notes of cinnamon and clove add complexity to this velvety dessert-style wine.",
+        "el": "Παραδοσιακή ημίγλυκη Μαυροδάφνη από την Πάτρα με πλούσιες γεύσεις αποξηραμένων σύκων, σταφίδων και καραμέλας. Νότες κανέλας και γαρίφαλου προσθέτουν πολυπλοκότητα σε αυτό το βελούδινο κρασί τύπου επιδορπίου."
       },
       "priceGlass": 5.0,
       "priceBottle": 22.0,
@@ -195,12 +195,12 @@
     {
       "id": "red-wine-004",
       "name": {
-        "en": "Sangria",
-        "el": "Σαγκριά"
+        "en": "Homemade Sangria",
+        "el": "Σαγκριά Σπιτική"
       },
       "description": {
-        "en": "Sweet red wine and chopped fruits",
-        "el": "Γλυκό κόκκινο κρασί και ψιλοκομμένα φρούτα"
+        "en": "Our signature sangria crafted with fruity red wine, fresh seasonal fruits, and a secret blend of spices. A refreshing and festive drink perfect for sharing and celebration.",
+        "el": "Η signature σαγκριά μας παρασκευασμένη με φρουτώδες κόκκινο κρασί, φρέσκα εποχιακά φρούτα και σπιτικό μείγμα μπαχαρικών. Ένα δροσιστικό και γιορτινό ποτό ιδανικό για να μοιραστείτε και να γιορτάσετε."
       },
       "priceGlass": 5.0,
       "priceBottle": 22.0,
