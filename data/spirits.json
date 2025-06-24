@@ -4602,7 +4602,7 @@
         "en": "Greece, Brandy, 38%ABV",
         "el": "Ελλάδα, Μπράντι, 38%ABV"
       },
-      "price": 7.0,
+      "price": 8.0,
       "image": "metaxa-5.jpg",
       "categories": ["metaxa", "greek", "brandy"],
       "subcategory": "others",
@@ -4618,7 +4618,7 @@
         "en": "Greece, Brandy, 40%ABV",
         "el": "Ελλάδα, Μπράντι, 40%ABV"
       },
-      "price": 8.0,
+      "price": 9.0,
       "image": "metaxa-7.jpg",
       "categories": ["metaxa", "greek", "brandy"],
       "subcategory": "others",
@@ -4714,7 +4714,7 @@
         "en": "Italy, Aperitif, 11%ABV",
         "el": "Ιταλία, Απεριτίφ, 11%ABV"
       },
-      "price": 7.0,
+      "price": 8.0,
       "image": "aperol-1l.jpg",
       "categories": ["aperitivo", "italian"],
       "subcategory": "liqueur",
@@ -4810,7 +4810,7 @@
         "en": "Italy, Almond Liqueur, 28%ABV",
         "el": "Ιταλία, Λικέρ Αμυγδάλου, 28%ABV"
       },
-      "price": 7.0,
+      "price": 8.0,
       "image": "disaronno.jpg",
       "categories": ["liqueur", "italian", "almond"],
       "subcategory": "liqueur",
