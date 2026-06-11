@@ -36,7 +36,7 @@ export const CONFIG = {
     ],
     beer: ["draft", "bottles", "craft"],
     wine: ["sparkling", "white", "rose", "red"],
-    cocktails: ["signature", "classic", "mocktails"],
+    cocktails: ["low-alcoholic", "signature", "classic", "mocktails"],
   },
   CATEGORIES: ["coffee", "food", "spirits", "beer", "wine", "cocktails"],
   TIME_PERIODS: {

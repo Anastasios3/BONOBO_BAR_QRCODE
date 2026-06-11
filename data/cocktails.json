@@ -1,17 +1,71 @@
 {
   "items": [
     {
-      "id": "signature-cocktail-001",
+      "id": "low-alcoholic-cocktail-001",
       "name": {
-        "en": "Genesis",
-        "el": "Genesis"
+        "en": "Rosa Bonheur",
+        "el": "Rosa Bonheur"
       },
       "description": {
-        "en": "Sparkling wine, mastha, mandarin, passion fruit, elderflower & CO2",
-        "el": "Αφρώδες κρασί, μαστίχα, μανταρίνι, passion fruit, elderflower & CO2"
+        "en": "Lillet Rosé, lime, strawberry-cucumber soda",
+        "el": "Lillet Rosé, λάιμ, σόδα φράουλα-αγγούρι"
       },
       "price": 10.0,
-      "image": "genesis.jpg",
+      "image": "rosa-bonheur.jpg",
+      "categories": [
+        "low-alcoholic"
+      ],
+      "subcategory": "low-alcoholic",
+      "available": true
+    },
+    {
+      "id": "low-alcoholic-cocktail-002",
+      "name": {
+        "en": "Lanatus",
+        "el": "Lanatus"
+      },
+      "description": {
+        "en": "Mastiha liqueur, lime, watermelon-ginger soda",
+        "el": "Λικέρ μαστίχας, λάιμ, σόδα καρπούζι-τζίντζερ"
+      },
+      "price": 10.0,
+      "image": "lanatus.jpg",
+      "categories": [
+        "low-alcoholic"
+      ],
+      "subcategory": "low-alcoholic",
+      "available": true
+    },
+    {
+      "id": "low-alcoholic-cocktail-003",
+      "name": {
+        "en": "Vertigo",
+        "el": "Vertigo"
+      },
+      "description": {
+        "en": "Gin, sparkling dry wine (Prosecco), cucumber, grapefruit soda",
+        "el": "Τζιν, αφρώδης ξηρός οίνος (Prosecco), αγγούρι, σόδα γκρέιπφρουτ"
+      },
+      "price": 11.0,
+      "image": "vertigo.jpg",
+      "categories": [
+        "low-alcoholic"
+      ],
+      "subcategory": "low-alcoholic",
+      "available": true
+    },
+    {
+      "id": "signature-cocktail-001",
+      "name": {
+        "en": "Skyler & Marie",
+        "el": "Skyler & Marie"
+      },
+      "description": {
+        "en": "Vodka, red fruit tea, lime, strawberry, triple sec",
+        "el": "Βότκα, τσάι κόκκινων φρούτων, λάιμ, φράουλα, triple sec"
+      },
+      "price": 11.0,
+      "image": "skyler-marie.jpg",
       "categories": [
         "signature"
       ],
@@ -21,15 +75,15 @@
     {
       "id": "signature-cocktail-002",
       "name": {
-        "en": "Exploration",
-        "el": "Exploration"
+        "en": "Cantaloupe",
+        "el": "Cantaloupe"
       },
       "description": {
-        "en": "Vodka, rhubarb, watermelon, tarragon & tonka",
-        "el": "Vodka, ραβέντι, καρπούζι, εστραγκόν & tonka"
+        "en": "Gin, basil-melon cordial, lime",
+        "el": "Τζιν, cordial βασιλικού-πεπονιού, λάιμ"
       },
       "price": 11.0,
-      "image": "exploration.jpg",
+      "image": "cantaloupe.jpg",
       "categories": [
         "signature"
       ],
@@ -39,15 +93,15 @@
     {
       "id": "signature-cocktail-003",
       "name": {
-        "en": "Reverence",
-        "el": "Reverence"
+        "en": "Taino",
+        "el": "Taino"
       },
       "description": {
-        "en": "Tequila Blanco, melon, green apple, lime & lemongrass",
-        "el": "Tequila λευκή, πεπόνι, πράσινο μήλο, λάιμ & λεμονόχορτο"
+        "en": "White rum, agricole rum, lime, salted honey",
+        "el": "Λευκό ρούμι, ρούμι agricole, λάιμ, αλατισμένο μέλι"
       },
       "price": 11.0,
-      "image": "reverence.jpg",
+      "image": "taino.jpg",
       "categories": [
         "signature"
       ],
@@ -57,15 +111,15 @@
     {
       "id": "signature-cocktail-004",
       "name": {
-        "en": "Endeavor",
-        "el": "Endeavor"
+        "en": "La Tortuga",
+        "el": "La Tortuga"
       },
       "description": {
-        "en": "Vodka, Aperol, strawberry & passion fruit soda",
-        "el": "Vodka, Aperol, σόδα φράουλας & passion fruit"
+        "en": "Tequila reposado, lime, pineapple, jalapeño water, mezcal spray",
+        "el": "Tequila reposado, λάιμ, ανανάς, νερό jalapeño, σπρέι mezcal"
       },
-      "price": 10.0,
-      "image": "endeavor.jpg",
+      "price": 12.0,
+      "image": "la-tortuga.jpg",
       "categories": [
         "signature"
       ],
@@ -75,15 +129,15 @@
     {
       "id": "signature-cocktail-005",
       "name": {
-        "en": "Reflection",
-        "el": "Reflection"
+        "en": "Coco Larentzo",
+        "el": "Coco Larentzo"
       },
       "description": {
-        "en": "Gin, orange, lime, cucumber & ginger soda",
-        "el": "Τζιν, πορτοκάλι, λάιμ, αγγούρι & σόδα τζίντζερ"
+        "en": "Spiced rum, agricole rum, coconut-cherry cordial",
+        "el": "Spiced ρούμι, ρούμι agricole, cordial καρύδας-κερασιού"
       },
-      "price": 10.0,
-      "image": "reflection.jpg",
+      "price": 12.0,
+      "image": "coco-larentzo.jpg",
       "categories": [
         "signature"
       ],
@@ -93,51 +147,15 @@
     {
       "id": "signature-cocktail-006",
       "name": {
-        "en": "Heritage",
-        "el": "Heritage"
+        "en": "Purple Haze",
+        "el": "Purple Haze"
       },
       "description": {
-        "en": "35N moscato, Gin, citrus, cucumber, basil, lime",
-        "el": "Μοσχάτο 35Ν, Gin, εσπεριδοειδή, αγγούρι, βασιλικός, λάιμ"
-      },
-      "price": 11.0,
-      "image": "heritage.jpg",
-      "categories": [
-        "signature"
-      ],
-      "subcategory": "signature",
-      "available": true
-    },
-    {
-      "id": "signature-cocktail-007",
-      "name": {
-        "en": "Legacy",
-        "el": "Legacy"
-      },
-      "description": {
-        "en": "Polynesian rum blend, apricot, lime, brown sugar",
-        "el": "Μίγμα πολυνησιακών ρουμιών, βερίκοκο, λάιμ, καστανή ζάχαρη"
-      },
-      "price": 11.0,
-      "image": "legacy.jpg",
-      "categories": [
-        "signature"
-      ],
-      "subcategory": "signature",
-      "available": true
-    },
-    {
-      "id": "signature-cocktail-008",
-      "name": {
-        "en": "Harmony",
-        "el": "Harmony"
-      },
-      "description": {
-        "en": "White rum, banana, coconut, lime, salted honey & bitters",
-        "el": "Λευκό ρούμι, μπανάνα, καρύδα, λάιμ, αλατισμένο μέλι & bitters"
+        "en": "Mezcal, tequila blanco, agave syrup, wild berries-mandarin soda",
+        "el": "Mezcal, tequila blanco, σιρόπι αγαύης, σόδα άγρια μούρα-μανταρίνι"
       },
       "price": 12.0,
-      "image": "harmony.jpg",
+      "image": "purple-haze.jpg",
       "categories": [
         "signature"
       ],
@@ -145,39 +163,57 @@
       "available": true
     },
     {
-      "id": "signature-cocktail-009",
+      "id": "mocktail-001",
       "name": {
-        "en": "Serenity",
-        "el": "Serenity"
+        "en": "Bahia",
+        "el": "Bahia"
       },
       "description": {
-        "en": "Tequila reposado, pineapple, mango, agave & lime",
-        "el": "Tequila παλαιωμένη, ανανάς, μάνγκο, αγαύη & λάιμ"
+        "en": "Passion fruit syrup, lime, strawberry, grapefruit soda",
+        "el": "Σιρόπι passion fruit, λάιμ, φράουλα, σόδα γκρέιπφρουτ"
       },
-      "price": 12.0,
-      "image": "serenity.jpg",
+      "price": 8.0,
+      "image": "bahia.jpg",
       "categories": [
-        "signature"
+        "mocktails"
       ],
-      "subcategory": "signature",
+      "subcategory": "mocktails",
       "available": true
     },
     {
-      "id": "signature-cocktail-010",
+      "id": "mocktail-002",
       "name": {
-        "en": "Monkey's Reviver",
-        "el": "Monkey's Reviver"
+        "en": "Driving Mule",
+        "el": "Driving Mule"
       },
       "description": {
-        "en": "Mezcal, Lillet Blanc, orange liquer, lime & pomegranate",
-        "el": "Mezcal, Lillet Blanc, λικέρ πορτοκάλι, λάιμ, ρόδι"
+        "en": "Non-alcoholic gin, lime, simple syrup, ginger beer",
+        "el": "Τζιν χωρίς αλκοόλ, λάιμ, σιρόπι ζάχαρης, ginger beer"
       },
-      "price": 13.0,
-      "image": "monkeys-reviver.jpg",
+      "price": 9.0,
+      "image": "driving-mule.jpg",
       "categories": [
-        "signature"
+        "mocktails"
       ],
-      "subcategory": "signature",
+      "subcategory": "mocktails",
+      "available": true
+    },
+    {
+      "id": "mocktail-003",
+      "name": {
+        "en": "Disco Volante",
+        "el": "Disco Volante"
+      },
+      "description": {
+        "en": "Lemon, lime, watermelon, vanilla",
+        "el": "Λεμόνι, λάιμ, καρπούζι, βανίλια"
+      },
+      "price": 8.0,
+      "image": "disco-volante.jpg",
+      "categories": [
+        "mocktails"
+      ],
+      "subcategory": "mocktails",
       "available": true
     },
     {

@@ -63,6 +63,7 @@ export const TRANSLATIONS = {
         red: "Red",
       },
       cocktails: {
+        "low-alcoholic": "Low Alcoholic",
         signature: "Signature",
         classic: "Classic",
         mocktails: "Mocktails",
@@ -138,6 +139,7 @@ export const TRANSLATIONS = {
         red: "Κοκκινο",
       },
       cocktails: {
+        "low-alcoholic": "Χαμηλο Αλκοολ",
         signature: "Signature",
         classic: "Κλασικα",
         mocktails: "Mocktails",

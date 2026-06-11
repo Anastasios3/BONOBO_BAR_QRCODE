@@ -146,15 +146,16 @@ export const EventController = {
     AppState.currentCategory = category;
     AppState.currentFilter = null;
 
-    // Batch UI updates; updateActiveCategory also centers the active tab
-    requestAnimationFrame(() => {
-      UIController.updateActiveCategory(category);
-      UIController.generateFilterOptions(category);
-      UIController.toggleFilterPanel(false);
+    // Update UI synchronously - requestAnimationFrame stalls in hidden
+    // tabs (e.g. a QR link opened in the background), leaving the menu
+    // blank until the tab is focused. updateActiveCategory also centers
+    // the active tab.
+    UIController.updateActiveCategory(category);
+    UIController.generateFilterOptions(category);
+    UIController.toggleFilterPanel(false);
 
-      const items = AppState.getFilteredItems(category);
-      UIController.displayMenuItems(items, category);
-    });
+    const items = AppState.getFilteredItems(category);
+    UIController.displayMenuItems(items, category);
 
     // Smooth scroll to top
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -337,14 +338,13 @@ export const EventController = {
 
     if (!category) return;
 
-    requestAnimationFrame(() => {
-      UIController.generateCategoryTabs();
-      UIController.updateActiveCategory(category);
-      UIController.generateFilterOptions(category, filter);
+    // Synchronous for the same hidden-tab reason as selectCategory
+    UIController.generateCategoryTabs();
+    UIController.updateActiveCategory(category);
+    UIController.generateFilterOptions(category, filter);
 
-      const items = AppState.getFilteredItems(category, filter);
-      UIController.displayMenuItems(items, category);
-    });
+    const items = AppState.getFilteredItems(category, filter);
+    UIController.displayMenuItems(items, category);
   },
 
   /**
