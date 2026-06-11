@@ -32,11 +32,14 @@
   display: flex;
   height: 100%;
   padding: 0 var(--space-md);
-  margin: 0 auto;
   position: relative;
   width: max-content;
   min-width: 100%;
   align-items: center;
+  /* Centers the tabs when they all fit (desktop). Safe with overflow:
+     width: max-content keeps this element at least as wide as its
+     content, so the left edge can never be clipped when scrolling. */
+  justify-content: center;
   gap: var(--space-xs);
 }
 

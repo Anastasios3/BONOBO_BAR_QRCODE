@@ -45,9 +45,6 @@ export const AppController = {
 
       // Add loaded class to body for animations
       document.body.classList.add("app-loaded");
-
-      // Log successful initialization
-      console.log("Bonobo Bar & More application initialized successfully");
     } catch (error) {
       console.error("Application initialization failed:", error);
       UIController.showError(
@@ -188,8 +185,6 @@ export const AppController = {
 
       // Select initial category
       this.selectInitialCategory();
-
-      console.log("Application refreshed successfully");
     } catch (error) {
       this.handleError(error, "Application Refresh");
     }
@@ -199,17 +194,10 @@ export const AppController = {
    * Handle app visibility changes (page focus/blur)
    */
   handleVisibilityChange() {
-    if (document.hidden) {
-      // App is hidden - could pause animations, etc.
-      console.log("App hidden");
-    } else {
-      // App is visible again - could refresh data if needed
-      console.log("App visible");
-
-      // Check if we need to refresh data (e.g., after being hidden for a long time)
+    if (!document.hidden) {
+      // App is visible again - refresh if data never loaded
       const categories = AppState.getAvailableCategories();
       if (categories.length === 0) {
-        console.log("No categories available, attempting refresh...");
         this.refresh();
       }
     }

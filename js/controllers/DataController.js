@@ -19,15 +19,7 @@ export const DataController = {
       );
 
       // Wait for all data loading attempts
-      const results = await Promise.allSettled(promises);
-
-      // Log loading results
-      console.log(
-        "Menu data loading results:",
-        results
-          .map((result, i) => `${categories[i]}: ${result.status}`)
-          .join(", ")
-      );
+      await Promise.allSettled(promises);
 
       // Check if we have at least some data
       const loadedCategories = AppState.getAvailableCategories();
@@ -62,7 +54,7 @@ export const DataController = {
 
       if (data && data.items && Array.isArray(data.items)) {
         // Process items before storing
-        const processedItems = this.processItems(data.items, category);
+        const processedItems = this.processItems(data.items);
         AppState.menuData[category] = processedItems;
         return processedItems.length;
       } else {
@@ -82,26 +74,12 @@ export const DataController = {
   /**
    * Process and normalize menu items
    * @param {Array} items - Raw menu items
-   * @param {string} category - Item category
    * @returns {Array} Processed items
    */
-  processItems(items, category) {
-    return items.map((item) => {
-      // Ensure required fields exist
-      const processedItem = {
-        ...item,
-        available: item.available !== false, // Default to available if not specified
-      };
-
-      // Handle dual pricing for wine and spirits
-      if (category === "spirits" || category === "wine") {
-        if (processedItem.priceBottle === undefined && processedItem.price) {
-          processedItem.priceGlass = processedItem.price;
-          processedItem.priceBottle = processedItem.price * 5; // Default bottle price
-        }
-      }
-
-      return processedItem;
-    });
+  processItems(items) {
+    return items.map((item) => ({
+      ...item,
+      available: item.available !== false, // Default to available if not specified
+    }));
   },
 };

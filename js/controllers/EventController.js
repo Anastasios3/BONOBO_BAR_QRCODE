@@ -13,10 +13,6 @@ export const EventController = {
   timeCheckInterval: null,
   lastTimeRestriction: null,
 
-  // Navigation state
-  navigationSwipeEnabled: false,
-  currentTouchTarget: null,
-
   /**
    * Initialize all event listeners
    */
@@ -30,93 +26,6 @@ export const EventController = {
     this.setupGlobalEvents();
     this.setupBackToTop();
     this.setupTimeBasedRefresh();
-    this.setupNavigationSwipe();
-  },
-
-  /**
-   * Setup swipe ONLY on navigation bar
-   */
-  setupNavigationSwipe() {
-    const navContainer = document.querySelector(".category-tabs-container");
-    if (!navContainer) return;
-
-    let touchStartX = 0;
-    let touchStartY = 0;
-    let startTime = 0;
-    let isSwiping = false;
-
-    // Touch start - only on navigation
-    navContainer.addEventListener(
-      "touchstart",
-      (e) => {
-        if (ModalController.isModalOpen()) return;
-
-        touchStartX = e.touches[0].clientX;
-        touchStartY = e.touches[0].clientY;
-        startTime = Date.now();
-        isSwiping = true;
-      },
-      { passive: true }
-    );
-
-    // Touch move - track if still swiping on nav
-    navContainer.addEventListener(
-      "touchmove",
-      (e) => {
-        if (!isSwiping) return;
-
-        const deltaY = Math.abs(e.touches[0].clientY - touchStartY);
-
-        // Cancel if too much vertical movement
-        if (deltaY > 30) {
-          isSwiping = false;
-        }
-      },
-      { passive: true }
-    );
-
-    // Touch end - handle category switch
-    navContainer.addEventListener(
-      "touchend",
-      (e) => {
-        if (!isSwiping || ModalController.isModalOpen()) {
-          isSwiping = false;
-          return;
-        }
-
-        const touchEndX = e.changedTouches[0].clientX;
-        const deltaX = touchEndX - touchStartX;
-        const deltaTime = Date.now() - startTime;
-
-        // Quick swipe detection
-        if (Math.abs(deltaX) > 80 && deltaTime < 300) {
-          const categories = AppState.getAvailableCategories();
-          const currentIndex = categories.indexOf(AppState.currentCategory);
-
-          if (deltaX > 0 && currentIndex > 0) {
-            // Swipe right - previous
-            this.selectCategory(categories[currentIndex - 1]);
-            this.hapticFeedback(20);
-          } else if (deltaX < 0 && currentIndex < categories.length - 1) {
-            // Swipe left - next
-            this.selectCategory(categories[currentIndex + 1]);
-            this.hapticFeedback(20);
-          }
-        }
-
-        isSwiping = false;
-      },
-      { passive: true }
-    );
-
-    // Cancel on touch leave
-    navContainer.addEventListener(
-      "touchcancel",
-      () => {
-        isSwiping = false;
-      },
-      { passive: true }
-    );
   },
 
   /**
@@ -136,6 +45,7 @@ export const EventController = {
     themeToggle.addEventListener("click", () => {
       const newTheme = AppState.theme === "dark" ? "light" : "dark";
       AppState.setTheme(newTheme);
+      UIController.applyTheme();
       this.hapticFeedback(30);
     });
   },
@@ -220,6 +130,7 @@ export const EventController = {
 
       if (newIndex !== activeIndex) {
         this.selectCategory(tabs[newIndex].dataset.category);
+        tabs[newIndex].focus();
       }
     });
   },
@@ -235,7 +146,7 @@ export const EventController = {
     AppState.currentCategory = category;
     AppState.currentFilter = null;
 
-    // Update UI immediately
+    // Batch UI updates; updateActiveCategory also centers the active tab
     requestAnimationFrame(() => {
       UIController.updateActiveCategory(category);
       UIController.generateFilterOptions(category);
@@ -245,17 +156,8 @@ export const EventController = {
       UIController.displayMenuItems(items, category);
     });
 
-    // Smooth scroll to top after a brief delay
-    setTimeout(() => {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }, 50);
-
-    // Center active tab after UI update
-    setTimeout(() => {
-      if (window.menuScrolling) {
-        window.menuScrolling.centerActiveTab();
-      }
-    }, 100);
+    // Smooth scroll to top
+    window.scrollTo({ top: 0, behavior: "smooth" });
 
     // Update page title
     document.title = `${AppState.getText(
@@ -411,37 +313,6 @@ export const EventController = {
         );
       }
     }
-  },
-
-  /**
-   * Select category with smooth transition
-   */
-  selectCategory(category) {
-    AppState.currentCategory = category;
-    AppState.currentFilter = null;
-
-    UIController.updateActiveCategory(category);
-    UIController.generateFilterOptions(category);
-    UIController.toggleFilterPanel(false);
-
-    const items = AppState.getFilteredItems(category);
-    UIController.displayMenuItems(items, category);
-
-    // Smooth scroll to top
-    window.scrollTo({ top: 0, behavior: "smooth" });
-
-    // Center active tab
-    setTimeout(() => {
-      if (window.menuScrolling) {
-        window.menuScrolling.centerActiveTab();
-      }
-    }, 50);
-
-    // Update page title
-    document.title = `${AppState.getText(
-      "categories",
-      category
-    )} - Bonobo Bar & More`;
   },
 
   /**

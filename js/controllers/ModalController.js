@@ -313,17 +313,24 @@ export const ModalController = {
         dualPricing.appendChild(bottlePrice);
         this.elements.priceContainer.appendChild(dualPricing);
       } else {
-        // Single pricing (bottle only) - SHOW BOTTLE LABEL for wine in compact layout
+        // Single pricing - bottle label when a bottle price exists,
+        // glass label for glass-only wines (e.g. Sangria)
+        const isGlassOnly = !item.priceBottle && item.priceGlass;
+        const labelKey = isGlassOnly ? "glassLabel" : "bottleLabel";
+        const amount = isGlassOnly
+          ? item.priceGlass
+          : item.priceBottle || item.price;
+
         const singlePricing = document.createElement("div");
         singlePricing.className = "modal-price-single-labeled";
         singlePricing.style.textAlign = "center";
 
         singlePricing.innerHTML = `
           <div class="price-option-label" style="font-size: var(--font-size-xs); opacity: 0.9; margin-bottom: var(--space-xs); text-transform: uppercase; letter-spacing: 0.5px;">${AppState.getText(
-            "bottleLabel"
+            labelKey
           )}</div>
           <div class="price-option-amount" style="font-size: var(--font-size-xl); font-weight: var(--font-weight-bold);">${this.formatPrice(
-            item.priceBottle || item.price
+            amount
           )}</div>
         `;
 

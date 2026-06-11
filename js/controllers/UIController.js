@@ -22,6 +22,7 @@ export const UIController = {
       // Navigation elements
       menuCategories: document.getElementById("menu-categories"),
       categoryNavigation: document.querySelector(".category-navigation"),
+      categoryTabsContainer: document.querySelector(".category-tabs-container"),
       categoryList: document.getElementById("category-list"),
 
       // Content elements
@@ -46,7 +47,14 @@ export const UIController = {
    * Apply theme from state
    */
   applyTheme() {
-    document.body.classList.toggle("dark-theme", AppState.theme === "dark");
+    const isDark = AppState.theme === "dark";
+    document.body.classList.toggle("dark-theme", isDark);
+
+    // Keep mobile browser chrome in sync with the theme
+    const themeColorMeta = document.querySelector('meta[name="theme-color"]');
+    if (themeColorMeta) {
+      themeColorMeta.setAttribute("content", isDark ? "#171717" : "#fafafa");
+    }
   },
 
   /**
@@ -127,13 +135,10 @@ export const UIController = {
     // Append all tabs at once
     this.elements.menuCategories.appendChild(fragment);
 
-    // Reset scroll position
-    if (this.elements.categoryNavigation) {
-      this.elements.categoryNavigation.scrollLeft = 0;
+    // Reset scroll position of the actual scroll container
+    if (this.elements.categoryTabsContainer) {
+      this.elements.categoryTabsContainer.scrollLeft = 0;
     }
-
-    // Update scroll state
-    this.updateScrollState();
   },
 
   /**
@@ -210,36 +215,40 @@ export const UIController = {
   },
 
   /**
-   * Notify scroll handler that a tab has been activated
+   * Notify that a tab has been activated - keeps it centered in view
    */
   notifyTabActivated() {
-    if (this.elements.categoryNavigation) {
-      // Create and dispatch a custom event
-      const event = new CustomEvent("tabActivated");
-      this.elements.categoryNavigation.dispatchEvent(event);
-
-      // Also use the global API if available
-      if (window.menuScrolling && window.menuScrolling.centerActiveTab) {
-        window.menuScrolling.centerActiveTab();
-      }
-    }
+    this.centerActiveTab();
   },
 
   /**
-   * Update scroll state and indicators
+   * Center the active category tab within the scrollable container
    */
-  updateScrollState() {
-    // Use global API if available
-    if (window.menuScrolling && window.menuScrolling.updateIndicators) {
-      window.menuScrolling.updateIndicators();
-    }
+  centerActiveTab() {
+    const container = this.elements.categoryTabsContainer;
+    if (!container) return;
+
+    // Wait a frame so newly toggled classes/layout are settled
+    requestAnimationFrame(() => {
+      const activeTab = container.querySelector(".category-tab.active");
+      if (!activeTab) return;
+
+      const containerWidth = container.clientWidth;
+      const tabCenter = activeTab.offsetLeft + activeTab.offsetWidth / 2;
+      const scrollTarget = tabCenter - containerWidth / 2;
+
+      container.scrollTo({
+        left: scrollTarget,
+        behavior: "smooth",
+      });
+    });
   },
 
   /**
-   * Update scroll indicators (for external use)
+   * Re-center the active tab (used by resize/orientation handlers)
    */
   updateScrollIndicators() {
-    this.updateScrollState();
+    this.centerActiveTab();
   },
 
   /**
@@ -652,27 +661,32 @@ export const UIController = {
         dualPricing.appendChild(bottlePrice);
         pricing.appendChild(dualPricing);
       } else {
-        // Single price (bottle only) - SHOW BOTTLE LABEL
+        // Single price - bottle label when a bottle price exists,
+        // glass label for glass-only wines (e.g. Sangria)
+        const isGlassOnly = !item.priceBottle && item.priceGlass;
+        const labelKey = isGlassOnly ? "glassLabel" : "bottleLabel";
+        const amount = isGlassOnly
+          ? item.priceGlass
+          : item.priceBottle || item.price;
+
         const singlePrice = document.createElement("div");
         singlePrice.className = "price-dual"; // Use dual styling for consistent layout
 
-        const bottlePrice = document.createElement("div");
-        bottlePrice.className = "price-bottle";
+        const priceOption = document.createElement("div");
+        priceOption.className = isGlassOnly ? "price-glass" : "price-bottle";
 
-        const bottleLabel = document.createElement("span");
-        bottleLabel.className = "price-label";
-        bottleLabel.textContent = AppState.getText("bottleLabel");
+        const priceLabel = document.createElement("span");
+        priceLabel.className = "price-label";
+        priceLabel.textContent = AppState.getText(labelKey);
 
-        const bottleAmount = document.createElement("span");
-        bottleAmount.className = "price-amount";
-        bottleAmount.textContent = this.formatPrice(
-          item.priceBottle || item.price
-        );
+        const priceAmount = document.createElement("span");
+        priceAmount.className = "price-amount";
+        priceAmount.textContent = this.formatPrice(amount);
 
-        bottlePrice.appendChild(bottleLabel);
-        bottlePrice.appendChild(bottleAmount);
+        priceOption.appendChild(priceLabel);
+        priceOption.appendChild(priceAmount);
 
-        singlePrice.appendChild(bottlePrice);
+        singlePrice.appendChild(priceOption);
         pricing.appendChild(singlePrice);
       }
     }
