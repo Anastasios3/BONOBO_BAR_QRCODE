@@ -3,6 +3,9 @@
  */
 
 export const CONFIG = {
+  // Bump on every menu/data update. Used to version the data requests
+  // so a cached config can never pair with mismatched JSON data.
+  APP_VERSION: "2026-06-12-1",
   STORAGE_KEYS: {
     LANGUAGE: "bonobo-language",
     THEME: "bonobo-theme",
@@ -36,7 +39,7 @@ export const CONFIG = {
     ],
     beer: ["draft", "bottles", "craft"],
     wine: ["sparkling", "white", "rose", "red"],
-    cocktails: ["low-alcoholic", "signature", "classic", "mocktails"],
+    cocktails: ["low-alcoholic", "signature", "mocktails", "classic"],
   },
   CATEGORIES: ["coffee", "food", "spirits", "beer", "wine", "cocktails"],
   TIME_PERIODS: {

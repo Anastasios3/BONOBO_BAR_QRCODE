@@ -42,7 +42,9 @@ export const DataController = {
    */
   async loadCategoryData(category) {
     try {
-      const response = await fetch(`data/${category}.json`);
+      const response = await fetch(
+        `data/${category}.json?v=${CONFIG.APP_VERSION}`
+      );
 
       if (!response.ok) {
         throw new Error(

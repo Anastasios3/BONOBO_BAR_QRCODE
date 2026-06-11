@@ -417,22 +417,35 @@ export const UIController = {
       // Get the correct time-aware order for this category
       const subcategoryOrder = AppState.getTimeAwareSubcategories(category);
 
+      const appendSection = (subcategory) => {
+        const subcategoryHeader = this.createSubcategoryHeader(
+          subcategory,
+          category
+        );
+        fragment.appendChild(subcategoryHeader);
+
+        groupedItems[subcategory].forEach((item) => {
+          const menuItem = this.createMenuItem(item, category, itemIndex);
+          fragment.appendChild(menuItem);
+          itemIndex++;
+        });
+      };
+
       // Create items by subcategory with headers in the correct time-aware order
       subcategoryOrder.forEach((subcategory) => {
         if (groupedItems[subcategory] && groupedItems[subcategory].length > 0) {
-          // Add subcategory header
-          const subcategoryHeader = this.createSubcategoryHeader(
-            subcategory,
-            category
-          );
-          fragment.appendChild(subcategoryHeader);
+          appendSection(subcategory);
+        }
+      });
 
-          // Add items for this subcategory
-          groupedItems[subcategory].forEach((item) => {
-            const menuItem = this.createMenuItem(item, category, itemIndex);
-            fragment.appendChild(menuItem);
-            itemIndex++;
-          });
+      // Render subcategories missing from the configured order (e.g. a
+      // cached config older than the data) instead of hiding their items
+      Object.keys(groupedItems).forEach((subcategory) => {
+        if (
+          !subcategoryOrder.includes(subcategory) &&
+          groupedItems[subcategory].length > 0
+        ) {
+          appendSection(subcategory);
         }
       });
 

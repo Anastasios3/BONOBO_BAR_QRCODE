@@ -233,8 +233,24 @@ class AppStateClass {
 
     const timeAwareSubcategories = this.getTimeAwareSubcategories(category);
 
+    // Include subcategories present in the data but missing from the
+    // configured list (e.g. a cached config older than the data), so
+    // their items stay reachable. Food keeps its time-based list only.
+    const known = new Set(timeAwareSubcategories);
+    const extra =
+      category === "food"
+        ? []
+        : this.menuData[category]
+            .map((item) => item.subcategory)
+            .filter(
+              (subcategory, index, all) =>
+                subcategory &&
+                !known.has(subcategory) &&
+                all.indexOf(subcategory) === index
+            );
+
     // Filter to only include subcategories that have items and are time-allowed
-    return timeAwareSubcategories.filter((subcategory) => {
+    return [...timeAwareSubcategories, ...extra].filter((subcategory) => {
       // Check if there are items in this subcategory
       const hasItems = this.menuData[category].some(
         (item) =>
