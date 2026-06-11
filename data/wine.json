@@ -55,8 +55,8 @@
         "en": "Moschato Spinas white wine from the Patrianakis Estate with intense aromas of white flowers, fresh rose petals, and jasmine. Leaves sweet notes of Moschato on the palate.",
         "el": "Μοσχάτο Σπίνας λευκός οίνος από το Κτήμα Πατεριανάκη με έντονα αρώματα λευκών λουλουδιών, φρέσκων ροδοπέταλων και γιασεμιού. Αφήνει γλυκές νότες Μοσχάτου στον ουρανίσκο."
       },
-      "priceGlass": 5.5,
-      "priceBottle": 24.0,
+      "priceGlass": 6.0,
+      "priceBottle": 28.0,
       "subcategory": "white",
       "available": true
     },
@@ -104,6 +104,21 @@
       "available": true
     },
     {
+      "id": "white-wine-006",
+      "name": {
+        "en": "Durakis Winery / Dione (Medium-Sweet)",
+        "el": "Οινοποιείο Ντουράκης / Διώνη (Ημίγλυκο)"
+      },
+      "description": {
+        "en": "A medium-sweet blend from Durakis Winery with vibrant fruit aromas and balanced sweetness. Approachable and aromatic with a smooth, lingering finish.",
+        "el": "Ένα ημίγλυκο blend από το Οινοποιείο Ντουράκης με ζωηρά αρώματα φρούτων και ισορροπημένη γλυκύτητα. Προσιτό και αρωματικό με απαλό, παρατεταμένο τελείωμα."
+      },
+      "priceGlass": 5.0,
+      "priceBottle": 22.0,
+      "subcategory": "white",
+      "available": true
+    },
+    {
       "id": "rose-wine-001",
       "name": {
         "en": "Malagaki Winery / 2 Faraggia",
@@ -129,7 +144,7 @@
         "el": "Ημίξηρο ροζέ από την περιοχή Δαφνές Ηρακλείου, που συνδυάζει 80% Μοσχάτο Σπίνας και 20% Λιάτικο από αμπελώνες 12 ετών σε υψόμετρο 350 μέτρων. Χειρωνακτικός τρύγος στις 2/9, με προζυμωτική εκχύλιση για 3 ώρες που ακολουθείται από κλασσική λευκή οινοποίηση στους 16°C και διακοπή ζύμωσης με ψύξη στο επιθυμητό επίπεδο σακχάρων. Περιέχει 17g/L υπολειμματικά σάκχαρα και 12.5% αλκοόλ."
       },
       "priceGlass": 5.5,
-      "priceBottle": 24.0,
+      "priceBottle": 25.0,
       "subcategory": "rose",
       "available": true
     },

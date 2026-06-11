@@ -12,7 +12,11 @@
       },
       "price": 8.0,
       "image": "johnie-walker-red-label.jpg",
-      "categories": ["whisky", "scotch", "blended"],
+      "categories": [
+        "whisky",
+        "scotch",
+        "blended"
+      ],
       "subcategory": "whisky",
       "available": true
     },
@@ -28,7 +32,11 @@
       },
       "price": 9.0,
       "image": "johnie-walker-black-label.jpg",
-      "categories": ["whisky", "scotch", "blended"],
+      "categories": [
+        "whisky",
+        "scotch",
+        "blended"
+      ],
       "subcategory": "whisky",
       "available": true
     },
@@ -44,7 +52,11 @@
       },
       "price": 8.0,
       "image": "famous-grouse.jpg",
-      "categories": ["whisky", "scotch", "blended"],
+      "categories": [
+        "whisky",
+        "scotch",
+        "blended"
+      ],
       "subcategory": "whisky",
       "available": true
     },
@@ -60,7 +72,11 @@
       },
       "price": 8.0,
       "image": "haig-gold-label.jpg",
-      "categories": ["whisky", "scotch", "blended"],
+      "categories": [
+        "whisky",
+        "scotch",
+        "blended"
+      ],
       "subcategory": "whisky",
       "available": true
     },
@@ -76,7 +92,11 @@
       },
       "price": 8.0,
       "image": "dewars-white-label.jpg",
-      "categories": ["whisky", "scotch", "blended"],
+      "categories": [
+        "whisky",
+        "scotch",
+        "blended"
+      ],
       "subcategory": "whisky",
       "available": true
     },
@@ -92,7 +112,11 @@
       },
       "price": 8.0,
       "image": "j-b.jpg",
-      "categories": ["whisky", "scotch", "blended"],
+      "categories": [
+        "whisky",
+        "scotch",
+        "blended"
+      ],
       "subcategory": "whisky",
       "available": true
     },
@@ -108,7 +132,11 @@
       },
       "price": 8.0,
       "image": "cutty-sark.jpg",
-      "categories": ["whisky", "scotch", "blended"],
+      "categories": [
+        "whisky",
+        "scotch",
+        "blended"
+      ],
       "subcategory": "whisky",
       "available": true
     },
@@ -124,7 +152,11 @@
       },
       "price": 9.0,
       "image": "dimple-golden-selection.jpg",
-      "categories": ["whisky", "scotch", "blended"],
+      "categories": [
+        "whisky",
+        "scotch",
+        "blended"
+      ],
       "subcategory": "whisky",
       "available": true
     },
@@ -140,7 +172,11 @@
       },
       "price": 9.0,
       "image": "chivas-12-years.jpg",
-      "categories": ["whisky", "scotch", "blended"],
+      "categories": [
+        "whisky",
+        "scotch",
+        "blended"
+      ],
       "subcategory": "whisky",
       "available": true
     },
@@ -156,7 +192,11 @@
       },
       "price": 9.0,
       "image": "monkey-shoulder.jpg",
-      "categories": ["whisky", "scotch", "blended"],
+      "categories": [
+        "whisky",
+        "scotch",
+        "blended"
+      ],
       "subcategory": "whisky",
       "available": true
     },
@@ -172,7 +212,11 @@
       },
       "price": 19.0,
       "image": "compass-box-hedonism.jpg",
-      "categories": ["whisky", "scotch", "blended"],
+      "categories": [
+        "whisky",
+        "scotch",
+        "blended"
+      ],
       "subcategory": "whisky",
       "available": true
     },
@@ -188,7 +232,11 @@
       },
       "price": 14.0,
       "image": "compass-box-peat-monster.jpg",
-      "categories": ["whisky", "scotch", "blended"],
+      "categories": [
+        "whisky",
+        "scotch",
+        "blended"
+      ],
       "subcategory": "whisky",
       "available": true
     },
@@ -204,7 +252,12 @@
       },
       "price": 10.0,
       "image": "auchentochan-american-oak.jpg",
-      "categories": ["whisky", "scotch", "single-malt", "lowlands"],
+      "categories": [
+        "whisky",
+        "scotch",
+        "single-malt",
+        "lowlands"
+      ],
       "subcategory": "whisky",
       "available": true
     },
@@ -220,7 +273,12 @@
       },
       "price": 16.0,
       "image": "oban-14-years.jpg",
-      "categories": ["whisky", "scotch", "single-malt", "highlands"],
+      "categories": [
+        "whisky",
+        "scotch",
+        "single-malt",
+        "highlands"
+      ],
       "subcategory": "whisky",
       "available": true
     },
@@ -236,7 +294,12 @@
       },
       "price": 14.0,
       "image": "tomatin-cask-strength.jpg",
-      "categories": ["whisky", "scotch", "single-malt", "highlands"],
+      "categories": [
+        "whisky",
+        "scotch",
+        "single-malt",
+        "highlands"
+      ],
       "subcategory": "whisky",
       "available": true
     },
@@ -252,7 +315,12 @@
       },
       "price": 15.0,
       "image": "clynelish-14-years.jpg",
-      "categories": ["whisky", "scotch", "single-malt", "highlands"],
+      "categories": [
+        "whisky",
+        "scotch",
+        "single-malt",
+        "highlands"
+      ],
       "subcategory": "whisky",
       "available": true
     },
@@ -268,7 +336,12 @@
       },
       "price": 9.0,
       "image": "loch-lomond-grain.jpg",
-      "categories": ["whisky", "scotch", "grain", "highlands"],
+      "categories": [
+        "whisky",
+        "scotch",
+        "grain",
+        "highlands"
+      ],
       "subcategory": "whisky",
       "available": true
     },
@@ -284,7 +357,12 @@
       },
       "price": 14.0,
       "image": "glengoyne-10-years.jpg",
-      "categories": ["whisky", "scotch", "single-malt", "highlands"],
+      "categories": [
+        "whisky",
+        "scotch",
+        "single-malt",
+        "highlands"
+      ],
       "subcategory": "whisky",
       "available": true
     },
@@ -300,7 +378,12 @@
       },
       "price": 18.0,
       "image": "glengoyne-cask-strength.jpg",
-      "categories": ["whisky", "scotch", "single-malt", "highlands"],
+      "categories": [
+        "whisky",
+        "scotch",
+        "single-malt",
+        "highlands"
+      ],
       "subcategory": "whisky",
       "available": true
     },
@@ -316,7 +399,12 @@
       },
       "price": 17.0,
       "image": "glen-dronach-12-years.jpg",
-      "categories": ["whisky", "scotch", "single-malt", "highlands"],
+      "categories": [
+        "whisky",
+        "scotch",
+        "single-malt",
+        "highlands"
+      ],
       "subcategory": "whisky",
       "available": true
     },
@@ -332,7 +420,12 @@
       },
       "price": 13.0,
       "image": "deveron-12-years.jpg",
-      "categories": ["whisky", "scotch", "single-malt", "highlands"],
+      "categories": [
+        "whisky",
+        "scotch",
+        "single-malt",
+        "highlands"
+      ],
       "subcategory": "whisky",
       "available": true
     },
@@ -348,7 +441,12 @@
       },
       "price": 19.0,
       "image": "single-malts-of-scotland-clynelish-8-years.jpg",
-      "categories": ["whisky", "scotch", "single-malt", "highlands"],
+      "categories": [
+        "whisky",
+        "scotch",
+        "single-malt",
+        "highlands"
+      ],
       "subcategory": "whisky",
       "available": true
     },
@@ -364,7 +462,12 @@
       },
       "price": 11.0,
       "image": "ancnoc-12-years.jpg",
-      "categories": ["whisky", "scotch", "single-malt", "speyside"],
+      "categories": [
+        "whisky",
+        "scotch",
+        "single-malt",
+        "speyside"
+      ],
       "subcategory": "whisky",
       "available": true
     },
@@ -380,7 +483,12 @@
       },
       "price": 10.0,
       "image": "glenfiddich-12-years.jpg",
-      "categories": ["whisky", "scotch", "single-malt", "speyside"],
+      "categories": [
+        "whisky",
+        "scotch",
+        "single-malt",
+        "speyside"
+      ],
       "subcategory": "whisky",
       "available": true
     },
@@ -396,7 +504,12 @@
       },
       "price": 13.0,
       "image": "aberlour-12-years-double-cask-matured.jpg",
-      "categories": ["whisky", "scotch", "single-malt", "speyside"],
+      "categories": [
+        "whisky",
+        "scotch",
+        "single-malt",
+        "speyside"
+      ],
       "subcategory": "whisky",
       "available": true
     },
@@ -412,7 +525,12 @@
       },
       "price": 16.0,
       "image": "mortlach-12-years.jpg",
-      "categories": ["whisky", "scotch", "single-malt", "speyside"],
+      "categories": [
+        "whisky",
+        "scotch",
+        "single-malt",
+        "speyside"
+      ],
       "subcategory": "whisky",
       "available": true
     },
@@ -428,7 +546,12 @@
       },
       "price": 10.0,
       "image": "cardhu-12-years.jpg",
-      "categories": ["whisky", "scotch", "single-malt", "speyside"],
+      "categories": [
+        "whisky",
+        "scotch",
+        "single-malt",
+        "speyside"
+      ],
       "subcategory": "whisky",
       "available": true
     },
@@ -444,7 +567,12 @@
       },
       "price": 15.0,
       "image": "tamdu-12-years.jpg",
-      "categories": ["whisky", "scotch", "single-malt", "speyside"],
+      "categories": [
+        "whisky",
+        "scotch",
+        "single-malt",
+        "speyside"
+      ],
       "subcategory": "whisky",
       "available": true
     },
@@ -460,7 +588,12 @@
       },
       "price": 12.0,
       "image": "glenfarclas-10-years.jpg",
-      "categories": ["whisky", "scotch", "single-malt", "speyside"],
+      "categories": [
+        "whisky",
+        "scotch",
+        "single-malt",
+        "speyside"
+      ],
       "subcategory": "whisky",
       "available": true
     },
@@ -476,7 +609,12 @@
       },
       "price": 16.0,
       "image": "glenlivet-nadurra-olorooso-finish.jpg",
-      "categories": ["whisky", "scotch", "single-malt", "speyside"],
+      "categories": [
+        "whisky",
+        "scotch",
+        "single-malt",
+        "speyside"
+      ],
       "subcategory": "whisky",
       "available": true
     },
@@ -492,7 +630,12 @@
       },
       "price": 20.0,
       "image": "single-malts-of-scotland-linkwood-12-years.jpg",
-      "categories": ["whisky", "scotch", "single-malt", "speyside"],
+      "categories": [
+        "whisky",
+        "scotch",
+        "single-malt",
+        "speyside"
+      ],
       "subcategory": "whisky",
       "available": true
     },
@@ -508,7 +651,12 @@
       },
       "price": 15.0,
       "image": "glenallachie-12-year.jpg",
-      "categories": ["whisky", "scotch", "single-malt", "speyside"],
+      "categories": [
+        "whisky",
+        "scotch",
+        "single-malt",
+        "speyside"
+      ],
       "subcategory": "whisky",
       "available": true
     },
@@ -524,7 +672,12 @@
       },
       "price": 18.0,
       "image": "aultmore-foggie-moss-12-years.jpg",
-      "categories": ["whisky", "scotch", "single-malt", "speyside"],
+      "categories": [
+        "whisky",
+        "scotch",
+        "single-malt",
+        "speyside"
+      ],
       "subcategory": "whisky",
       "available": true
     },
@@ -540,7 +693,12 @@
       },
       "price": 21.0,
       "image": "balvenie-14-years.jpg",
-      "categories": ["whisky", "scotch", "single-malt", "speyside"],
+      "categories": [
+        "whisky",
+        "scotch",
+        "single-malt",
+        "speyside"
+      ],
       "subcategory": "whisky",
       "available": true
     },
@@ -554,9 +712,14 @@
         "en": "Scotland, Campbeltown, 46%ABV",
         "el": "Σκωτία, Campbeltown, 46%ABV"
       },
-      "price": 14.0,
+      "price": 15.0,
       "image": "glen-scotia-double-cask.jpg",
-      "categories": ["whisky", "scotch", "single-malt", "campbeltown"],
+      "categories": [
+        "whisky",
+        "scotch",
+        "single-malt",
+        "campbeltown"
+      ],
       "subcategory": "whisky",
       "available": true
     },
@@ -572,7 +735,12 @@
       },
       "price": 14.0,
       "image": "laphroaig-10-years.jpg",
-      "categories": ["whisky", "scotch", "single-malt", "islay"],
+      "categories": [
+        "whisky",
+        "scotch",
+        "single-malt",
+        "islay"
+      ],
       "subcategory": "whisky",
       "available": true
     },
@@ -588,7 +756,12 @@
       },
       "price": 16.0,
       "image": "ardberg-10-years.jpg",
-      "categories": ["whisky", "scotch", "single-malt", "islay"],
+      "categories": [
+        "whisky",
+        "scotch",
+        "single-malt",
+        "islay"
+      ],
       "subcategory": "whisky",
       "available": true
     },
@@ -604,7 +777,12 @@
       },
       "price": 19.0,
       "image": "lagavulin-16-years.jpg",
-      "categories": ["whisky", "scotch", "single-malt", "islay"],
+      "categories": [
+        "whisky",
+        "scotch",
+        "single-malt",
+        "islay"
+      ],
       "subcategory": "whisky",
       "available": true
     },
@@ -620,7 +798,12 @@
       },
       "price": 16.0,
       "image": "bruichladdich-classic-laddie.jpg",
-      "categories": ["whisky", "scotch", "single-malt", "islay"],
+      "categories": [
+        "whisky",
+        "scotch",
+        "single-malt",
+        "islay"
+      ],
       "subcategory": "whisky",
       "available": true
     },
@@ -636,7 +819,13 @@
       },
       "price": 17.0,
       "image": "bruichladdich-port-charlotte-10-yo-heavily-peated.jpg",
-      "categories": ["whisky", "scotch", "single-malt", "islay", "peated"],
+      "categories": [
+        "whisky",
+        "scotch",
+        "single-malt",
+        "islay",
+        "peated"
+      ],
       "subcategory": "whisky",
       "available": true
     },
@@ -652,7 +841,12 @@
       },
       "price": 17.0,
       "image": "bunnahabhain-toiteach.jpg",
-      "categories": ["whisky", "scotch", "single-malt", "islay"],
+      "categories": [
+        "whisky",
+        "scotch",
+        "single-malt",
+        "islay"
+      ],
       "subcategory": "whisky",
       "available": true
     },
@@ -668,7 +862,12 @@
       },
       "price": 19.0,
       "image": "bowmore-15-sherry-cask-43.jpg",
-      "categories": ["whisky", "scotch", "single-malt", "islay"],
+      "categories": [
+        "whisky",
+        "scotch",
+        "single-malt",
+        "islay"
+      ],
       "subcategory": "whisky",
       "available": true
     },
@@ -684,7 +883,12 @@
       },
       "price": 14.0,
       "image": "caol-ila-12-years.jpg",
-      "categories": ["whisky", "scotch", "single-malt", "islay"],
+      "categories": [
+        "whisky",
+        "scotch",
+        "single-malt",
+        "islay"
+      ],
       "subcategory": "whisky",
       "available": true
     },
@@ -700,7 +904,12 @@
       },
       "price": 18.0,
       "image": "smokehead-sherry-cask-blast.jpg",
-      "categories": ["whisky", "scotch", "single-malt", "islay"],
+      "categories": [
+        "whisky",
+        "scotch",
+        "single-malt",
+        "islay"
+      ],
       "subcategory": "whisky",
       "available": true
     },
@@ -716,7 +925,12 @@
       },
       "price": 16.0,
       "image": "port-askaig-100-proof.jpg",
-      "categories": ["whisky", "scotch", "single-malt", "islay"],
+      "categories": [
+        "whisky",
+        "scotch",
+        "single-malt",
+        "islay"
+      ],
       "subcategory": "whisky",
       "available": true
     },
@@ -732,7 +946,12 @@
       },
       "price": 14.0,
       "image": "kilchoman-machir-bay.jpg",
-      "categories": ["whisky", "scotch", "single-malt", "islay"],
+      "categories": [
+        "whisky",
+        "scotch",
+        "single-malt",
+        "islay"
+      ],
       "subcategory": "whisky",
       "available": true
     },
@@ -748,7 +967,12 @@
       },
       "price": 15.0,
       "image": "mac-talla-classic.jpg",
-      "categories": ["whisky", "scotch", "single-malt", "islay"],
+      "categories": [
+        "whisky",
+        "scotch",
+        "single-malt",
+        "islay"
+      ],
       "subcategory": "whisky",
       "available": true
     },
@@ -764,7 +988,13 @@
       },
       "price": 12.0,
       "image": "elements-of-isla-peat-pure.jpg",
-      "categories": ["whisky", "scotch", "single-malt", "islay", "peated"],
+      "categories": [
+        "whisky",
+        "scotch",
+        "single-malt",
+        "islay",
+        "peated"
+      ],
       "subcategory": "whisky",
       "available": true
     },
@@ -780,7 +1010,13 @@
       },
       "price": 15.0,
       "image": "elements-peat-full-proof.jpg",
-      "categories": ["whisky", "scotch", "single-malt", "islay", "peated"],
+      "categories": [
+        "whisky",
+        "scotch",
+        "single-malt",
+        "islay",
+        "peated"
+      ],
       "subcategory": "whisky",
       "available": true
     },
@@ -796,7 +1032,12 @@
       },
       "price": 22.0,
       "image": "elements-ci-8.jpg",
-      "categories": ["whisky", "scotch", "single-malt", "islay"],
+      "categories": [
+        "whisky",
+        "scotch",
+        "single-malt",
+        "islay"
+      ],
       "subcategory": "whisky",
       "available": true
     },
@@ -812,7 +1053,12 @@
       },
       "price": 11.0,
       "image": "talisker-single-malt-10-yo.jpg",
-      "categories": ["whisky", "scotch", "single-malt", "islands"],
+      "categories": [
+        "whisky",
+        "scotch",
+        "single-malt",
+        "islands"
+      ],
       "subcategory": "whisky",
       "available": true
     },
@@ -828,7 +1074,12 @@
       },
       "price": 10.0,
       "image": "arran-barrel-reserve.jpg",
-      "categories": ["whisky", "scotch", "single-malt", "islands"],
+      "categories": [
+        "whisky",
+        "scotch",
+        "single-malt",
+        "islands"
+      ],
       "subcategory": "whisky",
       "available": true
     },
@@ -844,7 +1095,12 @@
       },
       "price": 16.0,
       "image": "arran-sherry-cask.jpg",
-      "categories": ["whisky", "scotch", "single-malt", "islands"],
+      "categories": [
+        "whisky",
+        "scotch",
+        "single-malt",
+        "islands"
+      ],
       "subcategory": "whisky",
       "available": true
     },
@@ -860,7 +1116,12 @@
       },
       "price": 15.0,
       "image": "arran-amarone-finish.jpg",
-      "categories": ["whisky", "scotch", "single-malt", "islands"],
+      "categories": [
+        "whisky",
+        "scotch",
+        "single-malt",
+        "islands"
+      ],
       "subcategory": "whisky",
       "available": true
     },
@@ -876,7 +1137,12 @@
       },
       "price": 15.0,
       "image": "arran-port-finish.jpg",
-      "categories": ["whisky", "scotch", "single-malt", "islands"],
+      "categories": [
+        "whisky",
+        "scotch",
+        "single-malt",
+        "islands"
+      ],
       "subcategory": "whisky",
       "available": true
     },
@@ -892,7 +1158,12 @@
       },
       "price": 15.0,
       "image": "torabhaig-legacy-2017.jpg",
-      "categories": ["whisky", "scotch", "single-malt", "islands"],
+      "categories": [
+        "whisky",
+        "scotch",
+        "single-malt",
+        "islands"
+      ],
       "subcategory": "whisky",
       "available": true
     },
@@ -908,7 +1179,12 @@
       },
       "price": 20.0,
       "image": "single-malts-of-scotland-orkney-13-years.jpg",
-      "categories": ["whisky", "scotch", "single-malt", "islands"],
+      "categories": [
+        "whisky",
+        "scotch",
+        "single-malt",
+        "islands"
+      ],
       "subcategory": "whisky",
       "available": true
     },
@@ -924,7 +1200,11 @@
       },
       "price": 8.0,
       "image": "jameson.jpg",
-      "categories": ["whisky", "irish", "blend"],
+      "categories": [
+        "whisky",
+        "irish",
+        "blend"
+      ],
       "subcategory": "whisky",
       "available": true
     },
@@ -940,7 +1220,11 @@
       },
       "price": 9.0,
       "image": "jameson-black-barrel.jpg",
-      "categories": ["whisky", "irish", "blend"],
+      "categories": [
+        "whisky",
+        "irish",
+        "blend"
+      ],
       "subcategory": "whisky",
       "available": true
     },
@@ -956,7 +1240,11 @@
       },
       "price": 8.0,
       "image": "bushmills-original.jpg",
-      "categories": ["whisky", "irish", "blend"],
+      "categories": [
+        "whisky",
+        "irish",
+        "blend"
+      ],
       "subcategory": "whisky",
       "available": true
     },
@@ -972,7 +1260,11 @@
       },
       "price": 8.0,
       "image": "tullamore-dew.jpg",
-      "categories": ["whisky", "irish", "blend"],
+      "categories": [
+        "whisky",
+        "irish",
+        "blend"
+      ],
       "subcategory": "whisky",
       "available": true
     },
@@ -988,7 +1280,11 @@
       },
       "price": 14.0,
       "image": "redbreast-12-years.jpg",
-      "categories": ["whisky", "irish", "single-pot-still"],
+      "categories": [
+        "whisky",
+        "irish",
+        "single-pot-still"
+      ],
       "subcategory": "whisky",
       "available": true
     },
@@ -1004,7 +1300,11 @@
       },
       "price": 10.0,
       "image": "connemara-original-peated.jpg",
-      "categories": ["whisky", "irish", "peated"],
+      "categories": [
+        "whisky",
+        "irish",
+        "peated"
+      ],
       "subcategory": "whisky",
       "available": true
     },
@@ -1020,7 +1320,11 @@
       },
       "price": 12.0,
       "image": "teeling-single-grain.jpg",
-      "categories": ["whisky", "irish", "single-grain"],
+      "categories": [
+        "whisky",
+        "irish",
+        "single-grain"
+      ],
       "subcategory": "whisky",
       "available": true
     },
@@ -1036,7 +1340,11 @@
       },
       "price": 9.0,
       "image": "teeling-small-batch-whiskey.jpg",
-      "categories": ["whisky", "irish", "small-batch"],
+      "categories": [
+        "whisky",
+        "irish",
+        "small-batch"
+      ],
       "subcategory": "whisky",
       "available": true
     },
@@ -1052,7 +1360,11 @@
       },
       "price": 16.0,
       "image": "green-spot-chateau-montelena-ex-zinfandel-casks.jpg",
-      "categories": ["whisky", "irish", "single-pot-still"],
+      "categories": [
+        "whisky",
+        "irish",
+        "single-pot-still"
+      ],
       "subcategory": "whisky",
       "available": true
     },
@@ -1068,7 +1380,11 @@
       },
       "price": 16.0,
       "image": "green-spot-chateau-leoville-bartong.jpg",
-      "categories": ["whisky", "irish", "single-pot-still"],
+      "categories": [
+        "whisky",
+        "irish",
+        "single-pot-still"
+      ],
       "subcategory": "whisky",
       "available": true
     },
@@ -1084,7 +1400,11 @@
       },
       "price": 19.0,
       "image": "yellow-spot-12-year-single-pot-still.jpg",
-      "categories": ["whisky", "irish", "single-pot-still"],
+      "categories": [
+        "whisky",
+        "irish",
+        "single-pot-still"
+      ],
       "subcategory": "whisky",
       "available": true
     },
@@ -1100,7 +1420,11 @@
       },
       "price": 18.0,
       "image": "waterford-organic-gaia-1-1.jpg",
-      "categories": ["whisky", "irish", "single-malt"],
+      "categories": [
+        "whisky",
+        "irish",
+        "single-malt"
+      ],
       "subcategory": "whisky",
       "available": true
     },
@@ -1116,7 +1440,11 @@
       },
       "price": 8.0,
       "image": "four-roses-bourbon.jpg",
-      "categories": ["whisky", "american", "bourbon"],
+      "categories": [
+        "whisky",
+        "american",
+        "bourbon"
+      ],
       "subcategory": "whisky",
       "available": true
     },
@@ -1132,7 +1460,11 @@
       },
       "price": 9.0,
       "image": "bulleit-bourbon.jpg",
-      "categories": ["whisky", "american", "bourbon"],
+      "categories": [
+        "whisky",
+        "american",
+        "bourbon"
+      ],
       "subcategory": "whisky",
       "available": true
     },
@@ -1148,7 +1480,11 @@
       },
       "price": 10.0,
       "image": "bulleit-rye.jpg",
-      "categories": ["whisky", "american", "rye"],
+      "categories": [
+        "whisky",
+        "american",
+        "rye"
+      ],
       "subcategory": "whisky",
       "available": true
     },
@@ -1164,7 +1500,11 @@
       },
       "price": 9.0,
       "image": "canadian-club.jpg",
-      "categories": ["whisky", "canadian", "blended"],
+      "categories": [
+        "whisky",
+        "canadian",
+        "blended"
+      ],
       "subcategory": "whisky",
       "available": true
     },
@@ -1180,7 +1520,11 @@
       },
       "price": 9.0,
       "image": "jack-daniels.jpg",
-      "categories": ["whisky", "american", "tennessee"],
+      "categories": [
+        "whisky",
+        "american",
+        "tennessee"
+      ],
       "subcategory": "whisky",
       "available": true
     },
@@ -1196,7 +1540,11 @@
       },
       "price": 12.0,
       "image": "jack-daniels-single-barrel.jpg",
-      "categories": ["whisky", "american", "tennessee"],
+      "categories": [
+        "whisky",
+        "american",
+        "tennessee"
+      ],
       "subcategory": "whisky",
       "available": true
     },
@@ -1212,7 +1560,11 @@
       },
       "price": 14.0,
       "image": "eagle-rare-single-barrel-bourbon.jpg",
-      "categories": ["whisky", "american", "bourbon"],
+      "categories": [
+        "whisky",
+        "american",
+        "bourbon"
+      ],
       "subcategory": "whisky",
       "available": true
     },
@@ -1228,7 +1580,11 @@
       },
       "price": 16.0,
       "image": "few-bourbon-whisky.jpg",
-      "categories": ["whisky", "american", "bourbon"],
+      "categories": [
+        "whisky",
+        "american",
+        "bourbon"
+      ],
       "subcategory": "whisky",
       "available": true
     },
@@ -1244,7 +1600,11 @@
       },
       "price": 10.0,
       "image": "makers-mark-bourbon.jpg",
-      "categories": ["whisky", "american", "bourbon"],
+      "categories": [
+        "whisky",
+        "american",
+        "bourbon"
+      ],
       "subcategory": "whisky",
       "available": true
     },
@@ -1260,7 +1620,11 @@
       },
       "price": 18.0,
       "image": "michters-small-batch-bourbon.jpg",
-      "categories": ["whisky", "american", "bourbon"],
+      "categories": [
+        "whisky",
+        "american",
+        "bourbon"
+      ],
       "subcategory": "whisky",
       "available": true
     },
@@ -1276,7 +1640,10 @@
       },
       "price": 18.0,
       "image": "michters-small-batch-sour-mash.jpg",
-      "categories": ["whisky", "american"],
+      "categories": [
+        "whisky",
+        "american"
+      ],
       "subcategory": "whisky",
       "available": true
     },
@@ -1292,7 +1659,11 @@
       },
       "price": 18.0,
       "image": "millstone-100-rye.jpg",
-      "categories": ["whisky", "dutch", "rye"],
+      "categories": [
+        "whisky",
+        "dutch",
+        "rye"
+      ],
       "subcategory": "whisky",
       "available": true
     },
@@ -1308,7 +1679,11 @@
       },
       "price": 14.0,
       "image": "sazerac-rye-6-year.jpg",
-      "categories": ["whisky", "american", "rye"],
+      "categories": [
+        "whisky",
+        "american",
+        "rye"
+      ],
       "subcategory": "whisky",
       "available": true
     },
@@ -1324,7 +1699,10 @@
       },
       "price": 16.0,
       "image": "koval-millet.jpg",
-      "categories": ["whisky", "american"],
+      "categories": [
+        "whisky",
+        "american"
+      ],
       "subcategory": "whisky",
       "available": true
     },
@@ -1340,7 +1718,10 @@
       },
       "price": 16.0,
       "image": "nikka-coffey-malt.jpg",
-      "categories": ["whisky", "japanese"],
+      "categories": [
+        "whisky",
+        "japanese"
+      ],
       "subcategory": "whisky",
       "available": true
     },
@@ -1356,7 +1737,10 @@
       },
       "price": 15.0,
       "image": "nikka-coffey-grain.jpg",
-      "categories": ["whisky", "japanese"],
+      "categories": [
+        "whisky",
+        "japanese"
+      ],
       "subcategory": "whisky",
       "available": true
     },
@@ -1372,7 +1756,11 @@
       },
       "price": 16.0,
       "image": "nikka-from-the-barrel.jpg",
-      "categories": ["whisky", "japanese", "blended"],
+      "categories": [
+        "whisky",
+        "japanese",
+        "blended"
+      ],
       "subcategory": "whisky",
       "available": true
     },
@@ -1388,7 +1776,11 @@
       },
       "price": 20.0,
       "image": "nikka-yoichi-single-malt.jpg",
-      "categories": ["whisky", "japanese", "single-malt"],
+      "categories": [
+        "whisky",
+        "japanese",
+        "single-malt"
+      ],
       "subcategory": "whisky",
       "available": true
     },
@@ -1404,7 +1796,11 @@
       },
       "price": 17.0,
       "image": "kavalan-single-malt.jpg",
-      "categories": ["whisky", "taiwanese", "single-malt"],
+      "categories": [
+        "whisky",
+        "taiwanese",
+        "single-malt"
+      ],
       "subcategory": "whisky",
       "available": true
     },
@@ -1420,1431 +1816,11 @@
       },
       "price": 18.0,
       "image": "amrut-fusion.jpg",
-      "categories": ["whisky", "indian", "single-malt"],
-      "subcategory": "whisky",
-      "available": true
-    },
-    {
-      "id": "whiskey-001",
-      "name": {
-        "en": "Johnie Walker Red Label",
-        "el": "Johnie Walker Red Label"
-      },
-      "description": {
-        "en": "Scotland, Blended, 40%ABV",
-        "el": "Σκωτία, Blended, 40%ABV"
-      },
-      "price": 8.0,
-      "image": "johnie-walker-red-label.jpg",
-      "categories": ["whisky", "scotch", "blended"],
-      "subcategory": "whisky",
-      "available": true
-    },
-    {
-      "id": "whiskey-002",
-      "name": {
-        "en": "Johnie Walker Black Label",
-        "el": "Johnie Walker Black Label"
-      },
-      "description": {
-        "en": "Scotland, Blended, 40%ABV",
-        "el": "Σκωτία, Blended, 40%ABV"
-      },
-      "price": 9.0,
-      "image": "johnie-walker-black-label.jpg",
-      "categories": ["whisky", "scotch", "blended"],
-      "subcategory": "whisky",
-      "available": true
-    },
-    {
-      "id": "whiskey-003",
-      "name": {
-        "en": "Famous Grouse",
-        "el": "Famous Grouse"
-      },
-      "description": {
-        "en": "Scotland, Blended, 40%ABV",
-        "el": "Σκωτία, Blended, 40%ABV"
-      },
-      "price": 8.0,
-      "image": "famous-grouse.jpg",
-      "categories": ["whisky", "scotch", "blended"],
-      "subcategory": "whisky",
-      "available": true
-    },
-    {
-      "id": "whiskey-004",
-      "name": {
-        "en": "Haig Gold Label",
-        "el": "Haig Gold Label"
-      },
-      "description": {
-        "en": "Scotland, Blended, 40%ABV",
-        "el": "Σκωτία, Blended, 40%ABV"
-      },
-      "price": 8.0,
-      "image": "haig-gold-label.jpg",
-      "categories": ["whisky", "scotch", "blended"],
-      "subcategory": "whisky",
-      "available": true
-    },
-    {
-      "id": "whiskey-005",
-      "name": {
-        "en": "Dewar`s White Label",
-        "el": "Dewar`s White Label"
-      },
-      "description": {
-        "en": "Scotland, Blended, 40%ABV",
-        "el": "Σκωτία, Blended, 40%ABV"
-      },
-      "price": 8.0,
-      "image": "dewars-white-label.jpg",
-      "categories": ["whisky", "scotch", "blended"],
-      "subcategory": "whisky",
-      "available": true
-    },
-    {
-      "id": "whiskey-006",
-      "name": {
-        "en": "J&B",
-        "el": "J&B"
-      },
-      "description": {
-        "en": "Scotland, Blended, 40%ABV",
-        "el": "Σκωτία, Blended, 40%ABV"
-      },
-      "price": 8.0,
-      "image": "j-b.jpg",
-      "categories": ["whisky", "scotch", "blended"],
-      "subcategory": "whisky",
-      "available": true
-    },
-    {
-      "id": "whiskey-007",
-      "name": {
-        "en": "Cutty Sark",
-        "el": "Cutty Sark"
-      },
-      "description": {
-        "en": "Scotland, Blended, 40%ABV",
-        "el": "Σκωτία, Blended, 40%ABV"
-      },
-      "price": 8.0,
-      "image": "cutty-sark.jpg",
-      "categories": ["whisky", "scotch", "blended"],
-      "subcategory": "whisky",
-      "available": true
-    },
-    {
-      "id": "whiskey-008",
-      "name": {
-        "en": "Dimple Golden Selection",
-        "el": "Dimple Golden Selection"
-      },
-      "description": {
-        "en": "Scotland, Blended, 40%ABV",
-        "el": "Σκωτία, Blended, 40%ABV"
-      },
-      "price": 9.0,
-      "image": "dimple-golden-selection.jpg",
-      "categories": ["whisky", "scotch", "blended"],
-      "subcategory": "whisky",
-      "available": true
-    },
-    {
-      "id": "whiskey-009",
-      "name": {
-        "en": "Chivas 12 years",
-        "el": "Chivas 12 years"
-      },
-      "description": {
-        "en": "Scotland, Blended, 40%ABV",
-        "el": "Σκωτία, Blended, 40%ABV"
-      },
-      "price": 9.0,
-      "image": "chivas-12-years.jpg",
-      "categories": ["whisky", "scotch", "blended"],
-      "subcategory": "whisky",
-      "available": true
-    },
-    {
-      "id": "whiskey-010",
-      "name": {
-        "en": "Monkey Shoulder",
-        "el": "Monkey Shoulder"
-      },
-      "description": {
-        "en": "Scotland, Blended, 40%ABV",
-        "el": "Σκωτία, Blended, 40%ABV"
-      },
-      "price": 9.0,
-      "image": "monkey-shoulder.jpg",
-      "categories": ["whisky", "scotch", "blended"],
-      "subcategory": "whisky",
-      "available": true
-    },
-    {
-      "id": "whiskey-011",
-      "name": {
-        "en": "Compass Box Hedonism",
-        "el": "Compass Box Hedonism"
-      },
-      "description": {
-        "en": "Scotland, Blended, 43%ABV",
-        "el": "Σκωτία, Blended, 43%ABV"
-      },
-      "price": 19.0,
-      "image": "compass-box-hedonism.jpg",
-      "categories": ["whisky", "scotch", "blended"],
-      "subcategory": "whisky",
-      "available": true
-    },
-    {
-      "id": "whiskey-012",
-      "name": {
-        "en": "Compass Box Peat Monster",
-        "el": "Compass Box Peat Monster"
-      },
-      "description": {
-        "en": "Scotland, Blended, 46%ABV",
-        "el": "Σκωτία, Blended, 46%ABV"
-      },
-      "price": 14.0,
-      "image": "compass-box-peat-monster.jpg",
-      "categories": ["whisky", "scotch", "blended"],
-      "subcategory": "whisky",
-      "available": true
-    },
-    {
-      "id": "whiskey-013",
-      "name": {
-        "en": "Auchentochan American oak",
-        "el": "Auchentochan American oak"
-      },
-      "description": {
-        "en": "Scotland, Lowlands, 40%ABV",
-        "el": "Σκωτία, Lowlands, 40%ABV"
-      },
-      "price": 10.0,
-      "image": "auchentochan-american-oak.jpg",
-      "categories": ["whisky", "scotch", "single-malt", "lowlands"],
-      "subcategory": "whisky",
-      "available": true
-    },
-    {
-      "id": "whiskey-014",
-      "name": {
-        "en": "Oban 14 years",
-        "el": "Oban 14 years"
-      },
-      "description": {
-        "en": "Scotland, Highlands, 43%ABV",
-        "el": "Σκωτία, Highlands, 43%ABV"
-      },
-      "price": 16.0,
-      "image": "oban-14-years.jpg",
-      "categories": ["whisky", "scotch", "single-malt", "highlands"],
-      "subcategory": "whisky",
-      "available": true
-    },
-    {
-      "id": "whiskey-015",
-      "name": {
-        "en": "Tomatin Cask Strength",
-        "el": "Tomatin Cask Strength"
-      },
-      "description": {
-        "en": "Scotland, Highlands, 57,5%ABV",
-        "el": "Σκωτία, Highlands, 57,5%ABV"
-      },
-      "price": 14.0,
-      "image": "tomatin-cask-strength.jpg",
-      "categories": ["whisky", "scotch", "single-malt", "highlands"],
-      "subcategory": "whisky",
-      "available": true
-    },
-    {
-      "id": "whiskey-016",
-      "name": {
-        "en": "Clynelish 14 years",
-        "el": "Clynelish 14 years"
-      },
-      "description": {
-        "en": "Scotland, Highlands, 46%ABV",
-        "el": "Σκωτία, Highlands, 46%ABV"
-      },
-      "price": 15.0,
-      "image": "clynelish-14-years.jpg",
-      "categories": ["whisky", "scotch", "single-malt", "highlands"],
-      "subcategory": "whisky",
-      "available": true
-    },
-    {
-      "id": "whiskey-017",
-      "name": {
-        "en": "Loch Lomond Grain",
-        "el": "Loch Lomond Grain"
-      },
-      "description": {
-        "en": "Scotland, Highlands, 46%ABV",
-        "el": "Σκωτία, Highlands, 46%ABV"
-      },
-      "price": 9.0,
-      "image": "loch-lomond-grain.jpg",
-      "categories": ["whisky", "scotch", "grain", "highlands"],
-      "subcategory": "whisky",
-      "available": true
-    },
-    {
-      "id": "whiskey-018",
-      "name": {
-        "en": "Glengoyne 10 years",
-        "el": "Glengoyne 10 years"
-      },
-      "description": {
-        "en": "Scotland, Highlands, 40%ABV",
-        "el": "Σκωτία, Highlands, 40%ABV"
-      },
-      "price": 14.0,
-      "image": "glengoyne-10-years.jpg",
-      "categories": ["whisky", "scotch", "single-malt", "highlands"],
-      "subcategory": "whisky",
-      "available": true
-    },
-    {
-      "id": "whiskey-019",
-      "name": {
-        "en": "Glengoyne Cask Strength",
-        "el": "Glengoyne Cask Strength"
-      },
-      "description": {
-        "en": "Scotland, Highlands, 59,8%ABV",
-        "el": "Σκωτία, Highlands, 59,8%ABV"
-      },
-      "price": 18.0,
-      "image": "glengoyne-cask-strength.jpg",
-      "categories": ["whisky", "scotch", "single-malt", "highlands"],
-      "subcategory": "whisky",
-      "available": true
-    },
-    {
-      "id": "whiskey-020",
-      "name": {
-        "en": "Glen Dronach 12 years",
-        "el": "Glen Dronach 12 years"
-      },
-      "description": {
-        "en": "Scotland, Highlands, 43%ABV",
-        "el": "Σκωτία, Highlands, 43%ABV"
-      },
-      "price": 17.0,
-      "image": "glen-dronach-12-years.jpg",
-      "categories": ["whisky", "scotch", "single-malt", "highlands"],
-      "subcategory": "whisky",
-      "available": true
-    },
-    {
-      "id": "whiskey-021",
-      "name": {
-        "en": "Deveron 12 years",
-        "el": "Deveron 12 years"
-      },
-      "description": {
-        "en": "Scotland, Highlands, 40%ABV",
-        "el": "Σκωτία, Highlands, 40%ABV"
-      },
-      "price": 13.0,
-      "image": "deveron-12-years.jpg",
-      "categories": ["whisky", "scotch", "single-malt", "highlands"],
-      "subcategory": "whisky",
-      "available": true
-    },
-    {
-      "id": "whiskey-022",
-      "name": {
-        "en": "Single Malts Of Scotland Clynelish 8 years",
-        "el": "Single Malts Of Scotland Clynelish 8 years"
-      },
-      "description": {
-        "en": "Scotland, Highlands, 48%ABV",
-        "el": "Σκωτία, Highlands, 48%ABV"
-      },
-      "price": 19.0,
-      "image": "single-malts-of-scotland-clynelish-8-years.jpg",
-      "categories": ["whisky", "scotch", "single-malt", "highlands"],
-      "subcategory": "whisky",
-      "available": true
-    },
-    {
-      "id": "whiskey-023",
-      "name": {
-        "en": "AnCnoc 12 years",
-        "el": "AnCnoc 12 years"
-      },
-      "description": {
-        "en": "Scotland, Speyside, 40%ABV",
-        "el": "Σκωτία, Speyside, 40%ABV"
-      },
-      "price": 11.0,
-      "image": "ancnoc-12-years.jpg",
-      "categories": ["whisky", "scotch", "single-malt", "speyside"],
-      "subcategory": "whisky",
-      "available": true
-    },
-    {
-      "id": "whiskey-024",
-      "name": {
-        "en": "Glenfiddich 12 years",
-        "el": "Glenfiddich 12 years"
-      },
-      "description": {
-        "en": "Scotland, Speyside, 40%ABV",
-        "el": "Σκωτία, Speyside, 40%ABV"
-      },
-      "price": 10.0,
-      "image": "glenfiddich-12-years.jpg",
-      "categories": ["whisky", "scotch", "single-malt", "speyside"],
-      "subcategory": "whisky",
-      "available": true
-    },
-    {
-      "id": "whiskey-025",
-      "name": {
-        "en": "Aberlour 12 years Double Cask Matured",
-        "el": "Aberlour 12 years Double Cask Matured"
-      },
-      "description": {
-        "en": "Scotland, Speyside, 40%ABV",
-        "el": "Σκωτία, Speyside, 40%ABV"
-      },
-      "price": 13.0,
-      "image": "aberlour-12-years-double-cask-matured.jpg",
-      "categories": ["whisky", "scotch", "single-malt", "speyside"],
-      "subcategory": "whisky",
-      "available": true
-    },
-    {
-      "id": "whiskey-026",
-      "name": {
-        "en": "Mortlach 12 years",
-        "el": "Mortlach 12 years"
-      },
-      "description": {
-        "en": "Scotland, Speyside, 43,4%ABV",
-        "el": "Σκωτία, Speyside, 43,4%ABV"
-      },
-      "price": 16.0,
-      "image": "mortlach-12-years.jpg",
-      "categories": ["whisky", "scotch", "single-malt", "speyside"],
-      "subcategory": "whisky",
-      "available": true
-    },
-    {
-      "id": "whiskey-027",
-      "name": {
-        "en": "Cardhu 12 years",
-        "el": "Cardhu 12 years"
-      },
-      "description": {
-        "en": "Scotland, Speyside, 40%ABV",
-        "el": "Σκωτία, Speyside, 40%ABV"
-      },
-      "price": 10.0,
-      "image": "cardhu-12-years.jpg",
-      "categories": ["whisky", "scotch", "single-malt", "speyside"],
-      "subcategory": "whisky",
-      "available": true
-    },
-    {
-      "id": "whiskey-028",
-      "name": {
-        "en": "Tamdu 12 years",
-        "el": "Tamdu 12 years"
-      },
-      "description": {
-        "en": "Scotland, Speyside, 40%ABV",
-        "el": "Σκωτία, Speyside, 40%ABV"
-      },
-      "price": 15.0,
-      "image": "tamdu-12-years.jpg",
-      "categories": ["whisky", "scotch", "single-malt", "speyside"],
-      "subcategory": "whisky",
-      "available": true
-    },
-    {
-      "id": "whiskey-029",
-      "name": {
-        "en": "Glenfarclas 10 years",
-        "el": "Glenfarclas 10 years"
-      },
-      "description": {
-        "en": "Scotland, Speyside, 40%ABV",
-        "el": "Σκωτία, Speyside, 40%ABV"
-      },
-      "price": 12.0,
-      "image": "glenfarclas-10-years.jpg",
-      "categories": ["whisky", "scotch", "single-malt", "speyside"],
-      "subcategory": "whisky",
-      "available": true
-    },
-    {
-      "id": "whiskey-030",
-      "name": {
-        "en": "Glenlivet Nadurra Olorooso Finish",
-        "el": "Glenlivet Nadurra Olorooso Finish"
-      },
-      "description": {
-        "en": "Scotland, Speyside, 60,3%ABV",
-        "el": "Σκωτία, Speyside, 60,3%ABV"
-      },
-      "price": 16.0,
-      "image": "glenlivet-nadurra-olorooso-finish.jpg",
-      "categories": ["whisky", "scotch", "single-malt", "speyside"],
-      "subcategory": "whisky",
-      "available": true
-    },
-    {
-      "id": "whiskey-031",
-      "name": {
-        "en": "Single Malts Of Scotland Linkwood 12 years",
-        "el": "Single Malts Of Scotland Linkwood 12 years"
-      },
-      "description": {
-        "en": "Scotland, Speyside, 48%ABV",
-        "el": "Σκωτία, Speyside, 48%ABV"
-      },
-      "price": 20.0,
-      "image": "single-malts-of-scotland-linkwood-12-years.jpg",
-      "categories": ["whisky", "scotch", "single-malt", "speyside"],
-      "subcategory": "whisky",
-      "available": true
-    },
-    {
-      "id": "whiskey-032",
-      "name": {
-        "en": "Glenallachie 12 Year",
-        "el": "Glenallachie 12 Year"
-      },
-      "description": {
-        "en": "Scotland, Speyside, 46%ABV",
-        "el": "Σκωτία, Speyside, 46%ABV"
-      },
-      "price": 15.0,
-      "image": "glenallachie-12-year.jpg",
-      "categories": ["whisky", "scotch", "single-malt", "speyside"],
-      "subcategory": "whisky",
-      "available": true
-    },
-    {
-      "id": "whiskey-033",
-      "name": {
-        "en": "Aultmore Foggie Moss 12 years",
-        "el": "Aultmore Foggie Moss 12 years"
-      },
-      "description": {
-        "en": "Scotland, Speyside, 46%ABV",
-        "el": "Σκωτία, Speyside, 46%ABV"
-      },
-      "price": 18.0,
-      "image": "aultmore-foggie-moss-12-years.jpg",
-      "categories": ["whisky", "scotch", "single-malt", "speyside"],
-      "subcategory": "whisky",
-      "available": true
-    },
-    {
-      "id": "whiskey-034",
-      "name": {
-        "en": "Balvenie 14 years",
-        "el": "Balvenie 14 years"
-      },
-      "description": {
-        "en": "Scotland, Speyside, 48,3%ABV",
-        "el": "Σκωτία, Speyside, 48,3%ABV"
-      },
-      "price": 21.0,
-      "image": "balvenie-14-years.jpg",
-      "categories": ["whisky", "scotch", "single-malt", "speyside"],
-      "subcategory": "whisky",
-      "available": true
-    },
-    {
-      "id": "whiskey-035",
-      "name": {
-        "en": "Glen Scotia Double Cask",
-        "el": "Glen Scotia Double Cask"
-      },
-      "description": {
-        "en": "Scotland, Campbeltown, 46%ABV",
-        "el": "Σκωτία, Campbeltown, 46%ABV"
-      },
-      "price": 14.0,
-      "image": "glen-scotia-double-cask.jpg",
-      "categories": ["whisky", "scotch", "single-malt", "campbeltown"],
-      "subcategory": "whisky",
-      "available": true
-    },
-    {
-      "id": "whiskey-036",
-      "name": {
-        "en": "Laphroaig 10 years",
-        "el": "Laphroaig 10 years"
-      },
-      "description": {
-        "en": "Scotland, Islay, 40%ABV",
-        "el": "Σκωτία, Islay, 40%ABV"
-      },
-      "price": 14.0,
-      "image": "laphroaig-10-years.jpg",
-      "categories": ["whisky", "scotch", "single-malt", "islay"],
-      "subcategory": "whisky",
-      "available": true
-    },
-    {
-      "id": "whiskey-037",
-      "name": {
-        "en": "Ardberg 10 years",
-        "el": "Ardberg 10 years"
-      },
-      "description": {
-        "en": "Scotland, Islay, 46%ABV",
-        "el": "Σκωτία, Islay, 46%ABV"
-      },
-      "price": 16.0,
-      "image": "ardberg-10-years.jpg",
-      "categories": ["whisky", "scotch", "single-malt", "islay"],
-      "subcategory": "whisky",
-      "available": true
-    },
-    {
-      "id": "whiskey-038",
-      "name": {
-        "en": "Lagavulin 16 years",
-        "el": "Lagavulin 16 years"
-      },
-      "description": {
-        "en": "Scotland, Islay, 43%ABV",
-        "el": "Σκωτία, Islay, 43%ABV"
-      },
-      "price": 19.0,
-      "image": "lagavulin-16-years.jpg",
-      "categories": ["whisky", "scotch", "single-malt", "islay"],
-      "subcategory": "whisky",
-      "available": true
-    },
-    {
-      "id": "whiskey-039",
-      "name": {
-        "en": "Bruichladdich Classic Laddie",
-        "el": "Bruichladdich Classic Laddie"
-      },
-      "description": {
-        "en": "Scotland, Islay, 50%ABV",
-        "el": "Σκωτία, Islay, 50%ABV"
-      },
-      "price": 16.0,
-      "image": "bruichladdich-classic-laddie.jpg",
-      "categories": ["whisky", "scotch", "single-malt", "islay"],
-      "subcategory": "whisky",
-      "available": true
-    },
-    {
-      "id": "whiskey-040",
-      "name": {
-        "en": "Bruichladdich Port Charlotte 10 y.o. heavily peated",
-        "el": "Bruichladdich Port Charlotte 10 y.o. heavily peated"
-      },
-      "description": {
-        "en": "Scotland, Islay, 50%ABV",
-        "el": "Σκωτία, Islay, 50%ABV"
-      },
-      "price": 17.0,
-      "image": "bruichladdich-port-charlotte-10-yo-heavily-peated.jpg",
-      "categories": ["whisky", "scotch", "single-malt", "islay", "peated"],
-      "subcategory": "whisky",
-      "available": true
-    },
-    {
-      "id": "whiskey-041",
-      "name": {
-        "en": "Bunnahabhain Toiteach",
-        "el": "Bunnahabhain Toiteach"
-      },
-      "description": {
-        "en": "Scotland, Islay, 46,3%ABV",
-        "el": "Σκωτία, Islay, 46,3%ABV"
-      },
-      "price": 17.0,
-      "image": "bunnahabhain-toiteach.jpg",
-      "categories": ["whisky", "scotch", "single-malt", "islay"],
-      "subcategory": "whisky",
-      "available": true
-    },
-    {
-      "id": "whiskey-042",
-      "name": {
-        "en": "Bowmore 15 Sherry Cask 43%",
-        "el": "Bowmore 15 Sherry Cask 43%"
-      },
-      "description": {
-        "en": "Scotland, Islay, 43%ABV",
-        "el": "Σκωτία, Islay, 43%ABV"
-      },
-      "price": 19.0,
-      "image": "bowmore-15-sherry-cask-43.jpg",
-      "categories": ["whisky", "scotch", "single-malt", "islay"],
-      "subcategory": "whisky",
-      "available": true
-    },
-    {
-      "id": "whiskey-043",
-      "name": {
-        "en": "Caol ila 12 years",
-        "el": "Caol ila 12 years"
-      },
-      "description": {
-        "en": "Scotland, Islay, 43%ABV",
-        "el": "Σκωτία, Islay, 43%ABV"
-      },
-      "price": 14.0,
-      "image": "caol-ila-12-years.jpg",
-      "categories": ["whisky", "scotch", "single-malt", "islay"],
-      "subcategory": "whisky",
-      "available": true
-    },
-    {
-      "id": "whiskey-044",
-      "name": {
-        "en": "Smokehead Sherry Cask Blast",
-        "el": "Smokehead Sherry Cask Blast"
-      },
-      "description": {
-        "en": "Scotland, Islay, 48%ABV",
-        "el": "Σκωτία, Islay, 48%ABV"
-      },
-      "price": 18.0,
-      "image": "smokehead-sherry-cask-blast.jpg",
-      "categories": ["whisky", "scotch", "single-malt", "islay"],
-      "subcategory": "whisky",
-      "available": true
-    },
-    {
-      "id": "whiskey-045",
-      "name": {
-        "en": "Port Askaig 100% Proof",
-        "el": "Port Askaig 100% Proof"
-      },
-      "description": {
-        "en": "Scotland, Islay, 57,1%ABV",
-        "el": "Σκωτία, Islay, 57,1%ABV"
-      },
-      "price": 16.0,
-      "image": "port-askaig-100-proof.jpg",
-      "categories": ["whisky", "scotch", "single-malt", "islay"],
-      "subcategory": "whisky",
-      "available": true
-    },
-    {
-      "id": "whiskey-046",
-      "name": {
-        "en": "Kilchoman Machir Bay",
-        "el": "Kilchoman Machir Bay"
-      },
-      "description": {
-        "en": "Scotland, Islay, 46%ABV",
-        "el": "Σκωτία, Islay, 46%ABV"
-      },
-      "price": 14.0,
-      "image": "kilchoman-machir-bay.jpg",
-      "categories": ["whisky", "scotch", "single-malt", "islay"],
-      "subcategory": "whisky",
-      "available": true
-    },
-    {
-      "id": "whiskey-047",
-      "name": {
-        "en": "Mac-Talla Classic",
-        "el": "Mac-Talla Classic"
-      },
-      "description": {
-        "en": "Scotland, Islay, 46%ABV",
-        "el": "Σκωτία, Islay, 46%ABV"
-      },
-      "price": 15.0,
-      "image": "mac-talla-classic.jpg",
-      "categories": ["whisky", "scotch", "single-malt", "islay"],
-      "subcategory": "whisky",
-      "available": true
-    },
-    {
-      "id": "whiskey-048",
-      "name": {
-        "en": "Elements of Isla Peat Pure",
-        "el": "Elements of Isla Peat Pure"
-      },
-      "description": {
-        "en": "Scotland, Islay, 45%ABV",
-        "el": "Σκωτία, Islay, 45%ABV"
-      },
-      "price": 12.0,
-      "image": "elements-of-isla-peat-pure.jpg",
-      "categories": ["whisky", "scotch", "single-malt", "islay", "peated"],
-      "subcategory": "whisky",
-      "available": true
-    },
-    {
-      "id": "whiskey-049",
-      "name": {
-        "en": "Elements Peat Full Proof",
-        "el": "Elements Peat Full Proof"
-      },
-      "description": {
-        "en": "Scotland, Islay, 59,3%ABV",
-        "el": "Σκωτία, Islay, 59,3%ABV"
-      },
-      "price": 15.0,
-      "image": "elements-peat-full-proof.jpg",
-      "categories": ["whisky", "scotch", "single-malt", "islay", "peated"],
-      "subcategory": "whisky",
-      "available": true
-    },
-    {
-      "id": "whiskey-050",
-      "name": {
-        "en": "Elements CI 8",
-        "el": "Elements CI 8"
-      },
-      "description": {
-        "en": "Scotland, Islay, 55,2%ABV",
-        "el": "Σκωτία, Islay, 55,2%ABV"
-      },
-      "price": 22.0,
-      "image": "elements-ci-8.jpg",
-      "categories": ["whisky", "scotch", "single-malt", "islay"],
-      "subcategory": "whisky",
-      "available": true
-    },
-    {
-      "id": "whiskey-051",
-      "name": {
-        "en": "Talisker Single Malt 10 y.o.",
-        "el": "Talisker Single Malt 10 y.o."
-      },
-      "description": {
-        "en": "Scotland, Islands, 45,8%ABV",
-        "el": "Σκωτία, Islands, 45,8%ABV"
-      },
-      "price": 11.0,
-      "image": "talisker-single-malt-10-yo.jpg",
-      "categories": ["whisky", "scotch", "single-malt", "islands"],
-      "subcategory": "whisky",
-      "available": true
-    },
-    {
-      "id": "whiskey-052",
-      "name": {
-        "en": "Arran Barrel Reserve",
-        "el": "Arran Barrel Reserve"
-      },
-      "description": {
-        "en": "Scotland, Islands, 43%ABV",
-        "el": "Σκωτία, Islands, 43%ABV"
-      },
-      "price": 10.0,
-      "image": "arran-barrel-reserve.jpg",
-      "categories": ["whisky", "scotch", "single-malt", "islands"],
-      "subcategory": "whisky",
-      "available": true
-    },
-    {
-      "id": "whiskey-053",
-      "name": {
-        "en": "Arran Sherry Cask",
-        "el": "Arran Sherry Cask"
-      },
-      "description": {
-        "en": "Scotland, Islands, 55,8%ABV",
-        "el": "Σκωτία, Islands, 55,8%ABV"
-      },
-      "price": 16.0,
-      "image": "arran-sherry-cask.jpg",
-      "categories": ["whisky", "scotch", "single-malt", "islands"],
-      "subcategory": "whisky",
-      "available": true
-    },
-    {
-      "id": "whiskey-054",
-      "name": {
-        "en": "Arran Amarone Finish",
-        "el": "Arran Amarone Finish"
-      },
-      "description": {
-        "en": "Scotland, Islands, 50%ABV",
-        "el": "Σκωτία, Islands, 50%ABV"
-      },
-      "price": 15.0,
-      "image": "arran-amarone-finish.jpg",
-      "categories": ["whisky", "scotch", "single-malt", "islands"],
-      "subcategory": "whisky",
-      "available": true
-    },
-    {
-      "id": "whiskey-055",
-      "name": {
-        "en": "Arran Port Finish",
-        "el": "Arran Port Finish"
-      },
-      "description": {
-        "en": "Scotland, Islands, 50%ABV",
-        "el": "Σκωτία, Islands, 50%ABV"
-      },
-      "price": 15.0,
-      "image": "arran-port-finish.jpg",
-      "categories": ["whisky", "scotch", "single-malt", "islands"],
-      "subcategory": "whisky",
-      "available": true
-    },
-    {
-      "id": "whiskey-056",
-      "name": {
-        "en": "Torabhaig Legacy 2017",
-        "el": "Torabhaig Legacy 2017"
-      },
-      "description": {
-        "en": "Scotland, Islands, 46%ABV",
-        "el": "Σκωτία, Islands, 46%ABV"
-      },
-      "price": 15.0,
-      "image": "torabhaig-legacy-2017.jpg",
-      "categories": ["whisky", "scotch", "single-malt", "islands"],
-      "subcategory": "whisky",
-      "available": true
-    },
-    {
-      "id": "whiskey-057",
-      "name": {
-        "en": "Single Malts Of Scotland Orkney 13 years",
-        "el": "Single Malts Of Scotland Orkney 13 years"
-      },
-      "description": {
-        "en": "Scotland, Islands, 48%ABV",
-        "el": "Σκωτία, Islands, 48%ABV"
-      },
-      "price": 20.0,
-      "image": "single-malts-of-scotland-orkney-13-years.jpg",
-      "categories": ["whisky", "scotch", "single-malt", "islands"],
-      "subcategory": "whisky",
-      "available": true
-    },
-    {
-      "id": "whiskey-058",
-      "name": {
-        "en": "Jameson",
-        "el": "Jameson"
-      },
-      "description": {
-        "en": "Ireland, Irish Blend, 40%ABV",
-        "el": "Ιρλανδία, Irish Blend, 40%ABV"
-      },
-      "price": 8.0,
-      "image": "jameson.jpg",
-      "categories": ["whisky", "irish", "blend"],
-      "subcategory": "whisky",
-      "available": true
-    },
-    {
-      "id": "whiskey-059",
-      "name": {
-        "en": "Jameson Black Barrel",
-        "el": "Jameson Black Barrel"
-      },
-      "description": {
-        "en": "Ireland, Irish Blend, 40%ABV",
-        "el": "Ιρλανδία, Irish Blend, 40%ABV"
-      },
-      "price": 9.0,
-      "image": "jameson-black-barrel.jpg",
-      "categories": ["whisky", "irish", "blend"],
-      "subcategory": "whisky",
-      "available": true
-    },
-    {
-      "id": "whiskey-060",
-      "name": {
-        "en": "Bushmills Original",
-        "el": "Bushmills Original"
-      },
-      "description": {
-        "en": "Ireland, Irish Blend, 40%ABV",
-        "el": "Ιρλανδία, Irish Blend, 40%ABV"
-      },
-      "price": 8.0,
-      "image": "bushmills-original.jpg",
-      "categories": ["whisky", "irish", "blend"],
-      "subcategory": "whisky",
-      "available": true
-    },
-    {
-      "id": "whiskey-061",
-      "name": {
-        "en": "Tullamore Dew",
-        "el": "Tullamore Dew"
-      },
-      "description": {
-        "en": "Ireland, Irish Blend, 40%ABV",
-        "el": "Ιρλανδία, Irish Blend, 40%ABV"
-      },
-      "price": 8.0,
-      "image": "tullamore-dew.jpg",
-      "categories": ["whisky", "irish", "blend"],
-      "subcategory": "whisky",
-      "available": true
-    },
-    {
-      "id": "whiskey-062",
-      "name": {
-        "en": "Redbreast 12 years",
-        "el": "Redbreast 12 years"
-      },
-      "description": {
-        "en": "Ireland, Single Pot Still, 40%ABV",
-        "el": "Ιρλανδία, Single Pot Still, 40%ABV"
-      },
-      "price": 14.0,
-      "image": "redbreast-12-years.jpg",
-      "categories": ["whisky", "irish", "single-pot-still"],
-      "subcategory": "whisky",
-      "available": true
-    },
-    {
-      "id": "whiskey-063",
-      "name": {
-        "en": "Connemara Original Peated",
-        "el": "Connemara Original Peated"
-      },
-      "description": {
-        "en": "Ireland, Peated Malt, 40%ABV",
-        "el": "Ιρλανδία, Peated Malt, 40%ABV"
-      },
-      "price": 10.0,
-      "image": "connemara-original-peated.jpg",
-      "categories": ["whisky", "irish", "peated"],
-      "subcategory": "whisky",
-      "available": true
-    },
-    {
-      "id": "whiskey-064",
-      "name": {
-        "en": "Teeling Single Grain",
-        "el": "Teeling Single Grain"
-      },
-      "description": {
-        "en": "Ireland, Single Grain, 46%ABV",
-        "el": "Ιρλανδία, Single Grain, 46%ABV"
-      },
-      "price": 12.0,
-      "image": "teeling-single-grain.jpg",
-      "categories": ["whisky", "irish", "single-grain"],
-      "subcategory": "whisky",
-      "available": true
-    },
-    {
-      "id": "whiskey-065",
-      "name": {
-        "en": "Teeling Small Batch Whiskey",
-        "el": "Teeling Small Batch Whiskey"
-      },
-      "description": {
-        "en": "Ireland, Small Batch, 46%ABV",
-        "el": "Ιρλανδία, Small Batch, 46%ABV"
-      },
-      "price": 9.0,
-      "image": "teeling-small-batch-whiskey.jpg",
-      "categories": ["whisky", "irish", "small-batch"],
-      "subcategory": "whisky",
-      "available": true
-    },
-    {
-      "id": "whiskey-066",
-      "name": {
-        "en": "Green Spot Chateau Montelena ex-Zinfandel Casks",
-        "el": "Green Spot Chateau Montelena ex-Zinfandel Casks"
-      },
-      "description": {
-        "en": "Ireland, Single Pot Still, 46%ABV",
-        "el": "Ιρλανδία, Single Pot Still, 46%ABV"
-      },
-      "price": 16.0,
-      "image": "green-spot-chateau-montelena-ex-zinfandel-casks.jpg",
-      "categories": ["whisky", "irish", "single-pot-still"],
-      "subcategory": "whisky",
-      "available": true
-    },
-    {
-      "id": "whiskey-067",
-      "name": {
-        "en": "Green Spot Chateau Leoville Bartong",
-        "el": "Green Spot Chateau Leoville Bartong"
-      },
-      "description": {
-        "en": "Ireland, Single Pot Still, 46%ABV",
-        "el": "Ιρλανδία, Single Pot Still, 46%ABV"
-      },
-      "price": 16.0,
-      "image": "green-spot-chateau-leoville-bartong.jpg",
-      "categories": ["whisky", "irish", "single-pot-still"],
-      "subcategory": "whisky",
-      "available": true
-    },
-    {
-      "id": "whiskey-068",
-      "name": {
-        "en": "Yellow Spot 12 Year Single Pot Still",
-        "el": "Yellow Spot 12 Year Single Pot Still"
-      },
-      "description": {
-        "en": "Ireland, Single Pot Still, 46%ABV",
-        "el": "Ιρλανδία, Single Pot Still, 46%ABV"
-      },
-      "price": 19.0,
-      "image": "yellow-spot-12-year-single-pot-still.jpg",
-      "categories": ["whisky", "irish", "single-pot-still"],
-      "subcategory": "whisky",
-      "available": true
-    },
-    {
-      "id": "whiskey-069",
-      "name": {
-        "en": "Waterford Organic Gaia 1.1",
-        "el": "Waterford Organic Gaia 1.1"
-      },
-      "description": {
-        "en": "Ireland, Single Malt, 50%ABV",
-        "el": "Ιρλανδία, Single Malt, 50%ABV"
-      },
-      "price": 18.0,
-      "image": "waterford-organic-gaia-1-1.jpg",
-      "categories": ["whisky", "irish", "single-malt"],
-      "subcategory": "whisky",
-      "available": true
-    },
-    {
-      "id": "whiskey-070",
-      "name": {
-        "en": "Four Roses Bourbon",
-        "el": "Four Roses Bourbon"
-      },
-      "description": {
-        "en": "USA, Kentucky, 40%ABV",
-        "el": "ΗΠΑ, Kentucky, 40%ABV"
-      },
-      "price": 8.0,
-      "image": "four-roses-bourbon.jpg",
-      "categories": ["whisky", "american", "bourbon"],
-      "subcategory": "whisky",
-      "available": true
-    },
-    {
-      "id": "whiskey-071",
-      "name": {
-        "en": "Bulleit Bourbon",
-        "el": "Bulleit Bourbon"
-      },
-      "description": {
-        "en": "USA, Kentucky, 45%ABV",
-        "el": "ΗΠΑ, Kentucky, 45%ABV"
-      },
-      "price": 9.0,
-      "image": "bulleit-bourbon.jpg",
-      "categories": ["whisky", "american", "bourbon"],
-      "subcategory": "whisky",
-      "available": true
-    },
-    {
-      "id": "whiskey-072",
-      "name": {
-        "en": "Bulleit Rye",
-        "el": "Bulleit Rye"
-      },
-      "description": {
-        "en": "USA, Indiana, 45%ABV",
-        "el": "ΗΠΑ, Indiana, 45%ABV"
-      },
-      "price": 10.0,
-      "image": "bulleit-rye.jpg",
-      "categories": ["whisky", "american", "rye"],
-      "subcategory": "whisky",
-      "available": true
-    },
-    {
-      "id": "whiskey-073",
-      "name": {
-        "en": "Canadian Club",
-        "el": "Canadian Club"
-      },
-      "description": {
-        "en": "Canada, Blended, 40%ABV",
-        "el": "Καναδάς, Blended, 40%ABV"
-      },
-      "price": 9.0,
-      "image": "canadian-club.jpg",
-      "categories": ["whisky", "canadian", "blended"],
-      "subcategory": "whisky",
-      "available": true
-    },
-    {
-      "id": "whiskey-074",
-      "name": {
-        "en": "Jack Daniel`s",
-        "el": "Jack Daniel`s"
-      },
-      "description": {
-        "en": "USA, Tennessee, 40%ABV",
-        "el": "ΗΠΑ, Tennessee, 40%ABV"
-      },
-      "price": 9.0,
-      "image": "jack-daniels.jpg",
-      "categories": ["whisky", "american", "tennessee"],
-      "subcategory": "whisky",
-      "available": true
-    },
-    {
-      "id": "whiskey-075",
-      "name": {
-        "en": "Jack Daniel`s Single Barrel",
-        "el": "Jack Daniel`s Single Barrel"
-      },
-      "description": {
-        "en": "USA, Tennessee, 45%ABV",
-        "el": "ΗΠΑ, Tennessee, 45%ABV"
-      },
-      "price": 12.0,
-      "image": "jack-daniels-single-barrel.jpg",
-      "categories": ["whisky", "american", "tennessee"],
-      "subcategory": "whisky",
-      "available": true
-    },
-    {
-      "id": "whiskey-076",
-      "name": {
-        "en": "Eagle Rare Single Barrel Bourbon",
-        "el": "Eagle Rare Single Barrel Bourbon"
-      },
-      "description": {
-        "en": "USA, Kentucky, 45%ABV",
-        "el": "ΗΠΑ, Kentucky, 45%ABV"
-      },
-      "price": 14.0,
-      "image": "eagle-rare-single-barrel-bourbon.jpg",
-      "categories": ["whisky", "american", "bourbon"],
-      "subcategory": "whisky",
-      "available": true
-    },
-    {
-      "id": "whiskey-077",
-      "name": {
-        "en": "Few Bourbon Whisky",
-        "el": "Few Bourbon Whisky"
-      },
-      "description": {
-        "en": "USA, Illinois, 46,5%ABV",
-        "el": "ΗΠΑ, Illinois, 46,5%ABV"
-      },
-      "price": 16.0,
-      "image": "few-bourbon-whisky.jpg",
-      "categories": ["whisky", "american", "bourbon"],
-      "subcategory": "whisky",
-      "available": true
-    },
-    {
-      "id": "whiskey-078",
-      "name": {
-        "en": "Maker`s Mark Bourbon",
-        "el": "Maker`s Mark Bourbon"
-      },
-      "description": {
-        "en": "USA, Kentucky, 45%ABV",
-        "el": "ΗΠΑ, Kentucky, 45%ABV"
-      },
-      "price": 10.0,
-      "image": "makers-mark-bourbon.jpg",
-      "categories": ["whisky", "american", "bourbon"],
-      "subcategory": "whisky",
-      "available": true
-    },
-    {
-      "id": "whiskey-079",
-      "name": {
-        "en": "Michter`s Small Batch Bourbon",
-        "el": "Michter`s Small Batch Bourbon"
-      },
-      "description": {
-        "en": "USA, Kentucky, 45,7%ABV",
-        "el": "ΗΠΑ, Kentucky, 45,7%ABV"
-      },
-      "price": 18.0,
-      "image": "michters-small-batch-bourbon.jpg",
-      "categories": ["whisky", "american", "bourbon"],
-      "subcategory": "whisky",
-      "available": true
-    },
-    {
-      "id": "whiskey-080",
-      "name": {
-        "en": "Michter`s Small Batch Sour Mash",
-        "el": "Michter`s Small Batch Sour Mash"
-      },
-      "description": {
-        "en": "USA, Kentucky, 43%ABV",
-        "el": "ΗΠΑ, Kentucky, 43%ABV"
-      },
-      "price": 18.0,
-      "image": "michters-small-batch-sour-mash.jpg",
-      "categories": ["whisky", "american"],
-      "subcategory": "whisky",
-      "available": true
-    },
-    {
-      "id": "whiskey-081",
-      "name": {
-        "en": "Millstone 100 Rye",
-        "el": "Millstone 100 Rye"
-      },
-      "description": {
-        "en": "Netherlands, Rye, 50%ABV",
-        "el": "Ολλανδία, Rye, 50%ABV"
-      },
-      "price": 18.0,
-      "image": "millstone-100-rye.jpg",
-      "categories": ["whisky", "dutch", "rye"],
-      "subcategory": "whisky",
-      "available": true
-    },
-    {
-      "id": "whiskey-082",
-      "name": {
-        "en": "Sazerac Rye 6 year",
-        "el": "Sazerac Rye 6 year"
-      },
-      "description": {
-        "en": "USA, Kentucky, 45%ABV",
-        "el": "ΗΠΑ, Kentucky, 45%ABV"
-      },
-      "price": 14.0,
-      "image": "sazerac-rye-6-year.jpg",
-      "categories": ["whisky", "american", "rye"],
-      "subcategory": "whisky",
-      "available": true
-    },
-    {
-      "id": "whiskey-083",
-      "name": {
-        "en": "Koval Millet",
-        "el": "Koval Millet"
-      },
-      "description": {
-        "en": "USA, Illinois, 40%ABV",
-        "el": "ΗΠΑ, Illinois, 40%ABV"
-      },
-      "price": 16.0,
-      "image": "koval-millet.jpg",
-      "categories": ["whisky", "american"],
-      "subcategory": "whisky",
-      "available": true
-    },
-    {
-      "id": "whiskey-084",
-      "name": {
-        "en": "Nikka Coffey Malt",
-        "el": "Nikka Coffey Malt"
-      },
-      "description": {
-        "en": "Japan, Coffey Still, 45%ABV",
-        "el": "Ιαπωνία, Coffey Still, 45%ABV"
-      },
-      "price": 16.0,
-      "image": "nikka-coffey-malt.jpg",
-      "categories": ["whisky", "japanese"],
-      "subcategory": "whisky",
-      "available": true
-    },
-    {
-      "id": "whiskey-085",
-      "name": {
-        "en": "Nikka Coffey Grain",
-        "el": "Nikka Coffey Grain"
-      },
-      "description": {
-        "en": "Japan, Coffey Still, 45%ABV",
-        "el": "Ιαπωνία, Coffey Still, 45%ABV"
-      },
-      "price": 15.0,
-      "image": "nikka-coffey-grain.jpg",
-      "categories": ["whisky", "japanese"],
-      "subcategory": "whisky",
-      "available": true
-    },
-    {
-      "id": "whiskey-086",
-      "name": {
-        "en": "Nikka From The Barrel",
-        "el": "Nikka From The Barrel"
-      },
-      "description": {
-        "en": "Japan, Blended, 51,4%ABV",
-        "el": "Ιαπωνία, Blended, 51,4%ABV"
-      },
-      "price": 16.0,
-      "image": "nikka-from-the-barrel.jpg",
-      "categories": ["whisky", "japanese", "blended"],
-      "subcategory": "whisky",
-      "available": true
-    },
-    {
-      "id": "whiskey-087",
-      "name": {
-        "en": "Nikka Yoichi Single Malt",
-        "el": "Nikka Yoichi Single Malt"
-      },
-      "description": {
-        "en": "Japan, Yoichi, 45%ABV",
-        "el": "Ιαπωνία, Yoichi, 45%ABV"
-      },
-      "price": 20.0,
-      "image": "nikka-yoichi-single-malt.jpg",
-      "categories": ["whisky", "japanese", "single-malt"],
-      "subcategory": "whisky",
-      "available": true
-    },
-    {
-      "id": "whiskey-088",
-      "name": {
-        "en": "Kavalan Single Malt",
-        "el": "Kavalan Single Malt"
-      },
-      "description": {
-        "en": "Taiwan, Single Malt, 40%ABV",
-        "el": "Ταϊβάν, Single Malt, 40%ABV"
-      },
-      "price": 17.0,
-      "image": "kavalan-single-malt.jpg",
-      "categories": ["whisky", "taiwanese", "single-malt"],
-      "subcategory": "whisky",
-      "available": true
-    },
-    {
-      "id": "whiskey-089",
-      "name": {
-        "en": "Amrut Fusion",
-        "el": "Amrut Fusion"
-      },
-      "description": {
-        "en": "India, Single Malt, 50%ABV",
-        "el": "Ινδία, Single Malt, 50%ABV"
-      },
-      "price": 18.0,
-      "image": "amrut-fusion.jpg",
-      "categories": ["whisky", "indian", "single-malt"],
+      "categories": [
+        "whisky",
+        "indian",
+        "single-malt"
+      ],
       "subcategory": "whisky",
       "available": true
     },
@@ -2860,7 +1836,11 @@
       },
       "price": 8.0,
       "image": "havana-club-3-years.jpg",
-      "categories": ["rum", "cuban", "white"],
+      "categories": [
+        "rum",
+        "cuban",
+        "white"
+      ],
       "subcategory": "rum",
       "available": true
     },
@@ -2874,9 +1854,13 @@
         "en": "Cuba, Aged, 40%ABV",
         "el": "Κούβα, Παλαιωμένο, 40%ABV"
       },
-      "price": 9.0,
+      "price": 10.0,
       "image": "havana-club-7-years.jpg",
-      "categories": ["rum", "cuban", "aged"],
+      "categories": [
+        "rum",
+        "cuban",
+        "aged"
+      ],
       "subcategory": "rum",
       "available": true
     },
@@ -2892,7 +1876,11 @@
       },
       "price": 8.0,
       "image": "bacardi-carta-blanca.jpg",
-      "categories": ["rum", "puerto-rican", "white"],
+      "categories": [
+        "rum",
+        "puerto-rican",
+        "white"
+      ],
       "subcategory": "rum",
       "available": true
     },
@@ -2908,7 +1896,11 @@
       },
       "price": 9.0,
       "image": "appleton-estate-signature-blend.jpg",
-      "categories": ["rum", "jamaican", "blend"],
+      "categories": [
+        "rum",
+        "jamaican",
+        "blend"
+      ],
       "subcategory": "rum",
       "available": true
     },
@@ -2924,7 +1916,11 @@
       },
       "price": 10.0,
       "image": "canerock-spiced.jpg",
-      "categories": ["rum", "jamaican", "spiced"],
+      "categories": [
+        "rum",
+        "jamaican",
+        "spiced"
+      ],
       "subcategory": "rum",
       "available": true
     },
@@ -2940,7 +1936,11 @@
       },
       "price": 11.0,
       "image": "compagnie-des-indes-blend-jamaica.jpg",
-      "categories": ["rum", "jamaican", "blend"],
+      "categories": [
+        "rum",
+        "jamaican",
+        "blend"
+      ],
       "subcategory": "rum",
       "available": true
     },
@@ -2956,7 +1956,11 @@
       },
       "price": 8.0,
       "image": "rum-bar-overproof.jpg",
-      "categories": ["rum", "jamaican", "overproof"],
+      "categories": [
+        "rum",
+        "jamaican",
+        "overproof"
+      ],
       "subcategory": "rum",
       "available": true
     },
@@ -2972,7 +1976,11 @@
       },
       "price": 14.0,
       "image": "worthy-park-reserve.jpg",
-      "categories": ["rum", "jamaican", "aged"],
+      "categories": [
+        "rum",
+        "jamaican",
+        "aged"
+      ],
       "subcategory": "rum",
       "available": true
     },
@@ -2986,9 +1994,13 @@
         "en": "Jamaica, 12 years, 40%ABV",
         "el": "Τζαμάικα, 12 ετών, 40%ABV"
       },
-      "price": 13.0,
+      "price": 14.0,
       "image": "coruba-cigar-12-yo.jpg",
-      "categories": ["rum", "jamaican", "aged"],
+      "categories": [
+        "rum",
+        "jamaican",
+        "aged"
+      ],
       "subcategory": "rum",
       "available": true
     },
@@ -3004,7 +2016,11 @@
       },
       "price": 19.0,
       "image": "hampden-estate-8-year.jpg",
-      "categories": ["rum", "jamaican", "aged"],
+      "categories": [
+        "rum",
+        "jamaican",
+        "aged"
+      ],
       "subcategory": "rum",
       "available": true
     },
@@ -3020,7 +2036,11 @@
       },
       "price": 16.0,
       "image": "habitation-velier-long-pond-stce-white.jpg",
-      "categories": ["rum", "jamaican", "white"],
+      "categories": [
+        "rum",
+        "jamaican",
+        "white"
+      ],
       "subcategory": "rum",
       "available": true
     },
@@ -3036,7 +2056,11 @@
       },
       "price": 16.0,
       "image": "habitation-velier-lrok-white.jpg",
-      "categories": ["rum", "jamaican", "white"],
+      "categories": [
+        "rum",
+        "jamaican",
+        "white"
+      ],
       "subcategory": "rum",
       "available": true
     },
@@ -3052,7 +2076,11 @@
       },
       "price": 25.0,
       "image": "habitation-velier-2011-lfch.jpg",
-      "categories": ["rum", "jamaican", "vintage"],
+      "categories": [
+        "rum",
+        "jamaican",
+        "vintage"
+      ],
       "subcategory": "rum",
       "available": true
     },
@@ -3068,7 +2096,11 @@
       },
       "price": 32.0,
       "image": "habitation-velier-worthy-park-2007.jpg",
-      "categories": ["rum", "jamaican", "vintage"],
+      "categories": [
+        "rum",
+        "jamaican",
+        "vintage"
+      ],
       "subcategory": "rum",
       "available": true
     },
@@ -3084,7 +2116,11 @@
       },
       "price": 9.0,
       "image": "doorlys-5-years.jpg",
-      "categories": ["rum", "barbados", "aged"],
+      "categories": [
+        "rum",
+        "barbados",
+        "aged"
+      ],
       "subcategory": "rum",
       "available": true
     },
@@ -3100,7 +2136,11 @@
       },
       "price": 11.0,
       "image": "doorlys-xo.jpg",
-      "categories": ["rum", "barbados", "aged"],
+      "categories": [
+        "rum",
+        "barbados",
+        "aged"
+      ],
       "subcategory": "rum",
       "available": true
     },
@@ -3116,7 +2156,11 @@
       },
       "price": 14.0,
       "image": "mount-gay-xo.jpg",
-      "categories": ["rum", "barbados", "aged"],
+      "categories": [
+        "rum",
+        "barbados",
+        "aged"
+      ],
       "subcategory": "rum",
       "available": true
     },
@@ -3132,7 +2176,11 @@
       },
       "price": 13.0,
       "image": "rl-seales.jpg",
-      "categories": ["rum", "barbados", "blend"],
+      "categories": [
+        "rum",
+        "barbados",
+        "blend"
+      ],
       "subcategory": "rum",
       "available": true
     },
@@ -3148,7 +2196,12 @@
       },
       "price": 21.0,
       "image": "the-real-mccoy-limited-edition-10-yo.jpg",
-      "categories": ["rum", "barbados", "aged", "limited"],
+      "categories": [
+        "rum",
+        "barbados",
+        "aged",
+        "limited"
+      ],
       "subcategory": "rum",
       "available": true
     },
@@ -3164,7 +2217,11 @@
       },
       "price": 9.0,
       "image": "english-harbour-5-yo.jpg",
-      "categories": ["rum", "antigua", "aged"],
+      "categories": [
+        "rum",
+        "antigua",
+        "aged"
+      ],
       "subcategory": "rum",
       "available": true
     },
@@ -3180,7 +2237,11 @@
       },
       "price": 9.0,
       "image": "chairmans-reserve-spiced.jpg",
-      "categories": ["rum", "st-lucia", "spiced"],
+      "categories": [
+        "rum",
+        "st-lucia",
+        "spiced"
+      ],
       "subcategory": "rum",
       "available": true
     },
@@ -3196,7 +2257,11 @@
       },
       "price": 12.0,
       "image": "admiral-rodney-hms-princessa.jpg",
-      "categories": ["rum", "st-lucia", "premium"],
+      "categories": [
+        "rum",
+        "st-lucia",
+        "premium"
+      ],
       "subcategory": "rum",
       "available": true
     },
@@ -3212,7 +2277,11 @@
       },
       "price": 12.0,
       "image": "black-tot-rum-blend.jpg",
-      "categories": ["rum", "caribbean", "blend"],
+      "categories": [
+        "rum",
+        "caribbean",
+        "blend"
+      ],
       "subcategory": "rum",
       "available": true
     },
@@ -3228,7 +2297,11 @@
       },
       "price": 8.0,
       "image": "sailor-jerry-spiced.jpg",
-      "categories": ["rum", "virgin-islands", "spiced"],
+      "categories": [
+        "rum",
+        "virgin-islands",
+        "spiced"
+      ],
       "subcategory": "rum",
       "available": true
     },
@@ -3244,7 +2317,11 @@
       },
       "price": 10.0,
       "image": "pussers-gunpowder-proof.jpg",
-      "categories": ["rum", "virgin-islands", "overproof"],
+      "categories": [
+        "rum",
+        "virgin-islands",
+        "overproof"
+      ],
       "subcategory": "rum",
       "available": true
     },
@@ -3260,7 +2337,11 @@
       },
       "price": 12.0,
       "image": "el-dorado-12-years.jpg",
-      "categories": ["rum", "guyana", "aged"],
+      "categories": [
+        "rum",
+        "guyana",
+        "aged"
+      ],
       "subcategory": "rum",
       "available": true
     },
@@ -3276,7 +2357,11 @@
       },
       "price": 11.0,
       "image": "diplomatico-reserva-exclusiva.jpg",
-      "categories": ["rum", "venezuela", "premium"],
+      "categories": [
+        "rum",
+        "venezuela",
+        "premium"
+      ],
       "subcategory": "rum",
       "available": true
     },
@@ -3292,7 +2377,11 @@
       },
       "price": 14.0,
       "image": "santa-teresa-1796-antiguo-de-solera.jpg",
-      "categories": ["rum", "venezuela", "solera"],
+      "categories": [
+        "rum",
+        "venezuela",
+        "solera"
+      ],
       "subcategory": "rum",
       "available": true
     },
@@ -3308,7 +2397,11 @@
       },
       "price": 16.0,
       "image": "la-maison-du-rhum-colombia.jpg",
-      "categories": ["rum", "colombia", "premium"],
+      "categories": [
+        "rum",
+        "colombia",
+        "premium"
+      ],
       "subcategory": "rum",
       "available": true
     },
@@ -3324,7 +2417,11 @@
       },
       "price": 16.0,
       "image": "zacapa-23-years.jpg",
-      "categories": ["rum", "guatemala", "aged"],
+      "categories": [
+        "rum",
+        "guatemala",
+        "aged"
+      ],
       "subcategory": "rum",
       "available": true
     },
@@ -3340,7 +2437,11 @@
       },
       "price": 11.0,
       "image": "flor-de-cana-12-years.jpg",
-      "categories": ["rum", "nicaragua", "aged"],
+      "categories": [
+        "rum",
+        "nicaragua",
+        "aged"
+      ],
       "subcategory": "rum",
       "available": true
     },
@@ -3354,9 +2455,13 @@
         "en": "Panama, 12 years, 40%ABV",
         "el": "Παναμάς, 12 ετών, 40%ABV"
       },
-      "price": 10.0,
+      "price": 12.0,
       "image": "abuelo-12-years.jpg",
-      "categories": ["rum", "panama", "aged"],
+      "categories": [
+        "rum",
+        "panama",
+        "aged"
+      ],
       "subcategory": "rum",
       "available": true
     },
@@ -3372,7 +2477,11 @@
       },
       "price": 16.0,
       "image": "transcontinental-panamas-2011.jpg",
-      "categories": ["rum", "panama", "vintage"],
+      "categories": [
+        "rum",
+        "panama",
+        "vintage"
+      ],
       "subcategory": "rum",
       "available": true
     },
@@ -3388,7 +2497,11 @@
       },
       "price": 16.0,
       "image": "la-maison-du-rhum-panama.jpg",
-      "categories": ["rum", "panama", "premium"],
+      "categories": [
+        "rum",
+        "panama",
+        "premium"
+      ],
       "subcategory": "rum",
       "available": true
     },
@@ -3404,7 +2517,11 @@
       },
       "price": 9.0,
       "image": "angostura-tamboo-spiced.jpg",
-      "categories": ["rum", "trinidad", "spiced"],
+      "categories": [
+        "rum",
+        "trinidad",
+        "spiced"
+      ],
       "subcategory": "rum",
       "available": true
     },
@@ -3420,7 +2537,11 @@
       },
       "price": 13.0,
       "image": "angostura-1919.jpg",
-      "categories": ["rum", "trinidad", "premium"],
+      "categories": [
+        "rum",
+        "trinidad",
+        "premium"
+      ],
       "subcategory": "rum",
       "available": true
     },
@@ -3436,7 +2557,11 @@
       },
       "price": 10.0,
       "image": "ron-barcelo-imperial.jpg",
-      "categories": ["rum", "dominican", "premium"],
+      "categories": [
+        "rum",
+        "dominican",
+        "premium"
+      ],
       "subcategory": "rum",
       "available": true
     },
@@ -3452,7 +2577,12 @@
       },
       "price": 8.0,
       "image": "clement-blanc.jpg",
-      "categories": ["rum", "martinique", "white", "agricole"],
+      "categories": [
+        "rum",
+        "martinique",
+        "white",
+        "agricole"
+      ],
       "subcategory": "rum",
       "available": true
     },
@@ -3468,7 +2598,11 @@
       },
       "price": 11.0,
       "image": "clairin-vaval.jpg",
-      "categories": ["rum", "haiti", "traditional"],
+      "categories": [
+        "rum",
+        "haiti",
+        "traditional"
+      ],
       "subcategory": "rum",
       "available": true
     },
@@ -3484,7 +2618,11 @@
       },
       "price": 9.0,
       "image": "veritas.jpg",
-      "categories": ["rum", "haiti", "blend"],
+      "categories": [
+        "rum",
+        "haiti",
+        "blend"
+      ],
       "subcategory": "rum",
       "available": true
     },
@@ -3500,7 +2638,11 @@
       },
       "price": 8.0,
       "image": "beefeater-london-dry.jpg",
-      "categories": ["gin", "english", "london-dry"],
+      "categories": [
+        "gin",
+        "english",
+        "london-dry"
+      ],
       "subcategory": "gin",
       "available": true
     },
@@ -3516,7 +2658,11 @@
       },
       "price": 9.0,
       "image": "bombay-sapphire.jpg",
-      "categories": ["gin", "english", "london-dry"],
+      "categories": [
+        "gin",
+        "english",
+        "london-dry"
+      ],
       "subcategory": "gin",
       "available": true
     },
@@ -3532,7 +2678,11 @@
       },
       "price": 11.0,
       "image": "oxley-cold-distilled-dry.jpg",
-      "categories": ["gin", "english", "dry"],
+      "categories": [
+        "gin",
+        "english",
+        "dry"
+      ],
       "subcategory": "gin",
       "available": true
     },
@@ -3548,7 +2698,11 @@
       },
       "price": 10.0,
       "image": "haymans-old-tom.jpg",
-      "categories": ["gin", "english", "old-tom"],
+      "categories": [
+        "gin",
+        "english",
+        "old-tom"
+      ],
       "subcategory": "gin",
       "available": true
     },
@@ -3564,7 +2718,11 @@
       },
       "price": 10.0,
       "image": "haymans-royal-dock.jpg",
-      "categories": ["gin", "english", "navy-strength"],
+      "categories": [
+        "gin",
+        "english",
+        "navy-strength"
+      ],
       "subcategory": "gin",
       "available": true
     },
@@ -3580,7 +2738,11 @@
       },
       "price": 9.0,
       "image": "opihr-oriental-spiced.jpg",
-      "categories": ["gin", "english", "spiced"],
+      "categories": [
+        "gin",
+        "english",
+        "spiced"
+      ],
       "subcategory": "gin",
       "available": true
     },
@@ -3596,7 +2758,11 @@
       },
       "price": 10.0,
       "image": "plymouth.jpg",
-      "categories": ["gin", "english", "plymouth"],
+      "categories": [
+        "gin",
+        "english",
+        "plymouth"
+      ],
       "subcategory": "gin",
       "available": true
     },
@@ -3612,7 +2778,11 @@
       },
       "price": 12.0,
       "image": "silent-pool-gin.jpg",
-      "categories": ["gin", "english", "premium"],
+      "categories": [
+        "gin",
+        "english",
+        "premium"
+      ],
       "subcategory": "gin",
       "available": true
     },
@@ -3628,7 +2798,11 @@
       },
       "price": 11.0,
       "image": "sipsmith-london-dry-gin.jpg",
-      "categories": ["gin", "english", "london-dry"],
+      "categories": [
+        "gin",
+        "english",
+        "london-dry"
+      ],
       "subcategory": "gin",
       "available": true
     },
@@ -3644,7 +2818,11 @@
       },
       "price": 9.0,
       "image": "tanqueray-london-dry.jpg",
-      "categories": ["gin", "scottish", "london-dry"],
+      "categories": [
+        "gin",
+        "scottish",
+        "london-dry"
+      ],
       "subcategory": "gin",
       "available": true
     },
@@ -3660,7 +2838,11 @@
       },
       "price": 10.0,
       "image": "hendricks.jpg",
-      "categories": ["gin", "scottish", "contemporary"],
+      "categories": [
+        "gin",
+        "scottish",
+        "contemporary"
+      ],
       "subcategory": "gin",
       "available": true
     },
@@ -3676,7 +2858,11 @@
       },
       "price": 11.0,
       "image": "the-botanist.jpg",
-      "categories": ["gin", "scottish", "islay"],
+      "categories": [
+        "gin",
+        "scottish",
+        "islay"
+      ],
       "subcategory": "gin",
       "available": true
     },
@@ -3692,7 +2878,11 @@
       },
       "price": 13.0,
       "image": "lind-lime-gin.jpg",
-      "categories": ["gin", "scottish", "dry"],
+      "categories": [
+        "gin",
+        "scottish",
+        "dry"
+      ],
       "subcategory": "gin",
       "available": true
     },
@@ -3708,7 +2898,11 @@
       },
       "price": 12.0,
       "image": "jinzu-premium-gin.jpg",
-      "categories": ["gin", "scottish", "premium"],
+      "categories": [
+        "gin",
+        "scottish",
+        "premium"
+      ],
       "subcategory": "gin",
       "available": true
     },
@@ -3724,7 +2918,11 @@
       },
       "price": 14.0,
       "image": "gunpowder-gin.jpg",
-      "categories": ["gin", "irish", "contemporary"],
+      "categories": [
+        "gin",
+        "irish",
+        "contemporary"
+      ],
       "subcategory": "gin",
       "available": true
     },
@@ -3740,7 +2938,11 @@
       },
       "price": 10.0,
       "image": "dingle-pot-still.jpg",
-      "categories": ["gin", "irish", "pot-still"],
+      "categories": [
+        "gin",
+        "irish",
+        "pot-still"
+      ],
       "subcategory": "gin",
       "available": true
     },
@@ -3756,7 +2958,11 @@
       },
       "price": 10.0,
       "image": "boatyard-double.jpg",
-      "categories": ["gin", "irish", "double-infused"],
+      "categories": [
+        "gin",
+        "irish",
+        "double-infused"
+      ],
       "subcategory": "gin",
       "available": true
     },
@@ -3772,7 +2978,11 @@
       },
       "price": 9.0,
       "image": "citadelle-dry.jpg",
-      "categories": ["gin", "french", "dry"],
+      "categories": [
+        "gin",
+        "french",
+        "dry"
+      ],
       "subcategory": "gin",
       "available": true
     },
@@ -3788,7 +2998,11 @@
       },
       "price": 13.0,
       "image": "citadelle-no-mistake-old-tom.jpg",
-      "categories": ["gin", "french", "old-tom"],
+      "categories": [
+        "gin",
+        "french",
+        "old-tom"
+      ],
       "subcategory": "gin",
       "available": true
     },
@@ -3804,7 +3018,11 @@
       },
       "price": 10.0,
       "image": "citadelle-reserve.jpg",
-      "categories": ["gin", "french", "barrel-aged"],
+      "categories": [
+        "gin",
+        "french",
+        "barrel-aged"
+      ],
       "subcategory": "gin",
       "available": true
     },
@@ -3820,7 +3038,11 @@
       },
       "price": 11.0,
       "image": "gvine-floraison.jpg",
-      "categories": ["gin", "french", "grape-based"],
+      "categories": [
+        "gin",
+        "french",
+        "grape-based"
+      ],
       "subcategory": "gin",
       "available": true
     },
@@ -3836,7 +3058,11 @@
       },
       "price": 16.0,
       "image": "monkey-47-dry.jpg",
-      "categories": ["gin", "german", "dry"],
+      "categories": [
+        "gin",
+        "german",
+        "dry"
+      ],
       "subcategory": "gin",
       "available": true
     },
@@ -3852,7 +3078,11 @@
       },
       "price": 15.0,
       "image": "elephant-dry.jpg",
-      "categories": ["gin", "german", "dry"],
+      "categories": [
+        "gin",
+        "german",
+        "dry"
+      ],
       "subcategory": "gin",
       "available": true
     },
@@ -3868,7 +3098,11 @@
       },
       "price": 9.0,
       "image": "gin-mg.jpg",
-      "categories": ["gin", "spanish", "classic"],
+      "categories": [
+        "gin",
+        "spanish",
+        "classic"
+      ],
       "subcategory": "gin",
       "available": true
     },
@@ -3884,7 +3118,11 @@
       },
       "price": 13.0,
       "image": "gin-mare-mediterranean.jpg",
-      "categories": ["gin", "spanish", "mediterranean"],
+      "categories": [
+        "gin",
+        "spanish",
+        "mediterranean"
+      ],
       "subcategory": "gin",
       "available": true
     },
@@ -3900,7 +3138,11 @@
       },
       "price": 10.0,
       "image": "le-tribute.jpg",
-      "categories": ["gin", "spanish", "contemporary"],
+      "categories": [
+        "gin",
+        "spanish",
+        "contemporary"
+      ],
       "subcategory": "gin",
       "available": true
     },
@@ -3916,7 +3158,11 @@
       },
       "price": 13.0,
       "image": "ginraw-barcelona-botanical.jpg",
-      "categories": ["gin", "spanish", "botanical"],
+      "categories": [
+        "gin",
+        "spanish",
+        "botanical"
+      ],
       "subcategory": "gin",
       "available": true
     },
@@ -3932,7 +3178,11 @@
       },
       "price": 11.0,
       "image": "jerry-thomas-del-pofessore-monsieur.jpg",
-      "categories": ["gin", "italian", "classic"],
+      "categories": [
+        "gin",
+        "italian",
+        "classic"
+      ],
       "subcategory": "gin",
       "available": true
     },
@@ -3948,7 +3198,11 @@
       },
       "price": 11.0,
       "image": "jerry-thomas-del-professore-madame-gin.jpg",
-      "categories": ["gin", "italian", "floral"],
+      "categories": [
+        "gin",
+        "italian",
+        "floral"
+      ],
       "subcategory": "gin",
       "available": true
     },
@@ -3964,7 +3218,11 @@
       },
       "price": 11.0,
       "image": "jerry-thomas-del-professore-crocodile-gin.jpg",
-      "categories": ["gin", "italian", "botanical"],
+      "categories": [
+        "gin",
+        "italian",
+        "botanical"
+      ],
       "subcategory": "gin",
       "available": true
     },
@@ -3980,7 +3238,11 @@
       },
       "price": 11.0,
       "image": "jerry-thomas-del-professore-the-fighting-bear-gin.jpg",
-      "categories": ["gin", "italian", "wild"],
+      "categories": [
+        "gin",
+        "italian",
+        "wild"
+      ],
       "subcategory": "gin",
       "available": true
     },
@@ -3996,7 +3258,11 @@
       },
       "price": 11.0,
       "image": "harahorn.jpg",
-      "categories": ["gin", "norwegian", "nordic"],
+      "categories": [
+        "gin",
+        "norwegian",
+        "nordic"
+      ],
       "subcategory": "gin",
       "available": true
     },
@@ -4012,7 +3278,11 @@
       },
       "price": 10.0,
       "image": "olafsson.jpg",
-      "categories": ["gin", "icelandic", "nordic"],
+      "categories": [
+        "gin",
+        "icelandic",
+        "nordic"
+      ],
       "subcategory": "gin",
       "available": true
     },
@@ -4028,7 +3298,11 @@
       },
       "price": 12.0,
       "image": "amazoni.jpg",
-      "categories": ["gin", "brazilian", "botanical"],
+      "categories": [
+        "gin",
+        "brazilian",
+        "botanical"
+      ],
       "subcategory": "gin",
       "available": true
     },
@@ -4044,7 +3318,11 @@
       },
       "price": 9.0,
       "image": "votanikon.jpg",
-      "categories": ["gin", "greek", "botanical"],
+      "categories": [
+        "gin",
+        "greek",
+        "botanical"
+      ],
       "subcategory": "gin",
       "available": true
     },
@@ -4060,7 +3338,11 @@
       },
       "price": 10.0,
       "image": "mataroa.jpg",
-      "categories": ["gin", "greek", "mediterranean"],
+      "categories": [
+        "gin",
+        "greek",
+        "mediterranean"
+      ],
       "subcategory": "gin",
       "available": true
     },
@@ -4076,7 +3358,11 @@
       },
       "price": 11.0,
       "image": "truce-gin-organic-botanicals.jpg",
-      "categories": ["gin", "greek", "organic"],
+      "categories": [
+        "gin",
+        "greek",
+        "organic"
+      ],
       "subcategory": "gin",
       "available": true
     },
@@ -4092,7 +3378,11 @@
       },
       "price": 10.0,
       "image": "grace-gin.jpg",
-      "categories": ["gin", "greek", "contemporary"],
+      "categories": [
+        "gin",
+        "greek",
+        "contemporary"
+      ],
       "subcategory": "gin",
       "available": true
     },
@@ -4108,7 +3398,11 @@
       },
       "price": 12.0,
       "image": "nikka-coffey-gin.jpg",
-      "categories": ["gin", "japanese", "coffey-still"],
+      "categories": [
+        "gin",
+        "japanese",
+        "coffey-still"
+      ],
       "subcategory": "gin",
       "available": true
     },
@@ -4124,7 +3418,11 @@
       },
       "price": 9.0,
       "image": "roku-craft-gin.jpg",
-      "categories": ["gin", "japanese", "craft"],
+      "categories": [
+        "gin",
+        "japanese",
+        "craft"
+      ],
       "subcategory": "gin",
       "available": true
     },
@@ -4140,7 +3438,11 @@
       },
       "price": 8.0,
       "image": "jose-cuervo-blanco.jpg",
-      "categories": ["tequila", "mexican", "blanco"],
+      "categories": [
+        "tequila",
+        "mexican",
+        "blanco"
+      ],
       "subcategory": "tequila",
       "available": true
     },
@@ -4156,7 +3458,11 @@
       },
       "price": 8.0,
       "image": "jose-cuervo-reposado.jpg",
-      "categories": ["tequila", "mexican", "reposado"],
+      "categories": [
+        "tequila",
+        "mexican",
+        "reposado"
+      ],
       "subcategory": "tequila",
       "available": true
     },
@@ -4172,7 +3478,11 @@
       },
       "price": 9.0,
       "image": "jose-cuervo-traditional-blanco.jpg",
-      "categories": ["tequila", "mexican", "blanco"],
+      "categories": [
+        "tequila",
+        "mexican",
+        "blanco"
+      ],
       "subcategory": "tequila",
       "available": true
     },
@@ -4188,7 +3498,11 @@
       },
       "price": 9.0,
       "image": "jose-cuervo-traditional-reposado.jpg",
-      "categories": ["tequila", "mexican", "reposado"],
+      "categories": [
+        "tequila",
+        "mexican",
+        "reposado"
+      ],
       "subcategory": "tequila",
       "available": true
     },
@@ -4204,7 +3518,12 @@
       },
       "price": 12.0,
       "image": "don-julio-blanco.jpg",
-      "categories": ["tequila", "mexican", "blanco", "premium"],
+      "categories": [
+        "tequila",
+        "mexican",
+        "blanco",
+        "premium"
+      ],
       "subcategory": "tequila",
       "available": true
     },
@@ -4220,7 +3539,12 @@
       },
       "price": 14.0,
       "image": "don-julio-reposado.jpg",
-      "categories": ["tequila", "mexican", "reposado", "premium"],
+      "categories": [
+        "tequila",
+        "mexican",
+        "reposado",
+        "premium"
+      ],
       "subcategory": "tequila",
       "available": true
     },
@@ -4236,7 +3560,12 @@
       },
       "price": 15.0,
       "image": "don-julio-anejo.jpg",
-      "categories": ["tequila", "mexican", "anejo", "premium"],
+      "categories": [
+        "tequila",
+        "mexican",
+        "anejo",
+        "premium"
+      ],
       "subcategory": "tequila",
       "available": true
     },
@@ -4252,7 +3581,11 @@
       },
       "price": 13.0,
       "image": "calle-23-blanco.jpg",
-      "categories": ["tequila", "mexican", "blanco"],
+      "categories": [
+        "tequila",
+        "mexican",
+        "blanco"
+      ],
       "subcategory": "tequila",
       "available": true
     },
@@ -4268,7 +3601,11 @@
       },
       "price": 16.0,
       "image": "calle-23-reposado.jpg",
-      "categories": ["tequila", "mexican", "reposado"],
+      "categories": [
+        "tequila",
+        "mexican",
+        "reposado"
+      ],
       "subcategory": "tequila",
       "available": true
     },
@@ -4284,7 +3621,12 @@
       },
       "price": 21.0,
       "image": "fortaleza-blanco.jpg",
-      "categories": ["tequila", "mexican", "blanco", "premium"],
+      "categories": [
+        "tequila",
+        "mexican",
+        "blanco",
+        "premium"
+      ],
       "subcategory": "tequila",
       "available": true
     },
@@ -4300,7 +3642,11 @@
       },
       "price": 10.0,
       "image": "bruxo-x-espadin.jpg",
-      "categories": ["mezcal", "mexican", "espadin"],
+      "categories": [
+        "mezcal",
+        "mexican",
+        "espadin"
+      ],
       "subcategory": "mezcal",
       "available": true
     },
@@ -4316,7 +3662,11 @@
       },
       "price": 15.0,
       "image": "montelobos-joven.jpg",
-      "categories": ["mezcal", "mexican", "joven"],
+      "categories": [
+        "mezcal",
+        "mexican",
+        "joven"
+      ],
       "subcategory": "mezcal",
       "available": true
     },
@@ -4332,7 +3682,11 @@
       },
       "price": 14.0,
       "image": "amores-cupreata.jpg",
-      "categories": ["mezcal", "mexican", "cupreata"],
+      "categories": [
+        "mezcal",
+        "mexican",
+        "cupreata"
+      ],
       "subcategory": "mezcal",
       "available": true
     },
@@ -4348,7 +3702,11 @@
       },
       "price": 14.0,
       "image": "ilegal-joven-espadin.jpg",
-      "categories": ["mezcal", "mexican", "espadin"],
+      "categories": [
+        "mezcal",
+        "mexican",
+        "espadin"
+      ],
       "subcategory": "mezcal",
       "available": true
     },
@@ -4364,7 +3722,11 @@
       },
       "price": 10.0,
       "image": "verde-momendo.jpg",
-      "categories": ["mezcal", "mexican", "artisanal"],
+      "categories": [
+        "mezcal",
+        "mexican",
+        "artisanal"
+      ],
       "subcategory": "mezcal",
       "available": true
     },
@@ -4380,7 +3742,11 @@
       },
       "price": 18.0,
       "image": "derrumbes-no-1-oaxaca.jpg",
-      "categories": ["mezcal", "mexican", "oaxaca"],
+      "categories": [
+        "mezcal",
+        "mexican",
+        "oaxaca"
+      ],
       "subcategory": "mezcal",
       "available": true
     },
@@ -4396,7 +3762,11 @@
       },
       "price": 12.0,
       "image": "derrumbes-no-3-san-luis.jpg",
-      "categories": ["mezcal", "mexican", "san-luis"],
+      "categories": [
+        "mezcal",
+        "mexican",
+        "san-luis"
+      ],
       "subcategory": "mezcal",
       "available": true
     },
@@ -4412,7 +3782,11 @@
       },
       "price": 13.0,
       "image": "nuestra-soledad-ejutla.jpg",
-      "categories": ["mezcal", "mexican", "ejutla"],
+      "categories": [
+        "mezcal",
+        "mexican",
+        "ejutla"
+      ],
       "subcategory": "mezcal",
       "available": true
     },
@@ -4428,7 +3802,11 @@
       },
       "price": 15.0,
       "image": "los-siete-misterios-doba-yej.jpg",
-      "categories": ["mezcal", "mexican", "doba-yej"],
+      "categories": [
+        "mezcal",
+        "mexican",
+        "doba-yej"
+      ],
       "subcategory": "mezcal",
       "available": true
     },
@@ -4444,7 +3822,10 @@
       },
       "price": 8.0,
       "image": "absolut.jpg",
-      "categories": ["vodka", "swedish"],
+      "categories": [
+        "vodka",
+        "swedish"
+      ],
       "subcategory": "vodka",
       "available": true
     },
@@ -4460,7 +3841,10 @@
       },
       "price": 8.0,
       "image": "finlandia.jpg",
-      "categories": ["vodka", "finnish"],
+      "categories": [
+        "vodka",
+        "finnish"
+      ],
       "subcategory": "vodka",
       "available": true
     },
@@ -4476,7 +3860,11 @@
       },
       "price": 11.0,
       "image": "belvedere.jpg",
-      "categories": ["vodka", "polish", "premium"],
+      "categories": [
+        "vodka",
+        "polish",
+        "premium"
+      ],
       "subcategory": "vodka",
       "available": true
     },
@@ -4492,7 +3880,11 @@
       },
       "price": 12.0,
       "image": "grey-goose.jpg",
-      "categories": ["vodka", "french", "premium"],
+      "categories": [
+        "vodka",
+        "french",
+        "premium"
+      ],
       "subcategory": "vodka",
       "available": true
     },
@@ -4508,7 +3900,10 @@
       },
       "price": 11.0,
       "image": "martel-vs-cognac.jpg",
-      "categories": ["cognac", "french"],
+      "categories": [
+        "cognac",
+        "french"
+      ],
       "subcategory": "others",
       "available": true
     },
@@ -4524,7 +3919,10 @@
       },
       "price": 12.0,
       "image": "hennessy-vs-cognac.jpg",
-      "categories": ["cognac", "french"],
+      "categories": [
+        "cognac",
+        "french"
+      ],
       "subcategory": "others",
       "available": true
     },
@@ -4540,7 +3938,10 @@
       },
       "price": 8.0,
       "image": "35-tsikoudia-blended.jpg",
-      "categories": ["tsikoudia", "greek"],
+      "categories": [
+        "tsikoudia",
+        "greek"
+      ],
       "subcategory": "others",
       "available": true
     },
@@ -4556,7 +3957,11 @@
       },
       "price": 8.0,
       "image": "35-tsikoudia-moshato-single-variety.jpg",
-      "categories": ["tsikoudia", "greek", "moshato"],
+      "categories": [
+        "tsikoudia",
+        "greek",
+        "moshato"
+      ],
       "subcategory": "others",
       "available": true
     },
@@ -4572,7 +3977,11 @@
       },
       "price": 8.0,
       "image": "35-tsikoudia-syrah-single-variety.jpg",
-      "categories": ["tsikoudia", "greek", "syrah"],
+      "categories": [
+        "tsikoudia",
+        "greek",
+        "syrah"
+      ],
       "subcategory": "others",
       "available": true
     },
@@ -4588,7 +3997,11 @@
       },
       "price": 13.0,
       "image": "puro-aged-tsipouro.jpg",
-      "categories": ["tsipouro", "greek", "aged"],
+      "categories": [
+        "tsipouro",
+        "greek",
+        "aged"
+      ],
       "subcategory": "others",
       "available": true
     },
@@ -4604,7 +4017,11 @@
       },
       "price": 8.0,
       "image": "metaxa-5.jpg",
-      "categories": ["metaxa", "greek", "brandy"],
+      "categories": [
+        "metaxa",
+        "greek",
+        "brandy"
+      ],
       "subcategory": "others",
       "available": true
     },
@@ -4620,7 +4037,11 @@
       },
       "price": 9.0,
       "image": "metaxa-7.jpg",
-      "categories": ["metaxa", "greek", "brandy"],
+      "categories": [
+        "metaxa",
+        "greek",
+        "brandy"
+      ],
       "subcategory": "others",
       "available": true
     },
@@ -4636,7 +4057,12 @@
       },
       "price": 17.0,
       "image": "metaxa-private-reserve.jpg",
-      "categories": ["metaxa", "greek", "brandy", "premium"],
+      "categories": [
+        "metaxa",
+        "greek",
+        "brandy",
+        "premium"
+      ],
       "subcategory": "others",
       "available": true
     },
@@ -4652,7 +4078,11 @@
       },
       "price": 8.0,
       "image": "skinos-mastiha-spirit.jpg",
-      "categories": ["mastiha", "greek", "liqueur"],
+      "categories": [
+        "mastiha",
+        "greek",
+        "liqueur"
+      ],
       "subcategory": "others",
       "available": true
     },
@@ -4668,7 +4098,10 @@
       },
       "price": 5.0,
       "image": "ouzo.jpg",
-      "categories": ["ouzo", "greek"],
+      "categories": [
+        "ouzo",
+        "greek"
+      ],
       "subcategory": "others",
       "available": true
     },
@@ -4684,7 +4117,10 @@
       },
       "price": 8.0,
       "image": "rocks-n-grapes-tsipouro.jpg",
-      "categories": ["tsipouro", "greek"],
+      "categories": [
+        "tsipouro",
+        "greek"
+      ],
       "subcategory": "others",
       "available": true
     },
@@ -4700,7 +4136,10 @@
       },
       "price": 8.0,
       "image": "campari.jpg",
-      "categories": ["aperitivo", "italian"],
+      "categories": [
+        "aperitivo",
+        "italian"
+      ],
       "subcategory": "liqueur",
       "available": true
     },
@@ -4714,9 +4153,12 @@
         "en": "Italy, Aperitif, 11%ABV",
         "el": "Ιταλία, Απεριτίφ, 11%ABV"
       },
-      "price": 8.0,
+      "price": 7.0,
       "image": "aperol-1l.jpg",
-      "categories": ["aperitivo", "italian"],
+      "categories": [
+        "aperitivo",
+        "italian"
+      ],
       "subcategory": "liqueur",
       "available": true
     },
@@ -4732,7 +4174,10 @@
       },
       "price": 8.0,
       "image": "amaro-montenegro.jpg",
-      "categories": ["amaro", "italian"],
+      "categories": [
+        "amaro",
+        "italian"
+      ],
       "subcategory": "liqueur",
       "available": true
     },
@@ -4748,7 +4193,10 @@
       },
       "price": 8.0,
       "image": "suze.jpg",
-      "categories": ["aperitivo", "french"],
+      "categories": [
+        "aperitivo",
+        "french"
+      ],
       "subcategory": "liquer",
       "available": true
     },
@@ -4764,7 +4212,11 @@
       },
       "price": 7.0,
       "image": "dolin-dry.jpg",
-      "categories": ["vermouth", "french", "dry"],
+      "categories": [
+        "vermouth",
+        "french",
+        "dry"
+      ],
       "subcategory": "others",
       "available": true
     },
@@ -4780,7 +4232,11 @@
       },
       "price": 7.0,
       "image": "dolin-blanc.jpg",
-      "categories": ["vermouth", "french", "white"],
+      "categories": [
+        "vermouth",
+        "french",
+        "white"
+      ],
       "subcategory": "others",
       "available": true
     },
@@ -4796,7 +4252,11 @@
       },
       "price": 9.0,
       "image": "antica-formula.jpg",
-      "categories": ["vermouth", "italian", "sweet"],
+      "categories": [
+        "vermouth",
+        "italian",
+        "sweet"
+      ],
       "subcategory": "others",
       "available": true
     },
@@ -4810,9 +4270,13 @@
         "en": "Italy, Almond Liqueur, 28%ABV",
         "el": "Ιταλία, Λικέρ Αμυγδάλου, 28%ABV"
       },
-      "price": 8.0,
+      "price": 7.0,
       "image": "disaronno.jpg",
-      "categories": ["liqueur", "italian", "almond"],
+      "categories": [
+        "liqueur",
+        "italian",
+        "almond"
+      ],
       "subcategory": "liqueur",
       "available": true
     },
@@ -4828,7 +4292,11 @@
       },
       "price": 9.0,
       "image": "italicus-rosolio-di-bergamotto.jpg",
-      "categories": ["liqueur", "italian", "citrus"],
+      "categories": [
+        "liqueur",
+        "italian",
+        "citrus"
+      ],
       "subcategory": "liqueur",
       "available": true
     },
@@ -4844,7 +4312,11 @@
       },
       "price": 11.0,
       "image": "chartreause-green.jpg",
-      "categories": ["liqueur", "french", "herbal"],
+      "categories": [
+        "liqueur",
+        "french",
+        "herbal"
+      ],
       "subcategory": "liqueur",
       "available": true
     },
@@ -4860,7 +4332,11 @@
       },
       "price": 9.0,
       "image": "st-germainn-elderflower.jpg",
-      "categories": ["liqueur", "french", "floral"],
+      "categories": [
+        "liqueur",
+        "french",
+        "floral"
+      ],
       "subcategory": "liqueur",
       "available": true
     },
@@ -4876,7 +4352,11 @@
       },
       "price": 8.0,
       "image": "cointreau.jpg",
-      "categories": ["liqueur", "french", "orange"],
+      "categories": [
+        "liqueur",
+        "french",
+        "orange"
+      ],
       "subcategory": "liqueur",
       "available": true
     },
@@ -4892,8 +4372,145 @@
       },
       "price": 8.0,
       "image": "jagermeister.jpg",
-      "categories": ["liqueur", "german", "herbal"],
+      "categories": [
+        "liqueur",
+        "german",
+        "herbal"
+      ],
       "subcategory": "liqueur",
+      "available": true
+    },
+    {
+      "id": "rum-041",
+      "name": {
+        "en": "Havana Club Especial",
+        "el": "Havana Club Especial"
+      },
+      "description": {
+        "en": "Cuba, 37,5%ABV",
+        "el": "Κούβα, 37,5%ABV"
+      },
+      "price": 9.0,
+      "image": "havana-club-especial.jpg",
+      "categories": [
+        "rum",
+        "cuban"
+      ],
+      "subcategory": "rum",
+      "available": true
+    },
+    {
+      "id": "gin-041",
+      "name": {
+        "en": "Teasmith",
+        "el": "Teasmith"
+      },
+      "description": {
+        "en": "Scotland, 42%ABV",
+        "el": "Σκωτία, 42%ABV"
+      },
+      "price": 10.0,
+      "image": "teasmith.jpg",
+      "categories": [
+        "gin",
+        "scottish"
+      ],
+      "subcategory": "gin",
+      "available": true
+    },
+    {
+      "id": "gin-042",
+      "name": {
+        "en": "Condesa",
+        "el": "Condesa"
+      },
+      "description": {
+        "en": "Mexico, 43%ABV",
+        "el": "Μεξικό, 43%ABV"
+      },
+      "price": 13.0,
+      "image": "condesa.jpg",
+      "categories": [
+        "gin",
+        "mexican"
+      ],
+      "subcategory": "gin",
+      "available": true
+    },
+    {
+      "id": "gin-043",
+      "name": {
+        "en": "Philosophy",
+        "el": "Philosophy"
+      },
+      "description": {
+        "en": "Greece, 40%ABV",
+        "el": "Ελλάδα, 40%ABV"
+      },
+      "price": 10.0,
+      "image": "philosophy.jpg",
+      "categories": [
+        "gin",
+        "greek"
+      ],
+      "subcategory": "gin",
+      "available": true
+    },
+    {
+      "id": "gin-044",
+      "name": {
+        "en": "The Mechanic",
+        "el": "The Mechanic"
+      },
+      "description": {
+        "en": "Greece, 42,8%ABV",
+        "el": "Ελλάδα, 42,8%ABV"
+      },
+      "price": 10.0,
+      "image": "the-mechanic.jpg",
+      "categories": [
+        "gin",
+        "greek"
+      ],
+      "subcategory": "gin",
+      "available": true
+    },
+    {
+      "id": "gin-045",
+      "name": {
+        "en": "Ukiyo Japanese Blossom",
+        "el": "Ukiyo Japanese Blossom"
+      },
+      "description": {
+        "en": "Japan, 40%ABV",
+        "el": "Ιαπωνία, 40%ABV"
+      },
+      "price": 12.0,
+      "image": "ukiyo-japanese-blossom.jpg",
+      "categories": [
+        "gin",
+        "japanese"
+      ],
+      "subcategory": "gin",
+      "available": true
+    },
+    {
+      "id": "others-026",
+      "name": {
+        "en": "Lillet Rose",
+        "el": "Lillet Rose"
+      },
+      "description": {
+        "en": "France, Aperitif, 17%ABV",
+        "el": "Γαλλία, Απεριτίφ, 17%ABV"
+      },
+      "price": 7.0,
+      "image": "lillet-rose.jpg",
+      "categories": [
+        "aperitif",
+        "french"
+      ],
+      "subcategory": "others",
       "available": true
     }
   ]

@@ -35,20 +35,7 @@
         "en": "Pils 5% / GREECE",
         "el": "Πιλς 5% / ΕΛΛΑΔΑ"
       },
-      "price": 4.5,
-      "subcategory": "bottles",
-      "available": true
-    },
-    {
-      "name": {
-        "en": "Kaiser",
-        "el": "Kaiser"
-      },
-      "description": {
-        "en": "Pils 5% / GERMANY",
-        "el": "Πιλς 5% / ΓΕΡΜΑΝΙΑ"
-      },
-      "price": 4.5,
+      "price": 5.0,
       "subcategory": "bottles",
       "available": true
     },
@@ -61,7 +48,7 @@
         "en": "Lager Cerveza 4,5% / MEXICO",
         "el": "Λάγκερ Cerveza 4,5% / ΜΕΞΙΚΟ"
       },
-      "price": 5.0,
+      "price": 6.0,
       "subcategory": "bottles",
       "available": true
     },
@@ -97,8 +84,8 @@
         "el": "McFarland"
       },
       "description": {
-        "en": "Irish Red Ale 5,4% / IRELAND",
-        "el": "Ιρλανδική Κόκκινη Έιλ 5,4% / ΙΡΛΑΝΔΙΑ"
+        "en": "Irish Red Ale 5,6% / IRELAND",
+        "el": "Ιρλανδική Κόκκινη Έιλ 5,6% / ΙΡΛΑΝΔΙΑ"
       },
       "price": 5.0,
       "subcategory": "bottles",
@@ -132,6 +119,19 @@
     },
     {
       "name": {
+        "en": "Strange Brew Mandy Black",
+        "el": "Strange Brew Mandy Black"
+      },
+      "description": {
+        "en": "Stout 7% / GREECE",
+        "el": "Στάουτ 7% / ΕΛΛΑΔΑ"
+      },
+      "price": 7.5,
+      "subcategory": "craft",
+      "available": true
+    },
+    {
+      "name": {
         "en": "Strange Brew Dr. Haze",
         "el": "Strange Brew Dr. Haze"
       },
@@ -145,8 +145,8 @@
     },
     {
       "name": {
-        "en": "Blame the Sun",
-        "el": "Blame the Sun"
+        "en": "Blame the Sun Bum Beach",
+        "el": "Blame the Sun Bum Beach"
       },
       "description": {
         "en": "Tropic Ale 5% / GREECE",
@@ -165,7 +165,7 @@
         "en": "Radler 2% / NETHERLANDS",
         "el": "Ράντλερ 2% / ΟΛΛΑΝΔΙΑ"
       },
-      "price": 4.5,
+      "price": 5.0,
       "subcategory": "bottles",
       "available": true
     },
@@ -204,7 +204,7 @@
         "en": "Cider 4,5% / GREECE",
         "el": "Μηλίτης 4,5% / ΕΛΛΑΔΑ"
       },
-      "price": 4.5,
+      "price": 5.0,
       "subcategory": "bottles",
       "available": true
     },
@@ -217,7 +217,7 @@
         "en": "Cider 4,5% / ENGLAND",
         "el": "Μηλίτης 4,5% / ΑΓΓΛΙΑ"
       },
-      "price": 4.5,
+      "price": 5.0,
       "subcategory": "bottles",
       "available": true
     },

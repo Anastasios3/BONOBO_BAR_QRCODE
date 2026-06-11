@@ -12,7 +12,9 @@
       },
       "price": 10.0,
       "image": "genesis.jpg",
-      "categories": ["signature"],
+      "categories": [
+        "signature"
+      ],
       "subcategory": "signature",
       "available": true
     },
@@ -28,7 +30,9 @@
       },
       "price": 11.0,
       "image": "exploration.jpg",
-      "categories": ["signature"],
+      "categories": [
+        "signature"
+      ],
       "subcategory": "signature",
       "available": true
     },
@@ -44,7 +48,9 @@
       },
       "price": 11.0,
       "image": "reverence.jpg",
-      "categories": ["signature"],
+      "categories": [
+        "signature"
+      ],
       "subcategory": "signature",
       "available": true
     },
@@ -60,7 +66,9 @@
       },
       "price": 10.0,
       "image": "endeavor.jpg",
-      "categories": ["signature"],
+      "categories": [
+        "signature"
+      ],
       "subcategory": "signature",
       "available": true
     },
@@ -76,7 +84,9 @@
       },
       "price": 10.0,
       "image": "reflection.jpg",
-      "categories": ["signature"],
+      "categories": [
+        "signature"
+      ],
       "subcategory": "signature",
       "available": true
     },
@@ -92,7 +102,9 @@
       },
       "price": 11.0,
       "image": "heritage.jpg",
-      "categories": ["signature"],
+      "categories": [
+        "signature"
+      ],
       "subcategory": "signature",
       "available": true
     },
@@ -108,7 +120,9 @@
       },
       "price": 11.0,
       "image": "legacy.jpg",
-      "categories": ["signature"],
+      "categories": [
+        "signature"
+      ],
       "subcategory": "signature",
       "available": true
     },
@@ -124,7 +138,9 @@
       },
       "price": 12.0,
       "image": "harmony.jpg",
-      "categories": ["signature"],
+      "categories": [
+        "signature"
+      ],
       "subcategory": "signature",
       "available": true
     },
@@ -140,7 +156,9 @@
       },
       "price": 12.0,
       "image": "serenity.jpg",
-      "categories": ["signature"],
+      "categories": [
+        "signature"
+      ],
       "subcategory": "signature",
       "available": true
     },
@@ -156,7 +174,9 @@
       },
       "price": 13.0,
       "image": "monkeys-reviver.jpg",
-      "categories": ["signature"],
+      "categories": [
+        "signature"
+      ],
       "subcategory": "signature",
       "available": true
     },
@@ -170,9 +190,11 @@
         "en": "White rum, lime juice, sugar, mint leaves, soda water",
         "el": "Λευκό ρούμι, χυμός λάιμ, ζάχαρη, φύλλα μέντας, σόδα"
       },
-      "price": 9.0,
+      "price": 10.0,
       "image": "mojito.jpg",
-      "categories": ["classic"],
+      "categories": [
+        "classic"
+      ],
       "subcategory": "classic",
       "available": true
     },
@@ -186,9 +208,11 @@
         "en": "White rum, lime juice, simple syrup",
         "el": "Λευκό ρούμι, χυμός λάιμ, σιρόπι ζάχαρης"
       },
-      "price": 9.0,
+      "price": 10.0,
       "image": "daiquiri.jpg",
-      "categories": ["classic"],
+      "categories": [
+        "classic"
+      ],
       "subcategory": "classic",
       "available": true
     },
@@ -202,9 +226,11 @@
         "en": "Tequila, lime juice, grapefruit soda",
         "el": "Τεκίλα, χυμός λάιμ, αναψυκτικό γκρέιπφρουτ"
       },
-      "price": 9.0,
+      "price": 10.0,
       "image": "paloma.jpg",
-      "categories": ["classic"],
+      "categories": [
+        "classic"
+      ],
       "subcategory": "classic",
       "available": true
     },
@@ -218,9 +244,11 @@
         "en": "Tequila, Triple Sec, lime juice, salt rim",
         "el": "Τεκίλα, Triple Sec, χυμός λάιμ, αλάτι στο χείλος"
       },
-      "price": 9.0,
+      "price": 10.0,
       "image": "margarita.jpg",
-      "categories": ["classic"],
+      "categories": [
+        "classic"
+      ],
       "subcategory": "classic",
       "available": true
     },
@@ -236,119 +264,135 @@
       },
       "price": 9.0,
       "image": "aperol-spritz.jpg",
-      "categories": ["classic"],
+      "categories": [
+        "classic"
+      ],
       "subcategory": "classic",
       "available": true
     },
     {
       "id": "classic-cocktail-006",
       "name": {
-        "en": "Mai Tai",
-        "el": "Mai Tai"
+        "en": "Lillet Spritz",
+        "el": "Lillet Spritz"
       },
       "description": {
-        "en": "Jamaican rum, Cuban rum, Orange Curaçao, lime juice, orgeat syrup",
-        "el": "Τζαμαικανό ρούμι, Κουβανέζικο ρούμι, Orange Curaçao, χυμός λάιμ, σιρόπι αμυγδάλου"
+        "en": "Lillet Blanc, Prosecco, soda water, lemon twist",
+        "el": "Lillet Blanc, Prosecco, σόδα, στριφτή φλούδα λεμονιού"
       },
-      "price": 10.0,
-      "image": "mai-tai.jpg",
-      "categories": ["classic"],
+      "price": 9.0,
+      "image": "lillet-spritz.jpg",
+      "categories": [
+        "classic"
+      ],
       "subcategory": "classic",
       "available": true
     },
     {
       "id": "classic-cocktail-007",
       "name": {
-        "en": "Caipirinha",
-        "el": "Caipirinha"
+        "en": "Hugo",
+        "el": "Hugo"
       },
       "description": {
-        "en": "Cachaça, lime, sugar",
-        "el": "Κασάσα, λάιμ, ζάχαρη"
+        "en": "Prosecco, elderflower syrup, soda water, fresh mint, lime",
+        "el": "Prosecco, σιρόπι elderflower, σόδα, φρέσκος δυόσμος, λάιμ"
       },
-      "price": 9.0,
-      "image": "caipirinha.jpg",
-      "categories": ["classic"],
+      "price": 10.0,
+      "image": "hugo.jpg",
+      "categories": [
+        "classic"
+      ],
       "subcategory": "classic",
       "available": true
     },
     {
       "id": "classic-cocktail-008",
       "name": {
-        "en": "Caipiroska",
-        "el": "Caipiroska"
+        "en": "Manhattan",
+        "el": "Manhattan"
       },
       "description": {
-        "en": "Vodka, lime, sugar",
-        "el": "Βότκα, λάιμ, ζάχαρη"
+        "en": "Rye whiskey, sweet vermouth, Angostura bitters, maraschino cherry",
+        "el": "Ουίσκι σίκαλης, γλυκό βερμούτ, Angostura bitters, κεράσι maraschino"
       },
-      "price": 9.0,
-      "image": "caipiroska.jpg",
-      "categories": ["classic"],
+      "price": 10.0,
+      "image": "manhattan.jpg",
+      "categories": [
+        "classic"
+      ],
       "subcategory": "classic",
       "available": true
     },
     {
       "id": "classic-cocktail-009",
       "name": {
-        "en": "Old Fashioned",
-        "el": "Old Fashioned"
+        "en": "Sex on the Beach",
+        "el": "Sex on the Beach"
       },
       "description": {
-        "en": "Bourbon or rye whiskey, sugar cube, Angostura bitters, orange twist",
-        "el": "Μπέρμπον ή ουίσκι σίκαλης, κύβος ζάχαρης, Angostura bitters, φλούδα πορτοκαλιού"
+        "en": "Vodka, peach schnapps, orange juice, cranberry juice",
+        "el": "Βότκα, λικέρ ροδάκινο, χυμός πορτοκάλι, χυμός κράνμπερι"
       },
-      "price": 9.0,
-      "image": "old-fashioned.jpg",
-      "categories": ["classic"],
+      "price": 10.0,
+      "image": "sex-on-the-beach.jpg",
+      "categories": [
+        "classic"
+      ],
       "subcategory": "classic",
       "available": true
     },
     {
       "id": "classic-cocktail-010",
       "name": {
-        "en": "Negroni",
-        "el": "Negroni"
+        "en": "Tequila Sunrise",
+        "el": "Tequila Sunrise"
       },
       "description": {
-        "en": "Gin, Campari, sweet vermouth",
-        "el": "Τζιν, Campari, γλυκό βερμούτ"
+        "en": "Tequila, orange juice, grenadine syrup",
+        "el": "Τεκίλα, χυμός πορτοκάλι, σιρόπι γρεναδίνη"
       },
-      "price": 9.0,
-      "image": "negroni.jpg",
-      "categories": ["classic"],
+      "price": 10.0,
+      "image": "tequila-sunrise.jpg",
+      "categories": [
+        "classic"
+      ],
       "subcategory": "classic",
       "available": true
     },
     {
       "id": "classic-cocktail-011",
       "name": {
-        "en": "Americano",
-        "el": "Americano"
+        "en": "Bloody Mary",
+        "el": "Bloody Mary"
       },
       "description": {
-        "en": "Campari, sweet vermouth, soda water",
-        "el": "Campari, γλυκό βερμούτ, σόδα"
+        "en": "Vodka, tomato juice, lemon juice, Worcestershire sauce, Tabasco, salt, pepper, celery",
+        "el": "Βότκα, χυμός ντομάτας, χυμός λεμονιού, σάλτσα Worcestershire, Tabasco, αλάτι, πιπέρι, σέλινο"
       },
-      "price": 9.0,
-      "image": "americano.jpg",
-      "categories": ["classic"],
+      "price": 10.0,
+      "image": "bloody-mary.jpg",
+      "categories": [
+        "classic"
+      ],
       "subcategory": "classic",
       "available": true
     },
     {
       "id": "classic-cocktail-012",
       "name": {
-        "en": "Moscow Mule",
-        "el": "Moscow Mule"
+        "en": "Cuba Libre",
+        "el": "Cuba Libre"
       },
       "description": {
-        "en": "Vodka, lime juice, ginger beer",
-        "el": "Βότκα, χυμός λάιμ, μπύρα τζίντζερ"
+        "en": "White rum, cola, fresh lime juice, lime wedge",
+        "el": "Λευκό ρούμι, κόλα, φρέσκος χυμός λάιμ, σφήνα λάιμ"
       },
-      "price": 9.0,
-      "image": "moscow-mule.jpg",
-      "categories": ["classic"],
+      "price": 10.0,
+      "image": "cuba-libre.jpg",
+      "categories": [
+        "classic"
+      ],
       "subcategory": "classic",
       "available": true
     },
@@ -362,14 +406,160 @@
         "en": "Vodka, coffee liqueur, espresso, simple syrup",
         "el": "Βότκα, λικέρ καφέ, εσπρέσο, σιρόπι ζάχαρης"
       },
-      "price": 9.0,
+      "price": 10.0,
       "image": "espresso-martini.jpg",
-      "categories": ["classic"],
+      "categories": [
+        "classic"
+      ],
       "subcategory": "classic",
       "available": true
     },
     {
       "id": "classic-cocktail-014",
+      "name": {
+        "en": "Long Island",
+        "el": "Long Island"
+      },
+      "description": {
+        "en": "Vodka, gin, white rum, tequila, triple sec, lemon juice, cola",
+        "el": "Βότκα, τζιν, λευκό ρούμι, τεκίλα, triple sec, χυμός λεμονιού, κόλα"
+      },
+      "price": 10.0,
+      "image": "long-island.jpg",
+      "categories": [
+        "classic"
+      ],
+      "subcategory": "classic",
+      "available": true
+    },
+    {
+      "id": "classic-cocktail-015",
+      "name": {
+        "en": "Mai Tai",
+        "el": "Mai Tai"
+      },
+      "description": {
+        "en": "Jamaican rum, Cuban rum, Orange Curaçao, lime juice, orgeat syrup",
+        "el": "Τζαμαικανό ρούμι, Κουβανέζικο ρούμι, Orange Curaçao, χυμός λάιμ, σιρόπι αμυγδάλου"
+      },
+      "price": 11.0,
+      "image": "mai-tai.jpg",
+      "categories": [
+        "classic"
+      ],
+      "subcategory": "classic",
+      "available": true
+    },
+    {
+      "id": "classic-cocktail-016",
+      "name": {
+        "en": "Caipirinha",
+        "el": "Caipirinha"
+      },
+      "description": {
+        "en": "Cachaça, lime, sugar",
+        "el": "Κασάσα, λάιμ, ζάχαρη"
+      },
+      "price": 10.0,
+      "image": "caipirinha.jpg",
+      "categories": [
+        "classic"
+      ],
+      "subcategory": "classic",
+      "available": true
+    },
+    {
+      "id": "classic-cocktail-017",
+      "name": {
+        "en": "Caipiroska",
+        "el": "Caipiroska"
+      },
+      "description": {
+        "en": "Vodka, lime, sugar",
+        "el": "Βότκα, λάιμ, ζάχαρη"
+      },
+      "price": 10.0,
+      "image": "caipiroska.jpg",
+      "categories": [
+        "classic"
+      ],
+      "subcategory": "classic",
+      "available": true
+    },
+    {
+      "id": "classic-cocktail-018",
+      "name": {
+        "en": "Old Fashioned",
+        "el": "Old Fashioned"
+      },
+      "description": {
+        "en": "Bourbon or rye whiskey, sugar cube, Angostura bitters, orange twist",
+        "el": "Μπέρμπον ή ουίσκι σίκαλης, κύβος ζάχαρης, Angostura bitters, φλούδα πορτοκαλιού"
+      },
+      "price": 10.0,
+      "image": "old-fashioned.jpg",
+      "categories": [
+        "classic"
+      ],
+      "subcategory": "classic",
+      "available": true
+    },
+    {
+      "id": "classic-cocktail-019",
+      "name": {
+        "en": "Negroni",
+        "el": "Negroni"
+      },
+      "description": {
+        "en": "Gin, Campari, sweet vermouth",
+        "el": "Τζιν, Campari, γλυκό βερμούτ"
+      },
+      "price": 10.0,
+      "image": "negroni.jpg",
+      "categories": [
+        "classic"
+      ],
+      "subcategory": "classic",
+      "available": true
+    },
+    {
+      "id": "classic-cocktail-020",
+      "name": {
+        "en": "Americano",
+        "el": "Americano"
+      },
+      "description": {
+        "en": "Campari, sweet vermouth, soda water",
+        "el": "Campari, γλυκό βερμούτ, σόδα"
+      },
+      "price": 10.0,
+      "image": "americano.jpg",
+      "categories": [
+        "classic"
+      ],
+      "subcategory": "classic",
+      "available": true
+    },
+    {
+      "id": "classic-cocktail-021",
+      "name": {
+        "en": "Moscow Mule",
+        "el": "Moscow Mule"
+      },
+      "description": {
+        "en": "Vodka, lime juice, ginger beer",
+        "el": "Βότκα, χυμός λάιμ, μπύρα τζίντζερ"
+      },
+      "price": 10.0,
+      "image": "moscow-mule.jpg",
+      "categories": [
+        "classic"
+      ],
+      "subcategory": "classic",
+      "available": true
+    },
+    {
+      "id": "classic-cocktail-022",
       "name": {
         "en": "Porn Star",
         "el": "Porn Star"
@@ -378,14 +568,16 @@
         "en": "Vanilla vodka, passion fruit liqueur, passion fruit puree, lime juice, Prosecco shot on the side",
         "el": "Βότκα βανίλιας, λικέρ φρούτου του πάθους, πουρές φρούτου του πάθους, χυμός λάιμ, σφηνάκι Prosecco"
       },
-      "price": 9.0,
+      "price": 10.0,
       "image": "porn-star.jpg",
-      "categories": ["classic"],
+      "categories": [
+        "classic"
+      ],
       "subcategory": "classic",
       "available": true
     },
     {
-      "id": "classic-cocktail-015",
+      "id": "classic-cocktail-023",
       "name": {
         "en": "Dry Martini",
         "el": "Dry Martini"
@@ -394,14 +586,16 @@
         "en": "Gin, dry vermouth, olive or lemon twist",
         "el": "Τζιν, ξηρό βερμούτ, ελιά ή στριφτή φλούδα λεμονιού"
       },
-      "price": 9.0,
+      "price": 10.0,
       "image": "dry-martini.jpg",
-      "categories": ["classic"],
+      "categories": [
+        "classic"
+      ],
       "subcategory": "classic",
       "available": true
     },
     {
-      "id": "classic-cocktail-016",
+      "id": "classic-cocktail-024",
       "name": {
         "en": "Piña Colada",
         "el": "Piña Colada"
@@ -410,14 +604,16 @@
         "en": "White rum, coconut cream, pineapple juice",
         "el": "Λευκό ρούμι, κρέμα καρύδας, χυμός ανανά"
       },
-      "price": 9.0,
+      "price": 10.0,
       "image": "pina-colada.jpg",
-      "categories": ["classic"],
+      "categories": [
+        "classic"
+      ],
       "subcategory": "classic",
       "available": true
     },
     {
-      "id": "classic-cocktail-017",
+      "id": "classic-cocktail-025",
       "name": {
         "en": "Dark & Stormy",
         "el": "Dark & Stormy"
@@ -426,14 +622,16 @@
         "en": "Dark rum, lime juice, ginger beer",
         "el": "Σκούρο ρούμι, χυμός λάιμ, μπύρα τζίντζερ"
       },
-      "price": 9.0,
+      "price": 10.0,
       "image": "dark-stormy.jpg",
-      "categories": ["classic"],
+      "categories": [
+        "classic"
+      ],
       "subcategory": "classic",
       "available": true
     },
     {
-      "id": "classic-cocktail-018",
+      "id": "classic-cocktail-026",
       "name": {
         "en": "Cosmopolitan",
         "el": "Cosmopolitan"
@@ -442,30 +640,16 @@
         "en": "Vodka, Triple Sec, cranberry juice, lime juice",
         "el": "Βότκα, Triple Sec, χυμός κράνμπερι, χυμός λάιμ"
       },
-      "price": 9.0,
+      "price": 10.0,
       "image": "cosmopolitan.jpg",
-      "categories": ["classic"],
+      "categories": [
+        "classic"
+      ],
       "subcategory": "classic",
       "available": true
     },
     {
-      "id": "classic-cocktail-019",
-      "name": {
-        "en": "Bloody Mary",
-        "el": "Bloody Mary"
-      },
-      "description": {
-        "en": "Vodka, tomato juice, lemon juice, Worcestershire sauce, Tabasco, salt, pepper, celery",
-        "el": "Βότκα, χυμός ντομάτας, χυμός λεμονιού, σάλτσα Worcestershire, Tabasco, αλάτι, πιπέρι, σέλινο"
-      },
-      "price": 9.0,
-      "image": "bloody-mary.jpg",
-      "categories": ["classic"],
-      "subcategory": "classic",
-      "available": true
-    },
-    {
-      "id": "classic-cocktail-020",
+      "id": "classic-cocktail-027",
       "name": {
         "en": "Zombie",
         "el": "Zombie"
@@ -476,7 +660,9 @@
       },
       "price": 13.0,
       "image": "zombie.jpg",
-      "categories": ["classic"],
+      "categories": [
+        "classic"
+      ],
       "subcategory": "classic",
       "available": true
     }
