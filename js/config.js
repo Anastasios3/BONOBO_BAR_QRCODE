@@ -5,7 +5,7 @@
 export const CONFIG = {
   // Bump on every menu/data update. Used to version the data requests
   // so a cached config can never pair with mismatched JSON data.
-  APP_VERSION: "2026-06-12-1",
+  APP_VERSION: "2026-06-12-2",
   STORAGE_KEYS: {
     LANGUAGE: "bonobo-language",
     THEME: "bonobo-theme",

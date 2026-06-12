@@ -223,19 +223,6 @@
     },
     {
       "name": {
-        "en": "Brewtiful Reach 4 The Stars ",
-        "el": "Brewtiful Reach 4 The Stars"
-      },
-      "description": {
-        "en": "Triple Galaxy Neipa 9% / GREECE",
-        "el": "Τριπλή Γκάλαξι Neipa 9% / ΕΛΛΑΔΑ"
-      },
-      "price": 9.0,
-      "subcategory": "craft",
-      "available": true
-    },
-    {
-      "name": {
         "en": "Strange Brew Superdelic Trip ",
         "el": "Strange Brew Superdelic Trip"
       },
@@ -301,19 +288,6 @@
     },
     {
       "name": {
-        "en": "Alea Brewing Co. Barley ",
-        "el": "Alea Brewing Co. Barley"
-      },
-      "description": {
-        "en": "Easy IPA 4,5% / GREECE",
-        "el": "Easy IPA 4,5% / ΕΛΛΑΔΑ"
-      },
-      "price": 8.0,
-      "subcategory": "craft",
-      "available": true
-    },
-    {
-      "name": {
         "en": "Alea Brewing Co. Time Paradox ",
         "el": "Alea Brewing Co. Time Paradox"
       },
@@ -333,6 +307,123 @@
       "description": {
         "en": "West Coast IPA 6.3% / GREECE",
         "el": "West Coast IPA 6,3% / ΕΛΛΑΔΑ"
+      },
+      "price": 9.0,
+      "subcategory": "craft",
+      "available": true
+    },
+    {
+      "name": {
+        "en": "Strange Brew & Crossline Interconnection",
+        "el": "Strange Brew & Crossline Interconnection"
+      },
+      "description": {
+        "en": "New England IPA 6,5% / ATHENS - CYPRUS, 440ml",
+        "el": "New England IPA 6,5% / ΑΘΗΝΑ - ΚΥΠΡΟΣ, 440ml"
+      },
+      "price": 9.0,
+      "subcategory": "craft",
+      "available": true
+    },
+    {
+      "name": {
+        "en": "Strange Brew & Hop Hooligans Full Nelson Smasher",
+        "el": "Strange Brew & Hop Hooligans Full Nelson Smasher"
+      },
+      "description": {
+        "en": "NZ S.M.A.S.H. Pale Ale 5,5% / ATHENS - ROMANIA, 440ml",
+        "el": "NZ S.M.A.S.H. Pale Ale 5,5% / ΑΘΗΝΑ - ΡΟΥΜΑΝΙΑ, 440ml"
+      },
+      "price": 9.0,
+      "subcategory": "craft",
+      "available": true
+    },
+    {
+      "name": {
+        "en": "Strange Brew The Wizard",
+        "el": "Strange Brew The Wizard"
+      },
+      "description": {
+        "en": "Imperial Stout 9,2% / ATHENS, 440ml",
+        "el": "Ιμπέριαλ Στάουτ 9,2% / ΑΘΗΝΑ, 440ml"
+      },
+      "price": 9.0,
+      "subcategory": "craft",
+      "available": true
+    },
+    {
+      "name": {
+        "en": "Strange Brew Crispy Pils",
+        "el": "Strange Brew Crispy Pils"
+      },
+      "description": {
+        "en": "Premium Pale Lager 5,2% / ATHENS, 440ml",
+        "el": "Πρέμιουμ Πέιλ Λάγκερ 5,2% / ΑΘΗΝΑ, 440ml"
+      },
+      "price": 9.0,
+      "subcategory": "craft",
+      "available": true
+    },
+    {
+      "name": {
+        "en": "Strange Brew X Earth & Graver Nutter Xmas Rider",
+        "el": "Strange Brew X Earth & Graver Nutter Xmas Rider"
+      },
+      "description": {
+        "en": "Nut Brown Ale 5,5% / ATHENS, 440ml",
+        "el": "Νατ Μπράουν Έιλ 5,5% / ΑΘΗΝΑ, 440ml"
+      },
+      "price": 9.0,
+      "subcategory": "craft",
+      "available": true
+    },
+    {
+      "name": {
+        "en": "Strange Brew Krampus",
+        "el": "Strange Brew Krampus"
+      },
+      "description": {
+        "en": "Winter Ale 5,5% / ATHENS, 440ml",
+        "el": "Χειμωνιάτικη Έιλ 5,5% / ΑΘΗΝΑ, 440ml"
+      },
+      "price": 9.0,
+      "subcategory": "craft",
+      "available": true
+    },
+    {
+      "name": {
+        "en": "Strange Brew Unkle Jam's",
+        "el": "Strange Brew Unkle Jam's"
+      },
+      "description": {
+        "en": "Hazy IPA 6,5% / ATHENS, 440ml",
+        "el": "Hazy IPA 6,5% / ΑΘΗΝΑ, 440ml"
+      },
+      "price": 9.0,
+      "subcategory": "craft",
+      "available": true
+    },
+    {
+      "name": {
+        "en": "Strange Brew Bliss",
+        "el": "Strange Brew Bliss"
+      },
+      "description": {
+        "en": "Double Dry Hopped Double IPA 8,5% / ATHENS, 440ml",
+        "el": "Double Dry Hopped Διπλή IPA 8,5% / ΑΘΗΝΑ, 440ml"
+      },
+      "price": 10.0,
+      "subcategory": "craft",
+      "available": true
+    },
+    {
+      "name": {
+        "en": "Retimi X Solo X Strange Brew X Xaos Nefalo",
+        "el": "Retimi X Solo X Strange Brew X Xaos Nefalo"
+      },
+      "description": {
+        "en": "Hazy IPA 6,5% / ATHENS, 440ml",
+        "el": "Hazy IPA 6,5% / ΑΘΗΝΑ, 440ml"
       },
       "price": 9.0,
       "subcategory": "craft",
